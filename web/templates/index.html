@@ -1,0 +1,192 @@
+﻿<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GreenMind AI • Smart plant recognition</title>
+  <meta property="og:title" content="GreenMind AI — Smart plant recognition" />
+  <meta property="og:description" content="Upload or capture a plant photo. Get a confident ID, explanations, and trusted facts." />
+  <meta property="og:type" content="website" />
+  <link rel="stylesheet" href="/static/style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"></script>
+</head>
+<body>
+  <div class="bg"></div>
+
+  <header class="nav">
+  <div class="brand">
+    <i class="fa-solid fa-leaf" style="margin-left:6px;"></i>   <!-- or keep fa-leaf if you prefer -->
+    <span>GreenMind AI</span>
+  </div>
+    <nav class="nav-links">
+      <a href="#" class="active">Identify</a>
+      <a href="#" id="tab-health">Health (secondary)</a>
+      <a href="https://en.wikipedia.org/wiki/Plant" target="_blank" rel="noreferrer">Learn</a>
+    </nav>
+  </header>
+
+  <main class="container fade-in">
+    <section class="hero">
+      <h1>Identify any plant. <span class="highlight">Get smart facts.</span></h1>
+      <p class="sub">Smart plant recognition: upload or use your camera. Get the best match with confidence, explanation, and cited facts.</p>
+    </section>
+
+    <section class="grid">
+      <!-- Upload Card -->
+      <div class="card upload">
+        <h2><i class="fa-solid fa-image"></i> Upload / Drop an image</h2>
+        <div id="dropzone" class="dropzone">
+          <input id="file-input" type="file" accept="image/*" hidden />
+          <div class="dz-inner">
+            <i class="fa-solid fa-cloud-arrow-up dz-icon"></i>
+            <p><strong>Drag & drop</strong> an image here, or</p>
+            <button id="browse-btn" class="btn btn-primary"><i class="fa-solid fa-folder-open"></i> Browse</button>
+          </div>
+        </div>
+
+        <div id="preview" class="preview hidden">
+          <img id="preview-img" alt="Preview" />
+          <div class="preview-actions">
+            <button id="identify-btn" class="btn btn-success">
+              <i class="fa-solid fa-seedling"></i> Identify
+            </button>
+            <button id="explain-btn" class="btn btn-ghost" disabled>
+              <i class="fa-solid fa-fire-flame-curved"></i> Explain (Gradâ€‘CAM)
+            </button>
+            <button id="clear-btn" class="btn btn-light">
+              <i class="fa-solid fa-eraser"></i> Clear
+            </button>
+          </div>
+        </div>
+      </div>
+      <!-- Camera Panel -->
+<div class="camera card-sub">
+  <h3><i class="fa-solid fa-camera"></i> Use Camera</h3>
+
+  <div class="camera-row">
+    <video id="video" playsinline autoplay muted class="video" hidden></video>
+    <canvas id="frame-canvas" class="video" hidden></canvas>
+  </div>
+
+  <div class="camera-actions">
+    <button id="start-cam" class="btn btn-primary">
+      <i class="fa-solid fa-video"></i> Start Camera
+    </button>
+    <button id="snap" class="btn btn-light" disabled>
+      <i class="fa-solid fa-camera"></i> Capture
+    </button>
+    <button id="identify-from-cam" class="btn btn-success" disabled>
+      <i class="fa-solid fa-seedling"></i> Identify
+    </button>
+    <button id="stop-cam" class="btn btn-ghost" disabled>
+      <i class="fa-solid fa-square"></i> Stop
+    </button>
+  </div>
+
+  <small class="hint">
+    Tip: On phones, we request the rear camera. Works on HTTPS or <code>http://localhost</code>.
+  </small>
+</div>
+
+      <!-- Results Card -->
+      <div class="card results">
+        <div id="loading" class="loading hidden">
+          <div class="spinner"></div>
+          <p>Analyzing imageâ€¦</p>
+        </div>
+
+        <div id="result" class="hidden">
+          <div class="topline">
+            <h2 class="match-title">
+              Top match: <span id="best-label">â€”</span>
+              <span id="best-score" class="badge">0%</span>
+            </h2>
+            <div id="confidence" class="meter">
+              <div id="confidence-fill" class="meter-fill"></div>
+            </div>
+          </div>
+
+          <div class="alts">
+            <span class="alts-title">Alternatives:</span>
+            <div id="alt-chips" class="chips"></div>
+          </div>
+
+          <div class="facts card-sub">
+            <h3><i class="fa-solid fa-book-open"></i> Facts</h3>
+            <div id="facts-html" class="facts-body"></div>
+            <small class="disclaimer">
+              âš ï¸ Donâ€™t ingest or use plants based solely on app identification. Verify locally.
+            </small>
+          </div>
+          
+          <div class="card-sub feedback" id="feedback-block" style="display:none;">
+            <h3><i class="fa-solid fa-thumbs-up"></i> Was this correct?</h3>
+            <div class="feedback-row">
+              <button id="fb-correct" class="btn btn-success btn-sm">
+                <i class="fa-solid fa-thumbs-up"></i> Yes, correct
+              </button>
+              <button id="fb-wrong" class="btn btn-danger btn-sm">
+                <i class="fa-solid fa-thumbs-down"></i> No, wrong
+              </button>
+            </div>
+
+            <div id="fb-correction" class="fb-correction hidden">
+              <label class="lbl">What is it? (scientific or common name)</label>
+              <input id="fb-true-label" class="input" type="text" placeholder="e.g., Mangifera indica (Mango)" />
+              <label class="lbl">Anything else?</label>
+              <textarea id="fb-notes" class="input" rows="2" placeholder="What looked off? Leaf shape? Color?"></textarea>
+              <div class="row">
+                <button id="fb-submit" class="btn btn-primary btn-sm">
+                  <i class="fa-solid fa-paper-plane"></i> Submit feedback
+                </button>
+                <small class="muted">By submitting, you agree we store this image to improve the model.</small>
+              </div>
+            </div>
+
+            <div id="fb-toast" class="small muted" style="display:none;"></div>
+          </div>
+
+            <div id="explain-area" class="card-sub hidden">
+            <div class="explain-head">
+                <h3><i class="fa-solid fa-bolt"></i> Explanation (Gradâ€‘CAM)</h3>
+
+                <div class="explain-controls">
+                <label class="ctrl">
+                    Method
+                    <select id="cam-method">
+                    <option value="gradcam">Gradâ€‘CAM</option>
+                    <option value="eigen" selected>EigenCAM</option>
+                    </select>
+                </label>
+
+                <label class="ctrl">
+                    Opacity <span id="opacity-val">55%</span>
+                    <input id="opacity-slider" type="range" min="0" max="100" value="55">
+                </label>
+
+                <button id="download-cam" class="btn btn-light">
+                    <i class="fa-solid fa-download"></i> Save
+                </button>
+                </div>
+            </div>
+
+            <canvas id="cam-canvas"></canvas>
+            <small>Heatmap shows regions most influential for the prediction.</small>
+            </div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="toast" class="toast hidden"></div>
+
+<footer class="footer">
+  <span>© <span id="year"></span> GreenMind AI • FYP</span>
+</footer>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+# Never commit real secrets
+.env
+
+# Caches and large files
+.cache/
+__pycache__/
+*.pyc
+
+# Model weights (keep a README instead)
+models/checkpoints/*
+!models/checkpoints/README.md

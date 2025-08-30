@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.env
+.venv/
+venv/
+
+# Data / caches
+data/
+raw_data/
+runs/
+*.csv
+*.tsv
+
+# Models / weights (we’ll handle with LFS)
+models/checkpoints/
+runs/detect/
+*.pt
+*.pth
+*.onnx
+*.safetensors
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Build
+dist/
+build/
