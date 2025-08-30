@@ -58,7 +58,7 @@
               <i class="fa-solid fa-seedling"></i> Identify
             </button>
             <button id="explain-btn" class="btn btn-ghost" disabled>
-              <i class="fa-solid fa-fire-flame-curved"></i> Explain (Gradâ€‘CAM)
+              <i class="fa-solid fa-fire-flame-curved"></i> Explain (Grad-CAM)
             </button>
             <button id="clear-btn" class="btn btn-light">
               <i class="fa-solid fa-eraser"></i> Clear
@@ -99,13 +99,13 @@
       <div class="card results">
         <div id="loading" class="loading hidden">
           <div class="spinner"></div>
-          <p>Analyzing imageâ€¦</p>
+          <p>Analyzing image…</p>
         </div>
 
         <div id="result" class="hidden">
           <div class="topline">
             <h2 class="match-title">
-              Top match: <span id="best-label">â€”</span>
+              Top match: <span id="best-label">&mdash;</span>
               <span id="best-score" class="badge">0%</span>
             </h2>
             <div id="confidence" class="meter">
@@ -122,7 +122,7 @@
             <h3><i class="fa-solid fa-book-open"></i> Facts</h3>
             <div id="facts-html" class="facts-body"></div>
             <small class="disclaimer">
-              âš ï¸ Donâ€™t ingest or use plants based solely on app identification. Verify locally.
+              Don’t ingest or use plants based solely on app identification. Verify locally.
             </small>
           </div>
           
@@ -155,13 +155,13 @@
 
             <div id="explain-area" class="card-sub hidden">
             <div class="explain-head">
-                <h3><i class="fa-solid fa-bolt"></i> Explanation (Gradâ€‘CAM)</h3>
+                <h3><i class="fa-solid fa-bolt"></i> Explanation (Grad-CAM)</h3>
 
                 <div class="explain-controls">
                 <label class="ctrl">
                     Method
                     <select id="cam-method">
-                    <option value="gradcam">Gradâ€‘CAM</option>
+                    <option value="gradcam">Grad-CAM</option>
                     <option value="eigen" selected>EigenCAM</option>
                     </select>
                 </label>

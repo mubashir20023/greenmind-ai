@@ -37,9 +37,8 @@ services:
       - key: IDX2_PATH
         value: models/class_maps/idx_to_species.json
       # Provide a direct download link to your .pth file (S3/GDrive/Dropbox/etc.)
-      # Example (Dropbox): https://www.dropbox.com/s/FILEID/plant_id_resnet18_best.pth?dl=1
       - key: CKPT_URL
-        value:
+        value: 
       # Optional: YOLO weights download URL (leave empty to skip)
       - key: YOLO_URL
         value:
