@@ -1,4 +1,4 @@
-/* Global */
+﻿/* Global */
 :root{
   --bg:#0e1015;
   --card:rgba(255,255,255,0.08);
@@ -69,7 +69,7 @@ body{
 }
 #opacity-val {
   display: inline-block;
-  width: 3ch;            /* enough for “100%” */
+  width: 3ch;            /* enough for â€œ100%â€ */
   text-align: right;     /* keeps numbers aligned */
   font-variant-numeric: tabular-nums; /* equal-width digits */
   margin-left: 0.3em;    /* small spacing from label */
@@ -244,3 +244,4 @@ body{
 @keyframes fade{from{opacity:0; transform:translateY(6px)} to{opacity:1; transform:none}}
 
 .footer{color:var(--muted); text-align:center; padding:28px 0}
+
