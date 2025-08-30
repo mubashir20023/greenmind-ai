@@ -1,24 +1,27 @@
-# --- Core web/app ---
-Flask>=3.0
-python-dotenv>=1.0
-# Optional WSGI server for Linux/macOS (ignored on Windows):
-gunicorn>=21.2 ; platform_system != "Windows"
+# Web + server
+flask
+gunicorn
+python-dotenv
+requests
+pillow
+
+# ML stack (CPU wheels)
+--extra-index-url https://download.pytorch.org/whl/cpu
+torch==2.3.1
+torchvision==0.18.1
+timm
+
+# XAI / Vision utils
+pytorch-grad-cam==1.4.8
 opencv-python-headless>=4.8
 
-# --- Imaging & utilities ---
-Pillow>=10.0,<11
-requests>=2.31
-numpy>=1.23,<2.0
-pandas>=2.2
-matplotlib>=3.8
-opencv-python>=4.8
+# Data science (unpin unless you must)
+numpy
+scikit-learn
+matplotlib
+pandas
 
-# --- ML / CV ---
-torch>=2.3
-torchvision>=0.18
-timm>=0.9.12
-pytorch-grad-cam>=1.5.0
-scikit-learn>=1.3,<1.6
+# Optional (your repo uses it)
 ultralytics>=8.2.0
 
 # If you need a CUDA build of PyTorch, install it separately, e.g.:
