@@ -12,16 +12,16 @@ torchvision==0.18.1
 timm
 
 # XAI / Vision utils
-pytorch-grad-cam==1.4.8
+grad-cam==1.4.8            # <— use this package name (imports as pytorch_grad_cam)
 opencv-python-headless>=4.8
 
-# Data science (unpin unless you must)
+# Data science
 numpy
 scikit-learn
 matplotlib
 pandas
 
-# Optional (your repo uses it)
+# Optional
 ultralytics>=8.2.0
 
 # If you need a CUDA build of PyTorch, install it separately, e.g.:
