@@ -26,6 +26,12 @@ BASE_DIR = Path(__file__).resolve().parents[1]
 MODEL_NAME   = os.getenv("MODEL_NAME", "resnet18")  # 'resnet18' | 'vit_base_patch16_224'
 CKPT_PATH    = Path(os.getenv("CKPT_PATH", str(BASE_DIR / "models" / "checkpoints" / "plant_id_resnet18_best.pth")))
 IDX2_PATH    = Path(os.getenv("IDX2_PATH",   str(BASE_DIR / "models" / "class_maps" / "idx_to_species.json")))
+with IDX2_PATH.open("r", encoding="utf-8") as f:
+    IDX2 = json.load(f)
+N_CLASSES = len(IDX2)
+
+_MODEL = None
+
 TOPK_DEFAULT = int(os.getenv("TOPK", "3"))
 
 # Transforms must match your train/val setup
@@ -48,22 +54,28 @@ def _load_class_map() -> Dict[int, str]:
 # -------- Classifier model --------
 @lru_cache(maxsize=1)
 def _load_model():
-    idx2 = _load_class_map()
-    num_classes = len(idx2)
-    if MODEL_NAME == "resnet18":
-        m = timm.create_model("resnet18", pretrained=False, num_classes=num_classes)
-    elif MODEL_NAME == "vit_base_patch16_224":
-        m = timm.create_model("vit_base_patch16_224", pretrained=False, num_classes=num_classes)
+    global _MODEL
+    if _MODEL is not None:
+        return _MODEL
+
+    model_name = os.getenv("MODEL_NAME", "resnet18")
+    ckpt_path = Path(os.getenv("CKPT_PATH", "models/checkpoints/plant_id_resnet18_best.pth"))
+
+    # Use pretrained backbone so the app still works without your custom ckpt
+    model = timm.create_model(model_name, pretrained=True, num_classes=N_CLASSES)
+
+    if ckpt_path.exists():
+        state = torch.load(ckpt_path, map_location="cpu")
+        if isinstance(state, dict) and "model" in state:
+            state = state["model"]
+        missing, unexpected = model.load_state_dict(state, strict=False)
+        print(f"[model] loaded {ckpt_path}; missing={len(missing)} unexpected={len(unexpected)}")
     else:
-        raise RuntimeError(f"Unknown MODEL_NAME={MODEL_NAME}")
+        print(f"[warn] checkpoint not found at {ckpt_path}; using ImageNet-pretrained backbone")
 
-    if not CKPT_PATH.exists():
-        raise FileNotFoundError(f"Checkpoint not found at {CKPT_PATH}")
-
-    state = torch.load(CKPT_PATH, map_location="cpu")
-    m.load_state_dict(state, strict=True)
-    m.eval().to(DEVICE)
-    return m
+    model.eval()
+    _MODEL = model
+    return _MODEL
 
 # -------- Helpers --------
 @torch.inference_mode()

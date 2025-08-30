@@ -28,12 +28,15 @@ STATIC_DIR    = BASE_DIR / "web" / "static"
 
 app = Flask(__name__, template_folder=str(TEMPLATES_DIR), static_folder=str(STATIC_DIR))
 
-# Feedback storage
-FEEDBACK_ROOT = BASE_DIR / "data" / "feedback"
+# Use env var if set; else default to repo local folder
+_FEEDBACK_ROOT_ENV = os.getenv("FEEDBACK_ROOT", str(BASE_DIR / "data" / "feedback"))
+FEEDBACK_ROOT = Path(_FEEDBACK_ROOT_ENV)
 FEEDBACK_ROOT.mkdir(parents=True, exist_ok=True)
+
 FEEDBACK_CSV = FEEDBACK_ROOT / "feedback.csv"
 if not FEEDBACK_CSV.exists():
     with FEEDBACK_CSV.open("w", encoding="utf-8", newline="") as f:
+        import csv
         csv.writer(f).writerow([
             "id","date","verdict","true_label","notes","model",
             "best_label","best_score","alt_labels","image_relpath"
