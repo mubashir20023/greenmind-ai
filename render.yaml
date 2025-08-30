@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: greenmind-ai
+    env: python
+    plan: free
+    autoDeploy: true
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn -w 2 -k gthread -t 120 -b 0.0.0.0:$PORT app.main:app
+    healthCheckPath: /health
+    envVars:
+      - key: FLASK_ENV
+        value: production
+      - key: MODEL_NAME
+        value: resnet18
+      - key: CKPT_PATH
+        value: models/checkpoints/plant_id_resnet18_best.pth
+      - key: IDX2_PATH
+        value: models/class_maps/idx_to_species.json
+      # Optional: pin Python version
+      - key: PYTHON_VERSION
+        value: 3.11.9

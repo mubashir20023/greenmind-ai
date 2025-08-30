@@ -84,6 +84,11 @@ function setPreview(file){
     lastOverlayImg = null;                // clear previous overlay
   }).catch(()=> showToast("Could not preview image", true));
 }
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("/static/sw.js").catch(console.error);
+  });
+}
 
 // Draw preview + overlay using opacity slider (multiplies PNG alpha)
 function drawCamWithOpacity(){
