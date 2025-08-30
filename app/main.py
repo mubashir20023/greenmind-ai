@@ -6,7 +6,7 @@ from pathlib import Path
 from dotenv import load_dotenv
 load_dotenv()
 
-from flask import Flask, render_template, jsonify, request, Response
+from flask import Flask, render_template, jsonify, request, Response, send_from_directory
 from PIL import Image
 
 from app.identify import identify
@@ -139,8 +139,8 @@ def feedback():
         traceback.print_exc()
         return jsonify({"error": str(e)}), 500
 
-@app.get("/healthz")
-def healthz():
+@app.get("/health")
+def health():
     return jsonify({"ok": True})
 
 if __name__ == "__main__":
