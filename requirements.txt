@@ -3,6 +3,7 @@ Flask>=3.0
 python-dotenv>=1.0
 # Optional WSGI server for Linux/macOS (ignored on Windows):
 gunicorn>=21.2 ; platform_system != "Windows"
+opencv-python-headless>=4.8
 
 # --- Imaging & utilities ---
 Pillow>=10.0,<11
