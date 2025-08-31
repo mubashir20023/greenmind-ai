@@ -49,6 +49,8 @@ services:
         sync: false
       - key: PLANTNET_URL
         value: https://my-api.plantnet.org/v2/identify/all
+      - key: OPENAI_API_KEY
+        sync: false
       # Optional organ hint
       - key: ORGAN_HINT
         value:
