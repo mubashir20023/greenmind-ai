@@ -48,6 +48,32 @@ def sanitize_html(html: str) -> str:
 def index():
     return render_template("index.html")
 
+# Helpful diagnostics to compare local vs Render env
+@app.get("/diag")
+def diag():
+    try:
+        plant_id_key = bool(os.getenv("PLANT_ID_API_KEY"))
+        plantnet_key = bool(os.getenv("PLANTNET_API_KEY"))
+    except Exception:
+        plant_id_key = plantnet_key = False
+    return jsonify({
+        "yolo_available": bool(DETECTOR and DETECTOR.is_available()),
+        "env": {
+            "REQUIRE_DETECT": os.getenv("REQUIRE_DETECT"),
+            "YOLO_CONF": os.getenv("YOLO_CONF"),
+            "YOLO_MIN_AREA_FRAC": os.getenv("YOLO_MIN_AREA_FRAC"),
+            "YOLO_MAX_CROPS": os.getenv("YOLO_MAX_CROPS"),
+            "CONFIDENCE_THRESHOLD": os.getenv("CONFIDENCE_THRESHOLD"),
+            "MIN_IS_PLANT": os.getenv("MIN_IS_PLANT"),
+            "MIN_TOP1_GAP": os.getenv("MIN_TOP1_GAP"),
+            "TOPK": os.getenv("TOPK"),
+        },
+        "api_keys": {
+            "plant_id": plant_id_key,
+            "plantnet": plantnet_key
+        }
+    })
+
 @app.post("/identify")
 def route_identify():
     if "file" not in request.files:
@@ -62,6 +88,7 @@ def route_identify():
         YOLO_CONF = float(os.getenv("YOLO_CONF", "0.25"))
         MIN_IS_PLANT = float(os.getenv("MIN_IS_PLANT", "0.50"))      # Plant.id gate
         MIN_CONF = float(os.getenv("CONFIDENCE_THRESHOLD", "0.55"))  # score gate
+        MIN_TOP1_GAP = float(os.getenv("MIN_TOP1_GAP", "0.0"))       # ambiguity gate
 
         # ------- 1) YOLO hard gate (if available) -------
         W, H = img.size
@@ -75,7 +102,7 @@ def route_identify():
                 (x1, y1, x2, y2) = d.get("box", (0,0,0,0))
                 area = max(0, (x2 - x1)) * max(0, (y2 - y1))
                 frac = area / float(W * H) if W*H else 0.0
-                if d.get("conf", 0.0) >= YOLO_CONF and frac >= YOLO_MIN_AREA_FRAC:
+                if float(d.get("conf", 0.0)) >= YOLO_CONF and frac >= YOLO_MIN_AREA_FRAC:
                     valid.append(d)
             if REQUIRE_DETECT and not valid:
                 return jsonify({
@@ -94,7 +121,19 @@ def route_identify():
                 "message": "This photo likely does not contain a plant (API signal). Try another angle/subject."
             }), 422
 
-        # ------- 4) Low-confidence gate -------
+        # ------- 4) Ambiguity gate (top-1 vs top-2 gap) -------
+        if MIN_TOP1_GAP > 0.0 and len(alts) >= 2:
+            gap = float(alts[0].get("score", 0.0)) - float(alts[1].get("score", 0.0))
+            if gap < MIN_TOP1_GAP:
+                return jsonify({
+                    "low_confidence": True,
+                    "best": best,
+                    "alternatives": alts,
+                    "model": os.getenv("MODEL_NAME", "unknown"),
+                    "message": "Ambiguous result (top-1 too close to top-2). Try another photo."
+                }), 200
+
+        # ------- 5) Low-confidence gate -------
         if float(best.get("score", 0.0)) < MIN_CONF:
             return jsonify({
                 "low_confidence": True,
@@ -104,15 +143,20 @@ def route_identify():
                 "message": "Low-confidence ID. Try a sharper photo with the plant centered."
             }), 200
 
-        # ------- 5) Normal path: build facts -------
-        facts = get_wikipedia(best["label"])
-        html = sanitize_html(generate_html(best["label"], best["score"], facts))
-        model_name = os.getenv("MODEL_NAME", "resnet18")
+        # ------- 6) Normal path: build facts (with safe fallback) -------
+        facts_html = ""
+        try:
+            facts = get_wikipedia(best["label"])
+            facts_html = sanitize_html(generate_html(best["label"], best["score"], facts))
+        except Exception as e:
+            # Never let facts generation break the flow
+            facts_html = f"<p>Facts temporarily unavailable. ({str(e)})</p>"
 
+        model_name = os.getenv("MODEL_NAME", "resnet18")
         return jsonify({
             "best": best,
             "alternatives": alts,
-            "facts_html": html,
+            "facts_html": facts_html,
             "model": model_name
         })
     except Exception as e:

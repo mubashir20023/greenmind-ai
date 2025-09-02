@@ -66,7 +66,7 @@ services:
       - key: YOLO_MAX_CROPS
         value: "5"
 
-      # --- Identification thresholds (keep in sync with .env locally) ---
+      # --- Identification thresholds (synced with your .env) ---
       - key: TOPK
         value: "3"
       - key: CONFIDENCE_THRESHOLD
@@ -76,15 +76,17 @@ services:
       - key: MIN_TOP1_GAP
         value: "0.15"
       # - key: ORGAN_HINT
-      #   value: ""   # optional: leaf | flower | fruit (leave empty normally)
+      #   value: ""   # optional: leaf | flower | fruit
 
       # --- Facts / timeouts ---
       - key: WIKIPEDIA_TIMEOUT
         value: "10"
+      - key: WIKIDATA_TIMEOUT
+        value: "5"
       - key: FACTS_CACHE_DIR
         value: ".cache/facts"
 
-      # --- External APIs (set the secrets in Render dashboard) ---
+      # --- External APIs (set secrets in Render dashboard) ---
       - key: PLANT_ID_API_KEY
         sync: false
       - key: PLANT_ID_URL
@@ -96,7 +98,7 @@ services:
       - key: OPENAI_API_KEY
         sync: false
 
-      # --- Optional: direct download URLs for weights (set in dashboard) ---
+      # --- Optional: direct download URLs for weights (if not committed) ---
       - key: CKPT_URL
         sync: false
       - key: YOLO_URL
