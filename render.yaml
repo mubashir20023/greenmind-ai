@@ -4,34 +4,41 @@ services:
     env: python
     plan: free
     autoDeploy: true
+
     buildCommand: |
-      set -e
+      set -euxo pipefail
       pip install --upgrade pip
       pip install -r requirements.txt
 
-      # ensure target dirs exist
+      # Ensure target dirs exist
       mkdir -p models/checkpoints
       mkdir -p runs/detect/train/weights
 
-      # --- download your classifier (optional) ---
-      if [ -n "$CKPT_URL" ]; then
-        echo "[build] Downloading classifier from $CKPT_URL"
-        curl -fsSL "$CKPT_URL" -o models/checkpoints/plant_id_resnet18_best.pth
-        ls -lh models/checkpoints/plant_id_resnet18_best.pth
+      # --- Optionally download classifier checkpoint (GitHub Release direct URL) ---
+      if [ -n "${CKPT_URL:-}" ]; then
+        echo "[build] Downloading classifier: $CKPT_URL"
+        curl -fL "$CKPT_URL" -o models/checkpoints/plant_id_resnet18_best.pth
       else
-        echo "[build] CKPT_URL not set — using file from repo if present"
+        echo "[build] CKPT_URL not set — will use repo file if present"
       fi
 
-      # --- download YOLO weights (optional) ---
-      if [ -n "$YOLO_URL" ]; then
-        echo "[build] Downloading YOLO from $YOLO_URL"
-        curl -fsSL "$YOLO_URL" -o runs/detect/train/weights/best.pt
-        ls -lh runs/detect/train/weights/best.pt
+      # --- Optionally download YOLO weights (GitHub Release direct URL) ---
+      if [ -n "${YOLO_URL:-}" ]; then
+        echo "[build] Downloading YOLO weights: $YOLO_URL"
+        curl -fL "$YOLO_URL" -o runs/detect/train/weights/best.pt
       else
-        echo "[build] YOLO_URL not set — using file from repo if present"
+        echo "[build] YOLO_URL not set — will use repo file if present"
       fi
+
+      # Sanity: require weights to exist (fail build if missing)
+      test -s models/checkpoints/plant_id_resnet18_best.pth
+      test -s runs/detect/train/weights/best.pt
+
+      ls -lh models/checkpoints runs/detect/train/weights
+
     startCommand: gunicorn -w 1 -k gthread -t 180 -b 0.0.0.0:$PORT app.main:app
     healthCheckPath: /health
+
     envVars:
       # --- Runtime / Python ---
       - key: FLASK_ENV
@@ -59,7 +66,7 @@ services:
       - key: YOLO_MAX_CROPS
         value: "5"
 
-      # --- Identification logic thresholds ---
+      # --- Identification thresholds (keep in sync with .env locally) ---
       - key: TOPK
         value: "3"
       - key: CONFIDENCE_THRESHOLD
@@ -69,7 +76,7 @@ services:
       - key: MIN_TOP1_GAP
         value: "0.15"
       # - key: ORGAN_HINT
-      #   value: ""   # optional: leaf|flower|fruit
+      #   value: ""   # optional: leaf | flower | fruit (leave empty normally)
 
       # --- Facts / timeouts ---
       - key: WIKIPEDIA_TIMEOUT
@@ -77,7 +84,7 @@ services:
       - key: FACTS_CACHE_DIR
         value: ".cache/facts"
 
-      # --- External APIs (set real values in Render dashboard) ---
+      # --- External APIs (set the secrets in Render dashboard) ---
       - key: PLANT_ID_API_KEY
         sync: false
       - key: PLANT_ID_URL
@@ -89,7 +96,7 @@ services:
       - key: OPENAI_API_KEY
         sync: false
 
-      # --- optional: URLs to download weights at build time ---
+      # --- Optional: direct download URLs for weights (set in dashboard) ---
       - key: CKPT_URL
         sync: false
       - key: YOLO_URL
