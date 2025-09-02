@@ -54,3 +54,25 @@ services:
       # Optional organ hint
       - key: ORGAN_HINT
         value:
+        
+      - key: CONFIDENCE_THRESHOLD
+        value: "0.50"      # adjust as you like
+      - key: MIN_IS_PLANT
+        value: "0.50"      # adjust plant/not-plant gate too
+      # --- Gating/tuning knobs ---
+      - key: CONFIDENCE_THRESHOLD
+        value: "0.60"     # try 0.55–0.65 to reduce false positives
+      - key: MIN_IS_PLANT
+        value: "0.60"     # plant/not-plant gate from Plant.id signal
+      - key: MIN_TOP1_GAP
+        value: "0.15"     # block if top-1 and top-2 are too close (ambiguous)
+
+      # YOLO hard gate (only used if weights exist)
+      - key: REQUIRE_DETECT
+        value: "1"        # refuse if no plant-like box is found
+      - key: YOLO_CONF
+        value: "0.35"     # detector confidence
+      - key: YOLO_MIN_AREA_FRAC
+        value: "0.05"     # min box area vs image area (e.g., 5%)
+      - key: YOLO_ALLOWED
+        value: tree,leaf,flower
