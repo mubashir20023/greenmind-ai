@@ -5,8 +5,31 @@ services:
     plan: free
     autoDeploy: true
     buildCommand: |
+      set -e
       pip install --upgrade pip
       pip install -r requirements.txt
+
+      # ensure target dirs exist
+      mkdir -p models/checkpoints
+      mkdir -p runs/detect/train/weights
+
+      # --- download your classifier (optional) ---
+      if [ -n "$CKPT_URL" ]; then
+        echo "[build] Downloading classifier from $CKPT_URL"
+        curl -fsSL "$CKPT_URL" -o models/checkpoints/plant_id_resnet18_best.pth
+        ls -lh models/checkpoints/plant_id_resnet18_best.pth
+      else
+        echo "[build] CKPT_URL not set — using file from repo if present"
+      fi
+
+      # --- download YOLO weights (optional) ---
+      if [ -n "$YOLO_URL" ]; then
+        echo "[build] Downloading YOLO from $YOLO_URL"
+        curl -fsSL "$YOLO_URL" -o runs/detect/train/weights/best.pt
+        ls -lh runs/detect/train/weights/best.pt
+      else
+        echo "[build] YOLO_URL not set — using file from repo if present"
+      fi
     startCommand: gunicorn -w 1 -k gthread -t 180 -b 0.0.0.0:$PORT app.main:app
     healthCheckPath: /health
     envVars:
@@ -16,7 +39,7 @@ services:
       - key: PYTHON_VERSION
         value: 3.10.14
 
-      # --- Local classifier + maps (files are committed to repo) ---
+      # --- Local classifier + maps ---
       - key: MODEL_NAME
         value: resnet18
       - key: CKPT_PATH
@@ -24,7 +47,7 @@ services:
       - key: IDX2_PATH
         value: models/class_maps/idx_to_species.json
 
-      # --- YOLO detector (use committed weights) ---
+      # --- YOLO detector ---
       - key: YOLO_WEIGHTS
         value: runs/detect/train/weights/best.pt
       - key: REQUIRE_DETECT
@@ -64,4 +87,10 @@ services:
       - key: PLANTNET_URL
         value: https://my-api.plantnet.org/v2/identify/all
       - key: OPENAI_API_KEY
+        sync: false
+
+      # --- optional: URLs to download weights at build time ---
+      - key: CKPT_URL
+        sync: false
+      - key: YOLO_URL
         sync: false

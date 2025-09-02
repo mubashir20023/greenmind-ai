@@ -30,3 +30,13 @@ Thumbs.db
 # Build
 dist/
 build/
+# allow these exact weights
+!models/
+!models/checkpoints/
+!models/checkpoints/plant_id_resnet18_best.pth
+
+!runs/
+!runs/detect/
+!runs/detect/train/
+!runs/detect/train/weights/
+!runs/detect/train/weights/best.pt
