@@ -1,25 +1,25 @@
-﻿# app/main.py
-from __future__ import annotations
+﻿from __future__ import annotations
 import os, io, re, traceback, json, uuid, csv, datetime
 from pathlib import Path
 
 from dotenv import load_dotenv
 load_dotenv()
 
-from flask import Flask, render_template, jsonify, request, Response, send_from_directory
+from flask import Flask, render_template, jsonify, request, Response
 from PIL import Image
 
 from app.identify import identify
 from app.explain import generate_cam_overlay
 from app.facts import get_wikipedia, generate_html
 
-# Optional: log detector status if present
+# Optional: detector status
 try:
     from app.detector import DETECTOR
     status = "available" if DETECTOR.is_available() else f"unavailable: {DETECTOR.reason_unavailable()}"
     print(f"[yolo] detector status: {status}")
 except Exception as e:
     print("[yolo] detector import failed:", e)
+    DETECTOR = None  # ensure symbol exists
 
 # Paths
 BASE_DIR = Path(__file__).resolve().parents[1]
@@ -28,7 +28,7 @@ STATIC_DIR    = BASE_DIR / "web" / "static"
 
 app = Flask(__name__, template_folder=str(TEMPLATES_DIR), static_folder=str(STATIC_DIR))
 
-# Use env var if set; else default to repo local folder
+# Feedback storage
 _FEEDBACK_ROOT_ENV = os.getenv("FEEDBACK_ROOT", str(BASE_DIR / "data" / "feedback"))
 FEEDBACK_ROOT = Path(_FEEDBACK_ROOT_ENV)
 FEEDBACK_ROOT.mkdir(parents=True, exist_ok=True)
@@ -36,14 +36,13 @@ FEEDBACK_ROOT.mkdir(parents=True, exist_ok=True)
 FEEDBACK_CSV = FEEDBACK_ROOT / "feedback.csv"
 if not FEEDBACK_CSV.exists():
     with FEEDBACK_CSV.open("w", encoding="utf-8", newline="") as f:
-        import csv
         csv.writer(f).writerow([
             "id","date","verdict","true_label","notes","model",
             "best_label","best_score","alt_labels","image_relpath"
         ])
 
 def sanitize_html(html: str) -> str:
-    return re.sub(r"(?is)<script.*?>.*?</script>", "", html)
+    return re.sub(r"(?is)<script.*?>.*?</script>", "", html or "")
 
 @app.get("/")
 def index():
@@ -57,7 +56,55 @@ def route_identify():
         img = Image.open(io.BytesIO(request.files["file"].read())).convert("RGB")
         topk = int(os.getenv("TOPK", "3"))
 
+        # ------- Gating knobs -------
+        REQUIRE_DETECT = os.getenv("REQUIRE_DETECT", "1") == "1"     # hard block if no plant box
+        YOLO_MIN_AREA_FRAC = float(os.getenv("YOLO_MIN_AREA_FRAC", "0.04"))
+        YOLO_CONF = float(os.getenv("YOLO_CONF", "0.25"))
+        MIN_IS_PLANT = float(os.getenv("MIN_IS_PLANT", "0.50"))      # Plant.id gate
+        MIN_CONF = float(os.getenv("CONFIDENCE_THRESHOLD", "0.55"))  # score gate
+
+        # ------- 1) YOLO hard gate (if available) -------
+        W, H = img.size
+        if DETECTOR and DETECTOR.is_available():
+            try:
+                raw = DETECTOR.detect(img)  # [{'cls','conf','box','crop'}]
+            except Exception:
+                raw = []
+            valid = []
+            for d in raw:
+                (x1, y1, x2, y2) = d.get("box", (0,0,0,0))
+                area = max(0, (x2 - x1)) * max(0, (y2 - y1))
+                frac = area / float(W * H) if W*H else 0.0
+                if d.get("conf", 0.0) >= YOLO_CONF and frac >= YOLO_MIN_AREA_FRAC:
+                    valid.append(d)
+            if REQUIRE_DETECT and not valid:
+                return jsonify({
+                    "no_plant": True,
+                    "message": "No plant-like object detected. Try moving closer to leaves/flowers or improve lighting."
+                }), 422
+
+        # ------- 2) Run identification -------
         best, alts = identify(img, gallery_root=None, topk=topk)
+
+        # ------- 3) Plant.id is_plant_probability gate (if present) -------
+        is_plant_prob = best.get("is_plant_prob")
+        if isinstance(is_plant_prob, (int, float)) and is_plant_prob < MIN_IS_PLANT:
+            return jsonify({
+                "no_plant": True,
+                "message": "This photo likely does not contain a plant (API signal). Try another angle/subject."
+            }), 422
+
+        # ------- 4) Low-confidence gate -------
+        if float(best.get("score", 0.0)) < MIN_CONF:
+            return jsonify({
+                "low_confidence": True,
+                "best": best,
+                "alternatives": alts,
+                "model": os.getenv("MODEL_NAME", "unknown"),
+                "message": "Low-confidence ID. Try a sharper photo with the plant centered."
+            }), 200
+
+        # ------- 5) Normal path: build facts -------
         facts = get_wikipedia(best["label"])
         html = sanitize_html(generate_html(best["label"], best["score"], facts))
         model_name = os.getenv("MODEL_NAME", "resnet18")

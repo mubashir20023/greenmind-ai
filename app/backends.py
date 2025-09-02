@@ -50,7 +50,18 @@ class PlantIdBackend(Backend):
         r.raise_for_status()
         j = r.json()
 
-        # Try multiple known shapes
+        # Extract is_plant_probability if present (different shapes exist)
+        def _is_plant_prob(payload):
+            if isinstance(payload, dict):
+                if "is_plant_probability" in payload:
+                    return float(payload.get("is_plant_probability") or 0.0)
+                if "result" in payload and isinstance(payload["result"], dict):
+                    return float(payload["result"].get("is_plant_probability") or 0.0)
+            return None
+
+        is_plant_prob = _is_plant_prob(j)
+
+        # Extract suggestions across known shapes
         suggestions = None
         if isinstance(j, dict):
             if "suggestions" in j:
@@ -76,7 +87,12 @@ class PlantIdBackend(Backend):
 
         if not items:
             items = [{"label": "Unknown", "score": 0.0}]
-        return items[0], items[:topk]
+
+        best = items[0].copy()
+        if is_plant_prob is not None:
+            best["is_plant_prob"] = is_plant_prob
+
+        return best, items[:topk]
 
 
 class PlantNetBackend(Backend):
@@ -91,27 +107,35 @@ class PlantNetBackend(Backend):
         return bool(self.api_key)
 
     def identify(self, pil: Image.Image, topk: int = 3, organ_hint: Optional[str] = None):
-        img_bytes = self._jpeg_bytes(pil)
-        files = [("images", ("image.jpg", img_bytes, "image/jpeg"))]
-        data = {"organs": organ_hint or "auto"}
         params = {"api-key": self.api_key}
-        r = requests.post(self.endpoint, params=params, data=data, files=files, timeout=self.timeout_sec)
+        files = [("images", ("image.jpg", self._jpeg_bytes(pil), "image/jpeg"))]
+        data = {}
+        if organ_hint:
+            data["organs"] = organ_hint  # Pl@ntNet accepts a single organ or repeated param
+
+        r = requests.post(self.endpoint, params=params, files=files, data=data, timeout=self.timeout_sec)
         r.raise_for_status()
         j = r.json()
 
+        # Typical shape: {"results": [{"score": 0.xx, "species": {...}}, ...]}
+        results = []
+        if isinstance(j, dict):
+            results = j.get("results") or []
+
         items: List[Alt] = []
-        for s in (j.get("results") or [])[: max(3, topk)]:
-            sp = s.get("species") or {}
+        for res in results[: max(3, topk)]:
+            score = float(res.get("score") or 0.0)
+            sp = res.get("species") or {}
             name = (
                 sp.get("scientificNameWithoutAuthor")
                 or sp.get("scientificName")
-                or sp.get("genus")
                 or "Unknown"
             )
-            score = float(s.get("score") or 0.0)
-            items.append({"label": name.strip(), "score": score})
+            items.append({"label": name, "score": score})
+
         if not items:
             items = [{"label": "Unknown", "score": 0.0}]
+
         return items[0], items[:topk]
 
 
@@ -125,6 +149,5 @@ def try_backends(pil: Image.Image, backends: List[Backend], topk: int = 3, organ
             if alts:
                 return be.name, best, alts
         except Exception:
-            # swallow and continue to next backend
             continue
     return "none", {"label": "Unknown", "score": 0.0}, [{"label": "Unknown", "score": 0.0}]

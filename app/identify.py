@@ -102,7 +102,7 @@ def identify(img: Image.Image, gallery_root=None, topk: int = None) -> Tuple[Dic
     """
     topk = topk or TOPK_DEFAULT
 
-    # Optional crop list (ignored unless your YOLO weights are present)
+    # Optional detector crops
     crops: List[Image.Image] = []
     if DETECTOR and DETECTOR.is_available():
         try:
@@ -116,8 +116,7 @@ def identify(img: Image.Image, gallery_root=None, topk: int = None) -> Tuple[Dic
 
     # Try hosted backends
     be_list = [PlantIdBackend(), PlantNetBackend()]
-    from app.backends import try_backends as _try
-    be_name, be_best, be_alts = _try(query_image, be_list, topk=topk, organ_hint=ORGAN_HINT)
+    be_name, be_best, be_alts = try_backends(query_image, be_list, topk=topk, organ_hint=ORGAN_HINT)
     if be_name != "none":
         os.environ["MODEL_NAME"] = be_name
         return be_best, be_alts

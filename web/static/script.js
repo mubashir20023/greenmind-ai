@@ -198,17 +198,50 @@ identifyBtn.addEventListener('click', async ()=>{
   fd.append('file', currentBlob, 'query.jpg');
 
   try{
-    const res = await fetch('/identify', { method:'POST', body:fd });
+    const res = await fetch('/identify', { method:'POST', body: fd });
     const j = await res.json();
     if (!res.ok || j.error) throw new Error(j.error || 'Identification failed');
 
-    // Save payload for feedback
-    lastIdentifyPayload = j;
+    // --- gates from server ---
+    if (j.no_plant) {
+      resultWrap.classList.remove('hidden');
+      bestLabelEl.textContent = 'No plant detected';
+      bestScoreEl.textContent = '—';
+      confBar.style.width = '0%';
+      altChips.innerHTML = '';
+      factsHtml.innerHTML = `<p>${sanitize(j.message || 'No plant-like object was detected.')}</p>`;
+      setSourceBadge('local'); // neutral display
+      showToast(j.message || 'No plant detected');
+      return;
+    }
 
-    const best = j.best;
-    bestLabelEl.textContent = best.label;
-    bestScoreEl.textContent = `${(best.score*100).toFixed(1)}%`;
-    confBar.style.width = `${Math.max(2, best.score*100)}%`;
+    if (j.low_confidence) {
+      lastIdentifyPayload = j;
+      const best = j.best || {};
+      resultWrap.classList.remove('hidden');
+      bestLabelEl.textContent = best.label || 'Unknown';
+      bestScoreEl.textContent = best.score != null ? `${(best.score*100).toFixed(1)}%` : '—';
+      confBar.style.width = best.score != null ? `${Math.max(2, best.score*100)}%` : '2%';
+      altChips.innerHTML = '';
+      (j.alternatives || []).slice(1).forEach(a=>{
+        const span = document.createElement('span');
+        span.className = 'chip';
+        span.textContent = `${a.label} ${(a.score*100).toFixed(0)}%`;
+        altChips.appendChild(span);
+      });
+      factsHtml.innerHTML = `<p>${sanitize(j.message || 'Low-confidence ID. Try another photo.')}</p>`;
+      setSourceBadge(j.model || 'local');
+      showToast(j.message || 'Low-confidence ID');
+      return;
+    }
+
+    // --- normal success path ---
+    lastIdentifyPayload = j;
+    const best = j.best || {};
+    resultWrap.classList.remove('hidden');
+    bestLabelEl.textContent = best.label || 'Unknown';
+    bestScoreEl.textContent = best.score != null ? `${(best.score*100).toFixed(1)}%` : '—';
+    confBar.style.width = best.score != null ? `${Math.max(2, best.score*100)}%` : '2%';
 
     altChips.innerHTML = '';
     (j.alternatives || []).slice(1).forEach(a=>{
@@ -219,19 +252,10 @@ identifyBtn.addEventListener('click', async ()=>{
     });
 
     factsHtml.innerHTML = sanitize(j.facts_html || '<p>No facts available.</p>');
-
-    // Show results + feedback
-    resultWrap.classList.remove('hidden');
-    if (fbBlock) {
-      fbBlock.style.display = 'block';
-      if (fbCorrection) fbCorrection.classList.add('hidden');
-      if (fbTrueLabel) fbTrueLabel.value = '';
-      if (fbNotes) fbNotes.value = '';
-      if (fbToast) fbToast.style.display = 'none';
-    }
+    setSourceBadge(j.model || 'local');  // <-- show Plant.id / Pl@ntNet / Local
 
     explainBtn.disabled = false;
-    showToast("Identified âœ”");
+    showToast("Identified ✓");
   }catch(err){
     showToast(err.message, true);
   }finally{
