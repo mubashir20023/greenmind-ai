@@ -85,7 +85,7 @@ def _load_model():
     model = timm.create_model(model_name, pretrained=True, num_classes=num_classes)
 
     if ckpt_path.exists():
-        state = torch.load(ckpt_path, map_location="cpu")
+        state = torch.load(ckpt_path, map_location="cpu", weights_only=True)
         if isinstance(state, dict) and "model" in state:
             state = state["model"]
         missing, unexpected = model.load_state_dict(state, strict=False)
