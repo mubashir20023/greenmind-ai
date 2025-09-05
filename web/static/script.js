@@ -1,14 +1,17 @@
-﻿// Controls for CAM
+﻿// ==========================
+// GreenMind script.js (fixed)
+// ==========================
+
+// Controls for CAM
 const camMethodSel  = document.getElementById('cam-method');
 const opacitySlider = document.getElementById('opacity-slider');
 const opacityVal    = document.getElementById('opacity-val');
 const downloadCam   = document.getElementById('download-cam');
 
-let lastOverlayImg = null;   // heatmap (transparent PNG) returned from /explain
-
+let lastOverlayImg = null; // heatmap (transparent PNG) returned from /explain
 let stream = null;
 
-const video = document.getElementById('video');
+const video  = document.getElementById('video');
 const canvas = document.getElementById('frame-canvas');
 
 const startBtn = document.getElementById('start-cam');
@@ -17,10 +20,10 @@ const snapBtn  = document.getElementById('snap');
 const identifyFromCamBtn = document.getElementById('identify-from-cam');
 
 const fileInput = document.getElementById('file-input');
-const browseBtn  = document.getElementById('browse-btn');
-const dropzone   = document.getElementById('dropzone');
-const preview    = document.getElementById('preview');
-const previewImg = document.getElementById('preview-img');
+const browseBtn = document.getElementById('browse-btn');
+const dropzone  = document.getElementById('dropzone');
+const preview   = document.getElementById('preview');
+const previewImg= document.getElementById('preview-img');
 
 const identifyBtn = document.getElementById('identify-btn');
 const explainBtn  = document.getElementById('explain-btn');
@@ -46,11 +49,16 @@ const fbTrueLabel  = document.getElementById('fb-true-label');
 const fbNotes      = document.getElementById('fb-notes');
 const fbSubmit     = document.getElementById('fb-submit');
 const fbToast      = document.getElementById('fb-toast');
-let lastIdentifyPayload = null;   // store server's /identify JSON
+
+let lastIdentifyPayload = null; // store server's /identify JSON
+let currentBlob = null;         // original image blob for identify/explain
+
+// Safe no-op: avoid breaking if setSourceBadge is not defined
+if (typeof window.setSourceBadge !== 'function') {
+  window.setSourceBadge = function(){};
+}
 
 if (yearEl) yearEl.textContent = new Date().getFullYear();
-
-let currentBlob = null;   // original image blob for identify/explain
 
 // -------- Helpers --------
 function showToast(msg, isError=false){
@@ -80,10 +88,13 @@ function setPreview(file){
     preview.classList.remove('hidden');
     resultWrap.classList.add('hidden');
     explainArea.classList.add('hidden');
-    explainBtn.disabled = false;          // âœ… allow Explain right away
-    lastOverlayImg = null;                // clear previous overlay
+    explainBtn.disabled = false; // allow Explain right away
+    lastOverlayImg = null;       // clear previous overlay
+    // Hide stale feedback when a new image is chosen
+    hideFeedbackUI();
   }).catch(()=> showToast("Could not preview image", true));
 }
+
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
     navigator.serviceWorker.register("/static/sw.js").catch(console.error);
@@ -95,14 +106,12 @@ function drawCamWithOpacity(){
   const canvasEl = document.getElementById('cam-canvas');
   if (!canvasEl || !lastOverlayImg) return;
 
-  const w = (previewImg.naturalWidth || lastOverlayImg.width)  || 512;
+  const w = (previewImg.naturalWidth  || lastOverlayImg.width)  || 512;
   const h = (previewImg.naturalHeight || lastOverlayImg.height) || 512;
   canvasEl.width = w; canvasEl.height = h;
 
   const ctx = canvasEl.getContext('2d');
-  // base image
   try { ctx.drawImage(previewImg, 0, 0, w, h); } catch {}
-  // overlay with user opacity * per-pixel alpha from PNG
   const alpha = Math.max(0, Math.min(1, (Number(opacitySlider?.value || 55) / 100)));
   ctx.globalAlpha = alpha;
   ctx.drawImage(lastOverlayImg, 0, 0, w, h);
@@ -187,12 +196,29 @@ window.addEventListener('dragover', e => e.preventDefault());
 window.addEventListener('drop', e => e.preventDefault());
 window.addEventListener('dragleave', () => dropzone.classList.remove('hover'));
 
+// ---------- FEEDBACK UI HELPERS ----------
+function showFeedbackUI({ openCorrection = false } = {}) {
+  if (!fbBlock) return;
+  fbBlock.style.display = 'block';
+  if (fbCorrection) fbCorrection.classList.toggle('hidden', !openCorrection);
+  if (fbTrueLabel) fbTrueLabel.value = '';
+  if (fbNotes) fbNotes.value = '';
+  if (fbToast) fbToast.style.display = 'none';
+}
+function hideFeedbackUI() {
+  if (!fbBlock) return;
+  fbBlock.style.display = 'none';
+  if (fbToast) fbToast.style.display = 'none';
+  if (fbCorrection) fbCorrection.classList.add('hidden');
+}
+
 // -------- Identify --------
 identifyBtn.addEventListener('click', async ()=>{
   if (!currentBlob) return showToast("Choose an image first", true);
   identifyBtn.disabled = true;
   loading.classList.remove('hidden');
   resultWrap.classList.add('hidden');
+  hideFeedbackUI(); // clear stale feedback while we fetch
 
   const fd = new FormData();
   fd.append('file', currentBlob, 'query.jpg');
@@ -204,13 +230,22 @@ identifyBtn.addEventListener('click', async ()=>{
 
     // --- gates from server ---
     if (j.no_plant) {
+      // store minimal payload so feedback can still be sent
+      lastIdentifyPayload = { model: j.model || 'unknown', best: null, alternatives: [] };
+
       resultWrap.classList.remove('hidden');
       bestLabelEl.textContent = 'No plant detected';
       bestScoreEl.textContent = '—';
       confBar.style.width = '0%';
       altChips.innerHTML = '';
       factsHtml.innerHTML = `<p>${sanitize(j.message || 'No plant-like object was detected.')}</p>`;
-      setSourceBadge('local'); // neutral display
+
+      // show feedback first so a later error can’t block it
+      showFeedbackUI({ openCorrection: true });
+
+      // safe badge update
+      setSourceBadge('local');
+
       showToast(j.message || 'No plant detected');
       return;
     }
@@ -230,6 +265,10 @@ identifyBtn.addEventListener('click', async ()=>{
         altChips.appendChild(span);
       });
       factsHtml.innerHTML = `<p>${sanitize(j.message || 'Low-confidence ID. Try another photo.')}</p>`;
+
+      // show feedback before badge
+      showFeedbackUI({ openCorrection: true });
+
       setSourceBadge(j.model || 'local');
       showToast(j.message || 'Low-confidence ID');
       return;
@@ -252,8 +291,11 @@ identifyBtn.addEventListener('click', async ()=>{
     });
 
     factsHtml.innerHTML = sanitize(j.facts_html || '<p>No facts available.</p>');
-    setSourceBadge(j.model || 'local');  // <-- show Plant.id / Pl@ntNet / Local
 
+    // show feedback before badge
+    showFeedbackUI({ openCorrection: false });
+
+    setSourceBadge(j.model || 'local');
     explainBtn.disabled = false;
     showToast("Identified ✓");
   }catch(err){
@@ -264,7 +306,7 @@ identifyBtn.addEventListener('click', async ()=>{
   }
 });
 
-// -------- Explain (Gradâ€‘CAM / EigenCAM) --------
+// -------- Explain (Grad-CAM / EigenCAM) --------
 explainBtn.addEventListener('click', async ()=>{
   if (!currentBlob) return showToast("Choose or capture an image first", true);
 
@@ -287,14 +329,14 @@ explainBtn.addEventListener('click', async ()=>{
     lastOverlayImg.onload = () => {
       drawCamWithOpacity();
       explainArea.classList.remove('hidden');
-      showToast(`Explanation: ${method} âœ”`);
+      showToast(`Explanation: ${method} ✓`);
     };
     lastOverlayImg.src = URL.createObjectURL(blob);
   }catch(err){
     showToast(err.message, true);
   }finally{
     loading.classList.add('hidden');
-    explainBtn.disabled = false;     // âœ… re-enable
+    explainBtn.disabled = false; // re-enable
   }
 });
 
@@ -351,8 +393,7 @@ async function sendFeedback({ verdict, true_label=null, notes=null }){
       fbToast.style.display = 'block';
       fbToast.textContent = 'Thanks! Your feedback was saved.';
     }
-    showToast('Feedback saved âœ”');
-
+    showToast('Feedback saved ✓');
     if (fbCorrection) fbCorrection.classList.add('hidden');
   }catch(err){
     showToast(err.message, true);
@@ -390,9 +431,10 @@ snapBtn.addEventListener('click', async ()=>{
       preview.classList.remove('hidden');
       resultWrap.classList.add('hidden');
       explainArea.classList.add('hidden');
-      explainBtn.disabled = false;   // allow Explain after capture
+      explainBtn.disabled = false; // allow Explain after capture
       lastOverlayImg = null;
-      showToast('Captured frame âœ”');
+      hideFeedbackUI();
+      showToast('Captured frame ✓');
     });
   }catch(err){
     showToast(err.message, true);
@@ -421,8 +463,5 @@ clearBtn.addEventListener('click', ()=>{
   explainArea.classList.add('hidden');
   explainBtn.disabled = true;
   lastOverlayImg = null;
-  if (fbBlock) fbBlock.style.display = 'none';
-  if (fbToast) fbToast.style.display = 'none';
-  if (fbCorrection) fbCorrection.classList.add('hidden');
+  hideFeedbackUI();
 });
-
