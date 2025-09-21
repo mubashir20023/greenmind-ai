@@ -115,10 +115,12 @@ def route_identify():
 
         # ------- 3) Plant.id is_plant_probability gate (if present) -------
         is_plant_prob = best.get("is_plant_prob")
-        if isinstance(is_plant_prob, (int, float)) and is_plant_prob < MIN_IS_PLANT:
+        min_is_plant = float(os.getenv("MIN_IS_PLANT", "0.60"))  # be strict for non-plant
+        if isinstance(is_plant_prob, (int, float)) and is_plant_prob < min_is_plant:
             return jsonify({
                 "no_plant": True,
-                "message": "This photo likely does not contain a plant (API signal). Try another angle/subject."
+                "message": "This photo does not appear to contain a plant.",
+                "model": os.getenv("MODEL_NAME", "unknown"),
             }), 422
 
         # ------- 4) Ambiguity gate (top-1 vs top-2 gap) -------
