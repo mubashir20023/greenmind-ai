@@ -21,15 +21,23 @@
   <div class="bg"></div>
 
   <header class="nav">
-  <div class="brand">
-    <i class="fa-solid fa-leaf" style="margin-left:6px;"></i>   <!-- or keep fa-leaf if you prefer -->
-    <span>GreenMind AI</span>
-  </div>
-    <nav class="nav-links">
-      <a href="#" class="active">Identify</a>
-      <a href="#" id="tab-health">Health (secondary)</a>
-      <a href="https://en.wikipedia.org/wiki/Plant" target="_blank" rel="noreferrer">Learn</a>
-    </nav>
+    <div class="brand">
+      <i class="fa-solid fa-leaf" style="margin-left:6px;"></i>
+      <span>GreenMind AI</span>
+    </div>
+<nav class="nav-links">
+  <a href="/" class="nav-link active">Identify</a>
+  <a class="nav-link" href="/health-secondary">Check Health</a>
+  <a href="https://en.wikipedia.org/wiki/Plant" target="_blank" rel="noopener noreferrer">Learn</a>
+
+  {% if current_user.is_authenticated %}
+      <a href="/my-plants" class="nav-link">My Plants</a>
+      <a href="{{ url_for('logout') }}" class="btn btn-light">Logout</a>
+  {% else %}
+      <a href="{{ url_for('login') }}" class="btn btn-primary">Login</a>
+  {% endif %}
+</nav>
+
   </header>
 
   <main class="container fade-in">
@@ -66,34 +74,35 @@
           </div>
         </div>
       </div>
+
       <!-- Camera Panel -->
-<div class="camera card-sub">
-  <h3><i class="fa-solid fa-camera"></i> Use Camera</h3>
+      <div class="camera card-sub">
+        <h3><i class="fa-solid fa-camera"></i> Use Camera</h3>
 
-  <div class="camera-row">
-    <video id="video" playsinline autoplay muted class="video" hidden></video>
-    <canvas id="frame-canvas" class="video" hidden></canvas>
-  </div>
+        <div class="camera-row">
+          <video id="video" playsinline autoplay muted class="video" hidden></video>
+          <canvas id="frame-canvas" class="video" hidden></canvas>
+        </div>
 
-  <div class="camera-actions">
-    <button id="start-cam" class="btn btn-primary">
-      <i class="fa-solid fa-video"></i> Start Camera
-    </button>
-    <button id="snap" class="btn btn-light" disabled>
-      <i class="fa-solid fa-camera"></i> Capture
-    </button>
-    <button id="identify-from-cam" class="btn btn-success" disabled>
-      <i class="fa-solid fa-seedling"></i> Identify
-    </button>
-    <button id="stop-cam" class="btn btn-ghost" disabled>
-      <i class="fa-solid fa-square"></i> Stop
-    </button>
-  </div>
+        <div class="camera-actions">
+          <button id="start-cam" class="btn btn-primary">
+            <i class="fa-solid fa-video"></i> Start Camera
+          </button>
+          <button id="snap" class="btn btn-light" disabled>
+            <i class="fa-solid fa-camera"></i> Capture
+          </button>
+          <button id="identify-from-cam" class="btn btn-success" disabled>
+            <i class="fa-solid fa-seedling"></i> Identify
+          </button>
+          <button id="stop-cam" class="btn btn-ghost" disabled>
+            <i class="fa-solid fa-square"></i> Stop
+          </button>
+        </div>
 
-  <small class="hint">
-    Tip: On phones, we request the rear camera. Works on HTTPS or <code>http://localhost</code>.
-  </small>
-</div>
+        <small class="hint">
+          Tip: On phones, we request the rear camera. Works on HTTPS or <code>http://localhost</code>.
+        </small>
+      </div>
 
       <!-- Results Card -->
       <div class="card results">
@@ -125,7 +134,7 @@
               Don’t ingest or use plants based solely on app identification. Verify locally.
             </small>
           </div>
-          
+
           <div class="card-sub feedback" id="feedback-block" style="display:none;">
             <h3><i class="fa-solid fa-thumbs-up"></i> Was this correct?</h3>
             <div class="feedback-row">
@@ -153,33 +162,33 @@
             <div id="fb-toast" class="small muted" style="display:none;"></div>
           </div>
 
-            <div id="explain-area" class="card-sub hidden">
+          <div id="explain-area" class="card-sub hidden">
             <div class="explain-head">
-                <h3><i class="fa-solid fa-bolt"></i> Explanation (Grad-CAM)</h3>
+              <h3><i class="fa-solid fa-bolt"></i> Explanation (Grad-CAM)</h3>
 
-                <div class="explain-controls">
+              <div class="explain-controls">
                 <label class="ctrl">
-                    Method
-                    <select id="cam-method">
+                  Method
+                  <select id="cam-method">
                     <option value="gradcam">Grad-CAM</option>
                     <option value="eigen" selected>EigenCAM</option>
-                    </select>
+                  </select>
                 </label>
 
                 <label class="ctrl">
-                    Opacity <span id="opacity-val">55%</span>
-                    <input id="opacity-slider" type="range" min="0" max="100" value="55">
+                  Opacity <span id="opacity-val">55%</span>
+                  <input id="opacity-slider" type="range" min="0" max="100" value="55">
                 </label>
 
                 <button id="download-cam" class="btn btn-light">
-                    <i class="fa-solid fa-download"></i> Save
+                  <i class="fa-solid fa-download"></i> Save
                 </button>
-                </div>
+              </div>
             </div>
 
             <canvas id="cam-canvas"></canvas>
             <small>Heatmap shows regions most influential for the prediction.</small>
-            </div>
+          </div>
 
         </div>
       </div>
@@ -188,11 +197,10 @@
 
   <div id="toast" class="toast hidden"></div>
 
-<footer class="footer">
-  <span>© <span id="year"></span> GreenMind AI • FYP</span>
-</footer>
+  <footer class="footer">
+    <span>© <span id="year"></span> GreenMind AI • FYP</span>
+  </footer>
 
   <script src="/static/script.js"></script>
 </body>
 </html>
-

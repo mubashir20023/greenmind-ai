@@ -1,8 +1,13 @@
 # app/backends.py
 from __future__ import annotations
-import os, io, json, base64
+
+import os
+import io
+import json
+import base64
 from typing import List, Dict, Optional, Tuple
 
+import cv2
 import requests
 from PIL import Image
 
@@ -15,10 +20,12 @@ def _pil_to_jpeg_bytes(img: Image.Image, quality: int = 92) -> bytes:
     img.convert("RGB").save(buf, format="JPEG", quality=quality, optimize=True)
     return buf.getvalue()
 
+
 def _norm_label(s: Optional[str]) -> str:
     if not s:
         return "Unknown"
     return " ".join(s.strip().split())
+
 
 def _pick_organ_hint(hint: Optional[str]) -> Optional[str]:
     if not hint:
@@ -49,13 +56,13 @@ class Backend:
 class PlantIdBackend(Backend):
     """
     Plant.id v3
-    Docs: https://plant.id/docs
-    Endpoint (typical): https://api.plant.id/v3/identification
+    Endpoint: https://api.plant.id/v3/identification
     """
     name = "plant.id"
 
     def __init__(self):
-        self.api_key  = (os.getenv("PLANT_ID_API_KEY") or "").strip()
+        # canonical env with backward-compatible fallback
+        self.api_key  = (os.getenv("PLANT_ID_API_KEY") or os.getenv("PLANTID_API_KEY") or "").strip()
         self.url      = (os.getenv("PLANT_ID_URL") or "https://api.plant.id/v3/identification").strip()
         self.timeout  = float(os.getenv("PLANTID_TIMEOUT", "15"))
 
@@ -71,12 +78,9 @@ class PlantIdBackend(Backend):
         if not self.available():
             raise RuntimeError("PlantIdBackend not available")
 
-        # Accepts either raw base64 or data-URI; data-URI is safe for mixed clients
         img_b64 = base64.b64encode(_pil_to_jpeg_bytes(pil)).decode("ascii")
-        images = [f"data:image/jpeg;base64,{img_b64}"]
-
         payload = {
-            "images": images,
+            "images": [f"data:image/jpeg;base64,{img_b64}"],
             "similar_images": False,
             "classification_level": "species",
             "health": False,
@@ -89,15 +93,14 @@ class PlantIdBackend(Backend):
 
         headers = {
             "Api-Key": self.api_key,
-            "Content-Type": "application/json",
             "User-Agent": "greenmind-ai/1.0",
         }
 
-        r = requests.post(self.url, headers=headers, data=json.dumps(payload), timeout=self.timeout)
+        r = requests.post(self.url, headers=headers, json=payload, timeout=self.timeout)
         r.raise_for_status()
         data = r.json()
 
-        # is_plant_probability appears either top-level or under result
+        # is_plant_probability (top-level or nested)
         isp = 0.0
         if isinstance(data, dict):
             if "is_plant_probability" in data:
@@ -105,7 +108,7 @@ class PlantIdBackend(Backend):
             elif isinstance(data.get("result"), dict):
                 isp = float(data["result"].get("is_plant_probability") or 0.0)
 
-        # suggestions can be different shapes; cover the common ones
+        # suggestions (several shapes in the wild)
         suggestions = []
         if isinstance(data, dict):
             if isinstance(data.get("suggestions"), list):
@@ -121,7 +124,6 @@ class PlantIdBackend(Backend):
 
         items: List[Alt] = []
         for s in (suggestions or [])[: max(1, topk)]:
-            # Name may be in several fields depending on the response template
             plant_details = s.get("plant_details") or {}
             name = (
                 plant_details.get("scientific_name")
@@ -143,9 +145,8 @@ class PlantIdBackend(Backend):
 # ===================== Pl@ntNet (v2 /identify/all) =====================
 class PlantNetBackend(Backend):
     """
-    Pl@ntNet
-    Docs: https://my.plantnet.org/documentation
-    Endpoint: https://my-api.plantnet.org/v2/identify/all?api-key=...
+    Pl@ntNet v2
+    Endpoint: https://my-api.plantnet.org/v2/identify/all
     """
     name = "plantnet"
 
@@ -167,24 +168,15 @@ class PlantNetBackend(Backend):
             raise RuntimeError("PlantNetBackend not available")
 
         organ = _pick_organ_hint(organ_hint)
-
         params = {"api-key": self.api_key}
-        files = [
-            ("images", ("query.jpg", _pil_to_jpeg_bytes(pil), "image/jpeg")),
-        ]
-        # Pl@ntNet accepts repeated 'organs' fields; use tuple list to be explicit
-        data = []
-        if organ:
-            data.append(("organs", organ))
+        files = [("images", ("query.jpg", _pil_to_jpeg_bytes(pil), "image/jpeg"))]
+        data = [("organs", organ)] if organ else []
 
         r = requests.post(self.url, params=params, files=files, data=data, timeout=self.timeout)
         r.raise_for_status()
         data = r.json()
 
-        results = []
-        if isinstance(data, dict):
-            results = data.get("results") or []
-
+        results = data.get("results") or [] if isinstance(data, dict) else []
         items: List[Alt] = []
         for s in results[: max(1, topk)]:
             score = float(s.get("score") or 0.0)
@@ -224,3 +216,94 @@ def try_backends(
         except Exception:
             continue
     return "none", {"label": "Unknown", "score": 0.0}, [{"label": "Unknown", "score": 0.0}]
+
+
+# ===================== Health Assessment (Plant.id v3) =====================
+# Exposed at module level so app.health can:  from .backends import health_assess
+def health_assess(image_bgr):
+    """
+    Calls Plant.id v3 with the 'health' modifier and returns a normalized dict.
+
+    Returns:
+        (ok: bool, payload: dict)
+        payload = {
+            "plantid": {
+                "is_healthy": bool|None,
+                "diseases": [ { "name": str, "prob": float }, ... ]  # if provided
+            }
+        }
+    """
+    api_key = (os.getenv("PLANT_ID_API_KEY") or os.getenv("PLANTID_API_KEY") or "").strip()
+    url     = (os.getenv("PLANT_ID_URL") or "https://api.plant.id/v3/identification").strip()
+    timeout = float(os.getenv("PLANTID_TIMEOUT", "15"))
+
+    if not api_key or not url:
+        return False, {}
+
+    # Encode image -> data URI (JPEG)
+    ok, enc = cv2.imencode(".jpg", image_bgr)
+    if not ok:
+        return False, {}
+    b64 = base64.b64encode(enc.tobytes()).decode("ascii")
+
+    # Plant.id v3 recommended fields for health assessment
+    payload = {
+        "images": [f"data:image/jpeg;base64,{b64}"],
+        "classification_level": "species",
+        "similar_images": False,
+        # Either "health": true or "modifiers": ["health"] works; keep both for safety.
+        "health": True,
+        "modifiers": ["health"]
+    }
+
+    headers = {
+        "Api-Key": api_key,
+        "Content-Type": "application/json",
+        "User-Agent": "greenmind-ai/1.0"
+    }
+
+    try:
+        resp = requests.post(url, headers=headers, json=payload, timeout=timeout)
+        if not resp.ok:
+            return False, {}
+
+        data = resp.json() if resp.headers.get("content-type", "").startswith("application/json") else {}
+
+        # health_assessment may appear at top-level or under result
+        ha = {}
+        if isinstance(data, dict):
+            ha = data.get("health_assessment") or {}
+            if not ha:
+                res = data.get("result")
+                if isinstance(res, dict):
+                    ha = res.get("health_assessment") or {}
+
+        is_healthy = ha.get("is_healthy", None)
+
+        # Normalize diseases to [{name, prob}]
+        diseases_raw = ha.get("diseases") or []
+        diseases_norm = []
+        for d in diseases_raw:
+            if isinstance(d, dict):
+                name = d.get("name") or d.get("id") or "unknown"
+                # Plant.id usually uses 'probability' (0..1)
+                prob = d.get("prob")
+                if prob is None:
+                    prob = d.get("probability")
+                try:
+                    prob = float(prob) if prob is not None else 0.0
+                except Exception:
+                    prob = 0.0
+                diseases_norm.append({"name": str(name), "prob": prob})
+            else:
+                diseases_norm.append({"name": str(d), "prob": 0.0})
+
+        return True, {
+            "plantid": {
+                "is_healthy": bool(is_healthy) if isinstance(is_healthy, bool) else is_healthy,
+                "diseases": diseases_norm
+            }
+        }
+
+    except Exception:
+        return False, {}
