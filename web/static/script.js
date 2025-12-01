@@ -71,7 +71,7 @@ const identifyFromCamBtn = document.getElementById('identify-from-cam');
 // Identify page upload elements
 const fileInput  = document.getElementById('file-input');
 const browseBtn  = document.getElementById('browse-btn');
-const dropzone   = document.getElementById('dropzone');
+const dropzone   = document.getElementById('drop-zone');
 const preview    = document.getElementById('preview');
 const previewImg = document.getElementById('preview-img');
 
@@ -124,21 +124,66 @@ if (browseBtn && fileInput) {
   });
 }
 if (dropzone) {
-  ['dragenter','dragover'].forEach(evt => dropzone.addEventListener(evt, e=>{
-    e.preventDefault(); e.stopPropagation(); dropzone.classList.add('hover');
-  }));
-  ['dragleave','drop'].forEach(evt => dropzone.addEventListener(evt, e=>{
-    e.preventDefault(); e.stopPropagation(); dropzone.classList.remove('hover');
-  }));
-  dropzone.addEventListener('drop', e=>{
-    const f = e.dataTransfer.files?.[0];
-    if (f) setPreview(f);
+  ['dragenter', 'dragover'].forEach(evt => {
+    dropzone.addEventListener(evt, e => {
+      e.preventDefault();
+      e.stopPropagation();
+      dropzone.classList.add('hover');
+    });
   });
+
+  ['dragleave', 'drop'].forEach(evt => {
+    dropzone.addEventListener(evt, e => {
+      e.preventDefault();
+      e.stopPropagation();
+      dropzone.classList.remove('hover');
+    });
+  });
+
+  dropzone.addEventListener('drop', e => {
+    const files = e.dataTransfer.files;
+    if (files && files.length > 0) {
+      setPreview(files[0]);
+    }
+  });
+
+  // Prevent browser from opening the image in a new tab
   window.addEventListener('dragover', e => e.preventDefault());
   window.addEventListener('drop', e => e.preventDefault());
-  window.addEventListener('dragleave', () => dropzone.classList.remove('hover'));
 }
 
+// if (dropzone) {
+//   ['dragenter','dragover'].forEach(evt => dropzone.addEventListener(evt, e=>{
+//     e.preventDefault(); e.stopPropagation(); dropzone.classList.add('hover');
+//   }));
+//   ['dragleave','drop'].forEach(evt => dropzone.addEventListener(evt, e=>{
+//     e.preventDefault(); e.stopPropagation(); dropzone.classList.remove('hover');
+//   }));
+//   dropzone.addEventListener('drop', e=>{
+//     const f = e.dataTransfer.files?.[0];
+//     if (f) setPreview(f);
+//   });
+//   window.addEventListener('dragover', e => e.preventDefault());
+//   window.addEventListener('drop', e => e.preventDefault());
+//   window.addEventListener('dragleave', () => dropzone.classList.remove('hover'));
+// }
+// if (window.PLANT_ID && typeof healthPreviewImg !== 'undefined' && healthPreviewImg && healthPreviewImg.src) {
+//   (async () => {
+//     try {
+//       const imageBase64 = healthPreviewImg.src;
+//       await fetch('/api/plant/image', {
+//         method: 'POST',
+//         headers: { 'Content-Type': 'application/json' },
+//         body: JSON.stringify({
+//           plant_id: window.PLANT_ID,
+//           image: imageBase64
+//         })
+//       });
+//     } catch (err) {
+//       console.warn('Failed to auto-upload plant image', err);
+//     }
+//   })();
+// }
 // ---- Identify: feedback helpers ----
 function showFeedbackUI({ openCorrection = false } = {}) {
   if (!fbBlock) return;
@@ -374,12 +419,7 @@ if (identifyFromCamBtn) {
   });
 }
 window.addEventListener('beforeunload', stopCamera);
-
-    // Add this section right after the clearBtn event listener (around line 385)
-
-// =======================================================
-// FEEDBACK HANDLERS
-// =======================================================
+// Clear button handler
 if (clearBtn) {
   clearBtn.addEventListener('click', ()=>{
     if (fileInput) fileInput.value='';
@@ -392,7 +432,9 @@ if (clearBtn) {
     hideFeedbackUI();
   });
 }
-// "Yes, correct" button
+// =======================================================
+// FEEDBACK HANDLERS
+// =======================================================
 if (fbCorrectBtn) {
   fbCorrectBtn.addEventListener('click', async () => {
     if (!lastIdentifyPayload || !currentBlob) {
@@ -650,30 +692,91 @@ async function runHealth(blobOverride = null){
       }
     }
 
-    // Care tips (optional endpoint)
-    if (careHtml) {
-      careHtml.innerHTML = '<p class="muted">Generating care tips…</p>';
-      try {
-        const careRes = await fetch('/api/health/care', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ status: data.status, diseases: data.diseases || [] })
-        });
-        const careJ = await careRes.json().catch(()=>({}));
-        careHtml.innerHTML = (careRes.ok && careJ.html) ? careJ.html : '<p>Care tips unavailable right now.</p>';
-      } catch {
-        careHtml.innerHTML = '<p>Care tips unavailable right now.</p>';
-      }
-    }
-
-    healthResult?.classList.remove('hidden');
-  } catch (e) {
-    const panel = document.getElementById('healthResult') || healthEmpty;
-    if (panel) panel.innerHTML = 'Health analysis failed: ' + e.message;
-  } finally {
-    healthLoading?.classList.add('hidden');
+// Care tips (optional endpoint)
+if (careHtml) {
+  careHtml.innerHTML = '<p class="muted">Generating care tips…</p>';
+  try {
+    const careRes = await fetch('/api/health/care', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ status: data.status, diseases: data.diseases || [] })
+    });
+    const careJ = await careRes.json().catch(()=>({}));
+    careHtml.innerHTML = (careRes.ok && careJ.html) ? careJ.html : '<p>Care tips unavailable right now.</p>';
+  } catch {
+    careHtml.innerHTML = '<p>Care tips unavailable right now.</p>';
   }
 }
+if (window.PLANT_ID) {
+    try {
+        await fetch('/api/health/save', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                plant_id: window.PLANT_ID,
+                payload: data   // the whole health result
+            })
+        });
+        console.log("✓ Health auto-saved");
+    } catch (err) {
+        console.warn("Failed to auto-save health:", err);
+    }
+}
+
+healthResult?.classList.remove('hidden');
+
+/* ============================================================
+   📌 SAVE HEALTH RESULT TO DATABASE
+   This block runs AFTER health results are shown.
+   ------------------------------------------------------------
+   - Asks user if they want to save
+   - Shows list of plants OR creates a new one
+   - Sends image + health JSON to /api/save-scan
+   ============================================================ */
+try {
+    let plant_id = window.PLANT_ID || null;
+
+    if (!plant_id) {
+        const autoName = data.plant?.name || data.plant_name || "My Plant";
+        const createFD = new FormData();
+        createFD.append("plant_name", autoName);
+        const createRes = await fetch("/api/save-scan", { method: "POST", body: createFD });
+        const createJ = await createRes.json();
+        if (!createRes.ok) throw new Error(createJ.error || "Could not create plant");
+        plant_id = createJ.plant_id;
+        window.PLANT_ID = plant_id;
+    }
+
+    const fd = new FormData();
+    fd.append("plant_id", plant_id);
+    fd.append("plant_name", data.plant?.name || "");
+    fd.append("species", data.plant?.name || "");   // <── FIX
+    fd.append("health_json", JSON.stringify(data));
+    if (imageFile) fd.append("image", imageFile, "health.jpg");
+
+
+    const saveRes = await fetch("/api/save-scan", { method: "POST", body: fd });
+    const saveJ = await saveRes.json();
+    if (!saveRes.ok) throw new Error(saveJ.error || "Save failed");
+
+    console.log("✓ Auto-saved health scan.");
+    showToast("Health scan saved ✓");
+    window.dispatchEvent(new Event("plant-saved"));
+}
+catch (err) {
+    console.error(err);
+    showToast("Save failed: " + err.message, true);
+}
+/* ============================================================ */
+
+} catch (e) {
+  const panel = document.getElementById('healthResult') || healthEmpty;
+  if (panel) panel.innerHTML = 'Health analysis failed: ' + e.message;
+} finally {
+  healthLoading?.classList.add('hidden');
+}
+}
+
 
 // -------------------- Health explain overlay (Identify-style) --------------------
 

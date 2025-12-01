@@ -12,25 +12,26 @@
 <body>
   <div class="bg"></div>
 
-  <header class="nav">
-    <div class="brand">
-      <i class="fa-solid fa-leaf" style="margin-left:6px;"></i>
-      <span>GreenMind AI</span>
-    </div>
-<nav class="nav-links">
-  <a href="/" class="nav-link {% if request.path == '/' %}active{% endif %}">Identify</a>
-  <a href="/health-secondary" class="nav-link {% if request.path == '/health-secondary' %}active{% endif %}">Check Health</a>
-  <a href="https://en.wikipedia.org/wiki/Plant" target="_blank" rel="noopener noreferrer">Learn</a>
+<header class="nav">
+  <div class="brand">
+    <i class="fa-solid fa-leaf"></i>
+    <span>GreenMind AI</span>
+  </div>
 
-  {% if current_user.is_authenticated %}
-      <a href="/my-plants" class="nav-link {% if request.path == '/my-plants' %}active{% endif %}">My Plants</a>
-      <a href="{{ url_for('logout') }}" class="btn btn-light">Logout</a>
-  {% else %}
-      <a href="{{ url_for('login') }}" class="btn btn-primary">Login</a>
-  {% endif %}
-</nav>
+  <nav class="nav-links">
+    <a href="/" class="nav-link {% if request.path == '/' %}active{% endif %}">Identify</a>
+    <a href="/health-secondary" class="nav-link {% if '/health' in request.path %}active{% endif %}">Check Health</a>
+    <a href="https://en.wikipedia.org/wiki/Plant" target="_blank" class="nav-link">Learn</a>
+    <a href="/my-plants" class="nav-link {% if '/my-plants' in request.path %}active{% endif %}">My Plants</a>
 
-  </header>
+    {% if current_user.is_authenticated %}
+      <a href="{{ url_for('logout') }}" class="btn btn-light logout-btn">Logout</a>
+    {% else %}
+      <a href="{{ url_for('login') }}" class="btn btn-primary login-btn">Login</a>
+    {% endif %}
+  </nav>
+</header>
+
 
   <main class="container fade-in">
     <section class="hero">
@@ -106,7 +107,7 @@
       </div>
 
       <!-- Results Card -->
-      <div class="card results">
+      <div class="card results full-width">
         <div id="health-loading" class="loading hidden">
           <div class="spinner"></div>
           <p>Analyzing health…</p>
@@ -229,6 +230,7 @@
         document.getElementById('health-empty')?.classList.remove('hidden');
       });
     })();
+    window.PLANT_ID = "{{ plant_id }}";
   </script>
 </body>
 </html>
