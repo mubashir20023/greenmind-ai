@@ -106,42 +106,49 @@
   </div>
 
 
-  <!-- ⭐⭐⭐ DETAIL PANEL (ADD THIS ENTIRE BLOCK) ⭐⭐⭐ -->
-  <div id="detail-empty" class="muted hidden">
+  <!-- EMPTY STATE (visible before a plant is selected) -->
+<div id="detail-empty" class="muted small">
+  Select a plant to view details.
+</div>
 
-    <!-- Hidden until a plant is selected -->
-    <div id="detail-empty" class="muted">Select a plant to view details.</div>
+<!-- DETAIL PANEL (hidden until plant is clicked) -->
+<div id="detail-view" class="hidden">
 
-    <div id="detail-view" class="hidden">
+    <!-- FULL HEALTH RESULT -->
+    <h4 style="margin-top:20px;">Health Analysis</h4>
+    <div id="detail-health-full" class="card-sub muted small">
+        Select a plant to load health details.
+    </div>
 
-      <div id="detail-meta-line" class="muted small"></div>
-      <h3 id="detail-name"></h3>
-      <p id="detail-desc"></p>
+    <div id="detail-meta-line" class="muted small"></div>
+    <h3 id="detail-name"></h3>
+    <p id="detail-desc"></p>
 
-      <img id="detail-img" src="/static/icons/icon-192.png"
-           style="width:100%;max-width:250px;border-radius:10px;margin-bottom:10px;">
+    <img id="detail-img" src="/static/icons/icon-192.png"
+         style="width:100%;max-width:250px;border-radius:10px;margin-bottom:10px;">
 
-      <!-- Last Health Summary -->
-      <h4>Latest Health</h4>
-      <div id="health-summary-body" class="card-sub muted small">
-        Loading...
-      </div>
+    <!-- Latest Health -->
+    <h4>Latest Health</h4>
+    <div id="health-summary-body" class="card-sub muted small">Loading...</div>
 
-      <!-- Full History -->
-      <h4 style="margin-top:20px;">History</h4>
-      <div id="history-list" class="history-list"></div>
+    <!-- History -->
+    <h4 style="margin-top:20px;">History</h4>
+    <div id="history-list" class="history-list"></div>
 
-      <!-- Gallery -->
-      <h4 style="margin-top:20px;">Recent Photos</h4>
-      <div id="gallery-block" style="display:none;">
+    <!-- Gallery -->
+    <h4 style="margin-top:20px;">Recent Photos</h4>
+    <div id="gallery-block" style="display:none;">
         <div id="gallery-thumbs" class="gallery-thumbs"></div>
-      </div>
+    </div>
 
-      <!-- Buttons -->
-      <div style="margin-top:20px;">
-        <button class="btn btn-primary" id="btnRunCheck">Run Health Check</button>
-        <button class="btn btn-light" id="btnFetchPrecautions">Refresh Precautions</button>
-      </div>
+    <!-- Buttons -->
+    <div style="margin-top:20px;">
+      <button class="btn btn-primary" id="btnRunCheck">Run Health Check</button>
+      <button class="btn btn-light" id="btnFetchPrecautions">Refresh Precautions</button>
+    </div>
+
+</div>
+
 
     </div>
   </div>

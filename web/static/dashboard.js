@@ -48,6 +48,54 @@
   window.addEventListener("plant-saved", () => {
       loadPlants();  // reload dashboard groups & history
   });
+async function loadFullHealthResult(plant_id) {
+    const box = document.getElementById("detail-health-full");
+    if (!box) return;
+    box.innerHTML = "Loading full health details...";
+
+    try {
+        const res = await fetch(`/api/get_latest_health?plant_id=${plant_id}`);
+        const data = await res.json();
+
+        if (!data || data.error) {
+            box.innerHTML = `<div class="muted">No detailed health result found.</div>`;
+            return;
+        }
+
+        const status = data.status || "Unknown";
+        const score = data.score || 0;
+        const diseases = (data.diseases || []).map(d => {
+            if (typeof d === "string") return `<span class="chip">${d}</span>`;
+            if (d.name) return `<span class="chip">${d.name}</span>`;
+            if (d.label) return `<span class="chip">${d.label}</span>`;
+            return "";
+        }).join("");
+
+        box.innerHTML = `
+            <div class="topline">
+                <h3 class="match-title">
+                    Status: ${status}
+                    <span class="badge">${score}%</span>
+                </h3>
+                <div class="meter"><div class="meter-fill" style="width:${score}%"></div></div>
+            </div>
+
+            <div class="alts">
+                <span class="alts-title">Likely diseases:</span>
+                <div class="chips">${diseases || "None detected"}</div>
+            </div>
+
+            <div class="card-sub" style="margin-top:14px;">
+                <h3><i class="fa-solid fa-book-medical"></i> Care Tips</h3>
+                <div class="facts-body">${data.care_html || "No tips available"}</div>
+            </div>
+        `;
+    }
+    catch (err) {
+        console.error(err);
+        box.innerHTML = "<div class='muted'>Error loading health details.</div>";
+    }
+}
 
   // ---------- fetch and group ----------
   async function loadPlants(){
@@ -149,7 +197,9 @@
         item.appendChild(thumb); item.appendChild(info);
 
         // clicking item selects and opens details
-        item.addEventListener('click', ()=> selectPlant(p.id));
+        item.addEventListener('click', ()=> {
+          selectPlant(p.id);
+      });
 
         // animate meter width
         setTimeout(()=> {
@@ -224,6 +274,8 @@
     if (galleryThumbs) galleryThumbs.innerHTML = '';
     if (galleryBlock) galleryBlock.style.display = 'none';
     await loadGallery(selectedPlant.id);
+    // Load FULL health result card too
+    loadFullHealthResult(selectedPlant.id);
 
     // weather & precautions
     fetchWeatherAndPrecautions(selectedPlant.id);
