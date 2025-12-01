@@ -1,0 +1,212 @@
+<!-- web/templates/my_plants.html -->
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>My Plants · GreenMind AI</title>
+
+  <!-- base + dashboard styles -->
+  <link rel="stylesheet" href="/static/style.css"/>
+  <link rel="stylesheet" href="/static/dashboard.css"/>
+
+  <!-- icons -->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/js/all.min.js"></script>
+</head>
+<body>
+  <div id="page-bg"></div>
+
+  <!-- NAVIGATION -->
+<header class="nav">
+  <div class="brand">
+    <i class="fa-solid fa-leaf"></i>
+    <span>GreenMind AI</span>
+  </div>
+
+  <nav class="nav-links">
+    <a href="/" class="nav-link {% if request.path == '/' %}active{% endif %}">Identify</a>
+    <a href="/health-secondary" class="nav-link {% if '/health' in request.path %}active{% endif %}">Check Health</a>
+    <a href="https://en.wikipedia.org/wiki/Plant" target="_blank" class="nav-link">Learn</a>
+    <a href="/my-plants" class="nav-link {% if '/my-plants' in request.path %}active{% endif %}">My Plants</a>
+
+    {% if current_user.is_authenticated %}
+      <a href="{{ url_for('logout') }}" class="btn btn-light logout-btn">Logout</a>
+    {% else %}
+      <a href="{{ url_for('login') }}" class="btn btn-primary login-btn">Login</a>
+    {% endif %}
+  </nav>
+</header>
+
+
+  <!-- MAIN CONTENT -->
+  <main class="container">
+
+    <!-- HERO HEADER -->
+    <section class="hero">
+      <div>
+        <h1>
+          Welcome back,
+          <span class="username">
+            {{ current_user.name.split()[0].title() }}
+          </span> 👋
+        </h1>
+        <p class="sub">
+          Track plant groups, monitor health history and view weather-aware suggestions.
+        </p>
+      </div>
+
+      <div class="hero-cards">
+        <div class="stat-card card">
+          <div class="stat-icon"><i class="fa-solid fa-seedling"></i></div>
+          <div class="stat-body">
+            <div class="stat-value" id="stat-total">0</div>
+            <div class="stat-label">Total Plants</div>
+          </div>
+        </div>
+
+        <div class="stat-card card">
+          <div class="stat-icon"><i class="fa-solid fa-layer-group"></i></div>
+          <div class="stat-body">
+            <div class="stat-value" id="stat-groups">0</div>
+            <div class="stat-label">Plant Groups</div>
+          </div>
+        </div>
+
+        <div class="stat-card card">
+          <div class="stat-icon"><i class="fa-solid fa-heart"></i></div>
+          <div class="stat-body">
+            <div class="stat-value" id="stat-health">--%</div>
+            <div class="stat-label">Avg Health</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- ============================
+          MAIN GRID (70% / 30%)
+         ============================ -->
+    <div class="main-grid">
+
+      <!-- LEFT COLUMN (70%) — GROUP COLLECTIONS -->
+<div class="left-col">
+
+  <!-- PLANT LIST CARD -->
+  <div class="card" id="plant-list-card">
+    <div class="card-header">
+      <h2>Your Plant Collections <span id="plant-count" class="badge">0</span></h2>
+      <button id="btnAddPlant" class="btn btn-primary">
+        <i class="fa-solid fa-plus"></i> Add plant
+      </button>
+    </div>
+
+    <div id="groups-container" class="groups-container">
+      <div class="muted small" id="groups-empty">Loading your plants...</div>
+    </div>
+  </div>
+
+
+  <!-- ⭐⭐⭐ DETAIL PANEL (ADD THIS ENTIRE BLOCK) ⭐⭐⭐ -->
+  <div id="detail-empty" class="muted hidden">
+
+    <!-- Hidden until a plant is selected -->
+    <div id="detail-empty" class="muted">Select a plant to view details.</div>
+
+    <div id="detail-view" class="hidden">
+
+      <div id="detail-meta-line" class="muted small"></div>
+      <h3 id="detail-name"></h3>
+      <p id="detail-desc"></p>
+
+      <img id="detail-img" src="/static/icons/icon-192.png"
+           style="width:100%;max-width:250px;border-radius:10px;margin-bottom:10px;">
+
+      <!-- Last Health Summary -->
+      <h4>Latest Health</h4>
+      <div id="health-summary-body" class="card-sub muted small">
+        Loading...
+      </div>
+
+      <!-- Full History -->
+      <h4 style="margin-top:20px;">History</h4>
+      <div id="history-list" class="history-list"></div>
+
+      <!-- Gallery -->
+      <h4 style="margin-top:20px;">Recent Photos</h4>
+      <div id="gallery-block" style="display:none;">
+        <div id="gallery-thumbs" class="gallery-thumbs"></div>
+      </div>
+
+      <!-- Buttons -->
+      <div style="margin-top:20px;">
+        <button class="btn btn-primary" id="btnRunCheck">Run Health Check</button>
+        <button class="btn btn-light" id="btnFetchPrecautions">Refresh Precautions</button>
+      </div>
+
+    </div>
+  </div>
+
+</div>
+
+
+
+      <!-- RIGHT COLUMN (30%) — WEATHER + NOTE -->
+<div class="right-col">
+
+  <div class="card weather-wrapper">
+    <div id="weather-card" class="weather-card">
+      <canvas id="weather-canvas" class="weather-canvas"></canvas>
+
+      <div class="weather-inner">
+        <div class="weather-head">
+          <div>
+            <div class="weather-title">Weather</div>
+            <div id="weather-location" class="muted small">Loading...</div>
+          </div>
+          <div id="weather-icon" class="weather-icon"></div>
+        </div>
+
+        <div class="weather-main">
+          <div id="weather-temp" class="temp-large">--°C</div>
+          <div id="weather-cond" class="muted small"></div>
+          <div id="weather-meta" class="muted small"></div>
+        </div>
+
+        <div id="weather-forecast" class="weather-forecast"></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- new weather specific note -->
+  <div id="weather-note" class="weather-note hidden">
+    <h4>Weather-Specific Note</h4>
+    <div id="weather-note-body" class="muted small"></div>
+  </div>
+
+</div>
+
+    </div>
+
+
+    <!-- ============================
+          FULL-WIDTH PRECAUTIONS
+         ============================ -->
+    <section id="precautions-global-section" class="precautions-global hidden">
+      <h2 class="precautions-title">Precautions & Advice</h2>
+      <div id="precautions-global-body" class="precautions-global-body">
+        <p class="muted">Select a plant to see advice.</p>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <span>© <span id="year"></span> GreenMind AI • FYP</span>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="/static/script.js"></script>
+  <script defer src="/static/dashboard.js"></script>
+</body>
+</html>

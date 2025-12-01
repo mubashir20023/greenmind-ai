@@ -54,14 +54,9 @@ class Backend:
 
 # ===================== Plant.id (v3) =====================
 class PlantIdBackend(Backend):
-    """
-    Plant.id v3
-    Endpoint: https://api.plant.id/v3/identification
-    """
     name = "plant.id"
 
     def __init__(self):
-        # canonical env with backward-compatible fallback
         self.api_key  = (os.getenv("PLANT_ID_API_KEY") or os.getenv("PLANTID_API_KEY") or "").strip()
         self.url      = (os.getenv("PLANT_ID_URL") or "https://api.plant.id/v3/identification").strip()
         self.timeout  = float(os.getenv("PLANTID_TIMEOUT", "15"))
@@ -91,16 +86,12 @@ class PlantIdBackend(Backend):
         if organ:
             payload["organs"] = [organ]
 
-        headers = {
-            "Api-Key": self.api_key,
-            "User-Agent": "greenmind-ai/1.0",
-        }
+        headers = {"Api-Key": self.api_key, "User-Agent": "greenmind-ai/1.0"}
 
         r = requests.post(self.url, headers=headers, json=payload, timeout=self.timeout)
         r.raise_for_status()
         data = r.json()
 
-        # is_plant_probability (top-level or nested)
         isp = 0.0
         if isinstance(data, dict):
             if "is_plant_probability" in data:
@@ -108,7 +99,6 @@ class PlantIdBackend(Backend):
             elif isinstance(data.get("result"), dict):
                 isp = float(data["result"].get("is_plant_probability") or 0.0)
 
-        # suggestions (several shapes in the wild)
         suggestions = []
         if isinstance(data, dict):
             if isinstance(data.get("suggestions"), list):
@@ -144,10 +134,6 @@ class PlantIdBackend(Backend):
 
 # ===================== Pl@ntNet (v2 /identify/all) =====================
 class PlantNetBackend(Backend):
-    """
-    Pl@ntNet v2
-    Endpoint: https://my-api.plantnet.org/v2/identify/all
-    """
     name = "plantnet"
 
     def __init__(self):
@@ -203,10 +189,6 @@ def try_backends(
     topk: int = 3,
     organ_hint: Optional[str] = None
 ) -> Tuple[str, Dict[str, object], List[Alt]]:
-    """
-    Try each backend in order; return (name, best, alts).
-    If all fail, returns ("none", Unknown...).
-    """
     for be in backends:
         try:
             if be.available():
@@ -218,21 +200,8 @@ def try_backends(
     return "none", {"label": "Unknown", "score": 0.0}, [{"label": "Unknown", "score": 0.0}]
 
 
-# ===================== Health Assessment (Plant.id v3) =====================
-# Exposed at module level so app.health can:  from .backends import health_assess
+# ===================== Health Assessment =====================
 def health_assess(image_bgr):
-    """
-    Calls Plant.id v3 with the 'health' modifier and returns a normalized dict.
-
-    Returns:
-        (ok: bool, payload: dict)
-        payload = {
-            "plantid": {
-                "is_healthy": bool|None,
-                "diseases": [ { "name": str, "prob": float }, ... ]  # if provided
-            }
-        }
-    """
     api_key = (os.getenv("PLANT_ID_API_KEY") or os.getenv("PLANTID_API_KEY") or "").strip()
     url     = (os.getenv("PLANT_ID_URL") or "https://api.plant.id/v3/identification").strip()
     timeout = float(os.getenv("PLANTID_TIMEOUT", "15"))
@@ -240,27 +209,20 @@ def health_assess(image_bgr):
     if not api_key or not url:
         return False, {}
 
-    # Encode image -> data URI (JPEG)
     ok, enc = cv2.imencode(".jpg", image_bgr)
     if not ok:
         return False, {}
     b64 = base64.b64encode(enc.tobytes()).decode("ascii")
 
-    # Plant.id v3 recommended fields for health assessment
     payload = {
         "images": [f"data:image/jpeg;base64,{b64}"],
         "classification_level": "species",
         "similar_images": False,
-        # Either "health": true or "modifiers": ["health"] works; keep both for safety.
         "health": True,
         "modifiers": ["health"]
     }
 
-    headers = {
-        "Api-Key": api_key,
-        "Content-Type": "application/json",
-        "User-Agent": "greenmind-ai/1.0"
-    }
+    headers = {"Api-Key": api_key, "Content-Type": "application/json", "User-Agent": "greenmind-ai/1.0"}
 
     try:
         resp = requests.post(url, headers=headers, json=payload, timeout=timeout)
@@ -269,7 +231,6 @@ def health_assess(image_bgr):
 
         data = resp.json() if resp.headers.get("content-type", "").startswith("application/json") else {}
 
-        # health_assessment may appear at top-level or under result
         ha = {}
         if isinstance(data, dict):
             ha = data.get("health_assessment") or {}
@@ -280,30 +241,21 @@ def health_assess(image_bgr):
 
         is_healthy = ha.get("is_healthy", None)
 
-        # Normalize diseases to [{name, prob}]
         diseases_raw = ha.get("diseases") or []
         diseases_norm = []
         for d in diseases_raw:
             if isinstance(d, dict):
                 name = d.get("name") or d.get("id") or "unknown"
-                # Plant.id usually uses 'probability' (0..1)
-                prob = d.get("prob")
-                if prob is None:
-                    prob = d.get("probability")
+                prob = d.get("prob") or d.get("probability") or 0.0
                 try:
-                    prob = float(prob) if prob is not None else 0.0
+                    prob = float(prob)
                 except Exception:
                     prob = 0.0
                 diseases_norm.append({"name": str(name), "prob": prob})
             else:
                 diseases_norm.append({"name": str(d), "prob": 0.0})
 
-        return True, {
-            "plantid": {
-                "is_healthy": bool(is_healthy) if isinstance(is_healthy, bool) else is_healthy,
-                "diseases": diseases_norm
-            }
-        }
+        return True, {"plantid": {"is_healthy": is_healthy, "diseases": diseases_norm}}
 
     except Exception:
         return False, {}

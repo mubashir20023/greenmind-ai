@@ -1,29 +1,191 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login - AI App</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Login • GreenMind AI</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #dbffe7, #f5ffff);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.wrapper {
+    display: flex;
+    gap: 40px;
+    width: 90%;
+    max-width: 1100px;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.left-card {
+    width: 50%;
+    background: #ffffff90;
+    backdrop-filter: blur(18px);
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+    animation: slideLeft 0.8s ease-out;
+}
+
+.left-card h1 {
+    font-size: 34px;
+    font-weight: 800;
+    color: #07381e;
+}
+
+.left-card .desc {
+    font-size: 15px;
+    margin-top: 10px;
+    color: #0b5c34;
+}
+
+.feature {
+    margin-top: 25px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    padding: 14px;
+    background: #f8fffa;
+    border-radius: 16px;
+    border: 1px solid #d7ffe8;
+    transition: 0.3s;
+}
+.feature:hover {
+    transform: translateY(-3px);
+}
+
+.feature-icon {
+    background: #d8ffea;
+    padding: 12px;
+    border-radius: 12px;
+}
+
+/* LOGIN FORM */
+.form-card {
+    width: 45%;
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 22px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    animation: slideRight 0.8s ease-out;
+}
+
+.form-card h2 {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 28px;
+    color: #07381e;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+input {
+    padding: 14px 16px;
+    margin-top: 10px;
+    border-radius: 12px;
+    border: 1px solid #d7d7d7;
+    font-size: 15px;
+}
+input:focus {
+    border-color: #00c37a;
+    outline: none;
+}
+
+button {
+    margin-top: 18px;
+    padding: 14px;
+    width: 100%;
+    border-radius: 12px;
+    background: linear-gradient(135deg, #00c37a, #00a86b);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+button:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 12px rgba(0,150,90,0.25);
+}
+
+a {
+    color: #009f66;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+p {
+    text-align: center;
+    margin-top: 15px;
+}
+
+/* Animations */
+@keyframes slideLeft { from {opacity:0; transform: translateX(-30px);} to {opacity:1; transform: translateX(0);} }
+@keyframes slideRight { from {opacity:0; transform: translateX(30px);} to {opacity:1; transform: translateX(0);} }
+@keyframes fadeIn { from {opacity:0;} to {opacity:1;} }
+
+</style>
 </head>
 <body>
-    <div class="container">
-        <div class="form-box">
-            <h2>Login</h2>
-            {% with messages = get_flashed_messages(with_categories=true) %}
-                {% if messages %}
-                    {% for category, message in messages %}
-                        <div class="flash {{ category }}">{{ message }}</div>
-                    {% endfor %}
-                {% endif %}
-            {% endwith %}
-            <form method="POST">
-                <input type="email" name="email" placeholder="Email" required>
-                <input type="password" name="password" placeholder="Password" required>
-                <button type="submit">Login</button>
-            </form>
-            <p>Don't have an account? <a href="{{ url_for('signup') }}">Sign up</a></p>
+
+<div class="wrapper">
+
+    <!-- LEFT SIDE -->
+    <div class="left-card">
+        <h1>Welcome Back! 👋</h1>
+        <p class="desc">Your plants are waiting. Monitor health, get care tips, and track updates.</p>
+
+        <div class="feature">
+            <div class="feature-icon">🤖</div>
+            AI-Powered Plant Identification
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">❤️</div>
+            Real-Time Health Monitoring
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">🌦️</div>
+            Weather-Based Care Tips
         </div>
     </div>
+
+    <!-- RIGHT LOGIN -->
+    <div class="form-card">
+
+        <h2>Sign In to GreenMind AI</h2>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="flash {{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <form method="POST">
+            <input type="email" name="email" placeholder="Email Address" required />
+            <input type="password" name="password" placeholder="Password" required />
+            <button type="submit">Sign In →</button>
+        </form>
+
+        <p>Don't have an account? <a href="{{ url_for('signup') }}">Sign Up</a></p>
+    </div>
+
+</div>
+
 </body>
 </html>

@@ -1,30 +1,218 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up - AI App</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Sign Up • GreenMind AI</title>
+
+<style>
+/* ---------------- GLOBAL ---------------- */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #dbffe7, #f5ffff);
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ----------- CARD WRAPPER ----------- */
+.wrapper {
+    display: flex;
+    gap: 40px;
+    align-items: stretch;
+    justify-content: center;
+    width: 90%;
+    max-width: 1100px;
+    animation: fadeIn 0.8s ease-out;
+}
+
+/* ----------- LEFT FEATURE CARD ----------- */
+.left-card {
+    width: 50%;
+    background: #ffffff90;
+    backdrop-filter: blur(20px);
+    padding: 35px;
+    border-radius: 20px;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.08);
+    animation: slideLeft 0.8s ease-out;
+}
+
+.left-card h1 {
+    font-size: 34px;
+    font-weight: 800;
+    color: #07381e;
+    margin-bottom: 15px;
+}
+
+.feature {
+    margin-top: 25px;
+    display: flex;
+    gap: 15px;
+    align-items: center;
+    padding: 14px;
+    background: #f8fffa;
+    border-radius: 16px;
+    transition: 0.3s;
+    border: 1px solid #d7ffe8;
+}
+
+.feature:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0,0,0,0.07);
+}
+
+.feature-icon {
+    font-size: 26px;
+    background: #d8ffea;
+    padding: 10px;
+    border-radius: 12px;
+}
+
+/* ----------- SIGNUP FORM CARD ----------- */
+.form-card {
+    width: 45%;
+    background: #ffffff;
+    padding: 35px;
+    border-radius: 22px;
+    box-shadow: 0 8px 25px rgba(0,0,0,0.08);
+    animation: slideRight 0.8s ease-out;
+}
+
+.form-card h2 {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 12px;
+    color: #07381e;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    margin-top: 15px;
+}
+
+input {
+    padding: 14px 16px;
+    margin-top: 10px;
+    border-radius: 12px;
+    border: 1px solid #d7d7d7;
+    font-size: 15px;
+    transition: border 0.3s;
+}
+
+input:focus {
+    border-color: #00c37a;
+    outline: none;
+}
+
+button {
+    margin-top: 18px;
+    padding: 14px;
+    width: 100%;
+    border-radius: 12px;
+    font-size: 16px;
+    background: linear-gradient(135deg, #00c37a, #00a86b);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 12px rgba(0,150,90,0.25);
+}
+
+p {
+    margin-top: 15px;
+    text-align: center;
+}
+
+a {
+    color: #009f66;
+    text-decoration: none;
+    transition: 0.3s;
+}
+a:hover {
+    text-decoration: underline;
+}
+
+/* ----------- ANIMATIONS ----------- */
+@keyframes slideLeft {
+    from { transform: translateX(-35px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+@keyframes slideRight {
+    from { transform: translateX(35px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+</style>
+
 </head>
 <body>
-    <div class="container">
-        <div class="form-box">
-            <h2>Sign Up</h2>
-            {% with messages = get_flashed_messages(with_categories=true) %}
-                {% if messages %}
-                    {% for category, message in messages %}
-                        <div class="flash {{ category }}">{{ message }}</div>
-                    {% endfor %}
-                {% endif %}
-            {% endwith %}
-            <form method="POST">
-                <input type="text" name="name" placeholder="Full Name" required>
-                <input type="email" name="email" placeholder="Email" required>
-                <input type="password" name="password" placeholder="Password" required>
-                <button type="submit">Sign Up</button>
-            </form>
-            <p>Already have an account? <a href="{{ url_for('login') }}">Login</a></p>
+
+<div class="wrapper">
+
+    <!-- LEFT SIDE FEATURES -->
+    <div class="left-card">
+        <h1>Join GreenMind AI 🌱</h1>
+        <p>Become a plant expert with AI-powered insights, health monitoring, and tailored weather-based care tips.</p>
+
+        <div class="feature">
+            <div class="feature-icon">📷</div>
+            <div>
+                <strong>AI Plant Recognition</strong><br>
+                Instantly identify plants with cutting-edge AI.
+            </div>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">❤️</div>
+            <div>
+                <strong>Health Monitoring</strong><br>
+                Track your plants' well-being in real-time.
+            </div>
+        </div>
+
+        <div class="feature">
+            <div class="feature-icon">🌦️</div>
+            <div>
+                <strong>Smart Recommendations</strong><br>
+                Personalized care tips based on weather.
+            </div>
         </div>
     </div>
+
+    <!-- SIGNUP FORM -->
+    <div class="form-card">
+        <h2>Create Your Account</h2>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="flash {{ category }}">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <form method="POST">
+            <input type="text" name="name" placeholder="Full Name" required />
+            <input type="email" name="email" placeholder="Email Address" required />
+            <input type="password" name="password" placeholder="Password" required />
+            <button type="submit">Create Account →</button>
+        </form>
+
+        <p>Already have an account? <a href="{{ url_for('login') }}">Sign In</a></p>
+    </div>
+
+</div>
+
 </body>
 </html>

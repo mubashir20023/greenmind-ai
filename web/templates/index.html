@@ -20,25 +20,26 @@
 <body>
   <div class="bg"></div>
 
-  <header class="nav">
-    <div class="brand">
-      <i class="fa-solid fa-leaf" style="margin-left:6px;"></i>
-      <span>GreenMind AI</span>
-    </div>
-<nav class="nav-links">
-  <a href="/" class="nav-link active">Identify</a>
-  <a class="nav-link" href="/health-secondary">Check Health</a>
-  <a href="https://en.wikipedia.org/wiki/Plant" target="_blank" rel="noopener noreferrer">Learn</a>
+<header class="nav">
+  <div class="brand">
+    <i class="fa-solid fa-leaf"></i>
+    <span>GreenMind AI</span>
+  </div>
 
-  {% if current_user.is_authenticated %}
-      <a href="/my-plants" class="nav-link">My Plants</a>
-      <a href="{{ url_for('logout') }}" class="btn btn-light">Logout</a>
-  {% else %}
-      <a href="{{ url_for('login') }}" class="btn btn-primary">Login</a>
-  {% endif %}
-</nav>
+  <nav class="nav-links">
+    <a href="/" class="nav-link {% if request.path == '/' %}active{% endif %}">Identify</a>
+    <a href="/health-secondary" class="nav-link {% if '/health' in request.path %}active{% endif %}">Check Health</a>
+    <a href="https://en.wikipedia.org/wiki/Plant" target="_blank" class="nav-link">Learn</a>
+    <a href="/my-plants" class="nav-link {% if '/my-plants' in request.path %}active{% endif %}">My Plants</a>
 
-  </header>
+    {% if current_user.is_authenticated %}
+      <a href="{{ url_for('logout') }}" class="btn btn-light logout-btn">Logout</a>
+    {% else %}
+      <a href="{{ url_for('login') }}" class="btn btn-primary login-btn">Login</a>
+    {% endif %}
+  </nav>
+</header>
+
 
   <main class="container fade-in">
     <section class="hero">
@@ -50,7 +51,7 @@
       <!-- Upload Card -->
       <div class="card upload">
         <h2><i class="fa-solid fa-image"></i> Upload / Drop an image</h2>
-        <div id="dropzone" class="dropzone">
+        <div id="drop-zone" class="dropzone">
           <input id="file-input" type="file" accept="image/*" hidden />
           <div class="dz-inner">
             <i class="fa-solid fa-cloud-arrow-up dz-icon"></i>
@@ -105,7 +106,7 @@
       </div>
 
       <!-- Results Card -->
-      <div class="card results">
+      <div class="card results full-width">
         <div id="loading" class="loading hidden">
           <div class="spinner"></div>
           <p>Analyzing image…</p>
@@ -202,5 +203,77 @@
   </footer>
 
   <script src="/static/script.js"></script>
+  <script>
+  (function () {
+    var dropzone   = document.getElementById('drop-zone');
+    var fileInput  = document.getElementById('file-input');
+    var browseBtn  = document.getElementById('browse-btn');
+    var preview    = document.getElementById('preview');
+    var previewImg = document.getElementById('preview-img');
+
+    // If any element is missing, just bail out quietly
+    if (!dropzone || !fileInput || !browseBtn || !preview || !previewImg) {
+      console.log('Upload elements not found – upload helper not attached.');
+      return;
+    }
+
+    // Helper to show preview and remember file for Identify
+    function handleFile(file) {
+      if (!file) return;
+
+      // Share with the rest of your app if it uses window.currentBlob
+      window.currentBlob = file;
+
+      var reader = new FileReader();
+      reader.onload = function (e) {
+        previewImg.src = e.target.result;
+        preview.classList.remove('hidden');
+      };
+      reader.readAsDataURL(file);
+    }
+
+    // Browse button → open file picker
+    browseBtn.addEventListener('click', function () {
+      fileInput.click();
+    });
+
+    // When user picks a file
+    fileInput.addEventListener('change', function (e) {
+      var f = e.target.files && e.target.files[0];
+      if (f) handleFile(f);
+    });
+
+    // Drag & drop wiring
+    ['dragenter', 'dragover'].forEach(function (evtName) {
+      dropzone.addEventListener(evtName, function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        dropzone.classList.add('hover');
+      });
+    });
+
+    ['dragleave', 'drop'].forEach(function (evtName) {
+      dropzone.addEventListener(evtName, function (e) {
+        e.preventDefault();
+        e.stopPropagation();
+        dropzone.classList.remove('hover');
+      });
+    });
+
+    dropzone.addEventListener('drop', function (e) {
+      var files = e.dataTransfer && e.dataTransfer.files;
+      if (files && files[0]) {
+        handleFile(files[0]);
+      }
+    });
+
+    // Prevent browser from opening dropped file in a new tab
+    window.addEventListener('dragover', function (e) { e.preventDefault(); });
+    window.addEventListener('drop',     function (e) { e.preventDefault(); });
+
+    console.log('Inline upload/drag-drop helper attached.');
+  })();
+</script>
+
 </body>
 </html>
