@@ -13,6 +13,7 @@ import base64
 from datetime import datetime
 from pathlib import Path
 from typing import Optional
+# from app.models import db
 
 import cv2
 import numpy as np
@@ -211,6 +212,78 @@ def diag():
         }
     )
 
+# ===========================================================
+#  GET LATEST HEALTH ENTRY
+# ===========================================================
+@app.route("/api/get_latest_health")
+@login_required
+def api_get_latest_health():
+    plant_id = request.args.get("plant_id")
+    if not plant_id:
+        return jsonify({"error": "missing plant_id"}), 400
+
+    try:
+        session = SessionLocal()
+        # Fetch last health entry
+        last = (
+            session.query(PlantHealth)
+            .filter(PlantHealth.plant_id == plant_id)
+            .order_by(PlantHealth.created_at.desc())
+            .first()
+        )
+
+        if not last:
+            return jsonify({"error": "no health data"}), 404
+
+        try:
+            payload = json.loads(last.payload)
+        except:
+            payload = {}
+
+        status = payload.get("status") or payload.get("health_status") or "unknown"
+        confidence = payload.get("confidence") or payload.get("confidence_percent") or 0
+        raw_diseases = payload.get("diseases", [])
+        plant = session.query(Plant).filter(Plant.id == plant_id).first()
+        if not plant:
+            return jsonify({"error": "invalid plant_id"}), 404
+        plant_name = (plant.name or "").lower()
+        plant_species = (plant.species or "").lower()
+
+        # Filter diseases that contain plant-specific keywords
+        filtered = []
+        for d in raw_diseases:
+            name = ""
+            if isinstance(d, str):
+                name = d.lower()
+            elif isinstance(d, dict):
+                name = (d.get("name") or "").lower()
+
+            # RULE 1 — skip tomato diseases for non-tomato plants
+            if "tomato" in name and "tomato" not in plant_name and "tomato" not in plant_species:
+                continue
+
+            # RULE 2 — skip potato-only diseases
+            if "blight" in name and "potato" in name and "potato" not in plant_name:
+                continue
+
+            filtered.append(d)
+
+        diseases = filtered
+
+
+        # Care tips (optional)
+        care_html = payload.get("care_html", "")
+
+        return jsonify({
+            "status": status,
+            "score": int(float(confidence) * 100) if isinstance(confidence, float) else int(confidence),
+            "diseases": diseases,
+            "care_html": care_html
+        })
+
+    except Exception as e:
+        print("health fetch error:", e)
+        return jsonify({"error": "server error"}), 500
 
 # ---------------------- Identify ----------------------
 @app.post("/identify")
