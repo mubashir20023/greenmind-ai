@@ -21,7 +21,7 @@
   <nav class="nav-links">
     <a href="/" class="nav-link {% if request.path == '/' %}active{% endif %}">Identify</a>
     <a href="/health-secondary" class="nav-link {% if '/health' in request.path %}active{% endif %}">Check Health</a>
-    <a href="https://en.wikipedia.org/wiki/Plant" target="_blank" class="nav-link">Learn</a>
+    <!-- <a href="https://en.wikipedia.org/wiki/Plant" target="_blank" class="nav-link">Learn</a> -->
     <a href="/my-plants" class="nav-link {% if '/my-plants' in request.path %}active{% endif %}">My Plants</a>
 
     {% if current_user.is_authenticated %}
