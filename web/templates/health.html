@@ -185,52 +185,49 @@
 
   <script src="/static/script.js"></script>
   <!-- Minimal page-local wiring so the preview shows immediately -->
-  <script>
-    (function () {
-      const input   = document.getElementById('healthImageInput');
-      const browse  = document.getElementById('btnHealthBrowse');
-      const dz      = document.getElementById('health-dropzone');
-      const pv      = document.getElementById('health-preview');
-      const pvImg   = document.getElementById('health-preview-img');
-      const runBig  = document.getElementById('btnRunHealth');
-      const runBar  = document.getElementById('btnRunHealthPreview');
-      const clear   = document.getElementById('health-clear-btn');
+<script>
+  (function () {
+    const input  = document.getElementById('healthImageInput');
+    const browse = document.getElementById('btnHealthBrowse');
+    const dz     = document.getElementById('health-dropzone');
+    const pv     = document.getElementById('health-preview');
+    const pvImg  = document.getElementById('health-preview-img');
+    const clear  = document.getElementById('health-clear-btn');
 
-      function setPreview(file){
-        const r = new FileReader();
-        r.onload = () => { pvImg.src = r.result; pv.classList.remove('hidden'); };
-        r.readAsDataURL(file);
-      }
+    function setPreview(file){
+      const r = new FileReader();
+      r.onload = () => { pvImg.src = r.result; pv.classList.remove('hidden'); };
+      r.readAsDataURL(file);
+    }
 
-      browse?.addEventListener('click', ()=> input?.click());
-      input?.addEventListener('change', e=>{
-        const f = e.target.files?.[0];
-        if (f) setPreview(f);
-      });
+    browse?.addEventListener('click', ()=> input?.click());
+    input?.addEventListener('change', e=>{
+      const f = e.target.files?.[0];
+      if (f) setPreview(f);
+    });
 
-      ['dragenter','dragover'].forEach(evt => dz?.addEventListener(evt, e=>{
-        e.preventDefault(); e.stopPropagation(); dz.classList.add('hover');
-      }));
-      ['dragleave','drop'].forEach(evt => dz?.addEventListener(evt, e=>{
-        e.preventDefault(); e.stopPropagation(); dz.classList.remove('hover');
-      }));
-      dz?.addEventListener('drop', e=>{
-        const f = e.dataTransfer.files?.[0];
-        if (f) { input.files = e.dataTransfer.files; setPreview(f); }
-      });
+    ['dragenter','dragover'].forEach(evt => dz?.addEventListener(evt, e=>{
+      e.preventDefault(); e.stopPropagation(); dz.classList.add('hover');
+    }));
+    ['dragleave','drop'].forEach(evt => dz?.addEventListener(evt, e=>{
+      e.preventDefault(); e.stopPropagation(); dz.classList.remove('hover');
+    }));
+    dz?.addEventListener('drop', e=>{
+      const f = e.dataTransfer.files?.[0];
+      if (f) { input.files = e.dataTransfer.files; setPreview(f); }
+    });
 
-      // Both green buttons run the same action (handled in /static/script.js)
-      runBig?.addEventListener('click', ()=> window.runHealth && window.runHealth());
-      runBar?.addEventListener('click', ()=> window.runHealth && window.runHealth());
+    // Clear preview
+    clear?.addEventListener('click', ()=>{
+      if (input) input.value = '';
+      pv?.classList.add('hidden');
+      document.getElementById('health-empty')?.classList.remove('hidden');
+    });
+  })();
 
-      // Clear preview
-      clear?.addEventListener('click', ()=>{
-        if (input) input.value = '';
-        pv?.classList.add('hidden');
-        document.getElementById('health-empty')?.classList.remove('hidden');
-      });
-    })();
-    window.PLANT_ID = "{{ plant_id }}";
-  </script>
+  // ── FIX: only set PLANT_ID if it's a real number, not "None" ──
+  const _rawPlantId = "{{ plant_id | default('') }}";
+  window.PLANT_ID = (_rawPlantId && _rawPlantId !== 'None') ? _rawPlantId : null;
+</script>
 </body>
 </html>

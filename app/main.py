@@ -19,6 +19,7 @@ import cv2
 import numpy as np
 import requests
 from dotenv import load_dotenv
+load_dotenv()
 from PIL import Image
 
 from flask import (
@@ -56,8 +57,7 @@ from app.health import assess_health as local_health
 
 # Backend helpers (pure functions/classes — no Flask decorators)
 from app.backends import try_backends, PlantIdBackend, PlantNetBackend, health_assess
-from app.utils.common_group import normalize_group
-load_dotenv()
+# from app.utils.common_group import normalize_group
 
 # Optional: detector status (YOLO gate)
 try:
@@ -175,7 +175,8 @@ def index():
 
 @app.get("/health-secondary")
 def health_secondary_page():
-    return render_template("health.html")
+    plant_id = request.args.get("plant_id")  # optional URL param
+    return render_template("health.html", plant_id=plant_id)
 
 
 # Serve CAM images under runs/health/*
@@ -192,6 +193,9 @@ def diag():
         plantnet_key = bool(os.getenv("PLANTNET_API_KEY"))
     except Exception:
         plant_id_key = plantnet_key = False
+
+    openai_key = os.getenv("OPENAI_API_KEY") or ""
+
     return jsonify(
         {
             "yolo_available": bool(DETECTOR and DETECTOR.is_available()),
@@ -208,10 +212,16 @@ def diag():
                 "HEALTH_CONF": os.getenv("HEALTH_CONF"),
                 "USE_PLANTID_HEALTH": os.getenv("USE_PLANTID_HEALTH"),
             },
-            "api_keys": {"plant_id": plant_id_key, "plantnet": plantnet_key},
+            "api_keys": {
+                "plant_id": plant_id_key,
+                "plantnet": plantnet_key,
+                # ── NEW ──
+                "openai_set": bool(openai_key),
+                "openai_prefix": (openai_key[:7] + "...") if len(openai_key) > 7 else "(empty)",
+                "openai_model": os.getenv("OPENAI_MODEL", "gpt-4o-mini"),
+            },
         }
     )
-
 # ===========================================================
 #  GET LATEST HEALTH ENTRY
 # ===========================================================
@@ -1012,7 +1022,8 @@ def api_plant_precautions():
             html = f"<p class='muted'>Care tips unavailable: {e}</p>"
 
         try:
-            from app.healthcare import client as openai_client
+            from app.healthcare import _get_client as _hc_get_client
+            openai_client = _hc_get_client()
             if openai_client is not None and weather:
                 wtxt = f"Weather: {weather.get('weather',[{}])[0].get('description','')}, temp: {weather.get('main',{}).get('temp')}"
                 user = (
