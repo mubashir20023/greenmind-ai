@@ -46,7 +46,8 @@ try:
 except Exception:
     identify_plant = None
 
-
+from pathlib import Path
+_HEALTH_DIR = Path(__file__).resolve().parent.parent  # project root
 # ============================ Config ============================
 
 @dataclass
@@ -234,41 +235,50 @@ def _run_identification(image_bgr: np.ndarray, topk: Optional[int] = None) -> Di
 
 # ============================ Loads ============================
 
-def load_classifier() -> Tuple[torch.nn.Module, List[str]]:
+def load_classifier() -> Tuple[Optional[torch.nn.Module], List[str]]:
     global _CLF_MODEL, _CLF_CLASSES
     if _CLF_MODEL is not None:
         return _CLF_MODEL, _CLF_CLASSES or ["healthy", "diseased"]
 
-    if not os.path.exists(CFG.clf_weights):
-        raise FileNotFoundError(f"Classifier weights not found: {CFG.clf_weights}")
+    # Resolve path relative to project root (fixes working-directory issues)
+    weights_path = str(_HEALTH_DIR / CFG.clf_weights) if not os.path.isabs(CFG.clf_weights) else CFG.clf_weights
+    classes_path = str(_HEALTH_DIR / CFG.classes_path) if not os.path.isabs(CFG.classes_path) else CFG.classes_path
 
-    map_loc = "cuda" if (CFG.device == "cuda" and torch.cuda.is_available()) else "cpu"
-    model = torch.load(CFG.clf_weights, map_location=map_loc)
-    model.eval()
-    if map_loc == "cuda":
-        model = model.to("cuda")
+    if not os.path.exists(weights_path):
+        print(f"[health] classifier weights not found at {weights_path} — returning unknown")
+        return None, ["healthy", "diseased"]
 
-    if os.path.exists(CFG.classes_path):
-        with open(CFG.classes_path, "r", encoding="utf-8") as f:
+    try:
+        map_loc = "cuda" if (CFG.device == "cuda" and torch.cuda.is_available()) else "cpu"
+
+        # weights_only=False needed for full-model .pt files (PyTorch 2.x)
+        loaded = torch.load(weights_path, map_location=map_loc, weights_only=False)
+
+        # Handle both full-model and state-dict saves
+        if isinstance(loaded, dict) and ("state_dict" in loaded or "model" in loaded):
+            raise RuntimeError(
+                "Checkpoint appears to be a state_dict, not a full model. "
+                "Cannot load without knowing the architecture."
+            )
+
+        model = loaded
+        model.eval()
+        if map_loc == "cuda":
+            model = model.to("cuda")
+
+    except Exception as e:
+        print(f"[health] failed to load classifier: {e}")
+        return None, ["healthy", "diseased"]
+
+    # Load classes
+    if os.path.exists(classes_path):
+        with open(classes_path, "r", encoding="utf-8") as f:
             classes = json.load(f)
     else:
         classes = ["healthy", "diseased"]
 
     _CLF_MODEL, _CLF_CLASSES = model, classes
     return _CLF_MODEL, _CLF_CLASSES
-
-
-def load_yolo_health():
-    global _YOLO_HEALTH
-    if _YOLO_HEALTH is not None:
-        return _YOLO_HEALTH
-    if YOLO is None:
-        raise RuntimeError("Ultralytics YOLO not installed")
-    if not os.path.exists(CFG.yolo_weights):
-        raise FileNotFoundError(f"YOLO health weights not found: {CFG.yolo_weights}")
-    _YOLO_HEALTH = YOLO(CFG.yolo_weights)
-    return _YOLO_HEALTH
-
 
 # ============================ CAM ============================
 
@@ -537,6 +547,17 @@ def assess_health(image_bgr: np.ndarray, out_dir: str = "runs/health") -> Dict[s
 
     # ---------- 5) Classifier / Hybrid mode ----------
     model, classes = load_classifier()
+
+    # Graceful fallback if model couldn't be loaded
+    if model is None:
+        agg = {
+            "status": "unknown",
+            "confidence": 0.0,
+            "diseases": [],
+            "crops": [],
+        }
+        agg.update(identify_info)
+        return agg
     responses: List[Dict[str, Any]] = []
     probs_all: List[float] = []
 
