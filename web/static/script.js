@@ -319,18 +319,35 @@ if (explainBtn) {
   });
 }
 
-// ---- Identify: opacity + download ----
-function drawCamWithOpacity(){
+function drawCamWithOpacity() {
   const canvasEl = document.getElementById('cam-canvas');
   if (!canvasEl || !lastOverlayImg || !previewImg) return;
-  const w = (previewImg.naturalWidth  || lastOverlayImg.width)  || 512;
-  const h = (previewImg.naturalHeight || lastOverlayImg.height) || 512;
-  canvasEl.width = w; canvasEl.height = h;
   const ctx = canvasEl.getContext('2d');
-  try { ctx.drawImage(previewImg, 0, 0, w, h); } catch {}
+  // Get original image size
+  const originalWidth  = previewImg.naturalWidth  || lastOverlayImg.width  || 512;
+  const originalHeight = previewImg.naturalHeight || lastOverlayImg.height || 512;
+  // 🔥 CONTROL MAX WIDTH (important)
+  const maxWidth = 600; // you can adjust (500–800 recommended)
+  const scale = Math.min(1, maxWidth / originalWidth);
+  const drawWidth  = originalWidth * scale;
+  const drawHeight = originalHeight * scale;
+  // Set canvas size (scaled)
+  canvasEl.width  = drawWidth;
+  canvasEl.height = drawHeight;
+  // Clear canvas
+  ctx.clearRect(0, 0, drawWidth, drawHeight);
+  // Draw original image
+  try {
+    ctx.drawImage(previewImg, 0, 0, drawWidth, drawHeight);
+  } catch (e) {
+    console.warn("Preview image draw failed", e);
+  }
+  // Apply opacity safely
   const alpha = Math.max(0, Math.min(1, (Number(opacitySlider?.value || 55) / 100)));
+  // Draw overlay (Grad-CAM)
   ctx.globalAlpha = alpha;
-  ctx.drawImage(lastOverlayImg, 0, 0, w, h);
+  ctx.drawImage(lastOverlayImg, 0, 0, drawWidth, drawHeight);
+  // Reset alpha
   ctx.globalAlpha = 1;
 }
 if (opacitySlider && opacityVal) {
