@@ -10,6 +10,9 @@ pillow
 torch==2.5.1
 torchvision==0.20.1
 openai
+flask-login
+sqlalchemy
+pymysql
 
 # XAI / Vision utils
 grad-cam==1.5.5
@@ -22,8 +25,6 @@ scikit-learn
 matplotlib
 pandas
 
-# Optional
-ultralytics>=8.2.0
 
 # If you need a CUDA build of PyTorch, install it separately, e.g.:
 # pip install --index-url https://download.pytorch.org/whl/cu121 torch torchvision

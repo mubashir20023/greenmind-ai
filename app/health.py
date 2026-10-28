@@ -75,7 +75,7 @@ class HealthConfig:
         "models/health/classes.json",
     )
     device: str = os.getenv("HEALTH_DEVICE", "cpu")  # "cpu" or "cuda"
-    input_size: int = int(os.getenv("HEALTH_INPUT_SIZE", 384))
+    input_size: int = int(os.getenv("HEALTH_INPUT_SIZE", 224))  # must match training size
 
     # YOLO detector for diseased regions
     yolo_weights: str = os.getenv(
