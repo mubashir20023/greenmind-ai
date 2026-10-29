@@ -146,12 +146,13 @@ def main():
 
     probs_all, ys = [], []
     t0 = time.time()
-    for i, (x, y) in enumerate(ld):
-        p = torch.softmax(model(x.to(device)).float(), 1).cpu()
-        probs_all.append(p)
-        ys.append(y)
-        if i % 20 == 0:
-            print(f"  batch {i}/{len(ld)}", flush=True)
+    with torch.inference_mode():  # no autograd graph: avoids running out of GPU/CPU memory
+        for i, (x, y) in enumerate(ld):
+            p = torch.softmax(model(x.to(device)).float(), 1).cpu()
+            probs_all.append(p)
+            ys.append(y)
+            if i % 20 == 0:
+                print(f"  batch {i}/{len(ld)}", flush=True)
     probs = torch.cat(probs_all).numpy()
     y = torch.cat(ys).numpy()
     pred = probs.argmax(1)

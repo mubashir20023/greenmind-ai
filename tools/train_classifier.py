@@ -211,6 +211,11 @@ def main():
         print(f"[save] {out / 'model_full.pt'} (drop-in for app/health.py)")
     print(f"[done] best val top-1 = {best:.4f}")
 
+    # free GPU memory before the evaluation subprocess starts
+    del model, opt, scaler, train_ld, val_ld
+    if device.type == "cuda":
+        torch.cuda.empty_cache()
+
     if read_manifest(args.manifest, "test", args.root):
         cmd = [sys.executable, str(Path(__file__).with_name("evaluate.py")),
                "--ckpt", str(out / "best.pth"), "--arch", args.arch, "--classes", str(out / "classes.json"),
