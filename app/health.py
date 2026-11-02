@@ -66,10 +66,16 @@ class HealthConfig:
     topk: int = int(os.getenv("HEALTH_TOPK", 3))
 
     # Classifier
+    # Field-trained EfficientNet-B0 (PlantVillage + PlantDoc-train, see paper / notebooks/04) when present,
+    # otherwise the original full-model checkpoint.
     clf_weights: str = os.getenv(
         "HEALTH_CLF_WEIGHTS",
-        "models/health/leaf_health_effb3.pt",
+        "models/health/leaf_health_effb0_field.pth"
+        if os.path.exists(os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))),
+                                       "models/health/leaf_health_effb0_field.pth"))
+        else "models/health/leaf_health_effb3.pt",
     )
+    clf_arch: str = os.getenv("HEALTH_ARCH", "efficientnet_b0")  # used for state_dict checkpoints
     classes_path: str = os.getenv(
         "HEALTH_CLASSES",
         "models/health/classes.json",
@@ -255,13 +261,17 @@ def load_classifier() -> Tuple[Optional[torch.nn.Module], List[str]]:
         loaded = torch.load(weights_path, map_location=map_loc, weights_only=False)
 
         # Handle both full-model and state-dict saves
-        if isinstance(loaded, dict) and ("state_dict" in loaded or "model" in loaded):
-            raise RuntimeError(
-                "Checkpoint appears to be a state_dict, not a full model. "
-                "Cannot load without knowing the architecture."
-            )
-
-        model = loaded
+        if isinstance(loaded, dict):
+            state = loaded.get("model") or loaded.get("state_dict") or loaded
+            if not os.path.exists(classes_path):
+                raise RuntimeError(f"state_dict checkpoint needs a class list at {classes_path}")
+            with open(classes_path, "r", encoding="utf-8") as f:
+                n_classes = len(json.load(f))
+            import timm
+            model = timm.create_model(CFG.clf_arch, pretrained=False, num_classes=n_classes)
+            model.load_state_dict(state, strict=True)
+        else:
+            model = loaded
         model.eval()
         if map_loc == "cuda":
             model = model.to("cuda")

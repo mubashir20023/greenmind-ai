@@ -23,9 +23,14 @@ from app.backends import PlantIdBackend, PlantNetBackend
 DEVICE   = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 BASE_DIR = Path(__file__).resolve().parents[1]
 
-# Local classifier bits (fallback)
-CKPT_PATH = Path(os.getenv("CKPT_PATH", str(BASE_DIR / "models" / "checkpoints" / "plant_id_resnet18_best.pth")))
-IDX2_PATH = Path(os.getenv("IDX2_PATH",  str(BASE_DIR / "models" / "class_maps" / "idx_to_species.json")))
+# Local classifier. The retrained EfficientNet-B0 (958 species, see paper / notebooks/02) is used
+# when its files are present; otherwise the original ResNet-18 (1,106 species) is used.
+_EFFB0_CKPT = BASE_DIR / "models" / "checkpoints" / "plant_id_effb0_best.pth"
+_EFFB0_MAP  = BASE_DIR / "models" / "class_maps" / "idx_to_species_effb0.json"
+_USE_EFFB0  = _EFFB0_CKPT.exists() and _EFFB0_MAP.exists()
+LOCAL_MODEL_NAME = os.getenv("MODEL_NAME") or ("efficientnet_b0" if _USE_EFFB0 else "resnet18")
+CKPT_PATH = Path(os.getenv("CKPT_PATH") or (_EFFB0_CKPT if _USE_EFFB0 else BASE_DIR / "models" / "checkpoints" / "plant_id_resnet18_best.pth"))
+IDX2_PATH = Path(os.getenv("IDX2_PATH") or (_EFFB0_MAP if _USE_EFFB0 else BASE_DIR / "models" / "class_maps" / "idx_to_species.json"))
 
 TOPK_DEFAULT = int(os.getenv("TOPK", "3"))
 
@@ -79,10 +84,11 @@ def _load_model():
         return None
 
     num_classes = len(idx2)
-    model_name  = os.getenv("MODEL_NAME", "resnet18")
-    ckpt_path   = Path(os.getenv("CKPT_PATH", str(CKPT_PATH)))
+    model_name  = LOCAL_MODEL_NAME   # captured at import; os.environ["MODEL_NAME"] is reused below for reporting
+    ckpt_path   = CKPT_PATH
 
-    model = timm.create_model(model_name, pretrained=True, num_classes=num_classes)
+    # ImageNet weights are only needed when no fine-tuned checkpoint is available
+    model = timm.create_model(model_name, pretrained=not ckpt_path.exists(), num_classes=num_classes)
 
     if ckpt_path.exists():
         state = torch.load(ckpt_path, map_location="cpu", weights_only=True)
