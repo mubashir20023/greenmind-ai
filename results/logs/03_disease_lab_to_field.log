@@ -1,0 +1,469 @@
+11.9s 1 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+11.9s 2 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+11.9s 3 0.00s - to python to disable frozen modules.
+11.9s 4 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+12.7s 5 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+12.7s 6 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+12.7s 7 0.00s - to python to disable frozen modules.
+12.7s 8 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+14.2s 9 Cloning into 'greenmind-ai'...
+14.4s 10 Cloning into 'greenmind-ai'...
+14.4s 11 
+14.4s 12 Cloning into 'greenmind-ai'...
+21.7s 13 018d43f Fix evaluation out-of-memory
+21.7s 14 
+23.2s 15 Cloning into '/kaggle/working/PlantDoc-Dataset'...
+23.4s 16 Cloning into '/kaggle/working/PlantDoc-Dataset'...
+23.4s 17 
+23.4s 18 Cloning into '/kaggle/working/PlantDoc-Dataset'...
+63.9s 19 Updating files:  35% (925/2581)Updating files:  36% (930/2581)Updating files:  37% (955/2581)Updating files:  38% (981/2581)Updating files:  39% (1007/2581)Updating files:  40% (1033/2581)Updating files:  41% (1059/2581)Updating files:  42% (1085/2581)Updating files:  43% (1110/2581)Updating files:  35% (925/2581)Updating files:  36% (930/2581)Updating files:  37% (955/2581)Updating files:  38% (981/2581)Updating files:  39% (1007/2581)Updating files:  40% (1033/2581)Updating files:  41% (1059/2581)Updating files:  42% (1085/2581)Updating files:  43% (1110/2581)
+64.1s 20 Updating files:  35% (925/2581)Updating files:  36% (930/2581)Updating files:  37% (955/2581)Updating files:  38% (981/2581)Updating files:  39% (1007/2581)Updating files:  40% (1033/2581)Updating files:  41% (1059/2581)Updating files:  42% (1085/2581)Updating files:  43% (1110/2581)Updating files:  44% (1136/2581)Updating files:  45% (1162/2581)Updating files:  46% (1188/2581)Updating files:  47% (1214/2581)Updating files:  48% (1239/2581)Updating files:  49% (1265/2581)Updating files:  50% (1291/2581)Updating files:  51% (1317/2581)Updating files:  44% (1136/2581)Updating files:  45% (1162/2581)Updating files:  46% (1188/2581)Updating files:  47% (1214/2581)Updating files:  48% (1239/2581)Updating files:  49% (1265/2581)Updating files:  50% (1291/2581)Updating files:  51% (1317/2581)
+64.3s 21 Updating files:  44% (1136/2581)Updating files:  45% (1162/2581)Updating files:  46% (1188/2581)Updating files:  47% (1214/2581)Updating files:  48% (1239/2581)Updating files:  49% (1265/2581)Updating files:  50% (1291/2581)Updating files:  51% (1317/2581)Updating files:  52% (1343/2581)Updating files:  53% (1368/2581)Updating files:  54% (1394/2581)Updating files:  55% (1420/2581)Updating files:  56% (1446/2581)Updating files:  57% (1472/2581)Updating files:  58% (1497/2581)Updating files:  59% (1523/2581)Updating files:  52% (1343/2581)Updating files:  53% (1368/2581)Updating files:  54% (1394/2581)Updating files:  55% (1420/2581)Updating files:  56% (1446/2581)Updating files:  57% (1472/2581)Updating files:  58% (1497/2581)Updating files:  59% (1523/2581)
+64.6s 22 Updating files:  52% (1343/2581)Updating files:  53% (1368/2581)Updating files:  54% (1394/2581)Updating files:  55% (1420/2581)Updating files:  56% (1446/2581)Updating files:  57% (1472/2581)Updating files:  58% (1497/2581)Updating files:  59% (1523/2581)Updating files:  60% (1549/2581)Updating files:  61% (1575/2581)Updating files:  62% (1601/2581)Updating files:  63% (1627/2581)Updating files:  64% (1652/2581)Updating files:  65% (1678/2581)Updating files:  66% (1704/2581)Updating files:  60% (1549/2581)Updating files:  61% (1575/2581)Updating files:  62% (1601/2581)Updating files:  63% (1627/2581)Updating files:  64% (1652/2581)Updating files:  65% (1678/2581)Updating files:  66% (1704/2581)
+64.8s 23 Updating files:  60% (1549/2581)Updating files:  61% (1575/2581)Updating files:  62% (1601/2581)Updating files:  63% (1627/2581)Updating files:  64% (1652/2581)Updating files:  65% (1678/2581)Updating files:  66% (1704/2581)Updating files:  67% (1730/2581)Updating files:  68% (1756/2581)Updating files:  69% (1781/2581)Updating files:  70% (1807/2581)Updating files:  71% (1833/2581)Updating files:  71% (1839/2581)Updating files:  72% (1859/2581)Updating files:  73% (1885/2581)Updating files:  74% (1910/2581)Updating files:  75% (1936/2581)Updating files:  76% (1962/2581)Updating files:  77% (1988/2581)Updating files:  67% (1730/2581)Updating files:  68% (1756/2581)Updating files:  69% (1781/2581)Updating files:  70% (1807/2581)Updating files:  71% (1833/2581)Updating files:  71% (1839/2581)Updating files:  72% (1859/2581)Updating files:  73% (1885/2581)Updating files:  74% (1910/2581)Updating files:  75% (1936/2581)Updating files:  76% (1962/2581)Updating files:  77% (1988/2581)
+65.0s 24 Updating files:  67% (1730/2581)Updating files:  68% (1756/2581)Updating files:  69% (1781/2581)Updating files:  70% (1807/2581)Updating files:  71% (1833/2581)Updating files:  71% (1839/2581)Updating files:  72% (1859/2581)Updating files:  73% (1885/2581)Updating files:  74% (1910/2581)Updating files:  75% (1936/2581)Updating files:  76% (1962/2581)Updating files:  77% (1988/2581)Updating files:  78% (2014/2581)Updating files:  79% (2039/2581)Updating files:  80% (2065/2581)Updating files:  81% (2091/2581)Updating files:  82% (2117/2581)Updating files:  83% (2143/2581)Updating files:  84% (2169/2581)Updating files:  85% (2194/2581)Updating files:  86% (2220/2581)Updating files:  78% (2014/2581)Updating files:  79% (2039/2581)Updating files:  80% (2065/2581)Updating files:  81% (2091/2581)Updating files:  82% (2117/2581)Updating files:  83% (2143/2581)Updating files:  84% (2169/2581)Updating files:  85% (2194/2581)Updating files:  86% (2220/2581)
+65.3s 25 Updating files:  78% (2014/2581)Updating files:  79% (2039/2581)Updating files:  80% (2065/2581)Updating files:  81% (2091/2581)Updating files:  82% (2117/2581)Updating files:  83% (2143/2581)Updating files:  84% (2169/2581)Updating files:  85% (2194/2581)Updating files:  86% (2220/2581)Updating files:  87% (2246/2581)Updating files:  88% (2272/2581)Updating files:  89% (2298/2581)Updating files:  90% (2323/2581)Updating files:  91% (2349/2581)Updating files:  92% (2375/2581)Updating files:  93% (2401/2581)Updating files:  94% (2427/2581)Updating files:  95% (2452/2581)Updating files:  87% (2246/2581)Updating files:  88% (2272/2581)Updating files:  89% (2298/2581)Updating files:  90% (2323/2581)Updating files:  91% (2349/2581)Updating files:  92% (2375/2581)Updating files:  93% (2401/2581)Updating files:  94% (2427/2581)Updating files:  95% (2452/2581)
+65.4s 26 Updating files:  87% (2246/2581)Updating files:  88% (2272/2581)Updating files:  89% (2298/2581)Updating files:  90% (2323/2581)Updating files:  91% (2349/2581)Updating files:  92% (2375/2581)Updating files:  93% (2401/2581)Updating files:  94% (2427/2581)Updating files:  95% (2452/2581)Updating files:  96% (2478/2581)Updating files:  97% (2504/2581)Updating files:  98% (2530/2581)Updating files:  99% (2556/2581)Updating files: 100% (2581/2581)Updating files: 100% (2581/2581), done.
+65.5s 27 Updating files:  96% (2478/2581)Updating files:  97% (2504/2581)Updating files:  98% (2530/2581)Updating files:  99% (2556/2581)Updating files: 100% (2581/2581)Updating files: 100% (2581/2581), done.
+65.5s 28 
+65.5s 29 Updating files:  96% (2478/2581)Updating files:  97% (2504/2581)Updating files:  98% (2530/2581)Updating files:  99% (2556/2581)Updating files: 100% (2581/2581)Updating files: 100% (2581/2581), done.
+78.2s 30 PlantVillage: ['/kaggle/input/datasets/emmarex/plantdisease/PlantVillage', '/kaggle/input/datasets/emmarex/plantdisease/plantvillage/PlantVillage']
+78.2s 31 PlantDoc: ['/kaggle/working/PlantDoc-Dataset/test']
+78.4s 32 [scan] /kaggle/input/datasets/emmarex/plantdisease/PlantVillage
+1529.5s 33 [scan] 20638 images, 15 classes, dup=14, excluded=0
+1529.6s 34 [cap] per-class cap = 3208
+1540.1s 35 {
+1540.1s 36 "sources": [
+1540.1s 37 "/kaggle/input/datasets/emmarex/plantdisease/PlantVillage"
+1540.1s 38 ],
+1540.1s 39 "excluded_sources": [],
+1540.1s 40 "seed": 42,
+1540.1s 41 "scanned_images": 20638,
+1540.1s 42 "exact_duplicates_removed": 14,
+1540.1s 43 "excluded_overlap_removed": 0,
+1540.1s 44 "classes_found": 15,
+1540.1s 45 "classes_dropped_min_per_class": 0,
+1540.1s 46 "min_per_class": 30,
+1540.1s 47 "classes_kept": 15,
+1540.1s 48 "per_class_cap": 3208,
+1540.1s 49 "total_images": 20624,
+1540.1s 50 "split_sizes": {
+1540.1s 51 "train": 14434,
+1540.1s 52 "val": 3095,
+1540.1s 53 "test": 3095
+1540.1s 54 },
+1540.1s 55 "split_fractions": {
+1540.1s 56 "val": 0.15,
+1540.1s 57 "test": 0.15
+1540.1s 58 },
+1540.1s 59 "images_per_class": {
+1540.1s 60 "min": 152,
+1540.1s 61 "median": 1404,
+1540.1s 62 "max": 3208
+1540.1s 63 }
+1540.1s 64 }
+1540.1s 65 [done] /kaggle/working/pv_split/manifest.csv
+1565.3s 66 [data] classes=15 train=14434 val=3095 (val rows with unseen class: 0) device=cuda amp=True
+1565.9s 67 
+1566.4s 68 model.safetensors: reconstructing file:   0%|      |  0.00B / 21.4MB            [Amodel.safetensors: downloading bytes:                       |  0.00B
+1566.5s 69 model.safetensors: reconstructing file:   7%|▍     | 1.44MB / 21.4MB            [Amodel.safetensors: downloading bytes: ████████              | 7.81MB
+1566.5s 70 model.safetensors: reconstructing file:  81%|████▉ | 17.4MB / 21.4MB,  143kB/s  [Amodel.safetensors: downloading bytes: ███████████████████▉  | 19.3MB,  774kB/s  model.safetensors: downloading bytes: ██████████████████████| 20.2MB, 1.99MB/s  model.safetensors: downloading bytes: ██████████████████████| 20.2MB, 1.99MB/s
+1566.5s 71 model.safetensors: reconstructing file: 100%|██████| 21.4MB / 21.4MB, 2.11MB/s
+1583.0s 72 ep1 0/225 loss 4.028
+1635.3s 73 ep1 200/225 loss 0.770
+1655.0s 74 [epoch 1/20] train_loss 1.4560 train_acc 0.7259 | val_loss 0.2624 val_top1 0.9548 val_top5 0.9997 | 1.5 min
+1655.1s 75 [save] best.pth (val_top1=0.9548)
+1656.5s 76 ep2 0/225 loss 0.749
+1710.9s 77 ep2 200/225 loss 0.643
+1722.1s 78 [epoch 2/20] train_loss 0.7085 train_acc 0.9713 | val_loss 0.1719 val_top1 0.9900 val_top5 1.0000 | 1.1 min
+1722.2s 79 [save] best.pth (val_top1=0.9900)
+1723.4s 80 ep3 0/225 loss 0.674
+1777.9s 81 ep3 200/225 loss 0.637
+1789.8s 82 [epoch 3/20] train_loss 0.6401 train_acc 0.9874 | val_loss 0.1491 val_top1 0.9942 val_top5 1.0000 | 1.1 min
+1789.8s 83 [save] best.pth (val_top1=0.9942)
+1791.1s 84 ep4 0/225 loss 0.641
+1842.2s 85 ep4 200/225 loss 0.591
+1853.9s 86 [epoch 4/20] train_loss 0.6086 train_acc 0.9942 | val_loss 0.1378 val_top1 0.9961 val_top5 1.0000 | 1.1 min
+1854.0s 87 [save] best.pth (val_top1=0.9961)
+1855.2s 88 ep5 0/225 loss 0.603
+1908.9s 89 ep5 200/225 loss 0.585
+1920.7s 90 [epoch 5/20] train_loss 0.5993 train_acc 0.9942 | val_loss 0.1150 val_top1 0.9961 val_top5 1.0000 | 1.1 min
+1922.1s 91 ep6 0/225 loss 0.590
+1975.2s 92 ep6 200/225 loss 0.583
+1987.4s 93 [epoch 6/20] train_loss 0.5894 train_acc 0.9961 | val_loss 0.1186 val_top1 0.9961 val_top5 1.0000 | 1.1 min
+1988.7s 94 ep7 0/225 loss 0.590
+2043.7s 95 ep7 200/225 loss 0.581
+2055.5s 96 [epoch 7/20] train_loss 0.5833 train_acc 0.9972 | val_loss 0.1178 val_top1 0.9984 val_top5 1.0000 | 1.1 min
+2055.6s 97 [save] best.pth (val_top1=0.9984)
+2056.9s 98 ep8 0/225 loss 0.575
+2110.4s 99 ep8 200/225 loss 0.568
+2122.0s 100 [epoch 8/20] train_loss 0.5811 train_acc 0.9969 | val_loss 0.1244 val_top1 0.9955 val_top5 1.0000 | 1.1 min
+2123.3s 101 ep9 0/225 loss 0.573
+2177.2s 102 ep9 200/225 loss 0.568
+2189.5s 103 [epoch 9/20] train_loss 0.5778 train_acc 0.9970 | val_loss 0.1184 val_top1 0.9958 val_top5 1.0000 | 1.1 min
+2190.8s 104 ep10 0/225 loss 0.573
+2244.6s 105 ep10 200/225 loss 0.568
+2256.5s 106 [epoch 10/20] train_loss 0.5729 train_acc 0.9981 | val_loss 0.1120 val_top1 0.9981 val_top5 1.0000 | 1.1 min
+2257.9s 107 ep11 0/225 loss 0.572
+2312.2s 108 ep11 200/225 loss 0.569
+2323.9s 109 [epoch 11/20] train_loss 0.5712 train_acc 0.9981 | val_loss 0.1138 val_top1 0.9984 val_top5 1.0000 | 1.1 min
+2325.1s 110 ep12 0/225 loss 0.572
+2377.5s 111 ep12 200/225 loss 0.592
+2389.7s 112 [epoch 12/20] train_loss 0.5703 train_acc 0.9982 | val_loss 0.1124 val_top1 0.9990 val_top5 1.0000 | 1.1 min
+2389.8s 113 [save] best.pth (val_top1=0.9990)
+2391.1s 114 ep13 0/225 loss 0.564
+2443.3s 115 ep13 200/225 loss 0.563
+2455.0s 116 [epoch 13/20] train_loss 0.5666 train_acc 0.9990 | val_loss 0.1124 val_top1 0.9990 val_top5 1.0000 | 1.1 min
+2456.2s 117 ep14 0/225 loss 0.598
+2507.8s 118 ep14 200/225 loss 0.567
+2518.9s 119 [epoch 14/20] train_loss 0.5670 train_acc 0.9989 | val_loss 0.1092 val_top1 0.9990 val_top5 1.0000 | 1.1 min
+2520.2s 120 ep15 0/225 loss 0.563
+2571.2s 121 ep15 200/225 loss 0.562
+2582.7s 122 [epoch 15/20] train_loss 0.5644 train_acc 0.9996 | val_loss 0.1083 val_top1 0.9994 val_top5 1.0000 | 1.1 min
+2582.8s 123 [save] best.pth (val_top1=0.9994)
+2584.0s 124 ep16 0/225 loss 0.562
+2635.3s 125 ep16 200/225 loss 0.563
+2646.9s 126 [epoch 16/20] train_loss 0.5643 train_acc 0.9993 | val_loss 0.1077 val_top1 0.9990 val_top5 1.0000 | 1.1 min
+2648.1s 127 ep17 0/225 loss 0.564
+2699.1s 128 ep17 200/225 loss 0.563
+2710.2s 129 [epoch 17/20] train_loss 0.5632 train_acc 0.9996 | val_loss 0.1063 val_top1 0.9994 val_top5 1.0000 | 1.1 min
+2711.5s 130 ep18 0/225 loss 0.568
+2762.2s 131 ep18 200/225 loss 0.561
+2773.6s 132 [epoch 18/20] train_loss 0.5635 train_acc 0.9994 | val_loss 0.1073 val_top1 0.9994 val_top5 1.0000 | 1.1 min
+2774.8s 133 ep19 0/225 loss 0.561
+2825.6s 134 ep19 200/225 loss 0.560
+2837.1s 135 [epoch 19/20] train_loss 0.5624 train_acc 0.9996 | val_loss 0.1083 val_top1 0.9990 val_top5 1.0000 | 1.1 min
+2838.3s 136 ep20 0/225 loss 0.560
+2889.5s 137 ep20 200/225 loss 0.562
+2900.7s 138 [epoch 20/20] train_loss 0.5622 train_acc 0.9997 | val_loss 0.1074 val_top1 0.9994 val_top5 1.0000 | 1.1 min
+2901.0s 139 [save] /kaggle/working/disease_effb0/model_full.pt (drop-in for app/health.py)
+2901.0s 140 [done] best val top-1 = 0.9994
+2901.3s 141 [eval] /usr/bin/python3 /kaggle/working/greenmind-ai/tools/evaluate.py --ckpt /kaggle/working/disease_effb0/best.pth --arch efficientnet_b0 --classes /kaggle/working/disease_effb0/classes.json --manifest /kaggle/working/pv_split/manifest.csv --split test --norm half --resize_mode square --img_size 224 --workers 4 --out /kaggle/working/disease_effb0/eval_test
+2904.1s 142 [data] 3095 images, 15 classes present, model has 15
+2906.8s 143 batch 0/49
+2908.7s 144 batch 20/49
+2910.9s 145 batch 40/49
+2919.9s 146 {
+2919.9s 147 "source": "manifest:/kaggle/working/pv_split/manifest.csv[test]",
+2919.9s 148 "checkpoint": "/kaggle/working/disease_effb0/best.pth",
+2919.9s 149 "arch": "efficientnet_b0",
+2919.9s 150 "n_images": 3095,
+2919.9s 151 "n_classes_in_eval": 15,
+2919.9s 152 "n_classes_model": 15,
+2919.9s 153 "top1": 0.9980613893376413,
+2919.9s 154 "top1_ci95": [
+2919.9s 155 0.9964458804523425,
+2919.9s 156 0.9993537964458804
+2919.9s 157 ],
+2919.9s 158 "top5": 0.9993537964458804,
+2919.9s 159 "macro": {
+2919.9s 160 "precision": 0.9983916415709894,
+2919.9s 161 "recall": 0.99831720762726,
+2919.9s 162 "f1": 0.9983500412371892
+2919.9s 163 },
+2919.9s 164 "weighted": {
+2919.9s 165 "precision": 0.9980713538089127,
+2919.9s 166 "recall": 0.9980613893376413,
+2919.9s 167 "f1": 0.9980612789087903
+2919.9s 168 },
+2919.9s 169 "balanced_accuracy": 0.99831720762726,
+2919.9s 170 "ece_15bins": 0.09862247330884363,
+2919.9s 171 "mean_confidence": 0.8998075127601624,
+2919.9s 172 "eval_seconds": 10.6,
+2919.9s 173 "img_size": 224,
+2919.9s 174 "norm": "half",
+2919.9s 175 "resize_mode": "square",
+2919.9s 176 "cpu_latency_ms_batch1": {
+2919.9s 177 "median": 42.35,
+2919.9s 178 "p90": 43.53,
+2919.9s 179 "threads": 2
+2919.9s 180 }
+2919.9s 181 }
+2919.9s 182 [done] results in /kaggle/working/disease_effb0/eval_test
+2933.5s 183 [data] classes=15 train=14434 val=3095 (val rows with unseen class: 0) device=cuda amp=True
+2933.8s 184 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+2933.8s 185 
+2934.2s 186 model.safetensors: reconstructing file:   0%|      |  0.00B / 46.8MB            [Amodel.safetensors: downloading bytes:                       |  0.00B            model.safetensors: downloading bytes: ▊                     | 1.61MB
+2934.3s 187 model.safetensors: reconstructing file:  11%|▋     | 5.05MB / 46.8MB            [Amodel.safetensors: downloading bytes: ███████████▌          | 24.5MB,   ???B/s  model.safetensors: downloading bytes: ██████████████████████| 44.0MB, 4.33MB/s  model.safetensors: downloading bytes: ██████████████████████| 44.0MB, 4.33MB/s
+2934.3s 188 model.safetensors: reconstructing file: 100%|██████| 46.8MB / 46.8MB, 4.63MB/s
+2937.3s 189 ep1 0/225 loss 2.738
+2984.8s 190 ep1 200/225 loss 0.936
+2996.1s 191 [epoch 1/20] train_loss 1.8364 train_acc 0.5201 | val_loss 0.3865 val_top1 0.9134 val_top5 0.9984 | 1.0 min
+2996.2s 192 [save] best.pth (val_top1=0.9134)
+2997.4s 193 ep2 0/225 loss 0.912
+3046.1s 194 ep2 200/225 loss 0.692
+3056.8s 195 [epoch 2/20] train_loss 0.7568 train_acc 0.9336 | val_loss 0.1927 val_top1 0.9719 val_top5 0.9997 | 1.0 min
+3056.8s 196 [save] best.pth (val_top1=0.9719)
+3058.1s 197 ep3 0/225 loss 0.714
+3107.0s 198 ep3 200/225 loss 0.699
+3117.4s 199 [epoch 3/20] train_loss 0.6763 train_acc 0.9630 | val_loss 0.1655 val_top1 0.9784 val_top5 0.9997 | 1.0 min
+3117.5s 200 [save] best.pth (val_top1=0.9784)
+3118.7s 201 ep4 0/225 loss 0.642
+3166.7s 202 ep4 200/225 loss 0.625
+3177.3s 203 [epoch 4/20] train_loss 0.6447 train_acc 0.9750 | val_loss 0.1819 val_top1 0.9706 val_top5 1.0000 | 1.0 min
+3178.6s 204 ep5 0/225 loss 0.597
+3226.5s 205 ep5 200/225 loss 0.592
+3237.1s 206 [epoch 5/20] train_loss 0.6252 train_acc 0.9817 | val_loss 0.1416 val_top1 0.9829 val_top5 1.0000 | 1.0 min
+3237.1s 207 [save] best.pth (val_top1=0.9829)
+3238.3s 208 ep6 0/225 loss 0.589
+3286.5s 209 ep6 200/225 loss 0.587
+3297.1s 210 [epoch 6/20] train_loss 0.6162 train_acc 0.9841 | val_loss 0.1343 val_top1 0.9893 val_top5 1.0000 | 1.0 min
+3297.2s 211 [save] best.pth (val_top1=0.9893)
+3298.4s 212 ep7 0/225 loss 0.608
+3346.5s 213 ep7 200/225 loss 0.583
+3357.1s 214 [epoch 7/20] train_loss 0.6091 train_acc 0.9872 | val_loss 0.1211 val_top1 0.9942 val_top5 1.0000 | 1.0 min
+3357.1s 215 [save] best.pth (val_top1=0.9942)
+3358.3s 216 ep8 0/225 loss 0.596
+3406.7s 217 ep8 200/225 loss 0.576
+3417.3s 218 [epoch 8/20] train_loss 0.6023 train_acc 0.9878 | val_loss 0.1215 val_top1 0.9932 val_top5 1.0000 | 1.0 min
+3418.5s 219 ep9 0/225 loss 0.596
+3466.7s 220 ep9 200/225 loss 0.606
+3477.3s 221 [epoch 9/20] train_loss 0.5962 train_acc 0.9906 | val_loss 0.1160 val_top1 0.9948 val_top5 1.0000 | 1.0 min
+3477.3s 222 [save] best.pth (val_top1=0.9948)
+3478.5s 223 ep10 0/225 loss 0.599
+3526.5s 224 ep10 200/225 loss 0.595
+3538.4s 225 [epoch 10/20] train_loss 0.5893 train_acc 0.9931 | val_loss 0.1180 val_top1 0.9942 val_top5 1.0000 | 1.0 min
+3539.7s 226 ep11 0/225 loss 0.651
+3593.0s 227 ep11 200/225 loss 0.571
+3604.5s 228 [epoch 11/20] train_loss 0.5869 train_acc 0.9940 | val_loss 0.1336 val_top1 0.9906 val_top5 1.0000 | 1.1 min
+3605.7s 229 ep12 0/225 loss 0.596
+3659.7s 230 ep12 200/225 loss 0.574
+3671.5s 231 [epoch 12/20] train_loss 0.5835 train_acc 0.9947 | val_loss 0.1100 val_top1 0.9958 val_top5 1.0000 | 1.1 min
+3671.6s 232 [save] best.pth (val_top1=0.9958)
+3672.8s 233 ep13 0/225 loss 0.589
+3726.2s 234 ep13 200/225 loss 0.573
+3737.8s 235 [epoch 13/20] train_loss 0.5818 train_acc 0.9947 | val_loss 0.1157 val_top1 0.9935 val_top5 1.0000 | 1.1 min
+3739.1s 236 ep14 0/225 loss 0.573
+3791.8s 237 ep14 200/225 loss 0.565
+3803.2s 238 [epoch 14/20] train_loss 0.5778 train_acc 0.9967 | val_loss 0.1063 val_top1 0.9955 val_top5 1.0000 | 1.1 min
+3804.5s 239 ep15 0/225 loss 0.582
+3856.4s 240 ep15 200/225 loss 0.571
+3867.8s 241 [epoch 15/20] train_loss 0.5774 train_acc 0.9966 | val_loss 0.1097 val_top1 0.9955 val_top5 1.0000 | 1.1 min
+3869.0s 242 ep16 0/225 loss 0.576
+3919.6s 243 ep16 200/225 loss 0.571
+3930.6s 244 [epoch 16/20] train_loss 0.5764 train_acc 0.9967 | val_loss 0.1074 val_top1 0.9948 val_top5 1.0000 | 1.0 min
+3931.9s 245 ep17 0/225 loss 0.566
+3981.5s 246 ep17 200/225 loss 0.566
+3992.6s 247 [epoch 17/20] train_loss 0.5750 train_acc 0.9976 | val_loss 0.1056 val_top1 0.9964 val_top5 1.0000 | 1.0 min
+3992.7s 248 [save] best.pth (val_top1=0.9964)
+3993.9s 249 ep18 0/225 loss 0.566
+4043.8s 250 ep18 200/225 loss 0.583
+4054.8s 251 [epoch 18/20] train_loss 0.5734 train_acc 0.9979 | val_loss 0.1111 val_top1 0.9958 val_top5 1.0000 | 1.0 min
+4056.0s 252 ep19 0/225 loss 0.571
+4105.7s 253 ep19 200/225 loss 0.593
+4116.7s 254 [epoch 19/20] train_loss 0.5731 train_acc 0.9974 | val_loss 0.1068 val_top1 0.9961 val_top5 1.0000 | 1.0 min
+4117.9s 255 ep20 0/225 loss 0.575
+4167.9s 256 ep20 200/225 loss 0.582
+4179.0s 257 [epoch 20/20] train_loss 0.5741 train_acc 0.9969 | val_loss 0.1068 val_top1 0.9964 val_top5 1.0000 | 1.0 min
+4179.2s 258 [done] best val top-1 = 0.9964
+4179.4s 259 [eval] /usr/bin/python3 /kaggle/working/greenmind-ai/tools/evaluate.py --ckpt /kaggle/working/disease_resnet18/best.pth --arch resnet18 --classes /kaggle/working/disease_resnet18/classes.json --manifest /kaggle/working/pv_split/manifest.csv --split test --norm half --resize_mode square --img_size 224 --workers 4 --out /kaggle/working/disease_resnet18/eval_test
+4182.4s 260 [data] 3095 images, 15 classes present, model has 15
+4185.0s 261 batch 0/49
+4186.8s 262 batch 20/49
+4189.1s 263 batch 40/49
+4193.9s 264 {
+4193.9s 265 "source": "manifest:/kaggle/working/pv_split/manifest.csv[test]",
+4193.9s 266 "checkpoint": "/kaggle/working/disease_resnet18/best.pth",
+4193.9s 267 "arch": "resnet18",
+4193.9s 268 "n_images": 3095,
+4193.9s 269 "n_classes_in_eval": 15,
+4193.9s 270 "n_classes_model": 15,
+4193.9s 271 "top1": 0.9967689822294022,
+4193.9s 272 "top1_ci95": [
+4193.9s 273 0.9948222940226171,
+4193.9s 274 0.9983925686591276
+4193.9s 275 ],
+4193.9s 276 "top5": 1.0,
+4193.9s 277 "macro": {
+4193.9s 278 "precision": 0.9967837368198056,
+4193.9s 279 "recall": 0.9946215845266024,
+4193.9s 280 "f1": 0.995657894950018
+4193.9s 281 },
+4193.9s 282 "weighted": {
+4193.9s 283 "precision": 0.9967892700129413,
+4193.9s 284 "recall": 0.9967689822294022,
+4193.9s 285 "f1": 0.9967614640583737
+4193.9s 286 },
+4193.9s 287 "balanced_accuracy": 0.9946215845266024,
+4193.9s 288 "ece_15bins": 0.09134128489478914,
+4193.9s 289 "mean_confidence": 0.9057295322418213,
+4193.9s 290 "eval_seconds": 7.1,
+4193.9s 291 "img_size": 224,
+4193.9s 292 "norm": "half",
+4193.9s 293 "resize_mode": "square",
+4193.9s 294 "cpu_latency_ms_batch1": {
+4193.9s 295 "median": 31.98,
+4193.9s 296 "p90": 33.4,
+4193.9s 297 "threads": 2
+4193.9s 298 }
+4193.9s 299 }
+4193.9s 300 [done] results in /kaggle/working/disease_resnet18/eval_test
+4199.9s 301 [warn] 134 images have labels the model does not know; excluded. Examples: [('Apple Scab Leaf', 10), ('Apple leaf', 9), ('Apple rust leaf', 10), ('Blueberry leaf', 11), ('Cherry leaf', 10)]
+4199.9s 302 [data] 102 images, 12 classes present, model has 15
+4203.6s 303 batch 0/2
+4208.1s 304 {
+4208.1s 305 "source": "imagefolder:/kaggle/working/PlantDoc-Dataset/test",
+4208.1s 306 "checkpoint": "/kaggle/working/disease_effb0/best.pth",
+4208.1s 307 "arch": "efficientnet_b0",
+4208.1s 308 "n_images": 102,
+4208.1s 309 "n_classes_in_eval": 12,
+4208.1s 310 "n_classes_model": 15,
+4208.1s 311 "top1": 0.30392156862745096,
+4208.1s 312 "top1_ci95": [
+4208.1s 313 0.21568627450980393,
+4208.1s 314 0.39215686274509803
+4208.1s 315 ],
+4208.1s 316 "top5": 0.7058823529411765,
+4208.1s 317 "macro": {
+4208.1s 318 "precision": 0.3829588621255288,
+4208.1s 319 "recall": 0.29029882154882153,
+4208.1s 320 "f1": 0.25014554237813996
+4208.1s 321 },
+4208.1s 322 "weighted": {
+4208.1s 323 "precision": 0.3421933005266339,
+4208.1s 324 "recall": 0.30392156862745096,
+4208.1s 325 "f1": 0.24819659554504256
+4208.1s 326 },
+4208.1s 327 "balanced_accuracy": 0.29029882154882153,
+4208.1s 328 "ece_15bins": 0.23446795738795223,
+4208.1s 329 "mean_confidence": 0.5289774537086487,
+4208.1s 330 "eval_seconds": 4.1,
+4208.1s 331 "img_size": 224,
+4208.1s 332 "norm": "half",
+4208.1s 333 "resize_mode": "square",
+4208.1s 334 "cpu_latency_ms_batch1": {
+4208.1s 335 "median": 30.13,
+4208.1s 336 "p90": 31.48,
+4208.1s 337 "threads": 2
+4208.1s 338 }
+4208.1s 339 }
+4208.1s 340 [done] results in /kaggle/working/results/e4_plantdoc_disease_effb0
+4212.7s 341 [warn] 134 images have labels the model does not know; excluded. Examples: [('Apple Scab Leaf', 10), ('Apple leaf', 9), ('Apple rust leaf', 10), ('Blueberry leaf', 11), ('Cherry leaf', 10)]
+4212.7s 342 [data] 102 images, 12 classes present, model has 15
+4216.2s 343 batch 0/2
+4221.1s 344 {
+4221.1s 345 "source": "imagefolder:/kaggle/working/PlantDoc-Dataset/test",
+4221.1s 346 "checkpoint": "/kaggle/working/disease_resnet18/best.pth",
+4221.1s 347 "arch": "resnet18",
+4221.1s 348 "n_images": 102,
+4221.1s 349 "n_classes_in_eval": 12,
+4221.1s 350 "n_classes_model": 15,
+4221.1s 351 "top1": 0.30392156862745096,
+4221.1s 352 "top1_ci95": [
+4221.1s 353 0.21568627450980393,
+4221.1s 354 0.39215686274509803
+4221.1s 355 ],
+4221.1s 356 "top5": 0.6176470588235294,
+4221.1s 357 "macro": {
+4221.1s 358 "precision": 0.31056854365677894,
+4221.1s 359 "recall": 0.30321969696969703,
+4221.1s 360 "f1": 0.25653816561298864
+4221.1s 361 },
+4221.1s 362 "weighted": {
+4221.1s 363 "precision": 0.299815159849762,
+4221.1s 364 "recall": 0.30392156862745096,
+4221.1s 365 "f1": 0.25274716273943065
+4221.1s 366 },
+4221.1s 367 "balanced_accuracy": 0.30321969696969703,
+4221.1s 368 "ece_15bins": 0.3111766201316141,
+4221.1s 369 "mean_confidence": 0.6116021275520325,
+4221.1s 370 "eval_seconds": 4.0,
+4221.1s 371 "img_size": 224,
+4221.1s 372 "norm": "half",
+4221.1s 373 "resize_mode": "square",
+4221.1s 374 "cpu_latency_ms_batch1": {
+4221.1s 375 "median": 32.97,
+4221.1s 376 "p90": 34.49,
+4221.1s 377 "threads": 2
+4221.1s 378 }
+4221.1s 379 }
+4221.1s 380 [done] results in /kaggle/working/results/e4_plantdoc_disease_resnet18
+4222.8s 381 {
+4222.8s 382 "sources": [
+4222.8s 383 "/kaggle/input/datasets/emmarex/plantdisease/PlantVillage"
+4222.8s 384 ],
+4222.8s 385 "excluded_sources": [],
+4222.8s 386 "seed": 42,
+4222.8s 387 "scanned_images": 20638,
+4222.8s 388 "exact_duplicates_removed": 14,
+4222.8s 389 "excluded_overlap_removed": 0,
+4222.8s 390 "classes_found": 15,
+4222.8s 391 "classes_dropped_min_per_class": 0,
+4222.8s 392 "min_per_class": 30,
+4222.8s 393 "classes_kept": 15,
+4222.8s 394 "per_class_cap": 3208,
+4222.8s 395 "total_images": 20624,
+4222.8s 396 "split_sizes": {
+4222.8s 397 "train": 14434,
+4222.8s 398 "val": 3095,
+4222.8s 399 "test": 3095
+4222.8s 400 },
+4222.8s 401 "split_fractions": {
+4222.8s 402 "val": 0.15,
+4222.8s 403 "test": 0.15
+4222.8s 404 },
+4222.8s 405 "images_per_class": {
+4222.8s 406 "min": 152,
+4222.8s 407 "median": 1404,
+4222.8s 408 "max": 3208
+4222.8s 409 }
+4222.9s 410 }/kaggle/working/disease_effb0/eval_test/metrics.json
+4222.9s 411 {
+4222.9s 412 "source": "manifest:/kaggle/working/pv_split/manifest.csv[test]",
+4222.9s 413 "checkpoint": "/kaggle/working/disease_effb0/best.pth",
+4222.9s 414 "arch": "efficientnet_b0",
+4222.9s 415 "n_images": 3095,
+4222.9s 416 "n_classes_in_eval": 15,
+4222.9s 417 "n_classes_model": 15,
+4222.9s 418 "top1": 0.9980613893376413,
+4222.9s 419 "top1_ci95": [
+4222.9s 420 0.9964458804523425,
+4222.9s 421 0.9993537964458804
+4222.9s 422 ],
+4222.9s 423 /kaggle/working/disease_resnet18/eval_test/metrics.json
+4222.9s 424 {
+4222.9s 425 "source": "manifest:/kaggle/working/pv_split/manifest.csv[test]",
+4222.9s 426 "checkpoint": "/kaggle/working/disease_resnet18/best.pth",
+4222.9s 427 "arch": "resnet18",
+4222.9s 428 "n_images": 3095,
+4222.9s 429 "n_classes_in_eval": 15,
+4222.9s 430 "n_classes_model": 15,
+4222.9s 431 "top1": 0.9967689822294022,
+4222.9s 432 "top1_ci95": [
+4222.9s 433 0.9948222940226171,
+4222.9s 434 0.9983925686591276
+4222.9s 435 ],
+4222.9s 436 /kaggle/working/results/e4_plantdoc_disease_effb0/metrics.json
+4222.9s 437 {
+4222.9s 438 "source": "imagefolder:/kaggle/working/PlantDoc-Dataset/test",
+4222.9s 439 "checkpoint": "/kaggle/working/disease_effb0/best.pth",
+4222.9s 440 "arch": "efficientnet_b0",
+4222.9s 441 "n_images": 102,
+4222.9s 442 "n_classes_in_eval": 12,
+4222.9s 443 "n_classes_model": 15,
+4222.9s 444 "top1": 0.30392156862745096,
+4222.9s 445 "top1_ci95": [
+4222.9s 446 0.21568627450980393,
+4222.9s 447 0.39215686274509803
+4222.9s 448 ],
+4222.9s 449 /kaggle/working/results/e4_plantdoc_disease_resnet18/metrics.json
+4222.9s 450 {
+4222.9s 451 "source": "imagefolder:/kaggle/working/PlantDoc-Dataset/test",
+4222.9s 452 "checkpoint": "/kaggle/working/disease_resnet18/best.pth",
+4222.9s 453 "arch": "resnet18",
+4222.9s 454 "n_images": 102,
+4222.9s 455 "n_classes_in_eval": 12,
+4222.9s 456 "n_classes_model": 15,
+4222.9s 457 "top1": 0.30392156862745096,
+4222.9s 458 "top1_ci95": [
+4222.9s 459 0.21568627450980393,
+4222.9s 460 0.39215686274509803
+4222.9s 461 ],
+4225.7s 462 /usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+4225.7s 463 cells[i][c] = re.sub('\\\\\|', '|', cell)
+4225.9s 464 /usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+4225.9s 465 text = re.sub(r'_', '\_', text) # Escape underscores in display text
+4226.8s 466 [NbConvertApp] Converting notebook __notebook__.ipynb to notebook
+4226.9s 467 [NbConvertApp] Writing 31645 bytes to __notebook__.ipynb
+4229.4s 468 [NbConvertApp] Converting notebook __notebook__.ipynb to html
+4229.9s 469 [NbConvertApp] Writing 308670 bytes to __results__.html

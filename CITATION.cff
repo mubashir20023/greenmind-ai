@@ -1,0 +1,19 @@
+cff-version: 1.2.0
+message: "If you use this software or its evaluation protocol, please cite it as below."
+title: "GreenMind AI: Explainable Plant Identification and Disease Screening"
+type: software
+authors:
+  - family-names: "Ahmed"
+    given-names: "Mubashir"
+    affiliation: "Federal Urdu University of Arts, Science and Technology, Karachi"
+repository-code: "https://github.com/mubashir20023/greenmind-ai"
+license: MIT
+date-released: "2026-11-02"
+keywords:
+  - plant identification
+  - plant disease detection
+  - explainable AI
+  - domain shift
+  - iNaturalist
+  - PlantVillage
+  - PlantDoc

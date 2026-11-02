@@ -1,0 +1,717 @@
+6.3s 1 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+6.3s 2 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+6.3s 3 0.00s - to python to disable frozen modules.
+6.3s 4 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+6.8s 5 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+6.8s 6 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+6.8s 7 0.00s - to python to disable frozen modules.
+6.8s 8 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+7.9s 9 Cloning into 'greenmind-ai'...
+8.1s 10 Cloning into 'greenmind-ai'...
+8.1s 11 
+8.1s 12 Cloning into 'greenmind-ai'...
+12.3s 13 018d43f Fix evaluation out-of-memory
+12.3s 14 
+14.5s 15 extracting /kaggle/input/notebooks/mubbashirahmed2002/greenmind-ai-notebook-2/inat.tar
+109.8s 16 /kaggle/temp/inat
+110.5s 17 {
+110.5s 18 "species_requested": 1106,
+110.5s 19 "species_resolved": 1084,
+110.5s 20 "species_not_found": [
+110.5s 21 "Adiantum_capillusveneris",
+110.5s 22 "Arctium",
+110.5s 23 "Campsis__tagliabueana",
+110.5s 24 "Citrus__aurantiifolia",
+110.5s 25 "Coix_lacrymajobi",
+110.5s 26 "Crocosmia__crocosmiiflora",
+110.5s 27 "Dolichandra_unguiscati",
+110.5s 28 "Erythrina_cristagalli",
+110.5s 29 "Fragaria__ananassa",
+110.5s 30 "Gazania__splendens",
+110.5s 31 "Hibiscus__archeri",
+110.5s 32 "Hibiscus__rosasinensis",
+110.5s 33 "Iris__germanica",
+110.5s 34 "Kalanchoe__houghtonii",
+110.5s 35 "Musa__paradisiaca",
+110.5s 36 "Nyctanthes_arbortristis",
+110.5s 37 "Opuntia_ficusindica",
+110.5s 38 "Passiflora_incarnata__cincinnata",
+110.5s 39 "Passiflora_incarnata__laurifolia",
+110.5s 40 "Reynoutria__bohemica",
+110.5s 41 "Veronica_anagallisaquatica",
+110.5s 42 "Vitex_agnuscastus"
+110.5s 43 ],
+110.5s 44 "images_pool_a": 138463,
+110.5s 45 "images_pool_b": 19303,
+110.5s 46 "cutoff_pool_a_created_on_or_before": "2025-08-31",
+110.5s 47 "pool_b_created_on_or_after": "2025-09-03",
+110.5s 48 "licenses": "cc0,cc-by,cc-by-nc,cc-by-sa",
+110.5s 49 "quality_grade": "research",
+110.5s 50 "one_photo_per_observation": true,
+110.5s 51 "short_side_px": 256,
+110.5s 52 "fetched_utc": "2026-10-30 15:16"
+110.6s 53 }1079
+130.1s 54 [data] 19303 images, 1040 classes present, model has 1106
+134.5s 55 batch 0/302
+136.0s 56 batch 20/302
+137.6s 57 batch 40/302
+139.1s 58 batch 60/302
+140.7s 59 batch 80/302
+142.4s 60 batch 100/302
+144.0s 61 batch 120/302
+145.7s 62 batch 140/302
+147.3s 63 batch 160/302
+148.8s 64 batch 180/302
+150.4s 65 batch 200/302
+152.0s 66 batch 220/302
+153.6s 67 batch 240/302
+155.1s 68 batch 260/302
+156.7s 69 batch 280/302
+158.2s 70 batch 300/302
+161.2s 71 /usr/local/lib/python3.13/dist-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+161.2s 72 warnings.warn("y_pred contains classes not in y_true")
+165.5s 73 {
+165.5s 74 "source": "imagefolder:/kaggle/temp/inat/pool_b",
+165.5s 75 "checkpoint": "models/checkpoints/plant_id_resnet18_best.pth",
+165.5s 76 "arch": "resnet18",
+165.5s 77 "n_images": 19303,
+165.5s 78 "n_classes_in_eval": 1040,
+165.5s 79 "n_classes_model": 1106,
+165.5s 80 "top1": 0.2203284463554888,
+165.5s 81 "top1_ci95": [
+165.5s 82 0.2144744340257991,
+165.5s 83 0.22607884784748486
+165.5s 84 ],
+165.5s 85 "top5": 0.37590011915246335,
+165.5s 86 "macro": {
+165.5s 87 "precision": 0.21327097058482034,
+165.5s 88 "recall": 0.2079315830087591,
+165.5s 89 "f1": 0.18277839109431035
+165.5s 90 },
+165.5s 91 "weighted": {
+165.5s 92 "precision": 0.22651669589100185,
+165.5s 93 "recall": 0.2203284463554888,
+165.5s 94 "f1": 0.19439317953223553
+165.5s 95 },
+165.5s 96 "balanced_accuracy": 0.2079315830087591,
+165.5s 97 "ece_15bins": 0.1483879153188915,
+165.5s 98 "mean_confidence": 0.07215771079063416,
+165.5s 99 "eval_seconds": 28.0,
+165.5s 100 "img_size": 224,
+165.5s 101 "norm": "imagenet",
+165.5s 102 "resize_mode": "crop",
+165.5s 103 "cpu_latency_ms_batch1": {
+165.5s 104 "median": 31.43,
+165.5s 105 "p90": 33.11,
+165.5s 106 "threads": 2
+165.5s 107 }
+165.5s 108 }
+165.5s 109 [done] results in /kaggle/working/results/e1_deployed_resnet18_temporal
+169.3s 110 [scan] /kaggle/temp/inat/pool_a
+170.0s 111 50000 scanned
+170.7s 112 100000 scanned
+171.4s 113 [scan] 138463 images, 1079 classes, dup=0, excluded=0
+172.1s 114 [cap] per-class cap = 150
+176.6s 115 {
+176.6s 116 "sources": [
+176.6s 117 "/kaggle/temp/inat/pool_a"
+176.6s 118 ],
+176.6s 119 "excluded_sources": [],
+176.6s 120 "seed": 42,
+176.6s 121 "scanned_images": 138463,
+176.6s 122 "exact_duplicates_removed": 0,
+176.6s 123 "excluded_overlap_removed": 0,
+176.6s 124 "classes_found": 1079,
+176.6s 125 "classes_dropped_min_per_class": 121,
+176.6s 126 "min_per_class": 30,
+176.6s 127 "classes_kept": 958,
+176.6s 128 "per_class_cap": 150,
+176.6s 129 "total_images": 137303,
+176.6s 130 "split_sizes": {
+176.6s 131 "train": 96987,
+176.6s 132 "val": 20158,
+176.6s 133 "test": 20158
+176.6s 134 },
+176.6s 135 "split_fractions": {
+176.6s 136 "val": 0.15,
+176.6s 137 "test": 0.15
+176.6s 138 },
+176.6s 139 "images_per_class": {
+176.6s 140 "min": 30,
+176.6s 141 "median": 150,
+176.6s 142 "max": 150
+176.6s 143 }
+176.6s 144 }
+176.6s 145 [done] /kaggle/working/split139k/manifest.csv
+182.4s 146 [data] classes=958 train=96987 val=20158 (val rows with unseen class: 0) device=cuda amp=True
+182.6s 147 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+182.7s 148 
+183.1s 149 model.safetensors: reconstructing file:   0%|      |  0.00B / 46.8MB            [Amodel.safetensors: downloading bytes:                       |  0.00B            model.safetensors: downloading bytes: ██▉                   | 6.23MB
+183.6s 150 model.safetensors: reconstructing file:   6%|▍     | 2.93MB / 46.8MB            [Amodel.safetensors: downloading bytes: ████▍                 | 9.50MB,   ???B/s  model.safetensors: downloading bytes: █████▉                | 12.6MB,  937kB/s  model.safetensors: downloading bytes: ████████              | 17.1MB, 1.23MB/s  model.safetensors: downloading bytes: ████████████▋         | 27.0MB, 1.67MB/s  model.safetensors: downloading bytes: ████████████████▊     | 35.8MB, 2.62MB/s
+183.7s 151 model.safetensors: reconstructing file:  97%|█████▊| 45.6MB / 46.8MB,  290kB/s  [Amodel.safetensors: downloading bytes: ████████████████████▎ | 43.3MB, 3.46MB/s  model.safetensors: downloading bytes: ██████████████████████| 44.0MB, 4.21MB/s  model.safetensors: downloading bytes: ██████████████████████| 44.0MB, 4.21MB/s
+183.7s 152 model.safetensors: reconstructing file: 100%|██████| 46.8MB / 46.8MB, 4.55MB/s
+188.9s 153 ep1 0/757 loss 6.904
+278.1s 154 ep1 200/757 loss 6.832
+370.7s 155 ep1 400/757 loss 5.877
+462.7s 156 ep1 600/757 loss 4.668
+558.7s 157 [epoch 1/20] train_loss 5.9191 train_acc 0.0707 | val_loss 4.0315 val_top1 0.2056 val_top5 0.4280 | 6.2 min
+558.8s 158 [save] best.pth (val_top1=0.2056)
+561.0s 159 ep2 0/757 loss 4.299
+653.1s 160 ep2 200/757 loss 4.260
+744.7s 161 ep2 400/757 loss 4.064
+836.8s 162 ep2 600/757 loss 3.694
+930.3s 163 [epoch 2/20] train_loss 3.9051 train_acc 0.3305 | val_loss 2.8302 val_top1 0.3986 val_top5 0.6509 | 6.2 min
+930.4s 164 [save] best.pth (val_top1=0.3986)
+932.7s 165 ep3 0/757 loss 3.628
+1023.5s 166 ep3 200/757 loss 3.423
+1112.8s 167 ep3 400/757 loss 3.504
+1203.6s 168 ep3 600/757 loss 3.158
+1296.0s 169 [epoch 3/20] train_loss 3.2851 train_acc 0.4584 | val_loss 2.6348 val_top1 0.4265 val_top5 0.6823 | 6.1 min
+1296.1s 170 [save] best.pth (val_top1=0.4265)
+1298.1s 171 ep4 0/757 loss 2.908
+1388.0s 172 ep4 200/757 loss 3.086
+1477.9s 173 ep4 400/757 loss 3.271
+1568.4s 174 ep4 600/757 loss 2.836
+1661.9s 175 [epoch 4/20] train_loss 2.9784 train_acc 0.5301 | val_loss 2.2793 val_top1 0.5014 val_top5 0.7431 | 6.1 min
+1661.9s 176 [save] best.pth (val_top1=0.5014)
+1664.2s 177 ep5 0/757 loss 2.648
+1754.2s 178 ep5 200/757 loss 2.679
+1844.3s 179 ep5 400/757 loss 2.633
+1933.9s 180 ep5 600/757 loss 2.756
+2026.2s 181 [epoch 5/20] train_loss 2.7654 train_acc 0.5803 | val_loss 2.2429 val_top1 0.5075 val_top5 0.7470 | 6.1 min
+2026.3s 182 [save] best.pth (val_top1=0.5075)
+2028.6s 183 ep6 0/757 loss 2.709
+2118.8s 184 ep6 200/757 loss 2.634
+2209.4s 185 ep6 400/757 loss 2.709
+2299.1s 186 ep6 600/757 loss 2.574
+2393.0s 187 [epoch 6/20] train_loss 2.6028 train_acc 0.6205 | val_loss 2.3902 val_top1 0.4866 val_top5 0.7281 | 6.1 min
+2395.1s 188 ep7 0/757 loss 2.531
+2488.8s 189 ep7 200/757 loss 2.391
+2580.0s 190 ep7 400/757 loss 2.257
+2670.5s 191 ep7 600/757 loss 2.612
+2763.9s 192 [epoch 7/20] train_loss 2.4603 train_acc 0.6560 | val_loss 2.1513 val_top1 0.5322 val_top5 0.7633 | 6.2 min
+2763.9s 193 [save] best.pth (val_top1=0.5322)
+2766.1s 194 ep8 0/757 loss 2.367
+2856.9s 195 ep8 200/757 loss 2.216
+2950.3s 196 ep8 400/757 loss 2.479
+3042.8s 197 ep8 600/757 loss 2.541
+3136.6s 198 [epoch 8/20] train_loss 2.3427 train_acc 0.6885 | val_loss 2.0059 val_top1 0.5564 val_top5 0.7891 | 6.2 min
+3136.6s 199 [save] best.pth (val_top1=0.5564)
+3138.8s 200 ep9 0/757 loss 2.117
+3230.4s 201 ep9 200/757 loss 2.206
+3321.1s 202 ep9 400/757 loss 2.204
+3411.5s 203 ep9 600/757 loss 2.282
+3506.0s 204 [epoch 9/20] train_loss 2.2396 train_acc 0.7164 | val_loss 2.0127 val_top1 0.5642 val_top5 0.7878 | 6.2 min
+3506.0s 205 [save] best.pth (val_top1=0.5642)
+3508.3s 206 ep10 0/757 loss 2.037
+3599.9s 207 ep10 200/757 loss 2.054
+3691.1s 208 ep10 400/757 loss 2.044
+3782.5s 209 ep10 600/757 loss 2.153
+3875.2s 210 [epoch 10/20] train_loss 2.1361 train_acc 0.7480 | val_loss 1.9468 val_top1 0.5781 val_top5 0.7978 | 6.2 min
+3875.3s 211 [save] best.pth (val_top1=0.5781)
+3877.5s 212 ep11 0/757 loss 1.841
+3968.2s 213 ep11 200/757 loss 1.924
+4058.8s 214 ep11 400/757 loss 2.097
+4149.2s 215 ep11 600/757 loss 1.863
+4242.3s 216 [epoch 11/20] train_loss 2.0432 train_acc 0.7751 | val_loss 1.9005 val_top1 0.5889 val_top5 0.8032 | 6.1 min
+4242.4s 217 [save] best.pth (val_top1=0.5889)
+4244.6s 218 ep12 0/757 loss 2.062
+4335.0s 219 ep12 200/757 loss 2.011
+4425.4s 220 ep12 400/757 loss 1.938
+4516.0s 221 ep12 600/757 loss 2.006
+4608.9s 222 [epoch 12/20] train_loss 1.9642 train_acc 0.8004 | val_loss 1.8446 val_top1 0.6024 val_top5 0.8141 | 6.1 min
+4609.0s 223 [save] best.pth (val_top1=0.6024)
+4611.2s 224 ep13 0/757 loss 1.847
+4701.7s 225 ep13 200/757 loss 1.905
+4792.8s 226 ep13 400/757 loss 1.892
+4883.7s 227 ep13 600/757 loss 1.853
+4976.4s 228 [epoch 13/20] train_loss 1.8867 train_acc 0.8234 | val_loss 1.7600 val_top1 0.6231 val_top5 0.8275 | 6.1 min
+4976.5s 229 [save] best.pth (val_top1=0.6231)
+4978.7s 230 ep14 0/757 loss 1.849
+5068.9s 231 ep14 200/757 loss 1.789
+5159.5s 232 ep14 400/757 loss 1.996
+5250.6s 233 ep14 600/757 loss 1.798
+5344.6s 234 [epoch 14/20] train_loss 1.8223 train_acc 0.8443 | val_loss 1.7384 val_top1 0.6302 val_top5 0.8290 | 6.1 min
+5344.6s 235 [save] best.pth (val_top1=0.6302)
+5346.8s 236 ep15 0/757 loss 1.776
+5438.6s 237 ep15 200/757 loss 1.772
+5529.1s 238 ep15 400/757 loss 1.726
+5619.2s 239 ep15 600/757 loss 1.852
+5711.5s 240 [epoch 15/20] train_loss 1.7640 train_acc 0.8644 | val_loss 1.7324 val_top1 0.6328 val_top5 0.8337 | 6.1 min
+5711.6s 241 [save] best.pth (val_top1=0.6328)
+5713.9s 242 ep16 0/757 loss 1.711
+5803.3s 243 ep16 200/757 loss 1.730
+5893.3s 244 ep16 400/757 loss 1.734
+5983.1s 245 ep16 600/757 loss 1.882
+6075.9s 246 [epoch 16/20] train_loss 1.7192 train_acc 0.8796 | val_loss 1.7563 val_top1 0.6283 val_top5 0.8295 | 6.1 min
+6078.0s 247 ep17 0/757 loss 1.665
+6168.4s 248 ep17 200/757 loss 1.694
+6258.4s 249 ep17 400/757 loss 1.623
+6348.6s 250 ep17 600/757 loss 1.855
+6440.8s 251 [epoch 17/20] train_loss 1.6883 train_acc 0.8890 | val_loss 1.7150 val_top1 0.6383 val_top5 0.8354 | 6.1 min
+6440.9s 252 [save] best.pth (val_top1=0.6383)
+6443.1s 253 ep18 0/757 loss 1.700
+6533.7s 254 ep18 200/757 loss 1.593
+6623.7s 255 ep18 400/757 loss 1.748
+6714.9s 256 ep18 600/757 loss 1.599
+6807.5s 257 [epoch 18/20] train_loss 1.6653 train_acc 0.8981 | val_loss 1.7015 val_top1 0.6413 val_top5 0.8370 | 6.1 min
+6807.5s 258 [save] best.pth (val_top1=0.6413)
+6809.7s 259 ep19 0/757 loss 1.644
+6901.4s 260 ep19 200/757 loss 1.749
+6992.3s 261 ep19 400/757 loss 1.637
+7084.0s 262 ep19 600/757 loss 1.772
+7176.6s 263 [epoch 19/20] train_loss 1.6482 train_acc 0.9028 | val_loss 1.6997 val_top1 0.6419 val_top5 0.8373 | 6.1 min
+7176.6s 264 [save] best.pth (val_top1=0.6419)
+7178.7s 265 ep20 0/757 loss 1.611
+7270.5s 266 ep20 200/757 loss 1.630
+7361.6s 267 ep20 400/757 loss 1.607
+7452.6s 268 ep20 600/757 loss 1.718
+7546.1s 269 [epoch 20/20] train_loss 1.6404 train_acc 0.9065 | val_loss 1.7163 val_top1 0.6398 val_top5 0.8357 | 6.2 min
+7546.3s 270 [done] best val top-1 = 0.6419
+7546.9s 271 [eval] /usr/bin/python3 /kaggle/working/greenmind-ai/tools/evaluate.py --ckpt /kaggle/working/species_resnet18/best.pth --arch resnet18 --classes /kaggle/working/species_resnet18/classes.json --manifest /kaggle/working/split139k/manifest.csv --split test --norm imagenet --resize_mode crop --img_size 224 --workers 4 --out /kaggle/working/species_resnet18/eval_test
+7550.2s 272 [data] 20158 images, 958 classes present, model has 958
+7552.5s 273 batch 0/315
+7554.2s 274 batch 20/315
+7555.7s 275 batch 40/315
+7557.3s 276 batch 60/315
+7558.9s 277 batch 80/315
+7560.4s 278 batch 100/315
+7562.0s 279 batch 120/315
+7563.6s 280 batch 140/315
+7565.2s 281 batch 160/315
+7566.7s 282 batch 180/315
+7568.3s 283 batch 200/315
+7569.8s 284 batch 220/315
+7571.4s 285 batch 240/315
+7573.0s 286 batch 260/315
+7574.5s 287 batch 280/315
+7576.2s 288 batch 300/315
+7583.1s 289 {
+7583.1s 290 "source": "manifest:/kaggle/working/split139k/manifest.csv[test]",
+7583.1s 291 "checkpoint": "/kaggle/working/species_resnet18/best.pth",
+7583.1s 292 "arch": "resnet18",
+7583.1s 293 "n_images": 20158,
+7583.1s 294 "n_classes_in_eval": 958,
+7583.1s 295 "n_classes_model": 958,
+7583.1s 296 "top1": 0.6494691933723584,
+7583.1s 297 "top1_ci95": [
+7583.1s 298 0.6431193570790753,
+7583.1s 299 0.6560187022522075
+7583.1s 300 ],
+7583.1s 301 "top5": 0.8436848893739458,
+7583.1s 302 "macro": {
+7583.1s 303 "precision": 0.6662369260663933,
+7583.1s 304 "recall": 0.6441796961321723,
+7583.1s 305 "f1": 0.6451933668720646
+7583.1s 306 },
+7583.1s 307 "weighted": {
+7583.1s 308 "precision": 0.6665141601384094,
+7583.1s 309 "recall": 0.6494691933723584,
+7583.1s 310 "f1": 0.64861482582847
+7583.1s 311 },
+7583.1s 312 "balanced_accuracy": 0.6441796961321723,
+7583.1s 313 "ece_15bins": 0.12505799588375957,
+7583.1s 314 "mean_confidence": 0.524411141872406,
+7583.1s 315 "eval_seconds": 27.3,
+7583.1s 316 "img_size": 224,
+7583.1s 317 "norm": "imagenet",
+7583.1s 318 "resize_mode": "crop",
+7583.1s 319 "cpu_latency_ms_batch1": {
+7583.1s 320 "median": 31.39,
+7583.1s 321 "p90": 32.76,
+7583.1s 322 "threads": 2
+7583.1s 323 }
+7583.1s 324 }
+7583.1s 325 [done] results in /kaggle/working/species_resnet18/eval_test
+7590.1s 326 [warn] 380 images have labels the model does not know; excluded. Examples: [('Abies_pindrow', 3), ('Acantholimon_lycopodioides', 13), ('Acer_caesium', 14), ('Ajuga_parviflora', 1), ('Allardia_glabra', 1)]
+7590.1s 327 [data] 18923 images, 958 classes present, model has 958
+7592.5s 328 batch 0/296
+7594.3s 329 batch 20/296
+7596.1s 330 batch 40/296
+7597.9s 331 batch 60/296
+7599.7s 332 batch 80/296
+7601.6s 333 batch 100/296
+7603.6s 334 batch 120/296
+7605.4s 335 batch 140/296
+7607.2s 336 batch 160/296
+7609.2s 337 batch 180/296
+7611.0s 338 batch 200/296
+7612.9s 339 batch 220/296
+7614.6s 340 batch 240/296
+7616.5s 341 batch 260/296
+7618.3s 342 batch 280/296
+7625.5s 343 {
+7625.5s 344 "source": "imagefolder:/kaggle/temp/inat/pool_b",
+7625.5s 345 "checkpoint": "/kaggle/working/species_resnet18/best.pth",
+7625.5s 346 "arch": "resnet18",
+7625.5s 347 "n_images": 18923,
+7625.5s 348 "n_classes_in_eval": 958,
+7625.5s 349 "n_classes_model": 958,
+7625.5s 350 "top1": 0.5819373249484754,
+7625.5s 351 "top1_ci95": [
+7625.5s 352 0.5750145325794007,
+7625.5s 353 0.5889156053479891
+7625.5s 354 ],
+7625.5s 355 "top5": 0.794007292712572,
+7625.5s 356 "macro": {
+7625.5s 357 "precision": 0.6038535734148395,
+7625.5s 358 "recall": 0.580711907645761,
+7625.5s 359 "f1": 0.5773542505723228
+7625.5s 360 },
+7625.5s 361 "weighted": {
+7625.5s 362 "precision": 0.6027939268324702,
+7625.5s 363 "recall": 0.5819373249484754,
+7625.5s 364 "f1": 0.5776380984094918
+7625.5s 365 },
+7625.5s 366 "balanced_accuracy": 0.580711907645761,
+7625.5s 367 "ece_15bins": 0.09489692946761989,
+7625.5s 368 "mean_confidence": 0.4870404005050659,
+7625.5s 369 "eval_seconds": 29.6,
+7625.5s 370 "img_size": 224,
+7625.5s 371 "norm": "imagenet",
+7625.5s 372 "resize_mode": "crop",
+7625.5s 373 "cpu_latency_ms_batch1": {
+7625.5s 374 "median": 31.92,
+7625.5s 375 "p90": 35.2,
+7625.5s 376 "threads": 2
+7625.5s 377 }
+7625.5s 378 }
+7625.5s 379 [done] results in /kaggle/working/results/e2_resnet18_temporal
+7632.5s 380 [data] classes=958 train=96987 val=20158 (val rows with unseen class: 0) device=cuda amp=True
+7632.7s 381 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+7632.8s 382 
+7633.3s 383 model.safetensors: reconstructing file:   0%|      |  0.00B / 21.4MB            [Amodel.safetensors: downloading bytes:                       |  0.00B            model.safetensors: downloading bytes: ██▉                   | 2.84MB            model.safetensors: downloading bytes: ██████▏               | 6.00MB,   ???B/s
+7633.5s 384 model.safetensors: reconstructing file:   7%|▍     | 1.46MB / 21.4MB            [Amodel.safetensors: downloading bytes: █████████▉            | 9.68MB,  593kB/s  model.safetensors: downloading bytes: ██████████████▌       | 14.1MB,  951kB/s
+7633.5s 385 model.safetensors: reconstructing file:  41%|██▍   | 8.85MB / 21.4MB,  145kB/s  [Amodel.safetensors: downloading bytes: ████████████████████  | 19.5MB, 1.38MB/s  model.safetensors: downloading bytes: ██████████████████████| 20.2MB, 1.95MB/s  model.safetensors: downloading bytes: ██████████████████████| 20.2MB, 1.95MB/s
+7633.5s 386 model.safetensors: reconstructing file: 100%|██████| 21.4MB / 21.4MB, 2.09MB/s
+7648.1s 387 ep1 0/757 loss 6.905
+7744.0s 388 ep1 200/757 loss 6.286
+7842.4s 389 ep1 400/757 loss 4.391
+7941.4s 390 ep1 600/757 loss 3.916
+8051.4s 391 [epoch 1/20] train_loss 4.9987 train_acc 0.1907 | val_loss 2.8592 val_top1 0.3883 val_top5 0.6552 | 7.0 min
+8051.5s 392 [save] best.pth (val_top1=0.3883)
+8053.8s 393 ep2 0/757 loss 3.378
+8151.7s 394 ep2 200/757 loss 3.160
+8248.8s 395 ep2 400/757 loss 3.292
+8347.6s 396 ep2 600/757 loss 2.799
+8449.5s 397 [epoch 2/20] train_loss 3.1077 train_acc 0.4890 | val_loss 2.0906 val_top1 0.5350 val_top5 0.7800 | 6.6 min
+8449.6s 398 [save] best.pth (val_top1=0.5350)
+8452.0s 399 ep3 0/757 loss 2.503
+8550.6s 400 ep3 200/757 loss 2.546
+8648.3s 401 ep3 400/757 loss 2.590
+8745.9s 402 ep3 600/757 loss 2.544
+8847.0s 403 [epoch 3/20] train_loss 2.5848 train_acc 0.6133 | val_loss 1.8220 val_top1 0.5881 val_top5 0.8171 | 6.6 min
+8847.1s 404 [save] best.pth (val_top1=0.5881)
+8849.5s 405 ep4 0/757 loss 2.276
+8947.9s 406 ep4 200/757 loss 2.436
+9046.2s 407 ep4 400/757 loss 2.358
+9144.4s 408 ep4 600/757 loss 2.434
+9246.2s 409 [epoch 4/20] train_loss 2.3032 train_acc 0.6835 | val_loss 1.6719 val_top1 0.6272 val_top5 0.8417 | 6.6 min
+9246.3s 410 [save] best.pth (val_top1=0.6272)
+9248.7s 411 ep5 0/757 loss 1.941
+9347.3s 412 ep5 200/757 loss 2.135
+9445.1s 413 ep5 400/757 loss 2.069
+9541.7s 414 ep5 600/757 loss 2.152
+9640.5s 415 [epoch 5/20] train_loss 2.1131 train_acc 0.7349 | val_loss 1.6299 val_top1 0.6393 val_top5 0.8470 | 6.6 min
+9640.6s 416 [save] best.pth (val_top1=0.6393)
+9642.8s 417 ep6 0/757 loss 1.809
+9738.7s 418 ep6 200/757 loss 2.095
+9833.0s 419 ep6 400/757 loss 2.011
+9927.3s 420 ep6 600/757 loss 1.828
+10025.1s 421 [epoch 6/20] train_loss 1.9538 train_acc 0.7784 | val_loss 1.5721 val_top1 0.6533 val_top5 0.8573 | 6.4 min
+10025.1s 422 [save] best.pth (val_top1=0.6533)
+10027.4s 423 ep7 0/757 loss 1.886
+10122.5s 424 ep7 200/757 loss 1.777
+10216.2s 425 ep7 400/757 loss 1.712
+10310.7s 426 ep7 600/757 loss 1.850
+10409.0s 427 [epoch 7/20] train_loss 1.8303 train_acc 0.8150 | val_loss 1.5299 val_top1 0.6640 val_top5 0.8608 | 6.4 min
+10409.0s 428 [save] best.pth (val_top1=0.6640)
+10411.5s 429 ep8 0/757 loss 1.832
+10506.4s 430 ep8 200/757 loss 1.612
+10600.7s 431 ep8 400/757 loss 1.621
+10693.9s 432 ep8 600/757 loss 1.856
+10791.1s 433 [epoch 8/20] train_loss 1.7077 train_acc 0.8523 | val_loss 1.4754 val_top1 0.6809 val_top5 0.8674 | 6.4 min
+10791.1s 434 [save] best.pth (val_top1=0.6809)
+10793.3s 435 ep9 0/757 loss 1.538
+10886.9s 436 ep9 200/757 loss 1.497
+10980.2s 437 ep9 400/757 loss 1.622
+11074.5s 438 ep9 600/757 loss 1.698
+11172.2s 439 [epoch 9/20] train_loss 1.5979 train_acc 0.8859 | val_loss 1.4174 val_top1 0.6966 val_top5 0.8767 | 6.3 min
+11172.3s 440 [save] best.pth (val_top1=0.6966)
+11174.6s 441 ep10 0/757 loss 1.516
+11268.7s 442 ep10 200/757 loss 1.499
+11363.2s 443 ep10 400/757 loss 1.509
+11457.2s 444 ep10 600/757 loss 1.475
+11558.6s 445 [epoch 10/20] train_loss 1.5064 train_acc 0.9151 | val_loss 1.4083 val_top1 0.7009 val_top5 0.8798 | 6.4 min
+11558.7s 446 [save] best.pth (val_top1=0.7009)
+11561.0s 447 ep11 0/757 loss 1.400
+11657.0s 448 ep11 200/757 loss 1.370
+11753.9s 449 ep11 400/757 loss 1.410
+11850.0s 450 ep11 600/757 loss 1.460
+11949.9s 451 [epoch 11/20] train_loss 1.4276 train_acc 0.9403 | val_loss 1.4128 val_top1 0.7067 val_top5 0.8804 | 6.5 min
+11949.9s 452 [save] best.pth (val_top1=0.7067)
+11952.3s 453 ep12 0/757 loss 1.342
+12048.2s 454 ep12 200/757 loss 1.341
+12145.5s 455 ep12 400/757 loss 1.312
+12243.0s 456 ep12 600/757 loss 1.335
+12344.6s 457 [epoch 12/20] train_loss 1.3607 train_acc 0.9605 | val_loss 1.3724 val_top1 0.7199 val_top5 0.8875 | 6.6 min
+12344.6s 458 [save] best.pth (val_top1=0.7199)
+12347.0s 459 ep13 0/757 loss 1.386
+12444.7s 460 ep13 200/757 loss 1.252
+12542.3s 461 ep13 400/757 loss 1.296
+12640.0s 462 ep13 600/757 loss 1.339
+12741.6s 463 [epoch 13/20] train_loss 1.3088 train_acc 0.9734 | val_loss 1.3396 val_top1 0.7295 val_top5 0.8908 | 6.6 min
+12741.6s 464 [save] best.pth (val_top1=0.7295)
+12743.9s 465 ep14 0/757 loss 1.246
+12841.5s 466 ep14 200/757 loss 1.265
+12939.1s 467 ep14 400/757 loss 1.280
+13034.7s 468 ep14 600/757 loss 1.233
+13135.1s 469 [epoch 14/20] train_loss 1.2642 train_acc 0.9841 | val_loss 1.3197 val_top1 0.7376 val_top5 0.8966 | 6.6 min
+13135.1s 470 [save] best.pth (val_top1=0.7376)
+13137.4s 471 ep15 0/757 loss 1.257
+13234.3s 472 ep15 200/757 loss 1.239
+13329.2s 473 ep15 400/757 loss 1.233
+13424.8s 474 ep15 600/757 loss 1.213
+13524.0s 475 [epoch 15/20] train_loss 1.2329 train_acc 0.9893 | val_loss 1.3041 val_top1 0.7449 val_top5 0.8985 | 6.5 min
+13524.0s 476 [save] best.pth (val_top1=0.7449)
+13526.2s 477 ep16 0/757 loss 1.214
+13621.2s 478 ep16 200/757 loss 1.221
+13716.6s 479 ep16 400/757 loss 1.227
+13812.0s 480 ep16 600/757 loss 1.243
+13911.0s 481 [epoch 16/20] train_loss 1.2085 train_acc 0.9928 | val_loss 1.3229 val_top1 0.7492 val_top5 0.9009 | 6.4 min
+13911.0s 482 [save] best.pth (val_top1=0.7492)
+13913.2s 483 ep17 0/757 loss 1.180
+14007.9s 484 ep17 200/757 loss 1.184
+14102.8s 485 ep17 400/757 loss 1.173
+14197.6s 486 ep17 600/757 loss 1.202
+14296.0s 487 [epoch 17/20] train_loss 1.1910 train_acc 0.9946 | val_loss 1.3177 val_top1 0.7528 val_top5 0.9011 | 6.4 min
+14296.0s 488 [save] best.pth (val_top1=0.7528)
+14298.2s 489 ep18 0/757 loss 1.209
+14393.3s 490 ep18 200/757 loss 1.176
+14488.4s 491 ep18 400/757 loss 1.182
+14583.7s 492 ep18 600/757 loss 1.167
+14682.4s 493 [epoch 18/20] train_loss 1.1788 train_acc 0.9963 | val_loss 1.3136 val_top1 0.7542 val_top5 0.9015 | 6.4 min
+14682.5s 494 [save] best.pth (val_top1=0.7542)
+14684.7s 495 ep19 0/757 loss 1.167
+14780.1s 496 ep19 200/757 loss 1.210
+14875.8s 497 ep19 400/757 loss 1.176
+14970.7s 498 ep19 600/757 loss 1.196
+15069.4s 499 [epoch 19/20] train_loss 1.1716 train_acc 0.9971 | val_loss 1.3173 val_top1 0.7564 val_top5 0.9025 | 6.4 min
+15069.4s 500 [save] best.pth (val_top1=0.7564)
+15071.7s 501 ep20 0/757 loss 1.172
+15166.8s 502 ep20 200/757 loss 1.171
+15261.8s 503 ep20 400/757 loss 1.173
+15357.0s 504 ep20 600/757 loss 1.174
+15456.5s 505 [epoch 20/20] train_loss 1.1678 train_acc 0.9975 | val_loss 1.3145 val_top1 0.7551 val_top5 0.9029 | 6.4 min
+15456.7s 506 [done] best val top-1 = 0.7564
+15457.5s 507 [eval] /usr/bin/python3 /kaggle/working/greenmind-ai/tools/evaluate.py --ckpt /kaggle/working/species_effb0/best.pth --arch efficientnet_b0 --classes /kaggle/working/species_effb0/classes.json --manifest /kaggle/working/split139k/manifest.csv --split test --norm imagenet --resize_mode crop --img_size 224 --workers 4 --out /kaggle/working/species_effb0/eval_test
+15460.7s 508 [data] 20158 images, 958 classes present, model has 958
+15463.1s 509 batch 0/315
+15465.0s 510 batch 20/315
+15467.0s 511 batch 40/315
+15468.9s 512 batch 60/315
+15470.9s 513 batch 80/315
+15472.9s 514 batch 100/315
+15474.8s 515 batch 120/315
+15476.8s 516 batch 140/315
+15478.8s 517 batch 160/315
+15480.8s 518 batch 180/315
+15482.8s 519 batch 200/315
+15484.8s 520 batch 220/315
+15486.9s 521 batch 240/315
+15488.9s 522 batch 260/315
+15490.9s 523 batch 280/315
+15493.0s 524 batch 300/315
+15500.7s 525 {
+15500.7s 526 "source": "manifest:/kaggle/working/split139k/manifest.csv[test]",
+15500.7s 527 "checkpoint": "/kaggle/working/species_effb0/best.pth",
+15500.7s 528 "arch": "efficientnet_b0",
+15500.7s 529 "n_images": 20158,
+15500.7s 530 "n_classes_in_eval": 958,
+15500.7s 531 "n_classes_model": 958,
+15500.7s 532 "top1": 0.7602440718325231,
+15500.7s 533 "top1_ci95": [
+15500.7s 534 0.7546854846710983,
+15500.7s 535 0.7662962595495585
+15500.7s 536 ],
+15500.7s 537 "top5": 0.9034626451036809,
+15500.7s 538 "macro": {
+15500.7s 539 "precision": 0.7677736844064276,
+15500.7s 540 "recall": 0.7550633145857815,
+15500.7s 541 "f1": 0.7556018952539023
+15500.7s 542 },
+15500.7s 543 "weighted": {
+15500.7s 544 "precision": 0.7696677146549428,
+15500.7s 545 "recall": 0.7602440718325231,
+15500.7s 546 "f1": 0.7596004222515096
+15500.7s 547 },
+15500.7s 548 "balanced_accuracy": 0.7550633145857815,
+15500.7s 549 "ece_15bins": 0.18598038295967875,
+15500.7s 550 "mean_confidence": 0.5742636919021606,
+15500.7s 551 "eval_seconds": 34.0,
+15500.7s 552 "img_size": 224,
+15500.7s 553 "norm": "imagenet",
+15500.7s 554 "resize_mode": "crop",
+15500.7s 555 "cpu_latency_ms_batch1": {
+15500.7s 556 "median": 36.91,
+15500.7s 557 "p90": 39.21,
+15500.7s 558 "threads": 2
+15500.7s 559 }
+15500.7s 560 }
+15500.7s 561 [done] results in /kaggle/working/species_effb0/eval_test
+15507.6s 562 [warn] 380 images have labels the model does not know; excluded. Examples: [('Abies_pindrow', 3), ('Acantholimon_lycopodioides', 13), ('Acer_caesium', 14), ('Ajuga_parviflora', 1), ('Allardia_glabra', 1)]
+15507.6s 563 [data] 18923 images, 958 classes present, model has 958
+15510.0s 564 batch 0/296
+15512.0s 565 batch 20/296
+15514.0s 566 batch 40/296
+15515.9s 567 batch 60/296
+15517.9s 568 batch 80/296
+15519.8s 569 batch 100/296
+15521.7s 570 batch 120/296
+15523.7s 571 batch 140/296
+15525.7s 572 batch 160/296
+15527.6s 573 batch 180/296
+15529.6s 574 batch 200/296
+15531.6s 575 batch 220/296
+15533.6s 576 batch 240/296
+15535.7s 577 batch 260/296
+15537.7s 578 batch 280/296
+15545.2s 579 {
+15545.2s 580 "source": "imagefolder:/kaggle/temp/inat/pool_b",
+15545.2s 581 "checkpoint": "/kaggle/working/species_effb0/best.pth",
+15545.2s 582 "arch": "efficientnet_b0",
+15545.2s 583 "n_images": 18923,
+15545.2s 584 "n_classes_in_eval": 958,
+15545.2s 585 "n_classes_model": 958,
+15545.2s 586 "top1": 0.6904296358928288,
+15545.2s 587 "top1_ci95": [
+15545.2s 588 0.6836653807535803,
+15545.2s 589 0.6970419595201607
+15545.2s 590 ],
+15545.2s 591 "top5": 0.8590075569412884,
+15545.2s 592 "macro": {
+15545.2s 593 "precision": 0.7044572027022009,
+15545.2s 594 "recall": 0.6896138334373144,
+15545.2s 595 "f1": 0.6862633492524446
+15545.2s 596 },
+15545.2s 597 "weighted": {
+15545.2s 598 "precision": 0.7037401831963565,
+15545.2s 599 "recall": 0.6904296358928288,
+15545.2s 600 "f1": 0.6864831380839067
+15545.2s 601 },
+15545.2s 602 "balanced_accuracy": 0.6896138334373144,
+15545.2s 603 "ece_15bins": 0.1672713509463284,
+15545.2s 604 "mean_confidence": 0.5231582522392273,
+15545.2s 605 "eval_seconds": 31.6,
+15545.2s 606 "img_size": 224,
+15545.2s 607 "norm": "imagenet",
+15545.2s 608 "resize_mode": "crop",
+15545.2s 609 "cpu_latency_ms_batch1": {
+15545.2s 610 "median": 37.66,
+15545.2s 611 "p90": 42.39,
+15545.2s 612 "threads": 2
+15545.2s 613 }
+15545.2s 614 }
+15545.2s 615 [done] results in /kaggle/working/results/e2_effb0_temporal
+15546.9s 616 {
+15546.9s 617 "sources": [
+15546.9s 618 "/kaggle/temp/inat/pool_a"
+15546.9s 619 ],
+15546.9s 620 "excluded_sources": [],
+15546.9s 621 "seed": 42,
+15546.9s 622 "scanned_images": 138463,
+15546.9s 623 "exact_duplicates_removed": 0,
+15546.9s 624 "excluded_overlap_removed": 0,
+15546.9s 625 "classes_found": 1079,
+15546.9s 626 "classes_dropped_min_per_class": 121,
+15546.9s 627 "min_per_class": 30,
+15546.9s 628 "classes_kept": 958,
+15546.9s 629 "per_class_cap": 150,
+15546.9s 630 "total_images": 137303,
+15546.9s 631 "split_sizes": {
+15546.9s 632 "train": 96987,
+15546.9s 633 "val": 20158,
+15546.9s 634 "test": 20158
+15546.9s 635 },
+15546.9s 636 "split_fractions": {
+15546.9s 637 "val": 0.15,
+15546.9s 638 "test": 0.15
+15546.9s 639 },
+15546.9s 640 "images_per_class": {
+15546.9s 641 "min": 30,
+15546.9s 642 "median": 150,
+15546.9s 643 "max": 150
+15546.9s 644 }
+15547.0s 645 }/kaggle/working/species_effb0/eval_test/metrics.json
+15547.0s 646 {
+15547.0s 647 "source": "manifest:/kaggle/working/split139k/manifest.csv[test]",
+15547.0s 648 "checkpoint": "/kaggle/working/species_effb0/best.pth",
+15547.0s 649 "arch": "efficientnet_b0",
+15547.0s 650 "n_images": 20158,
+15547.0s 651 "n_classes_in_eval": 958,
+15547.0s 652 "n_classes_model": 958,
+15547.0s 653 "top1": 0.7602440718325231,
+15547.0s 654 "top1_ci95": [
+15547.0s 655 0.7546854846710983,
+15547.0s 656 0.7662962595495585
+15547.0s 657 ],
+15547.0s 658 /kaggle/working/species_resnet18/eval_test/metrics.json
+15547.0s 659 {
+15547.0s 660 "source": "manifest:/kaggle/working/split139k/manifest.csv[test]",
+15547.0s 661 "checkpoint": "/kaggle/working/species_resnet18/best.pth",
+15547.0s 662 "arch": "resnet18",
+15547.0s 663 "n_images": 20158,
+15547.0s 664 "n_classes_in_eval": 958,
+15547.0s 665 "n_classes_model": 958,
+15547.0s 666 "top1": 0.6494691933723584,
+15547.0s 667 "top1_ci95": [
+15547.0s 668 0.6431193570790753,
+15547.0s 669 0.6560187022522075
+15547.0s 670 ],
+15547.0s 671 /kaggle/working/results/e1_deployed_resnet18_temporal/metrics.json
+15547.0s 672 {
+15547.0s 673 "source": "imagefolder:/kaggle/temp/inat/pool_b",
+15547.0s 674 "checkpoint": "models/checkpoints/plant_id_resnet18_best.pth",
+15547.0s 675 "arch": "resnet18",
+15547.0s 676 "n_images": 19303,
+15547.0s 677 "n_classes_in_eval": 1040,
+15547.0s 678 "n_classes_model": 1106,
+15547.0s 679 "top1": 0.2203284463554888,
+15547.0s 680 "top1_ci95": [
+15547.0s 681 0.2144744340257991,
+15547.0s 682 0.22607884784748486
+15547.0s 683 ],
+15547.0s 684 /kaggle/working/results/e2_effb0_temporal/metrics.json
+15547.0s 685 {
+15547.0s 686 "source": "imagefolder:/kaggle/temp/inat/pool_b",
+15547.0s 687 "checkpoint": "/kaggle/working/species_effb0/best.pth",
+15547.0s 688 "arch": "efficientnet_b0",
+15547.0s 689 "n_images": 18923,
+15547.0s 690 "n_classes_in_eval": 958,
+15547.0s 691 "n_classes_model": 958,
+15547.0s 692 "top1": 0.6904296358928288,
+15547.0s 693 "top1_ci95": [
+15547.0s 694 0.6836653807535803,
+15547.0s 695 0.6970419595201607
+15547.0s 696 ],
+15547.0s 697 /kaggle/working/results/e2_resnet18_temporal/metrics.json
+15547.0s 698 {
+15547.0s 699 "source": "imagefolder:/kaggle/temp/inat/pool_b",
+15547.0s 700 "checkpoint": "/kaggle/working/species_resnet18/best.pth",
+15547.0s 701 "arch": "resnet18",
+15547.0s 702 "n_images": 18923,
+15547.0s 703 "n_classes_in_eval": 958,
+15547.0s 704 "n_classes_model": 958,
+15547.0s 705 "top1": 0.5819373249484754,
+15547.0s 706 "top1_ci95": [
+15547.0s 707 0.5750145325794007,
+15547.0s 708 0.5889156053479891
+15547.0s 709 ],
+15549.6s 710 /usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+15549.6s 711 cells[i][c] = re.sub('\\\\\|', '|', cell)
+15549.8s 712 /usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+15549.8s 713 text = re.sub(r'_', '\_', text) # Escape underscores in display text
+15550.6s 714 [NbConvertApp] Converting notebook __notebook__.ipynb to notebook
+15550.7s 715 [NbConvertApp] Writing 44891 bytes to __notebook__.ipynb
+15553.1s 716 [NbConvertApp] Converting notebook __notebook__.ipynb to html
+15553.8s 717 [NbConvertApp] Writing 320142 bytes to __results__.html

@@ -1,0 +1,1267 @@
+8.0s 1 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+8.0s 2 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+8.0s 3 0.00s - to python to disable frozen modules.
+8.0s 4 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+8.7s 5 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+8.7s 6 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+8.7s 7 0.00s - to python to disable frozen modules.
+8.7s 8 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+9.9s 9 Cloning into 'greenmind-ai'...
+10.1s 10 Cloning into 'greenmind-ai'...
+10.1s 11 
+10.1s 12 Cloning into 'greenmind-ai'...
+16.6s 13 38a0507 Notebooks 3/4: use attached PlantVillage input when present (kagglehub cannot attach in commit runs)
+16.6s 14 
+16.6s 15 Overwriting /kaggle/working/greenmind-ai/tools/disease_extras.py
+17.7s 16 Cloning into '/kaggle/working/PlantDoc-Dataset'...
+17.9s 17 Cloning into '/kaggle/working/PlantDoc-Dataset'...
+17.9s 18 
+17.9s 19 Cloning into '/kaggle/working/PlantDoc-Dataset'...
+44.5s 20 Updating files:  40% (1041/2581)Updating files:  41% (1059/2581)Updating files:  42% (1085/2581)Updating files:  43% (1110/2581)Updating files:  44% (1136/2581)Updating files:  45% (1162/2581)Updating files:  46% (1188/2581)Updating files:  47% (1214/2581)Updating files:  48% (1239/2581)Updating files:  40% (1041/2581)Updating files:  41% (1059/2581)Updating files:  42% (1085/2581)Updating files:  43% (1110/2581)Updating files:  44% (1136/2581)Updating files:  45% (1162/2581)Updating files:  46% (1188/2581)Updating files:  47% (1214/2581)Updating files:  48% (1239/2581)
+44.7s 21 Updating files:  40% (1041/2581)Updating files:  41% (1059/2581)Updating files:  42% (1085/2581)Updating files:  43% (1110/2581)Updating files:  44% (1136/2581)Updating files:  45% (1162/2581)Updating files:  46% (1188/2581)Updating files:  47% (1214/2581)Updating files:  48% (1239/2581)Updating files:  49% (1265/2581)Updating files:  50% (1291/2581)Updating files:  51% (1317/2581)Updating files:  52% (1343/2581)Updating files:  53% (1368/2581)Updating files:  54% (1394/2581)Updating files:  55% (1420/2581)Updating files:  56% (1446/2581)Updating files:  57% (1472/2581)Updating files:  58% (1497/2581)Updating files:  49% (1265/2581)Updating files:  50% (1291/2581)Updating files:  51% (1317/2581)Updating files:  52% (1343/2581)Updating files:  53% (1368/2581)Updating files:  54% (1394/2581)Updating files:  55% (1420/2581)Updating files:  56% (1446/2581)Updating files:  57% (1472/2581)
+44.9s 22 Updating files:  49% (1265/2581)Updating files:  50% (1291/2581)Updating files:  51% (1317/2581)Updating files:  52% (1343/2581)Updating files:  53% (1368/2581)Updating files:  54% (1394/2581)Updating files:  55% (1420/2581)Updating files:  56% (1446/2581)Updating files:  57% (1472/2581)Updating files:  59% (1523/2581)Updating files:  60% (1549/2581)Updating files:  61% (1575/2581)Updating files:  62% (1601/2581)Updating files:  63% (1627/2581)Updating files:  64% (1652/2581)Updating files:  58% (1497/2581)Updating files:  59% (1523/2581)Updating files:  60% (1549/2581)Updating files:  61% (1575/2581)Updating files:  62% (1601/2581)Updating files:  63% (1627/2581)Updating files:  64% (1652/2581)
+45.1s 23 Updating files:  58% (1497/2581)Updating files:  59% (1523/2581)Updating files:  60% (1549/2581)Updating files:  61% (1575/2581)Updating files:  62% (1601/2581)Updating files:  63% (1627/2581)Updating files:  64% (1652/2581)Updating files:  65% (1678/2581)Updating files:  66% (1704/2581)Updating files:  67% (1730/2581)Updating files:  68% (1756/2581)Updating files:  69% (1781/2581)Updating files:  70% (1807/2581)Updating files:  71% (1833/2581)Updating files:  65% (1678/2581)Updating files:  66% (1704/2581)Updating files:  67% (1730/2581)Updating files:  68% (1756/2581)Updating files:  69% (1781/2581)Updating files:  70% (1807/2581)Updating files:  71% (1833/2581)
+45.3s 24 Updating files:  65% (1678/2581)Updating files:  66% (1704/2581)Updating files:  67% (1730/2581)Updating files:  68% (1756/2581)Updating files:  69% (1781/2581)Updating files:  70% (1807/2581)Updating files:  71% (1833/2581)Updating files:  72% (1859/2581)Updating files:  73% (1885/2581)Updating files:  74% (1910/2581)Updating files:  75% (1936/2581)Updating files:  76% (1962/2581)Updating files:  77% (1988/2581)Updating files:  78% (2014/2581)Updating files:  79% (2039/2581)Updating files:  80% (2065/2581)Updating files:  80% (2079/2581)Updating files:  81% (2091/2581)Updating files:  82% (2117/2581)Updating files:  72% (1859/2581)Updating files:  73% (1885/2581)Updating files:  74% (1910/2581)Updating files:  75% (1936/2581)Updating files:  76% (1962/2581)Updating files:  77% (1988/2581)Updating files:  78% (2014/2581)Updating files:  79% (2039/2581)Updating files:  80% (2065/2581)Updating files:  80% (2079/2581)Updating files:  81% (2091/2581)Updating files:  82% (2117/2581)
+45.5s 25 Updating files:  72% (1859/2581)Updating files:  73% (1885/2581)Updating files:  74% (1910/2581)Updating files:  75% (1936/2581)Updating files:  76% (1962/2581)Updating files:  77% (1988/2581)Updating files:  78% (2014/2581)Updating files:  79% (2039/2581)Updating files:  80% (2065/2581)Updating files:  80% (2079/2581)Updating files:  81% (2091/2581)Updating files:  82% (2117/2581)Updating files:  83% (2143/2581)Updating files:  84% (2169/2581)Updating files:  85% (2194/2581)Updating files:  86% (2220/2581)Updating files:  87% (2246/2581)Updating files:  88% (2272/2581)Updating files:  89% (2298/2581)Updating files:  90% (2323/2581)Updating files:  91% (2349/2581)Updating files:  92% (2375/2581)Updating files:  83% (2143/2581)Updating files:  84% (2169/2581)Updating files:  85% (2194/2581)Updating files:  86% (2220/2581)Updating files:  87% (2246/2581)Updating files:  88% (2272/2581)Updating files:  89% (2298/2581)Updating files:  90% (2323/2581)Updating files:  91% (2349/2581)
+45.7s 26 Updating files:  83% (2143/2581)Updating files:  84% (2169/2581)Updating files:  85% (2194/2581)Updating files:  86% (2220/2581)Updating files:  87% (2246/2581)Updating files:  88% (2272/2581)Updating files:  89% (2298/2581)Updating files:  90% (2323/2581)Updating files:  91% (2349/2581)Updating files:  93% (2401/2581)Updating files:  94% (2427/2581)Updating files:  95% (2452/2581)Updating files:  96% (2478/2581)Updating files:  97% (2504/2581)Updating files:  98% (2530/2581)Updating files:  99% (2556/2581)Updating files:  92% (2375/2581)Updating files:  93% (2401/2581)Updating files:  94% (2427/2581)Updating files:  95% (2452/2581)Updating files:  96% (2478/2581)Updating files:  97% (2504/2581)Updating files:  98% (2530/2581)Updating files:  99% (2556/2581)
+45.8s 27 Updating files:  92% (2375/2581)Updating files:  93% (2401/2581)Updating files:  94% (2427/2581)Updating files:  95% (2452/2581)Updating files:  96% (2478/2581)Updating files:  97% (2504/2581)Updating files:  98% (2530/2581)Updating files:  99% (2556/2581)Updating files: 100% (2581/2581)Updating files: 100% (2581/2581), done.
+46.0s 28 Updating files: 100% (2581/2581)Updating files: 100% (2581/2581), done.
+46.0s 29 
+46.0s 30 Updating files: 100% (2581/2581)Updating files: 100% (2581/2581), done.
+58.9s 31 /kaggle/input/datasets/emmarex/plantdisease/PlantVillage /kaggle/working/PlantDoc-Dataset/test /kaggle/working/PlantDoc-Dataset/train
+59.0s 32 [scan] /kaggle/input/datasets/emmarex/plantdisease/PlantVillage
+1699.6s 33 [scan] 20638 images, 15 classes, dup=14, excluded=0
+1699.6s 34 [cap] per-class cap = 3208
+1708.4s 35 {
+1708.4s 36 "sources": [
+1708.4s 37 "/kaggle/input/datasets/emmarex/plantdisease/PlantVillage"
+1708.4s 38 ],
+1708.4s 39 "excluded_sources": [],
+1708.4s 40 "seed": 42,
+1708.4s 41 "scanned_images": 20638,
+1708.4s 42 "exact_duplicates_removed": 14,
+1708.4s 43 "excluded_overlap_removed": 0,
+1708.4s 44 "classes_found": 15,
+1708.4s 45 "classes_dropped_min_per_class": 0,
+1708.4s 46 "min_per_class": 30,
+1708.4s 47 "classes_kept": 15,
+1708.4s 48 "per_class_cap": 3208,
+1708.4s 49 "total_images": 20624,
+1708.4s 50 "split_sizes": {
+1708.4s 51 "train": 14434,
+1708.4s 52 "val": 3095,
+1708.4s 53 "test": 3095
+1708.4s 54 },
+1708.4s 55 "split_fractions": {
+1708.4s 56 "val": 0.15,
+1708.4s 57 "test": 0.15
+1708.4s 58 },
+1708.4s 59 "images_per_class": {
+1708.4s 60 "min": 152,
+1708.4s 61 "median": 1404,
+1708.4s 62 "max": 3208
+1708.4s 63 }
+1708.4s 64 }
+1708.4s 65 [done] /kaggle/working/pv_split/manifest.csv
+1726.1s 66 [data] classes=15 train=14434 val=3095 (val rows with unseen class: 0) device=cuda amp=True
+1726.4s 67 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+1726.5s 68 
+1727.0s 69 model.safetensors: reconstructing file:   0%|      |  0.00B / 21.4MB            [Amodel.safetensors: downloading bytes:                       |  0.00B
+1727.1s 70 model.safetensors: reconstructing file:   7%|▍     | 1.46MB / 21.4MB            [Amodel.safetensors: downloading bytes: ██████▊               | 6.63MB
+1728.9s 71 model.safetensors: reconstructing file:  23%|█▎    | 4.89MB / 21.4MB,  145kB/s  [Amodel.safetensors: downloading bytes: ████████████▏         | 11.8MB,  657kB/s  model.safetensors: downloading bytes: ██████████████████▌   | 18.0MB, 1.49MB/s
+1728.9s 72 model.safetensors: reconstructing file: 100%|██████| 21.4MB / 21.4MB,  482kB/s  [Amodel.safetensors: downloading bytes: ██████████████████████| 20.2MB, 1.69MB/s  model.safetensors: downloading bytes: ██████████████████████| 20.2MB, 1.69MB/s
+1728.9s 73 model.safetensors: reconstructing file: 100%|██████| 21.4MB / 21.4MB, 1.95MB/s
+1743.2s 74 ep1 0/225 loss 4.082
+1793.4s 75 ep1 200/225 loss 0.850
+1812.0s 76 [epoch 1/20] train_loss 1.4223 train_acc 0.7345 | val_loss 0.2773 val_top1 0.9561 val_top5 0.9990 | 1.4 min
+1812.1s 77 [save] best.pth (val_top1=0.9561)
+1813.3s 78 ep2 0/225 loss 0.742
+1864.4s 79 ep2 200/225 loss 0.646
+1875.9s 80 [epoch 2/20] train_loss 0.7095 train_acc 0.9710 | val_loss 0.1612 val_top1 0.9906 val_top5 1.0000 | 1.1 min
+1876.0s 81 [save] best.pth (val_top1=0.9906)
+1877.3s 82 ep3 0/225 loss 0.652
+1928.4s 83 ep3 200/225 loss 0.606
+1939.9s 84 [epoch 3/20] train_loss 0.6397 train_acc 0.9888 | val_loss 0.1267 val_top1 0.9955 val_top5 1.0000 | 1.1 min
+1940.0s 85 [save] best.pth (val_top1=0.9955)
+1941.2s 86 ep4 0/225 loss 0.633
+1992.2s 87 ep4 200/225 loss 0.599
+2003.4s 88 [epoch 4/20] train_loss 0.6132 train_acc 0.9922 | val_loss 0.1286 val_top1 0.9952 val_top5 1.0000 | 1.1 min
+2004.6s 89 ep5 0/225 loss 0.589
+2055.2s 90 ep5 200/225 loss 0.609
+2067.0s 91 [epoch 5/20] train_loss 0.5982 train_acc 0.9951 | val_loss 0.1276 val_top1 0.9945 val_top5 1.0000 | 1.1 min
+2068.2s 92 ep6 0/225 loss 0.580
+2119.7s 93 ep6 200/225 loss 0.587
+2131.1s 94 [epoch 6/20] train_loss 0.5877 train_acc 0.9962 | val_loss 0.1166 val_top1 0.9964 val_top5 1.0000 | 1.1 min
+2131.1s 95 [save] best.pth (val_top1=0.9964)
+2132.3s 96 ep7 0/225 loss 0.578
+2183.2s 97 ep7 200/225 loss 0.578
+2194.5s 98 [epoch 7/20] train_loss 0.5832 train_acc 0.9971 | val_loss 0.1265 val_top1 0.9948 val_top5 1.0000 | 1.1 min
+2195.7s 99 ep8 0/225 loss 0.586
+2246.4s 100 ep8 200/225 loss 0.579
+2258.0s 101 [epoch 8/20] train_loss 0.5808 train_acc 0.9961 | val_loss 0.1180 val_top1 0.9955 val_top5 1.0000 | 1.1 min
+2259.1s 102 ep9 0/225 loss 0.578
+2310.1s 103 ep9 200/225 loss 0.572
+2321.7s 104 [epoch 9/20] train_loss 0.5753 train_acc 0.9978 | val_loss 0.1169 val_top1 0.9955 val_top5 1.0000 | 1.1 min
+2322.9s 105 ep10 0/225 loss 0.568
+2373.7s 106 ep10 200/225 loss 0.582
+2385.2s 107 [epoch 10/20] train_loss 0.5748 train_acc 0.9974 | val_loss 0.1173 val_top1 0.9964 val_top5 1.0000 | 1.1 min
+2386.3s 108 ep11 0/225 loss 0.565
+2437.1s 109 ep11 200/225 loss 0.569
+2448.7s 110 [epoch 11/20] train_loss 0.5727 train_acc 0.9979 | val_loss 0.1057 val_top1 0.9994 val_top5 1.0000 | 1.1 min
+2448.7s 111 [save] best.pth (val_top1=0.9994)
+2449.9s 112 ep12 0/225 loss 0.564
+2501.0s 113 ep12 200/225 loss 0.565
+2512.3s 114 [epoch 12/20] train_loss 0.5697 train_acc 0.9983 | val_loss 0.1151 val_top1 0.9977 val_top5 1.0000 | 1.1 min
+2513.6s 115 ep13 0/225 loss 0.569
+2564.2s 116 ep13 200/225 loss 0.563
+2575.6s 117 [epoch 13/20] train_loss 0.5665 train_acc 0.9991 | val_loss 0.1087 val_top1 0.9984 val_top5 1.0000 | 1.1 min
+2576.8s 118 ep14 0/225 loss 0.563
+2627.1s 119 ep14 200/225 loss 0.561
+2638.6s 120 [epoch 14/20] train_loss 0.5667 train_acc 0.9988 | val_loss 0.1112 val_top1 0.9981 val_top5 1.0000 | 1.0 min
+2639.8s 121 ep15 0/225 loss 0.560
+2689.3s 122 ep15 200/225 loss 0.570
+2700.9s 123 [epoch 15/20] train_loss 0.5663 train_acc 0.9988 | val_loss 0.1109 val_top1 0.9974 val_top5 1.0000 | 1.0 min
+2702.1s 124 ep16 0/225 loss 0.564
+2752.4s 125 ep16 200/225 loss 0.561
+2763.7s 126 [epoch 16/20] train_loss 0.5646 train_acc 0.9988 | val_loss 0.1067 val_top1 0.9997 val_top5 1.0000 | 1.0 min
+2763.7s 127 [save] best.pth (val_top1=0.9997)
+2764.9s 128 ep17 0/225 loss 0.562
+2814.8s 129 ep17 200/225 loss 0.560
+2826.2s 130 [epoch 17/20] train_loss 0.5634 train_acc 0.9994 | val_loss 0.1074 val_top1 0.9987 val_top5 1.0000 | 1.0 min
+2827.4s 131 ep18 0/225 loss 0.561
+2877.1s 132 ep18 200/225 loss 0.562
+2888.6s 133 [epoch 18/20] train_loss 0.5627 train_acc 0.9995 | val_loss 0.1060 val_top1 0.9990 val_top5 1.0000 | 1.0 min
+2889.8s 134 ep19 0/225 loss 0.560
+2939.8s 135 ep19 200/225 loss 0.563
+2951.1s 136 [epoch 19/20] train_loss 0.5632 train_acc 0.9991 | val_loss 0.1104 val_top1 0.9987 val_top5 1.0000 | 1.0 min
+2952.3s 137 ep20 0/225 loss 0.562
+3002.2s 138 ep20 200/225 loss 0.565
+3013.7s 139 [epoch 20/20] train_loss 0.5629 train_acc 0.9994 | val_loss 0.1065 val_top1 0.9987 val_top5 1.0000 | 1.0 min
+3013.9s 140 [done] best val top-1 = 0.9997
+3014.1s 141 [eval] /usr/bin/python3 /kaggle/working/greenmind-ai/tools/evaluate.py --ckpt /kaggle/working/d_effb0_s1/best.pth --arch efficientnet_b0 --classes /kaggle/working/d_effb0_s1/classes.json --manifest /kaggle/working/pv_split/manifest.csv --split test --norm half --resize_mode square --img_size 224 --workers 4 --out /kaggle/working/d_effb0_s1/eval_test
+3017.0s 142 [data] 3095 images, 15 classes present, model has 15
+3019.5s 143 batch 0/49
+3021.4s 144 batch 20/49
+3023.6s 145 batch 40/49
+3031.0s 146 {
+3031.0s 147 "source": "manifest:/kaggle/working/pv_split/manifest.csv[test]",
+3031.0s 148 "checkpoint": "/kaggle/working/d_effb0_s1/best.pth",
+3031.0s 149 "arch": "efficientnet_b0",
+3031.0s 150 "n_images": 3095,
+3031.0s 151 "n_classes_in_eval": 15,
+3031.0s 152 "n_classes_model": 15,
+3031.0s 153 "top1": 0.9987075928917609,
+3031.0s 154 "top1_ci95": [
+3031.0s 155 0.9974151857835218,
+3031.0s 156 0.9996768982229403
+3031.0s 157 ],
+3031.0s 158 "top5": 1.0,
+3031.0s 159 "macro": {
+3031.0s 160 "precision": 0.9988952372516019,
+3031.0s 161 "recall": 0.9986432748538012,
+3031.0s 162 "f1": 0.9987645344172599
+3031.0s 163 },
+3031.0s 164 "weighted": {
+3031.0s 165 "precision": 0.9987133643040511,
+3031.0s 166 "recall": 0.9987075928917609,
+3031.0s 167 "f1": 0.9987063064685794
+3031.0s 168 },
+3031.0s 169 "balanced_accuracy": 0.9986432748538012,
+3031.0s 170 "ece_15bins": 0.0980147307254194,
+3031.0s 171 "mean_confidence": 0.900692880153656,
+3031.0s 172 "eval_seconds": 9.1,
+3031.0s 173 "img_size": 224,
+3031.0s 174 "norm": "half",
+3031.0s 175 "resize_mode": "square",
+3031.0s 176 "cpu_latency_ms_batch1": {
+3031.0s 177 "median": 40.85,
+3031.0s 178 "p90": 42.63,
+3031.0s 179 "threads": 2
+3031.0s 180 }
+3031.0s 181 }
+3031.0s 182 [done] results in /kaggle/working/d_effb0_s1/eval_test
+3040.8s 183 [warn] 134 images have labels the model does not know; excluded. Examples: [('Apple Scab Leaf', 10), ('Apple leaf', 9), ('Apple rust leaf', 10), ('Blueberry leaf', 11), ('Cherry leaf', 10)]
+3040.8s 184 [data] 102 images, 12 classes present, model has 15
+3044.3s 185 batch 0/2
+3047.1s 186 {
+3047.1s 187 "source": "imagefolder:/kaggle/working/PlantDoc-Dataset/test",
+3047.1s 188 "checkpoint": "/kaggle/working/d_effb0_s1/best.pth",
+3047.1s 189 "arch": "efficientnet_b0",
+3047.1s 190 "n_images": 102,
+3047.1s 191 "n_classes_in_eval": 12,
+3047.1s 192 "n_classes_model": 15,
+3047.1s 193 "top1": 0.29411764705882354,
+3047.1s 194 "top1_ci95": [
+3047.1s 195 0.20588235294117646,
+3047.1s 196 0.38235294117647056
+3047.1s 197 ],
+3047.1s 198 "top5": 0.6470588235294118,
+3047.1s 199 "macro": {
+3047.1s 200 "precision": 0.317347910111068,
+3047.1s 201 "recall": 0.28411195286195284,
+3047.1s 202 "f1": 0.24361084044734663
+3047.1s 203 },
+3047.1s 204 "weighted": {
+3047.1s 205 "precision": 0.3151727297238133,
+3047.1s 206 "recall": 0.29411764705882354,
+3047.1s 207 "f1": 0.24368353469861928
+3047.1s 208 },
+3047.1s 209 "balanced_accuracy": 0.28411195286195284,
+3047.1s 210 "ece_15bins": 0.2675467712037704,
+3047.1s 211 "mean_confidence": 0.5616644024848938,
+3047.1s 212 "eval_seconds": 3.9,
+3047.1s 213 "img_size": 224,
+3047.1s 214 "norm": "half",
+3047.1s 215 "resize_mode": "square"
+3047.1s 216 }
+3047.1s 217 [done] results in /kaggle/working/d_effb0_s1/eval_plantdoc
+3052.9s 218 [data] classes=15 train=14434 val=3095 (val rows with unseen class: 0) device=cuda amp=True
+3053.1s 219 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+3065.1s 220 ep1 0/225 loss 4.016
+3114.8s 221 ep1 200/225 loss 0.775
+3133.0s 222 [epoch 1/20] train_loss 1.4523 train_acc 0.7298 | val_loss 0.2974 val_top1 0.9483 val_top5 0.9990 | 1.3 min
+3133.1s 223 [save] best.pth (val_top1=0.9483)
+3134.4s 224 ep2 0/225 loss 0.728
+3184.8s 225 ep2 200/225 loss 0.675
+3195.9s 226 [epoch 2/20] train_loss 0.7024 train_acc 0.9716 | val_loss 0.1445 val_top1 0.9851 val_top5 0.9997 | 1.0 min
+3195.9s 227 [save] best.pth (val_top1=0.9851)
+3197.1s 228 ep3 0/225 loss 0.635
+3247.8s 229 ep3 200/225 loss 0.623
+3258.8s 230 [epoch 3/20] train_loss 0.6353 train_acc 0.9872 | val_loss 0.1418 val_top1 0.9910 val_top5 1.0000 | 1.0 min
+3258.8s 231 [save] best.pth (val_top1=0.9910)
+3260.1s 232 ep4 0/225 loss 0.639
+3310.9s 233 ep4 200/225 loss 0.588
+3322.1s 234 [epoch 4/20] train_loss 0.6081 train_acc 0.9933 | val_loss 0.1338 val_top1 0.9964 val_top5 1.0000 | 1.1 min
+3322.2s 235 [save] best.pth (val_top1=0.9964)
+3323.4s 236 ep5 0/225 loss 0.642
+3374.1s 237 ep5 200/225 loss 0.585
+3385.4s 238 [epoch 5/20] train_loss 0.5991 train_acc 0.9933 | val_loss 0.1447 val_top1 0.9906 val_top5 0.9997 | 1.1 min
+3386.7s 239 ep6 0/225 loss 0.621
+3437.9s 240 ep6 200/225 loss 0.573
+3449.1s 241 [epoch 6/20] train_loss 0.5901 train_acc 0.9958 | val_loss 0.1094 val_top1 0.9968 val_top5 1.0000 | 1.1 min
+3449.2s 242 [save] best.pth (val_top1=0.9968)
+3450.4s 243 ep7 0/225 loss 0.587
+3501.7s 244 ep7 200/225 loss 0.572
+3512.9s 245 [epoch 7/20] train_loss 0.5836 train_acc 0.9966 | val_loss 0.1135 val_top1 0.9977 val_top5 1.0000 | 1.1 min
+3513.0s 246 [save] best.pth (val_top1=0.9977)
+3514.2s 247 ep8 0/225 loss 0.572
+3565.6s 248 ep8 200/225 loss 0.571
+3576.7s 249 [epoch 8/20] train_loss 0.5766 train_acc 0.9970 | val_loss 0.1193 val_top1 0.9961 val_top5 1.0000 | 1.1 min
+3577.9s 250 ep9 0/225 loss 0.578
+3628.8s 251 ep9 200/225 loss 0.567
+3640.1s 252 [epoch 9/20] train_loss 0.5774 train_acc 0.9967 | val_loss 0.1150 val_top1 0.9971 val_top5 1.0000 | 1.1 min
+3641.4s 253 ep10 0/225 loss 0.569
+3692.3s 254 ep10 200/225 loss 0.565
+3703.6s 255 [epoch 10/20] train_loss 0.5747 train_acc 0.9969 | val_loss 0.1171 val_top1 0.9961 val_top5 1.0000 | 1.1 min
+3704.9s 256 ep11 0/225 loss 0.565
+3755.9s 257 ep11 200/225 loss 0.569
+3767.1s 258 [epoch 11/20] train_loss 0.5720 train_acc 0.9974 | val_loss 0.1110 val_top1 0.9987 val_top5 1.0000 | 1.1 min
+3767.1s 259 [save] best.pth (val_top1=0.9987)
+3768.3s 260 ep12 0/225 loss 0.565
+3819.3s 261 ep12 200/225 loss 0.568
+3830.5s 262 [epoch 12/20] train_loss 0.5702 train_acc 0.9979 | val_loss 0.1142 val_top1 0.9987 val_top5 1.0000 | 1.1 min
+3831.7s 263 ep13 0/225 loss 0.566
+3882.8s 264 ep13 200/225 loss 0.562
+3893.9s 265 [epoch 13/20] train_loss 0.5682 train_acc 0.9985 | val_loss 0.1095 val_top1 0.9984 val_top5 1.0000 | 1.1 min
+3895.1s 266 ep14 0/225 loss 0.566
+3946.0s 267 ep14 200/225 loss 0.563
+3957.1s 268 [epoch 14/20] train_loss 0.5663 train_acc 0.9986 | val_loss 0.1115 val_top1 0.9981 val_top5 1.0000 | 1.1 min
+3958.4s 269 ep15 0/225 loss 0.563
+4009.2s 270 ep15 200/225 loss 0.562
+4020.4s 271 [epoch 15/20] train_loss 0.5654 train_acc 0.9986 | val_loss 0.1099 val_top1 0.9984 val_top5 1.0000 | 1.1 min
+4021.7s 272 ep16 0/225 loss 0.568
+4072.6s 273 ep16 200/225 loss 0.561
+4083.9s 274 [epoch 16/20] train_loss 0.5637 train_acc 0.9992 | val_loss 0.1076 val_top1 0.9990 val_top5 1.0000 | 1.1 min
+4084.0s 275 [save] best.pth (val_top1=0.9990)
+4085.1s 276 ep17 0/225 loss 0.561
+4136.2s 277 ep17 200/225 loss 0.560
+4147.5s 278 [epoch 17/20] train_loss 0.5627 train_acc 0.9997 | val_loss 0.1072 val_top1 0.9987 val_top5 1.0000 | 1.1 min
+4148.7s 279 ep18 0/225 loss 0.591
+4199.9s 280 ep18 200/225 loss 0.560
+4211.1s 281 [epoch 18/20] train_loss 0.5624 train_acc 0.9995 | val_loss 0.1061 val_top1 0.9990 val_top5 1.0000 | 1.1 min
+4212.4s 282 ep19 0/225 loss 0.560
+4263.1s 283 ep19 200/225 loss 0.562
+4274.1s 284 [epoch 19/20] train_loss 0.5624 train_acc 0.9996 | val_loss 0.1053 val_top1 0.9990 val_top5 1.0000 | 1.0 min
+4275.3s 285 ep20 0/225 loss 0.561
+4326.2s 286 ep20 200/225 loss 0.561
+4337.2s 287 [epoch 20/20] train_loss 0.5622 train_acc 0.9997 | val_loss 0.1079 val_top1 0.9990 val_top5 1.0000 | 1.0 min
+4337.4s 288 [done] best val top-1 = 0.9990
+4337.7s 289 [eval] /usr/bin/python3 /kaggle/working/greenmind-ai/tools/evaluate.py --ckpt /kaggle/working/d_effb0_s2/best.pth --arch efficientnet_b0 --classes /kaggle/working/d_effb0_s2/classes.json --manifest /kaggle/working/pv_split/manifest.csv --split test --norm half --resize_mode square --img_size 224 --workers 4 --out /kaggle/working/d_effb0_s2/eval_test
+4340.5s 290 [data] 3095 images, 15 classes present, model has 15
+4343.0s 291 batch 0/49
+4345.0s 292 batch 20/49
+4347.1s 293 batch 40/49
+4352.3s 294 {
+4352.3s 295 "source": "manifest:/kaggle/working/pv_split/manifest.csv[test]",
+4352.3s 296 "checkpoint": "/kaggle/working/d_effb0_s2/best.pth",
+4352.3s 297 "arch": "efficientnet_b0",
+4352.3s 298 "n_images": 3095,
+4352.3s 299 "n_classes_in_eval": 15,
+4352.3s 300 "n_classes_model": 15,
+4352.3s 301 "top1": 0.9993537964458804,
+4352.3s 302 "top1_ci95": [
+4352.3s 303 0.9983844911147012,
+4352.3s 304 1.0
+4352.3s 305 ],
+4352.3s 306 "top5": 0.9996768982229403,
+4352.3s 307 "macro": {
+4352.3s 308 "precision": 0.9994444444444445,
+4352.3s 309 "recall": 0.99953216374269,
+4352.3s 310 "f1": 0.9994863181880684
+4352.3s 311 },
+4352.3s 312 "weighted": {
+4352.3s 313 "precision": 0.9993591814754982,
+4352.3s 314 "recall": 0.9993537964458804,
+4352.3s 315 "f1": 0.9993540106538475
+4352.3s 316 },
+4352.3s 317 "balanced_accuracy": 0.99953216374269,
+4352.3s 318 "ece_15bins": 0.1002087066940036,
+4352.3s 319 "mean_confidence": 0.899145245552063,
+4352.3s 320 "eval_seconds": 7.0,
+4352.3s 321 "img_size": 224,
+4352.3s 322 "norm": "half",
+4352.3s 323 "resize_mode": "square",
+4352.3s 324 "cpu_latency_ms_batch1": {
+4352.3s 325 "median": 40.71,
+4352.3s 326 "p90": 45.98,
+4352.3s 327 "threads": 2
+4352.3s 328 }
+4352.3s 329 }
+4352.3s 330 [done] results in /kaggle/working/d_effb0_s2/eval_test
+4358.4s 331 [warn] 134 images have labels the model does not know; excluded. Examples: [('Apple Scab Leaf', 10), ('Apple leaf', 9), ('Apple rust leaf', 10), ('Blueberry leaf', 11), ('Cherry leaf', 10)]
+4358.4s 332 [data] 102 images, 12 classes present, model has 15
+4361.8s 333 batch 0/2
+4364.7s 334 {
+4364.7s 335 "source": "imagefolder:/kaggle/working/PlantDoc-Dataset/test",
+4364.7s 336 "checkpoint": "/kaggle/working/d_effb0_s2/best.pth",
+4364.7s 337 "arch": "efficientnet_b0",
+4364.7s 338 "n_images": 102,
+4364.7s 339 "n_classes_in_eval": 12,
+4364.7s 340 "n_classes_model": 15,
+4364.7s 341 "top1": 0.2549019607843137,
+4364.7s 342 "top1_ci95": [
+4364.7s 343 0.16666666666666666,
+4364.7s 344 0.3335784313725488
+4364.7s 345 ],
+4364.7s 346 "top5": 0.6176470588235294,
+4364.7s 347 "macro": {
+4364.7s 348 "precision": 0.24061979864409533,
+4364.7s 349 "recall": 0.25258838383838383,
+4364.7s 350 "f1": 0.21482688482688483
+4364.7s 351 },
+4364.7s 352 "weighted": {
+4364.7s 353 "precision": 0.23469550650609775,
+4364.7s 354 "recall": 0.2549019607843137,
+4364.7s 355 "f1": 0.21295121412768472
+4364.7s 356 },
+4364.7s 357 "balanced_accuracy": 0.25258838383838383,
+4364.7s 358 "ece_15bins": 0.2847318351268768,
+4364.7s 359 "mean_confidence": 0.5383756160736084,
+4364.7s 360 "eval_seconds": 3.9,
+4364.7s 361 "img_size": 224,
+4364.7s 362 "norm": "half",
+4364.7s 363 "resize_mode": "square"
+4364.7s 364 }
+4364.7s 365 [done] results in /kaggle/working/d_effb0_s2/eval_plantdoc
+4370.4s 366 [data] classes=15 train=14434 val=3095 (val rows with unseen class: 0) device=cuda amp=True
+4370.7s 367 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+4370.8s 368 
+4371.1s 369 model.safetensors: reconstructing file:   0%|      |  0.00B / 46.8MB            [Amodel.safetensors: downloading bytes:                       |  0.00B
+4371.2s 370 model.safetensors: reconstructing file:   6%|▎     | 2.83MB / 46.8MB            [Amodel.safetensors: downloading bytes: ██                    | 4.40MB
+4371.3s 371 model.safetensors: reconstructing file:  47%|██▊   | 22.1MB / 46.8MB,   ???B/s  [Amodel.safetensors: downloading bytes: ██████████▊           | 22.9MB,   ???B/s  model.safetensors: downloading bytes: ██████████████████████| 44.0MB, 4.33MB/s  model.safetensors: downloading bytes: ██████████████████████| 44.0MB, 4.33MB/s
+4371.3s 372 model.safetensors: reconstructing file: 100%|██████| 46.8MB / 46.8MB, 4.61MB/s
+4374.3s 373 ep1 0/225 loss 2.714
+4420.7s 374 ep1 200/225 loss 1.033
+4431.5s 375 [epoch 1/20] train_loss 1.8491 train_acc 0.5081 | val_loss 0.3757 val_top1 0.9095 val_top5 0.9987 | 1.0 min
+4431.6s 376 [save] best.pth (val_top1=0.9095)
+4432.7s 377 ep2 0/225 loss 0.832
+4479.9s 378 ep2 200/225 loss 0.695
+4490.3s 379 [epoch 2/20] train_loss 0.7544 train_acc 0.9359 | val_loss 0.2530 val_top1 0.9519 val_top5 0.9997 | 1.0 min
+4490.3s 380 [save] best.pth (val_top1=0.9519)
+4491.6s 381 ep3 0/225 loss 0.620
+4538.7s 382 ep3 200/225 loss 0.699
+4549.2s 383 [epoch 3/20] train_loss 0.6735 train_acc 0.9653 | val_loss 0.1962 val_top1 0.9696 val_top5 1.0000 | 1.0 min
+4549.3s 384 [save] best.pth (val_top1=0.9696)
+4550.4s 385 ep4 0/225 loss 0.706
+4598.1s 386 ep4 200/225 loss 0.688
+4608.5s 387 [epoch 4/20] train_loss 0.6446 train_acc 0.9747 | val_loss 0.1771 val_top1 0.9758 val_top5 0.9997 | 1.0 min
+4608.5s 388 [save] best.pth (val_top1=0.9758)
+4609.7s 389 ep5 0/225 loss 0.592
+4657.2s 390 ep5 200/225 loss 0.643
+4667.7s 391 [epoch 5/20] train_loss 0.6270 train_acc 0.9797 | val_loss 0.1440 val_top1 0.9845 val_top5 1.0000 | 1.0 min
+4667.8s 392 [save] best.pth (val_top1=0.9845)
+4669.0s 393 ep6 0/225 loss 0.608
+4716.1s 394 ep6 200/225 loss 0.615
+4726.6s 395 [epoch 6/20] train_loss 0.6194 train_acc 0.9830 | val_loss 0.1327 val_top1 0.9893 val_top5 1.0000 | 1.0 min
+4726.7s 396 [save] best.pth (val_top1=0.9893)
+4727.8s 397 ep7 0/225 loss 0.583
+4775.3s 398 ep7 200/225 loss 0.609
+4785.9s 399 [epoch 7/20] train_loss 0.6088 train_acc 0.9866 | val_loss 0.1398 val_top1 0.9893 val_top5 1.0000 | 1.0 min
+4787.0s 400 ep8 0/225 loss 0.584
+4834.2s 401 ep8 200/225 loss 0.695
+4844.8s 402 [epoch 8/20] train_loss 0.6037 train_acc 0.9874 | val_loss 0.1226 val_top1 0.9910 val_top5 1.0000 | 1.0 min
+4844.9s 403 [save] best.pth (val_top1=0.9910)
+4846.1s 404 ep9 0/225 loss 0.592
+4893.7s 405 ep9 200/225 loss 0.588
+4904.1s 406 [epoch 9/20] train_loss 0.5942 train_acc 0.9916 | val_loss 0.1172 val_top1 0.9919 val_top5 1.0000 | 1.0 min
+4904.2s 407 [save] best.pth (val_top1=0.9919)
+4905.4s 408 ep10 0/225 loss 0.589
+4953.0s 409 ep10 200/225 loss 0.582
+4963.5s 410 [epoch 10/20] train_loss 0.5921 train_acc 0.9922 | val_loss 0.1206 val_top1 0.9948 val_top5 1.0000 | 1.0 min
+4963.5s 411 [save] best.pth (val_top1=0.9948)
+4964.6s 412 ep11 0/225 loss 0.580
+5012.4s 413 ep11 200/225 loss 0.584
+5023.1s 414 [epoch 11/20] train_loss 0.5897 train_acc 0.9930 | val_loss 0.1122 val_top1 0.9955 val_top5 1.0000 | 1.0 min
+5023.2s 415 [save] best.pth (val_top1=0.9955)
+5024.4s 416 ep12 0/225 loss 0.635
+5072.0s 417 ep12 200/225 loss 0.594
+5082.8s 418 [epoch 12/20] train_loss 0.5850 train_acc 0.9947 | val_loss 0.1113 val_top1 0.9968 val_top5 1.0000 | 1.0 min
+5082.8s 419 [save] best.pth (val_top1=0.9968)
+5084.1s 420 ep13 0/225 loss 0.571
+5132.0s 421 ep13 200/225 loss 0.575
+5142.5s 422 [epoch 13/20] train_loss 0.5815 train_acc 0.9956 | val_loss 0.1127 val_top1 0.9968 val_top5 1.0000 | 1.0 min
+5143.7s 423 ep14 0/225 loss 0.567
+5191.0s 424 ep14 200/225 loss 0.599
+5201.4s 425 [epoch 14/20] train_loss 0.5818 train_acc 0.9949 | val_loss 0.1149 val_top1 0.9958 val_top5 1.0000 | 1.0 min
+5202.6s 426 ep15 0/225 loss 0.568
+5250.1s 427 ep15 200/225 loss 0.576
+5260.6s 428 [epoch 15/20] train_loss 0.5777 train_acc 0.9967 | val_loss 0.1105 val_top1 0.9981 val_top5 1.0000 | 1.0 min
+5260.6s 429 [save] best.pth (val_top1=0.9981)
+5261.8s 430 ep16 0/225 loss 0.571
+5309.6s 431 ep16 200/225 loss 0.595
+5320.3s 432 [epoch 16/20] train_loss 0.5765 train_acc 0.9968 | val_loss 0.1068 val_top1 0.9984 val_top5 1.0000 | 1.0 min
+5320.3s 433 [save] best.pth (val_top1=0.9984)
+5321.6s 434 ep17 0/225 loss 0.583
+5368.8s 435 ep17 200/225 loss 0.569
+5379.2s 436 [epoch 17/20] train_loss 0.5760 train_acc 0.9972 | val_loss 0.1056 val_top1 0.9971 val_top5 1.0000 | 1.0 min
+5380.4s 437 ep18 0/225 loss 0.583
+5427.3s 438 ep18 200/225 loss 0.578
+5437.7s 439 [epoch 18/20] train_loss 0.5757 train_acc 0.9965 | val_loss 0.1061 val_top1 0.9977 val_top5 1.0000 | 1.0 min
+5438.9s 440 ep19 0/225 loss 0.576
+5485.5s 441 ep19 200/225 loss 0.583
+5495.9s 442 [epoch 19/20] train_loss 0.5737 train_acc 0.9978 | val_loss 0.1086 val_top1 0.9977 val_top5 1.0000 | 1.0 min
+5497.1s 443 ep20 0/225 loss 0.568
+5543.6s 444 ep20 200/225 loss 0.585
+5554.1s 445 [epoch 20/20] train_loss 0.5754 train_acc 0.9974 | val_loss 0.1058 val_top1 0.9968 val_top5 1.0000 | 1.0 min
+5554.3s 446 [done] best val top-1 = 0.9984
+5554.5s 447 [eval] /usr/bin/python3 /kaggle/working/greenmind-ai/tools/evaluate.py --ckpt /kaggle/working/d_resnet18_s1/best.pth --arch resnet18 --classes /kaggle/working/d_resnet18_s1/classes.json --manifest /kaggle/working/pv_split/manifest.csv --split test --norm half --resize_mode square --img_size 224 --workers 4 --out /kaggle/working/d_resnet18_s1/eval_test
+5557.3s 448 [data] 3095 images, 15 classes present, model has 15
+5559.9s 449 batch 0/49
+5561.8s 450 batch 20/49
+5564.1s 451 batch 40/49
+5568.6s 452 {
+5568.6s 453 "source": "manifest:/kaggle/working/pv_split/manifest.csv[test]",
+5568.6s 454 "checkpoint": "/kaggle/working/d_resnet18_s1/best.pth",
+5568.6s 455 "arch": "resnet18",
+5568.6s 456 "n_images": 3095,
+5568.6s 457 "n_classes_in_eval": 15,
+5568.6s 458 "n_classes_model": 15,
+5568.6s 459 "top1": 0.9964458804523425,
+5568.6s 460 "top1_ci95": [
+5568.6s 461 0.9941841680129241,
+5568.6s 462 0.9983844911147012
+5568.6s 463 ],
+5568.6s 464 "top5": 1.0,
+5568.6s 465 "macro": {
+5568.6s 466 "precision": 0.9966466022075173,
+5568.6s 467 "recall": 0.9940287202729751,
+5568.6s 468 "f1": 0.9952985264726775
+5568.6s 469 },
+5568.6s 470 "weighted": {
+5568.6s 471 "precision": 0.9964560046228579,
+5568.6s 472 "recall": 0.9964458804523425,
+5568.6s 473 "f1": 0.9964392898023136
+5568.6s 474 },
+5568.6s 475 "balanced_accuracy": 0.9940287202729751,
+5568.6s 476 "ece_15bins": 0.09438340530064265,
+5568.6s 477 "mean_confidence": 0.9020624756813049,
+5568.6s 478 "eval_seconds": 6.9,
+5568.6s 479 "img_size": 224,
+5568.6s 480 "norm": "half",
+5568.6s 481 "resize_mode": "square",
+5568.6s 482 "cpu_latency_ms_batch1": {
+5568.6s 483 "median": 31.32,
+5568.6s 484 "p90": 32.83,
+5568.6s 485 "threads": 2
+5568.6s 486 }
+5568.6s 487 }
+5568.6s 488 [done] results in /kaggle/working/d_resnet18_s1/eval_test
+5574.5s 489 [warn] 134 images have labels the model does not know; excluded. Examples: [('Apple Scab Leaf', 10), ('Apple leaf', 9), ('Apple rust leaf', 10), ('Blueberry leaf', 11), ('Cherry leaf', 10)]
+5574.5s 490 [data] 102 images, 12 classes present, model has 15
+5577.9s 491 batch 0/2
+5580.0s 492 /usr/local/lib/python3.13/dist-packages/sklearn/metrics/_classification.py:2524: UserWarning: y_pred contains classes not in y_true
+5580.0s 493 warnings.warn("y_pred contains classes not in y_true")
+5580.9s 494 {
+5580.9s 495 "source": "imagefolder:/kaggle/working/PlantDoc-Dataset/test",
+5580.9s 496 "checkpoint": "/kaggle/working/d_resnet18_s1/best.pth",
+5580.9s 497 "arch": "resnet18",
+5580.9s 498 "n_images": 102,
+5580.9s 499 "n_classes_in_eval": 12,
+5580.9s 500 "n_classes_model": 15,
+5580.9s 501 "top1": 0.2549019607843137,
+5580.9s 502 "top1_ci95": [
+5580.9s 503 0.17647058823529413,
+5580.9s 504 0.3431372549019608
+5580.9s 505 ],
+5580.9s 506 "top5": 0.5980392156862745,
+5580.9s 507 "macro": {
+5580.9s 508 "precision": 0.22813535938535937,
+5580.9s 509 "recall": 0.24743265993265992,
+5580.9s 510 "f1": 0.22115325964963647
+5580.9s 511 },
+5580.9s 512 "weighted": {
+5580.9s 513 "precision": 0.22704761675349908,
+5580.9s 514 "recall": 0.2549019607843137,
+5580.9s 515 "f1": 0.22389208940786093
+5580.9s 516 },
+5580.9s 517 "balanced_accuracy": 0.24743265993265992,
+5580.9s 518 "ece_15bins": 0.297802090206567,
+5580.9s 519 "mean_confidence": 0.5522701144218445,
+5580.9s 520 "eval_seconds": 3.9,
+5580.9s 521 "img_size": 224,
+5580.9s 522 "norm": "half",
+5580.9s 523 "resize_mode": "square"
+5580.9s 524 }
+5580.9s 525 [done] results in /kaggle/working/d_resnet18_s1/eval_plantdoc
+5586.7s 526 [data] classes=15 train=14434 val=3095 (val rows with unseen class: 0) device=cuda amp=True
+5587.0s 527 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+5589.8s 528 ep1 0/225 loss 2.730
+5635.7s 529 ep1 200/225 loss 0.958
+5646.3s 530 [epoch 1/20] train_loss 1.8391 train_acc 0.5324 | val_loss 0.5085 val_top1 0.8633 val_top5 0.9919 | 1.0 min
+5646.3s 531 [save] best.pth (val_top1=0.8633)
+5647.4s 532 ep2 0/225 loss 0.745
+5694.3s 533 ep2 200/225 loss 0.809
+5704.6s 534 [epoch 2/20] train_loss 0.7522 train_acc 0.9372 | val_loss 0.2205 val_top1 0.9577 val_top5 0.9997 | 1.0 min
+5704.6s 535 [save] best.pth (val_top1=0.9577)
+5705.7s 536 ep3 0/225 loss 0.654
+5752.3s 537 ep3 200/225 loss 0.646
+5762.6s 538 [epoch 3/20] train_loss 0.6715 train_acc 0.9647 | val_loss 0.1689 val_top1 0.9767 val_top5 1.0000 | 1.0 min
+5762.7s 539 [save] best.pth (val_top1=0.9767)
+5763.8s 540 ep4 0/225 loss 0.623
+5810.7s 541 ep4 200/225 loss 0.593
+5821.0s 542 [epoch 4/20] train_loss 0.6426 train_acc 0.9769 | val_loss 0.1418 val_top1 0.9861 val_top5 1.0000 | 1.0 min
+5821.0s 543 [save] best.pth (val_top1=0.9861)
+5822.3s 544 ep5 0/225 loss 0.609
+5869.4s 545 ep5 200/225 loss 0.608
+5879.8s 546 [epoch 5/20] train_loss 0.6247 train_acc 0.9816 | val_loss 0.1365 val_top1 0.9900 val_top5 1.0000 | 1.0 min
+5880.0s 547 [save] best.pth (val_top1=0.9900)
+5881.2s 548 ep6 0/225 loss 0.595
+5928.0s 549 ep6 200/225 loss 0.591
+5938.5s 550 [epoch 6/20] train_loss 0.6139 train_acc 0.9851 | val_loss 0.1297 val_top1 0.9900 val_top5 1.0000 | 1.0 min
+5939.7s 551 ep7 0/225 loss 0.579
+5986.9s 552 ep7 200/225 loss 0.573
+5997.3s 553 [epoch 7/20] train_loss 0.6055 train_acc 0.9887 | val_loss 0.1222 val_top1 0.9935 val_top5 1.0000 | 1.0 min
+5997.4s 554 [save] best.pth (val_top1=0.9935)
+5998.5s 555 ep8 0/225 loss 0.590
+6045.9s 556 ep8 200/225 loss 0.586
+6056.3s 557 [epoch 8/20] train_loss 0.6022 train_acc 0.9890 | val_loss 0.1329 val_top1 0.9913 val_top5 1.0000 | 1.0 min
+6057.4s 558 ep9 0/225 loss 0.602
+6104.7s 559 ep9 200/225 loss 0.579
+6115.1s 560 [epoch 9/20] train_loss 0.5965 train_acc 0.9906 | val_loss 0.1202 val_top1 0.9948 val_top5 1.0000 | 1.0 min
+6115.2s 561 [save] best.pth (val_top1=0.9948)
+6116.2s 562 ep10 0/225 loss 0.592
+6163.6s 563 ep10 200/225 loss 0.572
+6174.0s 564 [epoch 10/20] train_loss 0.5891 train_acc 0.9945 | val_loss 0.1234 val_top1 0.9922 val_top5 1.0000 | 1.0 min
+6175.1s 565 ep11 0/225 loss 0.582
+6222.6s 566 ep11 200/225 loss 0.577
+6233.1s 567 [epoch 11/20] train_loss 0.5869 train_acc 0.9942 | val_loss 0.1152 val_top1 0.9926 val_top5 1.0000 | 1.0 min
+6234.3s 568 ep12 0/225 loss 0.583
+6281.5s 569 ep12 200/225 loss 0.572
+6291.9s 570 [epoch 12/20] train_loss 0.5822 train_acc 0.9956 | val_loss 0.1094 val_top1 0.9955 val_top5 1.0000 | 1.0 min
+6292.0s 571 [save] best.pth (val_top1=0.9955)
+6293.1s 572 ep13 0/225 loss 0.572
+6340.3s 573 ep13 200/225 loss 0.576
+6350.7s 574 [epoch 13/20] train_loss 0.5835 train_acc 0.9944 | val_loss 0.1157 val_top1 0.9926 val_top5 1.0000 | 1.0 min
+6351.9s 575 ep14 0/225 loss 0.571
+6399.8s 576 ep14 200/225 loss 0.580
+6410.3s 577 [epoch 14/20] train_loss 0.5811 train_acc 0.9953 | val_loss 0.1103 val_top1 0.9961 val_top5 1.0000 | 1.0 min
+6410.3s 578 [save] best.pth (val_top1=0.9961)
+6411.5s 579 ep15 0/225 loss 0.571
+6459.0s 580 ep15 200/225 loss 0.570
+6469.5s 581 [epoch 15/20] train_loss 0.5777 train_acc 0.9964 | val_loss 0.1070 val_top1 0.9964 val_top5 1.0000 | 1.0 min
+6469.5s 582 [save] best.pth (val_top1=0.9964)
+6470.7s 583 ep16 0/225 loss 0.566
+6518.6s 584 ep16 200/225 loss 0.579
+6529.1s 585 [epoch 16/20] train_loss 0.5780 train_acc 0.9961 | val_loss 0.1075 val_top1 0.9958 val_top5 1.0000 | 1.0 min
+6530.2s 586 ep17 0/225 loss 0.562
+6577.8s 587 ep17 200/225 loss 0.565
+6588.3s 588 [epoch 17/20] train_loss 0.5747 train_acc 0.9974 | val_loss 0.1070 val_top1 0.9968 val_top5 1.0000 | 1.0 min
+6588.3s 589 [save] best.pth (val_top1=0.9968)
+6589.5s 590 ep18 0/225 loss 0.609
+6637.0s 591 ep18 200/225 loss 0.583
+6647.4s 592 [epoch 18/20] train_loss 0.5750 train_acc 0.9975 | val_loss 0.1044 val_top1 0.9971 val_top5 1.0000 | 1.0 min
+6647.4s 593 [save] best.pth (val_top1=0.9971)
+6648.5s 594 ep19 0/225 loss 0.579
+6696.2s 595 ep19 200/225 loss 0.583
+6706.6s 596 [epoch 19/20] train_loss 0.5752 train_acc 0.9974 | val_loss 0.1084 val_top1 0.9971 val_top5 1.0000 | 1.0 min
+6707.8s 597 ep20 0/225 loss 0.565
+6755.6s 598 ep20 200/225 loss 0.568
+6765.9s 599 [epoch 20/20] train_loss 0.5766 train_acc 0.9971 | val_loss 0.1057 val_top1 0.9968 val_top5 1.0000 | 1.0 min
+6766.1s 600 [done] best val top-1 = 0.9971
+6766.3s 601 [eval] /usr/bin/python3 /kaggle/working/greenmind-ai/tools/evaluate.py --ckpt /kaggle/working/d_resnet18_s2/best.pth --arch resnet18 --classes /kaggle/working/d_resnet18_s2/classes.json --manifest /kaggle/working/pv_split/manifest.csv --split test --norm half --resize_mode square --img_size 224 --workers 4 --out /kaggle/working/d_resnet18_s2/eval_test
+6769.1s 602 [data] 3095 images, 15 classes present, model has 15
+6771.7s 603 batch 0/49
+6773.6s 604 batch 20/49
+6775.8s 605 batch 40/49
+6780.3s 606 {
+6780.3s 607 "source": "manifest:/kaggle/working/pv_split/manifest.csv[test]",
+6780.3s 608 "checkpoint": "/kaggle/working/d_resnet18_s2/best.pth",
+6780.3s 609 "arch": "resnet18",
+6780.3s 610 "n_images": 3095,
+6780.3s 611 "n_classes_in_eval": 15,
+6780.3s 612 "n_classes_model": 15,
+6780.3s 613 "top1": 0.9974151857835218,
+6780.3s 614 "top1_ci95": [
+6780.3s 615 0.9954765751211632,
+6780.3s 616 0.9990306946688207
+6780.3s 617 ],
+6780.3s 618 "top5": 0.9996768982229403,
+6780.3s 619 "macro": {
+6780.3s 620 "precision": 0.9976032736596736,
+6780.3s 621 "recall": 0.9951963901342222,
+6780.3s 622 "f1": 0.9963633814019641
+6780.3s 623 },
+6780.3s 624 "weighted": {
+6780.3s 625 "precision": 0.9974212257926061,
+6780.3s 626 "recall": 0.9974151857835218,
+6780.3s 627 "f1": 0.9974094458555336
+6780.3s 628 },
+6780.3s 629 "balanced_accuracy": 0.9951963901342222,
+6780.3s 630 "ece_15bins": 0.09210179427906466,
+6780.3s 631 "mean_confidence": 0.9053133726119995,
+6780.3s 632 "eval_seconds": 6.9,
+6780.3s 633 "img_size": 224,
+6780.3s 634 "norm": "half",
+6780.3s 635 "resize_mode": "square",
+6780.3s 636 "cpu_latency_ms_batch1": {
+6780.3s 637 "median": 31.42,
+6780.3s 638 "p90": 33.16,
+6780.3s 639 "threads": 2
+6780.3s 640 }
+6780.3s 641 }
+6780.3s 642 [done] results in /kaggle/working/d_resnet18_s2/eval_test
+6786.3s 643 [warn] 134 images have labels the model does not know; excluded. Examples: [('Apple Scab Leaf', 10), ('Apple leaf', 9), ('Apple rust leaf', 10), ('Blueberry leaf', 11), ('Cherry leaf', 10)]
+6786.3s 644 [data] 102 images, 12 classes present, model has 15
+6789.7s 645 batch 0/2
+6792.6s 646 {
+6792.6s 647 "source": "imagefolder:/kaggle/working/PlantDoc-Dataset/test",
+6792.6s 648 "checkpoint": "/kaggle/working/d_resnet18_s2/best.pth",
+6792.6s 649 "arch": "resnet18",
+6792.6s 650 "n_images": 102,
+6792.6s 651 "n_classes_in_eval": 12,
+6792.6s 652 "n_classes_model": 15,
+6792.6s 653 "top1": 0.30392156862745096,
+6792.6s 654 "top1_ci95": [
+6792.6s 655 0.21568627450980393,
+6792.6s 656 0.39215686274509803
+6792.6s 657 ],
+6792.6s 658 "top5": 0.6176470588235294,
+6792.6s 659 "macro": {
+6792.6s 660 "precision": 0.26026860870610874,
+6792.6s 661 "recall": 0.29922138047138047,
+6792.6s 662 "f1": 0.2551189803341884
+6792.6s 663 },
+6792.6s 664 "weighted": {
+6792.6s 665 "precision": 0.25411883187618484,
+6792.6s 666 "recall": 0.30392156862745096,
+6792.6s 667 "f1": 0.25400630492621384
+6792.6s 668 },
+6792.6s 669 "balanced_accuracy": 0.29922138047138047,
+6792.6s 670 "ece_15bins": 0.28918398069400414,
+6792.6s 671 "mean_confidence": 0.567035436630249,
+6792.6s 672 "eval_seconds": 3.9,
+6792.6s 673 "img_size": 224,
+6792.6s 674 "norm": "half",
+6792.6s 675 "resize_mode": "square"
+6792.6s 676 }
+6792.6s 677 [done] results in /kaggle/working/d_resnet18_s2/eval_plantdoc
+6808.6s 678 {
+6808.6s 679 "plantdoc_train_images_used": 990,
+6808.6s 680 "plantdoc_train_classes": 13,
+6808.6s 681 "per_class": {
+6808.6s 682 "Pepper__bell___Bacterial_spot": 62,
+6808.6s 683 "Pepper__bell___healthy": 53,
+6808.6s 684 "Potato___Early_blight": 106,
+6808.6s 685 "Potato___Late_blight": 95,
+6808.6s 686 "Tomato_Bacterial_spot": 101,
+6808.6s 687 "Tomato_Early_blight": 79,
+6808.6s 688 "Tomato_Late_blight": 101,
+6808.6s 689 "Tomato_Leaf_Mold": 85,
+6808.6s 690 "Tomato_Septoria_leaf_spot": 138,
+6808.6s 691 "Tomato_Spider_mites_Two_spotted_spider_mite": 2,
+6808.6s 692 "Tomato__Tomato_YellowLeaf__Curl_Virus": 69,
+6808.6s 693 "Tomato__Tomato_mosaic_virus": 44,
+6808.6s 694 "Tomato_healthy": 55
+6808.6s 695 },
+6808.6s 696 "field_train_unique": 842,
+6808.6s 697 "field_val": 148,
+6808.6s 698 "oversample": 5,
+6808.6s 699 "dropped_duplicate_of_test_or_repeat": 8,
+6808.6s 700 "dropped_unreadable": 0,
+6808.6s 701 "mixed_split_sizes": {
+6808.6s 702 "train": 18644,
+6808.6s 703 "val": 3243,
+6808.6s 704 "test": 3095
+6808.6s 705 }
+6808.6s 706 }
+6813.4s 707 [data] classes=15 train=18644 val=3243 (val rows with unseen class: 0) device=cuda amp=True
+6813.6s 708 Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.
+6826.2s 709 ep1 0/291 loss 3.593
+6898.3s 710 ep1 200/291 loss 0.973
+6944.7s 711 [epoch 1/20] train_loss 1.5781 train_acc 0.6698 | val_loss 0.3436 val_top1 0.9275 val_top5 0.9895 | 2.2 min
+6944.7s 712 [save] best.pth (val_top1=0.9275)
+6946.5s 713 ep2 0/291 loss 0.823
+7018.2s 714 ep2 200/291 loss 0.839
+7058.0s 715 [epoch 2/20] train_loss 0.7743 train_acc 0.9458 | val_loss 0.2357 val_top1 0.9605 val_top5 0.9920 | 1.9 min
+7058.1s 716 [save] best.pth (val_top1=0.9605)
+7059.6s 717 ep3 0/291 loss 0.796
+7131.8s 718 ep3 200/291 loss 0.688
+7174.1s 719 [epoch 3/20] train_loss 0.6690 train_acc 0.9815 | val_loss 0.2261 val_top1 0.9685 val_top5 0.9889 | 1.9 min
+7174.1s 720 [save] best.pth (val_top1=0.9685)
+7175.6s 721 ep4 0/291 loss 0.621
+7248.9s 722 ep4 200/291 loss 0.651
+7289.2s 723 [epoch 4/20] train_loss 0.6345 train_acc 0.9895 | val_loss 0.2222 val_top1 0.9704 val_top5 0.9901 | 1.9 min
+7289.2s 724 [save] best.pth (val_top1=0.9704)
+7290.6s 725 ep5 0/291 loss 0.603
+7362.7s 726 ep5 200/291 loss 0.627
+7402.9s 727 [epoch 5/20] train_loss 0.6180 train_acc 0.9916 | val_loss 0.2072 val_top1 0.9701 val_top5 0.9907 | 1.9 min
+7405.0s 728 ep6 0/291 loss 0.599
+7475.9s 729 ep6 200/291 loss 0.603
+7516.8s 730 [epoch 6/20] train_loss 0.6100 train_acc 0.9917 | val_loss 0.2106 val_top1 0.9716 val_top5 0.9889 | 1.9 min
+7516.9s 731 [save] best.pth (val_top1=0.9716)
+7519.0s 732 ep7 0/291 loss 0.629
+7591.7s 733 ep7 200/291 loss 0.632
+7630.5s 734 [epoch 7/20] train_loss 0.5996 train_acc 0.9933 | val_loss 0.2109 val_top1 0.9735 val_top5 0.9917 | 1.9 min
+7630.6s 735 [save] best.pth (val_top1=0.9735)
+7632.5s 736 ep8 0/291 loss 0.610
+7703.8s 737 ep8 200/291 loss 0.593
+7743.8s 738 [epoch 8/20] train_loss 0.5975 train_acc 0.9923 | val_loss 0.1962 val_top1 0.9729 val_top5 0.9911 | 1.9 min
+7745.5s 739 ep9 0/291 loss 0.595
+7817.9s 740 ep9 200/291 loss 0.574
+7857.0s 741 [epoch 9/20] train_loss 0.5897 train_acc 0.9945 | val_loss 0.1976 val_top1 0.9756 val_top5 0.9911 | 1.9 min
+7857.1s 742 [save] best.pth (val_top1=0.9756)
+7858.8s 743 ep10 0/291 loss 0.575
+7931.5s 744 ep10 200/291 loss 0.594
+7970.9s 745 [epoch 10/20] train_loss 0.5865 train_acc 0.9946 | val_loss 0.1955 val_top1 0.9759 val_top5 0.9911 | 1.9 min
+7970.9s 746 [save] best.pth (val_top1=0.9759)
+7972.3s 747 ep11 0/291 loss 0.597
+8045.2s 748 ep11 200/291 loss 0.585
+8084.6s 749 [epoch 11/20] train_loss 0.5822 train_acc 0.9954 | val_loss 0.1880 val_top1 0.9763 val_top5 0.9917 | 1.9 min
+8084.6s 750 [save] best.pth (val_top1=0.9763)
+8086.2s 751 ep12 0/291 loss 0.566
+8158.9s 752 ep12 200/291 loss 0.566
+8197.9s 753 [epoch 12/20] train_loss 0.5774 train_acc 0.9964 | val_loss 0.1919 val_top1 0.9763 val_top5 0.9917 | 1.9 min
+8199.4s 754 ep13 0/291 loss 0.598
+8271.3s 755 ep13 200/291 loss 0.568
+8310.4s 756 [epoch 13/20] train_loss 0.5766 train_acc 0.9962 | val_loss 0.1939 val_top1 0.9763 val_top5 0.9901 | 1.9 min
+8312.2s 757 ep14 0/291 loss 0.568
+8383.5s 758 ep14 200/291 loss 0.578
+8424.0s 759 [epoch 14/20] train_loss 0.5740 train_acc 0.9966 | val_loss 0.1900 val_top1 0.9763 val_top5 0.9917 | 1.9 min
+8425.7s 760 ep15 0/291 loss 0.566
+8498.3s 761 ep15 200/291 loss 0.586
+8537.1s 762 [epoch 15/20] train_loss 0.5718 train_acc 0.9967 | val_loss 0.1853 val_top1 0.9766 val_top5 0.9907 | 1.9 min
+8537.1s 763 [save] best.pth (val_top1=0.9766)
+8538.7s 764 ep16 0/291 loss 0.563
+8610.9s 765 ep16 200/291 loss 0.565
+8650.1s 766 [epoch 16/20] train_loss 0.5704 train_acc 0.9968 | val_loss 0.1865 val_top1 0.9781 val_top5 0.9917 | 1.9 min
+8650.1s 767 [save] best.pth (val_top1=0.9781)
+8651.5s 768 ep17 0/291 loss 0.577
+8723.3s 769 ep17 200/291 loss 0.564
+8763.7s 770 [epoch 17/20] train_loss 0.5689 train_acc 0.9971 | val_loss 0.1876 val_top1 0.9772 val_top5 0.9907 | 1.9 min
+8765.1s 771 ep18 0/291 loss 0.588
+8837.3s 772 ep18 200/291 loss 0.567
+8877.3s 773 [epoch 18/20] train_loss 0.5685 train_acc 0.9973 | val_loss 0.1891 val_top1 0.9778 val_top5 0.9917 | 1.9 min
+8878.8s 774 ep19 0/291 loss 0.571
+8949.5s 775 ep19 200/291 loss 0.572
+8989.9s 776 [epoch 19/20] train_loss 0.5673 train_acc 0.9981 | val_loss 0.1868 val_top1 0.9775 val_top5 0.9904 | 1.9 min
+8991.9s 777 ep20 0/291 loss 0.562
+9063.1s 778 ep20 200/291 loss 0.562
+9103.1s 779 [epoch 20/20] train_loss 0.5672 train_acc 0.9976 | val_loss 0.1856 val_top1 0.9772 val_top5 0.9917 | 1.9 min
+9103.3s 780 [done] best val top-1 = 0.9781
+9103.6s 781 [eval] /usr/bin/python3 /kaggle/working/greenmind-ai/tools/evaluate.py --ckpt /kaggle/working/d_effb0_mixed_s1/best.pth --arch efficientnet_b0 --classes /kaggle/working/d_effb0_mixed_s1/classes.json --manifest /kaggle/working/field/mixed_manifest.csv --split test --norm half --resize_mode square --img_size 224 --workers 4 --out /kaggle/working/d_effb0_mixed_s1/eval_test
+9106.5s 782 [data] 3095 images, 15 classes present, model has 15
+9108.9s 783 batch 0/49
+9111.0s 784 batch 20/49
+9113.1s 785 batch 40/49
+9118.3s 786 {
+9118.3s 787 "source": "manifest:/kaggle/working/field/mixed_manifest.csv[test]",
+9118.3s 788 "checkpoint": "/kaggle/working/d_effb0_mixed_s1/best.pth",
+9118.3s 789 "arch": "efficientnet_b0",
+9118.3s 790 "n_images": 3095,
+9118.3s 791 "n_classes_in_eval": 15,
+9118.3s 792 "n_classes_model": 15,
+9118.3s 793 "top1": 0.9974151857835218,
+9118.3s 794 "top1_ci95": [
+9118.3s 795 0.9954765751211632,
+9118.3s 796 0.9990306946688207
+9118.3s 797 ],
+9118.3s 798 "top5": 1.0,
+9118.3s 799 "macro": {
+9118.3s 800 "precision": 0.9976455148457487,
+9118.3s 801 "recall": 0.9977208826916983,
+9118.3s 802 "f1": 0.9976768897495394
+9118.3s 803 },
+9118.3s 804 "weighted": {
+9118.3s 805 "precision": 0.9974249524367869,
+9118.3s 806 "recall": 0.9974151857835218,
+9118.3s 807 "f1": 0.9974122046865985
+9118.3s 808 },
+9118.3s 809 "balanced_accuracy": 0.9977208826916983,
+9118.3s 810 "ece_15bins": 0.09701871764101394,
+9118.3s 811 "mean_confidence": 0.9014528393745422,
+9118.3s 812 "eval_seconds": 7.2,
+9118.3s 813 "img_size": 224,
+9118.3s 814 "norm": "half",
+9118.3s 815 "resize_mode": "square",
+9118.3s 816 "cpu_latency_ms_batch1": {
+9118.3s 817 "median": 40.0,
+9118.3s 818 "p90": 42.86,
+9118.3s 819 "threads": 2
+9118.3s 820 }
+9118.3s 821 }
+9118.3s 822 [done] results in /kaggle/working/d_effb0_mixed_s1/eval_test
+9124.3s 823 [warn] 134 images have labels the model does not know; excluded. Examples: [('Apple Scab Leaf', 10), ('Apple leaf', 9), ('Apple rust leaf', 10), ('Blueberry leaf', 11), ('Cherry leaf', 10)]
+9124.3s 824 [data] 102 images, 12 classes present, model has 15
+9127.7s 825 batch 0/2
+9130.5s 826 {
+9130.5s 827 "source": "imagefolder:/kaggle/working/PlantDoc-Dataset/test",
+9130.5s 828 "checkpoint": "/kaggle/working/d_effb0_mixed_s1/best.pth",
+9130.5s 829 "arch": "efficientnet_b0",
+9130.5s 830 "n_images": 102,
+9130.5s 831 "n_classes_in_eval": 12,
+9130.5s 832 "n_classes_model": 15,
+9130.5s 833 "top1": 0.49019607843137253,
+9130.5s 834 "top1_ci95": [
+9130.5s 835 0.39215686274509803,
+9130.5s 836 0.5784313725490197
+9130.5s 837 ],
+9130.5s 838 "top5": 0.8823529411764706,
+9130.5s 839 "macro": {
+9130.5s 840 "precision": 0.5163579067990832,
+9130.5s 841 "recall": 0.4843855218855219,
+9130.5s 842 "f1": 0.4708495408959805
+9130.5s 843 },
+9130.5s 844 "weighted": {
+9130.5s 845 "precision": 0.5266991466818456,
+9130.5s 846 "recall": 0.49019607843137253,
+9130.5s 847 "f1": 0.4744117302394484
+9130.5s 848 },
+9130.5s 849 "balanced_accuracy": 0.4843855218855219,
+9130.5s 850 "ece_15bins": 0.13985345001314203,
+9130.5s 851 "mean_confidence": 0.5509524345397949,
+9130.5s 852 "eval_seconds": 3.9,
+9130.5s 853 "img_size": 224,
+9130.5s 854 "norm": "half",
+9130.5s 855 "resize_mode": "square"
+9130.5s 856 }
+9130.5s 857 [done] results in /kaggle/working/d_effb0_mixed_s1/eval_plantdoc
+9134.8s 858 Creating new Ultralytics Settings v0.0.6 file ✅
+9134.8s 859 View Ultralytics Settings with 'yolo settings' or at '/root/.config/Ultralytics/settings.json'
+9134.8s 860 Update Settings with 'yolo settings key=value', i.e. 'yolo settings runs_dir=path/to/dir'. For help see https://docs.ultralytics.com/quickstart/#ultralytics-settings.
+9136.2s 861 detector classes: {0: 'tree', 1: 'leaf', 2: 'flower'} | using: leaf {1}
+9143.9s 862 {
+9143.9s 863 "images": 102,
+9143.9s 864 "with_leaf_crop": 0,
+9143.9s 865 "fallback_full_image": 102,
+9143.9s 866 "organ": "leaf",
+9143.9s 867 "conf": 0.25,
+9143.9s 868 "pad": 0.1
+9143.9s 869 }
+9147.9s 870 [data] 102 images, 12 classes present, model has 15
+9151.2s 871 batch 0/2
+9154.0s 872 {
+9154.0s 873 "source": "imagefolder:/kaggle/working/pd_test_leafcrops",
+9154.0s 874 "checkpoint": "/kaggle/working/d_effb0_s1/best.pth",
+9154.0s 875 "arch": "efficientnet_b0",
+9154.0s 876 "n_images": 102,
+9154.0s 877 "n_classes_in_eval": 12,
+9154.0s 878 "n_classes_model": 15,
+9154.0s 879 "top1": 0.30392156862745096,
+9154.0s 880 "top1_ci95": [
+9154.0s 881 0.21568627450980393,
+9154.0s 882 0.39215686274509803
+9154.0s 883 ],
+9154.0s 884 "top5": 0.6568627450980392,
+9154.0s 885 "macro": {
+9154.0s 886 "precision": 0.317347910111068,
+9154.0s 887 "recall": 0.29337121212121214,
+9154.0s 888 "f1": 0.2572472040837102
+9154.0s 889 },
+9154.0s 890 "weighted": {
+9154.0s 891 "precision": 0.3151727297238133,
+9154.0s 892 "recall": 0.30392156862745096,
+9154.0s 893 "f1": 0.2581220373724161
+9154.0s 894 },
+9154.0s 895 "balanced_accuracy": 0.29337121212121214,
+9154.0s 896 "ece_15bins": 0.261962718677287,
+9154.0s 897 "mean_confidence": 0.5658842921257019,
+9154.0s 898 "eval_seconds": 3.8,
+9154.0s 899 "img_size": 224,
+9154.0s 900 "norm": "half",
+9154.0s 901 "resize_mode": "square"
+9154.0s 902 }
+9154.0s 903 [done] results in /kaggle/working/d_effb0_s1/eval_plantdoc_leafcrops
+9158.4s 904 [data] 102 images, 12 classes present, model has 15
+9161.7s 905 batch 0/2
+9164.4s 906 {
+9164.4s 907 "source": "imagefolder:/kaggle/working/pd_test_leafcrops",
+9164.4s 908 "checkpoint": "/kaggle/working/d_effb0_mixed_s1/best.pth",
+9164.4s 909 "arch": "efficientnet_b0",
+9164.4s 910 "n_images": 102,
+9164.4s 911 "n_classes_in_eval": 12,
+9164.4s 912 "n_classes_model": 15,
+9164.4s 913 "top1": 0.5098039215686274,
+9164.4s 914 "top1_ci95": [
+9164.4s 915 0.4117647058823529,
+9164.4s 916 0.59828431372549
+9164.4s 917 ],
+9164.4s 918 "top5": 0.8823529411764706,
+9164.4s 919 "macro": {
+9164.4s 920 "precision": 0.5378306878306878,
+9164.4s 921 "recall": 0.5023779461279462,
+9164.4s 922 "f1": 0.4852069273975967
+9164.4s 923 },
+9164.4s 924 "weighted": {
+9164.4s 925 "precision": 0.5477046374105198,
+9164.4s 926 "recall": 0.5098039215686274,
+9164.4s 927 "f1": 0.4891946989847002
+9164.4s 928 },
+9164.4s 929 "balanced_accuracy": 0.5023779461279462,
+9164.4s 930 "ece_15bins": 0.13296357118615917,
+9164.4s 931 "mean_confidence": 0.5511835813522339,
+9164.4s 932 "eval_seconds": 3.7,
+9164.4s 933 "img_size": 224,
+9164.4s 934 "norm": "half",
+9164.4s 935 "resize_mode": "square"
+9164.4s 936 }
+9164.4s 937 [done] results in /kaggle/working/d_effb0_mixed_s1/eval_plantdoc_leafcrops
+9183.0s 938 /kaggle/working/greenmind-ai/tools/disease_extras.py:248: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+9183.0s 939 Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+9183.0s 940 T = float(logT.exp())
+9183.1s 941 {
+9183.1s 942 "calibration_set": "/kaggle/working/field/field_calib_manifest.csv[calib]",
+9183.1s 943 "n_calib": 990,
+9183.1s 944 "n_test": 102,
+9183.1s 945 "calib_unknown_labels": 0,
+9183.1s 946 "test_unknown_labels": 134,
+9183.1s 947 "temperature": 2.223680019378662,
+9183.1s 948 "test_before": {
+9183.1s 949 "acc": 0.29411765933036804,
+9183.1s 950 "nll": 2.657306432723999,
+9183.1s 951 "ece": 0.26754677368729723,
+9183.1s 952 "mean_conf": 0.5616644024848938
+9183.1s 953 },
+9183.1s 954 "test_after": {
+9183.1s 955 "acc": 0.29411765933036804,
+9183.1s 956 "nll": 2.3643321990966797,
+9183.1s 957 "ece": 0.07041026666468264,
+9183.1s 958 "mean_conf": 0.24501827359199524
+9183.1s 959 },
+9183.1s 960 "accuracy_at_coverage": {
+9183.1s 961 "coverage_100": 0.29411764705882354,
+9183.1s 962 "coverage_90": 0.30434782608695654,
+9183.1s 963 "coverage_75": 0.34210526315789475,
+9183.1s 964 "coverage_50": 0.4117647058823529,
+9183.1s 965 "coverage_25": 0.4230769230769231
+9183.1s 966 },
+9183.1s 967 "confidence_threshold": {
+9183.1s 968 "0.3": {
+9183.1s 969 "coverage": 0.28431372549019607,
+9183.1s 970 "accuracy": 0.37931033968925476
+9183.1s 971 },
+9183.1s 972 "0.4": {
+9183.1s 973 "coverage": 0.058823529411764705,
+9183.1s 974 "accuracy": 0.3333333432674408
+9183.1s 975 },
+9183.1s 976 "0.5": {
+9183.1s 977 "coverage": 0.0,
+9183.1s 978 "accuracy": null
+9183.1s 979 },
+9183.1s 980 "0.6": {
+9183.1s 981 "coverage": 0.0,
+9183.1s 982 "accuracy": null
+9183.1s 983 },
+9183.1s 984 "0.7": {
+9183.1s 985 "coverage": 0.0,
+9183.1s 986 "accuracy": null
+9183.1s 987 },
+9183.1s 988 "0.8": {
+9183.1s 989 "coverage": 0.0,
+9183.1s 990 "accuracy": null
+9183.1s 991 }
+9183.1s 992 },
+9183.1s 993 "aurc": 0.6381781039027712
+9183.1s 994 }
+9197.0s 995 /kaggle/working/greenmind-ai/tools/disease_extras.py:248: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+9197.0s 996 Consider using tensor.detach() first. (Triggered internally at /pytorch/torch/csrc/autograd/generated/python_variable_methods.cpp:836.)
+9197.0s 997 T = float(logT.exp())
+9197.0s 998 {
+9197.0s 999 "calibration_set": "/kaggle/working/pv_split/manifest.csv[val]",
+9197.0s 1000 "n_calib": 3095,
+9197.0s 1001 "n_test": 102,
+9197.0s 1002 "calib_unknown_labels": 0,
+9197.0s 1003 "test_unknown_labels": 134,
+9197.0s 1004 "temperature": 0.24731233716011047,
+9197.0s 1005 "test_before": {
+9197.0s 1006 "acc": 0.29411765933036804,
+9197.0s 1007 "nll": 2.657306432723999,
+9197.0s 1008 "ece": 0.26754677368729723,
+9197.0s 1009 "mean_conf": 0.5616644024848938
+9197.0s 1010 },
+9197.0s 1011 "test_after": {
+9197.0s 1012 "acc": 0.29411765933036804,
+9197.0s 1013 "nll": 8.190629959106445,
+9197.0s 1014 "ece": 0.6106621821721395,
+9197.0s 1015 "mean_conf": 0.9017383456230164
+9197.0s 1016 },
+9197.0s 1017 "accuracy_at_coverage": {
+9197.0s 1018 "coverage_100": 0.29411764705882354,
+9197.0s 1019 "coverage_90": 0.29347826086956524,
+9197.0s 1020 "coverage_75": 0.3157894736842105,
+9197.0s 1021 "coverage_50": 0.35294117647058826,
+9197.0s 1022 "coverage_25": 0.38461538461538464
+9197.0s 1023 },
+9197.0s 1024 "confidence_threshold": {
+9197.0s 1025 "0.3": {
+9197.0s 1026 "coverage": 1.0,
+9197.0s 1027 "accuracy": 0.29411765933036804
+9197.0s 1028 },
+9197.0s 1029 "0.4": {
+9197.0s 1030 "coverage": 1.0,
+9197.0s 1031 "accuracy": 0.29411765933036804
+9197.0s 1032 },
+9197.0s 1033 "0.5": {
+9197.0s 1034 "coverage": 0.9803921568627451,
+9197.0s 1035 "accuracy": 0.30000001192092896
+9197.0s 1036 },
+9197.0s 1037 "0.6": {
+9197.0s 1038 "coverage": 0.9117647058823529,
+9197.0s 1039 "accuracy": 0.29032257199287415
+9197.0s 1040 },
+9197.0s 1041 "0.7": {
+9197.0s 1042 "coverage": 0.8725490196078431,
+9197.0s 1043 "accuracy": 0.30337077379226685
+9197.0s 1044 },
+9197.0s 1045 "0.8": {
+9197.0s 1046 "coverage": 0.7941176470588235,
+9197.0s 1047 "accuracy": 0.32098764181137085
+9197.0s 1048 }
+9197.0s 1049 },
+9197.0s 1050 "aurc": 0.6429535806747446
+9197.0s 1051 }
+9208.8s 1052 0.0 {'acc': 0.9987075924873352, 'nll': 0.10837381333112717, 'ece': 0.0980145802790591, 'mean_conf': 0.9006930589675903}
+9214.8s 1053 0.5 {'acc': 0.882714033126831, 'nll': 0.5363492965698242, 'ece': 0.17188208547566744, 'mean_conf': 0.7108319401741028}
+9220.6s 1054 0.7 {'acc': 0.4962843358516693, 'nll': 1.6473311185836792, 'ece': 0.0915089777916044, 'mean_conf': 0.42259347438812256}
+9226.7s 1055 0.9 {'acc': 0.16962842643260956, 'nll': 2.4962618350982666, 'ece': 0.13364660670568562, 'mean_conf': 0.3026837408542633}
+9226.7s 1056 {
+9226.7s 1057 "n": 3095,
+9226.7s 1058 "chance": 0.06666666666666667,
+9226.7s 1059 "majority_class_rate": 0.1554119547657512,
+9226.7s 1060 "center_occluded_0.00": {
+9226.7s 1061 "acc": 0.9987075924873352,
+9226.7s 1062 "mean_conf": 0.9006930589675903
+9226.7s 1063 },
+9226.7s 1064 "center_occluded_0.50": {
+9226.7s 1065 "acc": 0.882714033126831,
+9226.7s 1066 "mean_conf": 0.7108319401741028
+9226.7s 1067 },
+9226.7s 1068 "center_occluded_0.70": {
+9226.7s 1069 "acc": 0.4962843358516693,
+9226.7s 1070 "mean_conf": 0.42259347438812256
+9226.7s 1071 },
+9226.7s 1072 "center_occluded_0.90": {
+9226.7s 1073 "acc": 0.16962842643260956,
+9226.7s 1074 "mean_conf": 0.3026837408542633
+9226.7s 1075 }
+9226.7s 1076 }
+9228.1s 1077 == /kaggle/working/field/field_manifest_stats.json
+9228.1s 1078 {
+9228.1s 1079 "plantdoc_train_images_used": 990,
+9228.1s 1080 "plantdoc_train_classes": 13,
+9228.1s 1081 "per_class": {
+9228.1s 1082 "Pepper__bell___Bacterial_spot": 62,
+9228.1s 1083 "Pepper__bell___healthy": 53,
+9228.1s 1084 "Potato___Early_blight": 106,
+9228.1s 1085 "Potato___Late_blight": 95,
+9228.1s 1086 "Tomato_Bacterial_spot": 101,
+9228.1s 1087 "Tomato_Early_blight": 79,
+9228.1s 1088 "Tomato_Late_blight": 101,
+9228.1s 1089 "Tomato_Leaf_Mold": 85,
+9228.1s 1090 "Tomato_Septoria_leaf_spot": 138,
+9228.1s 1091 "Tomato_Spider_mites_Two_spotted_spider_mite": 2,
+9228.1s 1092 "Tomato__Tomato_YellowLeaf__Curl_Virus": 69,
+9228.1s 1093 "Tomato__Tomato_mosaic_virus": 44,
+9228.1s 1094 "Tomato_healthy": 55
+9228.1s 1095 },
+9228.1s 1096 "field_train_unique": 842,
+9228.1s 1097 "field_val": 148,
+9228.1s 1098 "oversample": 5,
+9228.1s 1099 "dropped_duplicate_of_test_or_repeat": 8,
+9228.1s 1100 "dropped_unreadable": 0,
+9228.1s 1101 "mixed_split_sizes": {
+9228.1s 1102 "train": 18644,
+9228.1s 1103 "val": 3243,
+9228.1s 1104 "test": 3095
+9228.1s 1105 }
+9228.1s 1106 }
+9228.1s 1107 == /kaggle/working/pd_test_leafcrops/crop_stats.json
+9228.1s 1108 {
+9228.1s 1109 "images": 102,
+9228.1s 1110 "with_leaf_crop": 0,
+9228.1s 1111 "fallback_full_image": 102,
+9228.1s 1112 "organ": "leaf",
+9228.1s 1113 "conf": 0.25,
+9228.1s 1114 "pad": 0.1
+9228.1s 1115 }
+9228.1s 1116 == /kaggle/working/d_effb0_mixed_s1/eval_plantdoc/metrics.json | n 102 | top1 0.4902 | CI [0.3922, 0.5784] | top5 0.8824 | macroF1 0.4708 | ECE 0.1399 | conf 0.5510
+9228.1s 1117 == /kaggle/working/d_effb0_mixed_s1/eval_plantdoc_leafcrops/metrics.json | n 102 | top1 0.5098 | CI [0.4118, 0.5983] | top5 0.8824 | macroF1 0.4852 | ECE 0.1330 | conf 0.5512
+9228.1s 1118 == /kaggle/working/d_effb0_mixed_s1/eval_test/metrics.json | n 3095 | top1 0.9974 | CI [0.9955, 0.999] | top5 1.0000 | macroF1 0.9977 | ECE 0.0970 | conf 0.9015
+9228.1s 1119 == /kaggle/working/d_effb0_s1/eval_plantdoc/metrics.json | n 102 | top1 0.2941 | CI [0.2059, 0.3824] | top5 0.6471 | macroF1 0.2436 | ECE 0.2675 | conf 0.5617
+9228.1s 1120 == /kaggle/working/d_effb0_s1/eval_plantdoc_leafcrops/metrics.json | n 102 | top1 0.3039 | CI [0.2157, 0.3922] | top5 0.6569 | macroF1 0.2572 | ECE 0.2620 | conf 0.5659
+9228.1s 1121 == /kaggle/working/d_effb0_s1/eval_test/metrics.json | n 3095 | top1 0.9987 | CI [0.9974, 0.9997] | top5 1.0000 | macroF1 0.9988 | ECE 0.0980 | conf 0.9007
+9228.1s 1122 == /kaggle/working/d_effb0_s2/eval_plantdoc/metrics.json | n 102 | top1 0.2549 | CI [0.1667, 0.3336] | top5 0.6176 | macroF1 0.2148 | ECE 0.2847 | conf 0.5384
+9228.1s 1123 == /kaggle/working/d_effb0_s2/eval_test/metrics.json | n 3095 | top1 0.9994 | CI [0.9984, 1.0] | top5 0.9997 | macroF1 0.9995 | ECE 0.1002 | conf 0.8991
+9228.1s 1124 == /kaggle/working/d_resnet18_s1/eval_plantdoc/metrics.json | n 102 | top1 0.2549 | CI [0.1765, 0.3431] | top5 0.5980 | macroF1 0.2212 | ECE 0.2978 | conf 0.5523
+9228.1s 1125 == /kaggle/working/d_resnet18_s1/eval_test/metrics.json | n 3095 | top1 0.9964 | CI [0.9942, 0.9984] | top5 1.0000 | macroF1 0.9953 | ECE 0.0944 | conf 0.9021
+9228.1s 1126 == /kaggle/working/d_resnet18_s2/eval_plantdoc/metrics.json | n 102 | top1 0.3039 | CI [0.2157, 0.3922] | top5 0.6176 | macroF1 0.2551 | ECE 0.2892 | conf 0.5670
+9228.1s 1127 == /kaggle/working/d_resnet18_s2/eval_test/metrics.json | n 3095 | top1 0.9974 | CI [0.9955, 0.999] | top5 0.9997 | macroF1 0.9964 | ECE 0.0921 | conf 0.9053
+9228.1s 1128 == /kaggle/working/d_effb0_s1/calib_field/calibration.json
+9228.1s 1129 {
+9228.1s 1130 "calibration_set": "/kaggle/working/field/field_calib_manifest.csv[calib]",
+9228.1s 1131 "n_calib": 990,
+9228.1s 1132 "n_test": 102,
+9228.1s 1133 "calib_unknown_labels": 0,
+9228.1s 1134 "test_unknown_labels": 134,
+9228.1s 1135 "temperature": 2.223680019378662,
+9228.1s 1136 "test_before": {
+9228.1s 1137 "acc": 0.29411765933036804,
+9228.1s 1138 "nll": 2.657306432723999,
+9228.1s 1139 "ece": 0.26754677368729723,
+9228.1s 1140 "mean_conf": 0.5616644024848938
+9228.1s 1141 },
+9228.1s 1142 "test_after": {
+9228.1s 1143 "acc": 0.29411765933036804,
+9228.1s 1144 "nll": 2.3643321990966797,
+9228.1s 1145 "ece": 0.07041026666468264,
+9228.1s 1146 "mean_conf": 0.24501827359199524
+9228.1s 1147 },
+9228.1s 1148 "accuracy_at_coverage": {
+9228.1s 1149 "coverage_100": 0.29411764705882354,
+9228.1s 1150 "coverage_90": 0.30434782608695654,
+9228.1s 1151 "coverage_75": 0.34210526315789475,
+9228.1s 1152 "coverage_50": 0.4117647058823529,
+9228.1s 1153 "coverage_25": 0.4230769230769231
+9228.1s 1154 },
+9228.1s 1155 "confidence_threshold": {
+9228.1s 1156 "0.3": {
+9228.1s 1157 "coverage": 0.28431372549019607,
+9228.1s 1158 "accuracy": 0.37931033968925476
+9228.1s 1159 },
+9228.1s 1160 "0.4": {
+9228.1s 1161 "coverage": 0.058823529411764705,
+9228.1s 1162 "accuracy": 0.3333333432674408
+9228.1s 1163 },
+9228.1s 1164 "0.5": {
+9228.1s 1165 "coverage": 0.0,
+9228.1s 1166 "accuracy": null
+9228.1s 1167 },
+9228.1s 1168 "0.6": {
+9228.1s 1169 "coverage": 0.0,
+9228.1s 1170 "accuracy": null
+9228.1s 1171 },
+9228.1s 1172 "0.7": {
+9228.1s 1173 "coverage": 0.0,
+9228.1s 1174 "accuracy": null
+9228.1s 1175 },
+9228.1s 1176 "0.8": {
+9228.1s 1177 "coverage": 0.0,
+9228.1s 1178 "accuracy": null
+9228.1s 1179 }
+9228.1s 1180 },
+9228.1s 1181 "aurc": 0.6381781039027712
+9228.1s 1182 }
+9228.1s 1183 == /kaggle/working/d_effb0_s1/calib_labval/calibration.json
+9228.1s 1184 {
+9228.1s 1185 "calibration_set": "/kaggle/working/pv_split/manifest.csv[val]",
+9228.1s 1186 "n_calib": 3095,
+9228.1s 1187 "n_test": 102,
+9228.1s 1188 "calib_unknown_labels": 0,
+9228.1s 1189 "test_unknown_labels": 134,
+9228.1s 1190 "temperature": 0.24731233716011047,
+9228.1s 1191 "test_before": {
+9228.1s 1192 "acc": 0.29411765933036804,
+9228.1s 1193 "nll": 2.657306432723999,
+9228.1s 1194 "ece": 0.26754677368729723,
+9228.1s 1195 "mean_conf": 0.5616644024848938
+9228.1s 1196 },
+9228.1s 1197 "test_after": {
+9228.1s 1198 "acc": 0.29411765933036804,
+9228.1s 1199 "nll": 8.190629959106445,
+9228.1s 1200 "ece": 0.6106621821721395,
+9228.1s 1201 "mean_conf": 0.9017383456230164
+9228.1s 1202 },
+9228.1s 1203 "accuracy_at_coverage": {
+9228.1s 1204 "coverage_100": 0.29411764705882354,
+9228.1s 1205 "coverage_90": 0.29347826086956524,
+9228.1s 1206 "coverage_75": 0.3157894736842105,
+9228.1s 1207 "coverage_50": 0.35294117647058826,
+9228.1s 1208 "coverage_25": 0.38461538461538464
+9228.1s 1209 },
+9228.1s 1210 "confidence_threshold": {
+9228.1s 1211 "0.3": {
+9228.1s 1212 "coverage": 1.0,
+9228.1s 1213 "accuracy": 0.29411765933036804
+9228.1s 1214 },
+9228.1s 1215 "0.4": {
+9228.1s 1216 "coverage": 1.0,
+9228.1s 1217 "accuracy": 0.29411765933036804
+9228.1s 1218 },
+9228.1s 1219 "0.5": {
+9228.1s 1220 "coverage": 0.9803921568627451,
+9228.1s 1221 "accuracy": 0.30000001192092896
+9228.1s 1222 },
+9228.1s 1223 "0.6": {
+9228.1s 1224 "coverage": 0.9117647058823529,
+9228.1s 1225 "accuracy": 0.29032257199287415
+9228.1s 1226 },
+9228.1s 1227 "0.7": {
+9228.1s 1228 "coverage": 0.8725490196078431,
+9228.1s 1229 "accuracy": 0.30337077379226685
+9228.1s 1230 },
+9228.1s 1231 "0.8": {
+9228.1s 1232 "coverage": 0.7941176470588235,
+9228.1s 1233 "accuracy": 0.32098764181137085
+9228.1s 1234 }
+9228.1s 1235 },
+9228.1s 1236 "aurc": 0.6429535806747446
+9228.1s 1237 }
+9228.1s 1238 == /kaggle/working/d_effb0_s1/occlusion/occlusion.json
+9228.1s 1239 {
+9228.1s 1240 "n": 3095,
+9228.1s 1241 "chance": 0.06666666666666667,
+9228.1s 1242 "majority_class_rate": 0.1554119547657512,
+9228.1s 1243 "center_occluded_0.00": {
+9228.1s 1244 "acc": 0.9987075924873352,
+9228.1s 1245 "mean_conf": 0.9006930589675903
+9228.1s 1246 },
+9228.1s 1247 "center_occluded_0.50": {
+9228.1s 1248 "acc": 0.882714033126831,
+9228.1s 1249 "mean_conf": 0.7108319401741028
+9228.1s 1250 },
+9228.1s 1251 "center_occluded_0.70": {
+9228.1s 1252 "acc": 0.4962843358516693,
+9228.1s 1253 "mean_conf": 0.42259347438812256
+9228.1s 1254 },
+9228.1s 1255 "center_occluded_0.90": {
+9228.1s 1256 "acc": 0.16962842643260956,
+9228.1s 1257 "mean_conf": 0.3026837408542633
+9228.1s 1258 }
+9228.1s 1259 }
+9230.6s 1260 /usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+9230.6s 1261 cells[i][c] = re.sub('\\\\\|', '|', cell)
+9230.8s 1262 /usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+9230.8s 1263 text = re.sub(r'_', '\_', text) # Escape underscores in display text
+9231.6s 1264 [NbConvertApp] Converting notebook __notebook__.ipynb to notebook
+9231.7s 1265 [NbConvertApp] Writing 97663 bytes to __notebook__.ipynb
+9234.1s 1266 [NbConvertApp] Converting notebook __notebook__.ipynb to html
+9234.7s 1267 [NbConvertApp] Writing 448362 bytes to __results__.html
