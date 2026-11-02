@@ -105,13 +105,20 @@ def export_yolo(pt, out, stem, imgsz=640):
     os.environ.setdefault("YOLO_AUTOINSTALL", "False")  # don't let Ultralytics pip-install during export
     _legacy_onnx_exporter()
     from ultralytics import YOLO
-    y = YOLO(str(pt))
+    # Ultralytics writes the .onnx next to the .pt, so work on a copy in a writable folder
+    work = out / "_work"
+    work.mkdir(parents=True, exist_ok=True)
+    local_pt = work / f"{stem}.pt"
+    shutil.copy(str(pt), str(local_pt))
+    y = YOLO(str(local_pt))
     p = y.export(format="onnx", imgsz=imgsz, opset=12, simplify=True, dynamic=False)
     shutil.move(str(p), str(out / f"{stem}.onnx"))
     meta = {"names": {int(k): v for k, v in dict(y.names).items()}, "imgsz": imgsz, "source_checkpoint": str(pt)}
     (out / f"{stem}.json").write_text(json.dumps(meta, indent=1), encoding="utf-8")
     print(stem, meta["names"])
-    return yolo_parity(y, out, stem)
+    res = yolo_parity(y, out, stem)
+    shutil.rmtree(work, ignore_errors=True)
+    return res
 
 
 def _iou(a, b):
