@@ -45,8 +45,15 @@ from flask_login import (
 )
 
 # SQL / models
-from app.database import SessionLocal
+from app.database import SessionLocal, Base, engine
 from app.models import User, Plant, PlantPhoto, PlantAdvice, PlantHealth
+
+# Create missing tables on start-up (idempotent; set AUTO_CREATE_TABLES=0 to disable)
+if os.getenv("AUTO_CREATE_TABLES", "1") == "1":
+    try:
+        Base.metadata.create_all(bind=engine)
+    except Exception as _e:  # database unreachable: the app still serves identification
+        print(f"[db] could not create tables: {_e}")
 
 # App-specific helpers
 from app.identify import identify

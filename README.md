@@ -107,7 +107,16 @@ cp .env.example .env               # Windows: copy .env.example .env
 python -m app.main                 # http://localhost:5000
 ```
 
-Production: `gunicorn -w 2 -b 0.0.0.0:5000 app.main:app` (a `render.yaml` for Render.com is included).
+Production: `gunicorn -w 1 --threads 4 -b 0.0.0.0:5000 app.main:app`.
+
+### Free hosting on Hugging Face Spaces
+The free *CPU basic* Space (2 vCPU, 16 GB RAM) runs all models comfortably; small free tiers with 512 MB RAM
+(e.g. Render free) are not enough for PyTorch plus three models.
+1. Create a Space at <https://huggingface.co/new-space>: SDK **Docker**, template **Blank**, hardware **CPU basic (free)**.
+2. Upload the two files in [`deploy/huggingface/`](deploy/huggingface) (`Dockerfile`, `README.md`) to the Space.
+3. The Space builds the app from this repository (about 10 minutes). Optional secrets: `SECRET_KEY`, API keys, `DATABASE_URL`.
+
+Without an external `DATABASE_URL` the Space uses SQLite, so accounts and saved plants reset when the Space restarts.
 
 If the weights show up as ~130-byte files after cloning, run `git lfs pull` inside the project folder.
 
