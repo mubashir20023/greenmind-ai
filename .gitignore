@@ -46,3 +46,7 @@ runs/**
 
 # Experiment logs are kept for transparency
 !results/logs/
+
+# Lite engine models (plain git, each file < 50 MB)
+!models/onnx/
+!models/onnx/*.onnx

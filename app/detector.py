@@ -25,8 +25,16 @@ class _Detector:
       - detect(img: PIL.Image) -> List[Dict] with keys: cls, conf, box(x1,y1,x2,y2), crop(PIL)
     """
     def __init__(self):
+        from app.engine import is_onnx
+        self._onnx = is_onnx()
         self._weights = YOLO_WEIGHTS
         self._why_unavailable: Optional[str] = None
+        if self._onnx:  # lite engine: models/onnx/organ_yolo.onnx
+            from app.engine import ONNX_DIR
+            self._available = (ONNX_DIR / "organ_yolo.onnx").exists()
+            if not self._available:
+                self._why_unavailable = f"ONNX detector not found in {ONNX_DIR}"
+            return
         self._available = self._weights.exists()
         if not self._available:
             self._why_unavailable = f"weights not found at {self._weights}"
@@ -67,6 +75,22 @@ class _Detector:
         """
         if not self.is_available():
             return []
+
+        if self._onnx:
+            from app.engine import organ_detector
+            det = organ_detector()
+            W, H = img.size
+            out: List[Dict] = []
+            for _, cls_name, conf, xyxy in det.detect(img, conf=YOLO_CONF, max_det=YOLO_MAX_DETS):
+                if cls_name not in ALLOWED_CLASSES:
+                    continue
+                box = self._clip_box(xyxy, W, H)
+                if not box:
+                    continue
+                out.append({"cls": cls_name, "conf": conf, "box": box, "crop": img.crop(box)})
+                if len(out) >= YOLO_MAX_CROPS:
+                    break
+            return out
 
         yolo = self._yolo()
         if yolo is None:

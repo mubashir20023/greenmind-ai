@@ -32,7 +32,8 @@ seen: a temporal split of iNaturalist data and a lab-to-field test for leaf dise
 - **Multi-source identification**: a local classifier fused with the Plant.id and Pl@ntNet APIs (used only when keys are configured), with weighted score fusion over the full image and up to three detected organ crops.
 - **Organ detection**: a YOLO detector (tree / leaf / flower) proposes crops and passes an organ hint to the hosted services.
 - **Leaf-disease screening**: 15 PlantVillage classes for pepper, potato and tomato; whole-image, detector and hybrid (leaf-crop) modes.
-- **Explanations**: Grad-CAM (class-specific) and Eigen-CAM (class-agnostic) overlays computed on the same classifier that made the prediction.
+- **Explanations**: Grad-CAM (class-specific) and Eigen-CAM (class-agnostic) overlays computed on the same classifier that made the prediction (species or disease).
+- **Two engines**: full PyTorch, or a lite ONNX Runtime engine with identical predictions in 253 MB of memory (see below).
 - **Facts card**: summary, common names, distribution, uses and cautions from the matching Wikipedia article, with the source link.
 - **User features**: sign-up / login, saved scans ("My Plants"), feedback on wrong predictions, weather-aware care precautions.
 
@@ -57,6 +58,29 @@ flowchart LR
 Fusion: for every label, each source contributes its best score over all candidates, weighted by
 `W_PLANTID = W_PLANTNET = 1.0` and `W_LOCAL = 0.6`; the result is normalised to probabilities.
 Predictions below `CONFIDENCE_THRESHOLD` are reported as uncertain.
+
+## Two inference engines: full and lite
+
+GreenMind runs the same models with either of two engines, selected with `GREENMIND_ENGINE`:
+
+| | **Full** (`torch`) | **Lite** (`onnx`) |
+|---|---|---|
+| Runtime | PyTorch + timm + Ultralytics | ONNX Runtime + NumPy |
+| Explanations | Grad-CAM + Eigen-CAM | CAM + Eigen-CAM (gradient-free) |
+| Species accuracy, 18,923 post-deployment photos | 69.04% | **69.04%** (100% identical predictions) |
+| Disease accuracy, 102 PlantDoc field photos | 49.02% | **49.02%** (100% identical predictions) |
+| Peak memory, all 4 models loaded and run | 604 MB | **253 MB** |
+| Classifier latency, 2 CPU threads (species / disease) | 48 / 46 ms | **20 / 20 ms** |
+| Detector latency (organ / leaf) | 119 / 287 ms | **87 / 240 ms** |
+| Installed libraries | 833 MB | **156 MB** |
+| Free hosting | needs ~1 GB (e.g. Cloud Run) | fits 512 MB (e.g. Render free) |
+
+The classifiers are exported with two outputs (logits and the last feature map), so the lite engine computes
+class activation maps without gradients; its pre-processing reproduces the training transforms exactly
+(maximum logit difference 1e-5). The YOLO detectors agree closely but not exactly (mean IoU 0.94 / 0.87 on
+60 PlantDoc photos) because Ultralytics pads images to the smallest stride-aligned rectangle while the ONNX
+model uses a fixed 640x640 input. Measured in [`notebooks/06_lite_engine_onnx.ipynb`](notebooks/06_lite_engine_onnx.ipynb)
+(log in `results/logs/`). With `GREENMIND_ENGINE=auto` (default) the app uses PyTorch when it is installed.
 
 ## Results
 
@@ -111,7 +135,15 @@ python -m app.main                 # http://localhost:5000
 
 Production: `gunicorn -w 1 --threads 4 -b 0.0.0.0:5000 app.main:app`.
 
-### Free hosting on Google Cloud Run
+### Free hosting on Render (lite engine)
+1. Make sure `models/onnx/` contains the exported models (download the `onnx` folder from notebook 06's Output, or run `tools/export_onnx.py`).
+2. On [render.com](https://render.com): **New → Blueprint**, select this repository. [`render.yaml`](render.yaml) installs
+   `requirements-lite.txt` and starts the app with `GREENMIND_ENGINE=onnx` on the free plan (512 MB).
+3. Optional: add `PLANT_ID_API_KEY`, `PLANTNET_API_KEY`, `OPENWEATHER_API_KEY` in the service's *Environment* tab.
+
+The free instance sleeps after 15 minutes without traffic; the first request afterwards takes about a minute.
+
+### Full engine on Google Cloud Run
 Cloud Run's monthly free allowance covers a demo; the app needs about 4 GB of memory, so tiny free tiers with
 512 MB (e.g. Render free) are not enough. In [Google Cloud Shell](https://shell.cloud.google.com):
 ```bash
@@ -134,8 +166,10 @@ All settings live in `.env` (see [`.env.example`](.env.example)); nothing secret
 |---|---|---|
 | `DATABASE_URL` | `mysql+pymysql://root:@localhost/plant-fyp` | SQLAlchemy connection string |
 | `SECRET_KEY` | random per start | Flask session key; set it in production |
+| `GREENMIND_ENGINE` | `auto` | `torch` (full), `onnx` (lite) or `auto` (torch if installed) |
+| `ONNX_DIR`, `ORT_THREADS` | `models/onnx`, all cores | Lite engine model folder and CPU threads |
 | `MODEL_NAME`, `CKPT_PATH`, `IDX2_PATH` | auto | Local species model; the retrained EfficientNet-B0 is used when its files exist |
-| `HEALTH_MODE` | `classifier` | `classifier`, `detector` or `hybrid` (leaf crops) |
+| `HEALTH_MODE` | `auto` | `hybrid` (classify leaf crops; default when the leaf detector is present), `classifier`, `detector` or `plantid` |
 | `HEALTH_CLF_WEIGHTS`, `HEALTH_ARCH` | auto, `efficientnet_b0` | Disease model; the field-trained model is used when present |
 | `PLANT_ID_API_KEY`, `PLANTNET_API_KEY` | empty | Enable the hosted identification services |
 | `W_PLANTID`, `W_PLANTNET`, `W_LOCAL` | 1.0, 1.0, 0.6 | Fusion weights |
@@ -168,16 +202,19 @@ Everything runs on free Kaggle GPUs; see [`RUN_EXPERIMENTS.md`](RUN_EXPERIMENTS.
 | [`03_disease_lab_to_field`](notebooks/03_disease_lab_to_field.ipynb) | PlantVillage training, PlantDoc field test | T4, ~1.2 h |
 | [`04_disease_improvements`](notebooks/04_disease_improvements.ipynb) | Extra seeds, field-data training, calibration, abstention, occlusion test | T4, ~2.6 h |
 | [`05_leaf_detector`](notebooks/05_leaf_detector.ipynb) | YOLO leaf detector from PlantDoc boxes, leaf-crop test, app model bundle | T4, ~1.5 h |
+| [`06_lite_engine_onnx`](notebooks/06_lite_engine_onnx.ipynb) | ONNX export, accuracy / memory / latency of both engines | CPU, ~0.5 h |
 
 Key scripts in [`tools/`](tools): `inat_fetch_species.py` (dataset download with temporal split),
 `make_split.py` (seeded, de-duplicated splits), `train_classifier.py`, `evaluate.py` (accuracy, F1, calibration,
-bootstrap CIs, latency), `disease_extras.py`, `plantdoc_leaf_yolo.py`.
+bootstrap CIs, latency), `disease_extras.py`, `plantdoc_leaf_yolo.py`, `export_onnx.py`, `compare_engines.py`.
+Unit tests for the lite engine: `python tests/test_engine.py`.
 
 ## Project structure
 ```
-app/            Flask app: identification, fusion, disease screening, explanations, facts, auth
+app/            Flask app: identification, fusion, disease screening, explanations, facts, auth;
+                engine.py = lite ONNX engine (classifiers with CAM, YOLO decoding)
 web/            HTML templates, JS, CSS, PWA manifest and service worker
-models/         class maps and model weights (Git LFS)
+models/         class maps and model weights (Git LFS); models/onnx = lite engine models
 runs/detect/    YOLO organ detector weights (Git LFS)
 tools/          dataset, training and evaluation scripts
 notebooks/      Kaggle notebooks 01-05 used for the paper

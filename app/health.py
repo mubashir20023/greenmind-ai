@@ -6,32 +6,30 @@ from typing import List, Dict, Any, Optional, Tuple
 
 import cv2
 import numpy as np
-import torch
-import torch.nn.functional as F
 from PIL import Image  # for BGR -> PIL conversion
-# Add near top of app/health.py (with other imports)
-from io import BytesIO
-from PIL import Image as PILImage
-try:
-    # reuse explain's robust CAM generator (handles ViT reshape/etc)
-    from .explain import generate_cam_overlay as _generate_pixels_from_explain
-except Exception:
-    _generate_pixels_from_explain = None
 
-# Optional Ultralytics YOLO
-try:
-    from ultralytics import YOLO
-except Exception:
-    YOLO = None
+from .engine import is_onnx
+from . import engine as onnx_engine
 
-# Grad-CAM for classifiers
-try:
-    from pytorch_grad_cam import GradCAM, EigenCAM
-    from pytorch_grad_cam.utils.image import show_cam_on_image
-    from pytorch_grad_cam.utils.model_targets import ClassifierOutputTarget
-    HAVE_CAM = True
-except Exception:
+if is_onnx():  # lite engine: ONNX Runtime only, no PyTorch
+    torch = F = YOLO = None
     HAVE_CAM = False
+else:
+    import torch
+    import torch.nn.functional as F
+    # Optional Ultralytics YOLO
+    try:
+        from ultralytics import YOLO
+    except Exception:
+        YOLO = None
+    # Grad-CAM for classifiers
+    try:
+        from pytorch_grad_cam import GradCAM, EigenCAM
+        from pytorch_grad_cam.utils.image import show_cam_on_image
+        from pytorch_grad_cam.utils.model_targets import ClassifierOutputTarget
+        HAVE_CAM = True
+    except Exception:
+        HAVE_CAM = False
 
 # Optional Plant.id health (provided in app/backends.py)
 try:
@@ -61,7 +59,8 @@ class HealthConfig:
       - detector   : YOLO-only; diseases are YOLO classes
       - hybrid     : YOLO crops -> local classifier per crop (recommended)
     """
-    mode: str = os.getenv("HEALTH_MODE", "classifier").lower()
+    # hybrid (leaf crops) is the default when a leaf detector is installed: +3 points on PlantDoc (paper, Table 3)
+    mode: str = os.getenv("HEALTH_MODE", "auto").lower()
 
     topk: int = int(os.getenv("HEALTH_TOPK", 3))
 
@@ -83,10 +82,10 @@ class HealthConfig:
     device: str = os.getenv("HEALTH_DEVICE", "cpu")  # "cpu" or "cuda"
     input_size: int = int(os.getenv("HEALTH_INPUT_SIZE", 224))  # must match training size
 
-    # YOLO detector for diseased regions
+    # YOLO leaf detector (trained on PlantDoc leaf boxes, notebooks/05) used for hybrid crops
     yolo_weights: str = os.getenv(
         "HEALTH_YOLO_WEIGHTS",
-        "models/health/yolo_health.pt",
+        "models/health/yolo_leaf.pt",
     )
     conf: float = float(os.getenv("HEALTH_CONF", 0.35))
     min_area_frac: float = float(os.getenv("HEALTH_MIN_AREA_FRAC", 0.02))
@@ -97,8 +96,19 @@ class HealthConfig:
 
 CFG = HealthConfig()
 
+
+def _leaf_detector_available() -> bool:
+    if is_onnx():
+        return onnx_engine.leaf_detector() is not None
+    p = CFG.yolo_weights if os.path.isabs(CFG.yolo_weights) else str(_HEALTH_DIR / CFG.yolo_weights)
+    return YOLO is not None and os.path.exists(p)
+
+
+if CFG.mode == "auto":
+    CFG.mode = "hybrid" if _leaf_detector_available() else "classifier"
+
 # lazy singletons
-_CLF_MODEL: Optional[torch.nn.Module] = None
+_CLF_MODEL: Optional[Any] = None
 _CLF_CLASSES: Optional[List[str]] = None
 _YOLO_HEALTH = None
 
@@ -124,7 +134,7 @@ def _normalize_img_for_cam(img_rgb: np.ndarray) -> np.ndarray:
     return np.clip(arr, 0, 1)
 
 
-def _softmax_topk(t: torch.Tensor, k: int) -> Tuple[List[float], List[int]]:
+def _softmax_topk(t, k: int) -> Tuple[List[float], List[int]]:
     prob = F.softmax(t, dim=1)[0]
     tk = torch.topk(prob, k=min(k, prob.size(0)))
     return tk.values.tolist(), tk.indices.tolist()
@@ -241,10 +251,30 @@ def _run_identification(image_bgr: np.ndarray, topk: Optional[int] = None) -> Di
 
 # ============================ Loads ============================
 
-def load_classifier() -> Tuple[Optional[torch.nn.Module], List[str]]:
+def load_yolo_health():
+    """Leaf detector for the hybrid / detector modes (PyTorch engine). Returns None if unavailable."""
+    global _YOLO_HEALTH
+    if _YOLO_HEALTH is not None:
+        return _YOLO_HEALTH
+    p = CFG.yolo_weights if os.path.isabs(CFG.yolo_weights) else str(_HEALTH_DIR / CFG.yolo_weights)
+    if YOLO is None or not os.path.exists(p):
+        return None
+    _YOLO_HEALTH = YOLO(p)
+    return _YOLO_HEALTH
+
+
+def load_classifier() -> Tuple[Optional[Any], List[str]]:
     global _CLF_MODEL, _CLF_CLASSES
     if _CLF_MODEL is not None:
         return _CLF_MODEL, _CLF_CLASSES or ["healthy", "diseased"]
+
+    if is_onnx():
+        m = onnx_engine.disease_model()
+        if m is None:
+            print("[health] ONNX disease model not found; returning unknown")
+            return None, ["healthy", "diseased"]
+        _CLF_MODEL, _CLF_CLASSES = m, list(m.classes)
+        return _CLF_MODEL, _CLF_CLASSES
 
     # Resolve path relative to project root (fixes working-directory issues)
     weights_path = str(_HEALTH_DIR / CFG.clf_weights) if not os.path.isabs(CFG.clf_weights) else CFG.clf_weights
@@ -293,94 +323,56 @@ def load_classifier() -> Tuple[Optional[torch.nn.Module], List[str]]:
 # ============================ CAM ============================
 
 def _pick_target_layer(model):
-    # Heuristic: last module with a 'weight' attribute
+    """Last convolution of the disease classifier (the spatial layer Grad-CAM needs)."""
     last = None
     for _, m in model.named_modules():
-        if hasattr(m, "weight") and getattr(m, "weight") is not None:
+        if isinstance(m, torch.nn.Conv2d):
             last = m
     return last
 
 
-def _make_cam(model, target_layer):
-    if not HAVE_CAM or target_layer is None:
-        return None, None
-    try:
-        use_cuda = (CFG.device == "cuda" and torch.cuda.is_available())
-        return (
-            GradCAM(model=model, target_layers=[target_layer], use_cuda=use_cuda),
-            EigenCAM(model=model, target_layers=[target_layer]),
-        )
-    except Exception:
-        return None, None
+def _blend(img_rgb_sq: np.ndarray, heat: np.ndarray) -> np.ndarray:
+    """Heat map (any size, values 0..1) over the square model input; returns BGR for cv2.imwrite."""
+    s = img_rgb_sq.shape[0]
+    h = cv2.resize(heat.astype(np.float32), (s, s), interpolation=cv2.INTER_LINEAR)
+    col = cv2.applyColorMap(np.uint8(255 * np.clip(h, 0, 1)), cv2.COLORMAP_JET)  # BGR
+    base = cv2.cvtColor(img_rgb_sq, cv2.COLOR_RGB2BGR)
+    return cv2.addWeighted(base, 0.55, col, 0.45, 0)
 
 
-def _generate_cam_overlays(model, img_rgb: np.ndarray, tensor: torch.Tensor, pred_idx: int):
+def _generate_cam_overlays(model, img_rgb: np.ndarray, tensor, pred_idx: int):
     """
-    Prefer calling app.explain.generate_cam_overlay() per-crop which returns PNG RGBA bytes.
-    Returns list of (name, overlay_img: np.ndarray in BGR) for backwards compatibility.
+    Heat maps that explain the DISEASE classifier's own prediction (both engines):
+      PyTorch: Grad-CAM (class-specific) + Eigen-CAM on the last convolution.
+      ONNX   : CAM (class-specific, classifier weights x features) + Eigen-CAM.
+    Returns [(name, overlay BGR image), ...].
     """
-    overlays = []
-
-    # If explain helper is available, use it: easier and more robust for ViT/reshape.
-    if _generate_pixels_from_explain is not None:
-        try:
-            # Convert crop RGB ndarray -> PIL Image
-            pil = PILImage.fromarray(img_rgb.astype('uint8'), mode='RGB')
-            # gradcam (class-specific)
-            try:
-                png_grad = _generate_pixels_from_explain(pil, method="gradcam")
-                if png_grad:
-                    # return as OpenCV BGR image for existing save path usage
-                    arr = np.frombuffer(png_grad, dtype=np.uint8)
-                    rgba = cv2.imdecode(arr, cv2.IMREAD_UNCHANGED)  # (H,W,4)
-                    if rgba is not None and rgba.shape[2] == 4:
-                        # convert RGBA to BGR for imwrite compatibility (drop alpha)
-                        bgr = cv2.cvtColor(rgba, cv2.COLOR_RGBA2BGR)
-                        overlays.append(("gradcam", bgr))
-            except Exception:
-                pass
-
-            # eigencam (class-agnostic)
-            try:
-                png_eig = _generate_pixels_from_explain(pil, method="eigen")
-                if png_eig:
-                    arr = np.frombuffer(png_eig, dtype=np.uint8)
-                    rgba = cv2.imdecode(arr, cv2.IMREAD_UNCHANGED)
-                    if rgba is not None and rgba.shape[2] == 4:
-                        bgr = cv2.cvtColor(rgba, cv2.COLOR_RGBA2BGR)
-                        overlays.append(("eigencam", bgr))
-            except Exception:
-                pass
-
-            return overlays
-        except Exception:
-            # fall through to the older approach below if explain helper isn't usable
-            pass
-
-    # Fallback: existing internal method using pytorch-grad-cam (unchanged behavior).
+    s = int(CFG.input_size)
+    img_sq = cv2.resize(img_rgb, (s, s), interpolation=cv2.INTER_AREA)
+    if is_onnx():
+        pil = Image.fromarray(img_rgb.astype("uint8"), mode="RGB")
+        _, feats = model.forward(pil)
+        return [("cam", _blend(img_sq, model.cam(feats, pred_idx))),
+                ("eigencam", _blend(img_sq, model.eigen_cam(feats)))]
     try:
         if not HAVE_CAM:
             return []
-        target_layer = _pick_target_layer(model)
-        grad_cam, eigen_cam = _make_cam(model, target_layer)
-        if grad_cam is None:
+        layer = _pick_target_layer(model)
+        if layer is None:
             return []
-        norm = _normalize_img_for_cam(img_rgb)
         targets = [ClassifierOutputTarget(pred_idx)]
-        grayscale_cam = grad_cam(input_tensor=tensor, targets=targets)[0]
-        grad_overlay = show_cam_on_image(norm, grayscale_cam, use_rgb=True)
-        eigen_map = eigen_cam(input_tensor=tensor, targets=targets)[0]
-        eigen_overlay = show_cam_on_image(norm, eigen_map, use_rgb=True)
-        return [
-            ("gradcam", grad_overlay[:, :, ::-1]),
-            ("eigencam", eigen_overlay[:, :, ::-1]),
-        ]
-    except Exception:
+        with GradCAM(model=model, target_layers=[layer]) as gc:
+            g = gc(input_tensor=tensor, targets=targets)[0]
+        with EigenCAM(model=model, target_layers=[layer]) as ec:
+            e = ec(input_tensor=tensor, targets=targets)[0]
+        return [("gradcam", _blend(img_sq, g)), ("eigencam", _blend(img_sq, e))]
+    except Exception as ex:
+        print(f"[health] CAM failed: {ex}")
         return []
 
 # ============================ Preprocess ============================
 
-def _preprocess_for_clf(img_rgb: np.ndarray, size: Optional[int] = None) -> torch.Tensor:
+def _preprocess_for_clf(img_rgb: np.ndarray, size: Optional[int] = None):
     s = int(size or CFG.input_size)
     img = cv2.resize(img_rgb, (s, s), interpolation=cv2.INTER_AREA)
     img = img.astype(np.float32) / 255.0
@@ -404,8 +396,18 @@ def _leaf_crops_or_full(image_bgr: np.ndarray) -> List[Dict[str, Any]]:
     results: List[Dict[str, Any]] = []
 
     yolo = None
+    if CFG.mode in ("detector", "hybrid") and is_onnx():
+        det = onnx_engine.leaf_detector()
+        if det is not None:
+            pil = Image.fromarray(cv2.cvtColor(image_bgr, cv2.COLOR_BGR2RGB))
+            for cls_id, _, conf, (x1, y1, x2, y2) in det.detect(pil, conf=CFG.conf):
+                x1, y1, x2, y2 = int(x1), int(y1), int(x2), int(y2)
+                if (x2 - x1) * (y2 - y1) / area < CFG.min_area_frac:
+                    continue
+                results.append({"box": [x1, y1, x2, y2], "crop": image_bgr[max(0, y1):y2, max(0, x1):x2],
+                                "detector": {"cls": cls_id, "conf": conf}})
     try:
-        if CFG.mode in ("detector", "hybrid"):
+        if CFG.mode in ("detector", "hybrid") and not is_onnx():
             yolo = load_yolo_health()
     except Exception:
         yolo = None
@@ -574,13 +576,18 @@ def assess_health(image_bgr: np.ndarray, out_dir: str = "runs/health") -> Dict[s
     for i, item in enumerate(crops):
         crop_bgr = item["crop"]
         crop_rgb = _to_rgb(crop_bgr)
-        t = _preprocess_for_clf(crop_rgb, size=CFG.input_size)
-
-        with torch.no_grad():
-            logits = model(t)
-            if isinstance(logits, (list, tuple)):
-                logits = logits[0]
-            vals, idxs = _softmax_topk(logits, CFG.topk)
+        if is_onnx():
+            t = None
+            probs = model.predict(Image.fromarray(crop_rgb))
+            idxs = [int(j) for j in np.argsort(-probs)[:CFG.topk]]
+            vals = [float(probs[j]) for j in idxs]
+        else:
+            t = _preprocess_for_clf(crop_rgb, size=CFG.input_size)
+            with torch.no_grad():
+                logits = model(t)
+                if isinstance(logits, (list, tuple)):
+                    logits = logits[0]
+                vals, idxs = _softmax_topk(logits, CFG.topk)
 
         # Build top-k pretty diseases
         top = []
