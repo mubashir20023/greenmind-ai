@@ -23,33 +23,50 @@ TRANSFORM = transforms.Compose([
 
 _model = None
 _target_layers = None
-_patch_hw = None  # (H, W) patch grid for ViT
+_patch_hw = None  # (H, W) patch grid for ViT fallback
+_is_vit = False
 
 def _get_model():
-    """Load ViT-B/16 (ImageNet head ON) for CAM; cache model, target layer, and patch grid."""
-    global _model, _target_layers, _patch_hw
-    if _model is None:
-        _model = timm.create_model("vit_base_patch16_224", pretrained=True)
-        _model.eval().to(DEVICE)
+    """
+    Explain the SAME model that makes the local species prediction (app.identify), using its last
+    convolutional layer as the Grad-CAM / Eigen-CAM target. Only if no local classifier is available
+    do we fall back to a generic ImageNet ViT-B/16.
+    """
+    global _model, _target_layers, _patch_hw, _is_vit
+    if _model is not None:
+        return _model, _target_layers, _patch_hw
 
-        # Pick a reliable target layer from last block (name varies across timm versions)
-        last_block = _model.blocks[-1]
-        target_attr = None
-        for cand in ("norm1", "ln1", "norm", "ln"):
-            if hasattr(last_block, cand):
-                target_attr = getattr(last_block, cand)
-                break
-        if target_attr is None:
-            raise RuntimeError("Could not find a compatible target layer on ViT block")
-        _target_layers = [target_attr]
+    local = None
+    try:
+        from app.identify import _load_model
+        local = _load_model()
+    except Exception as e:  # pragma: no cover
+        print(f"[explain] local classifier unavailable: {e}")
 
-        # Patch grid size, e.g., 14x14 for 224/16
-        if hasattr(_model, "patch_embed") and hasattr(_model.patch_embed, "grid_size"):
-            gs = _model.patch_embed.grid_size
-            _patch_hw = (int(gs[0]), int(gs[1]))
-        else:
-            _patch_hw = (14, 14)
+    if local is not None:
+        convs = [m for m in local.modules() if isinstance(m, torch.nn.Conv2d)]
+        if convs:
+            _model, _target_layers, _patch_hw, _is_vit = local, [convs[-1]], None, False
+            return _model, _target_layers, _patch_hw
 
+    # Fallback: generic ImageNet ViT (explanations are then NOT of the plant classifier)
+    _model = timm.create_model("vit_base_patch16_224", pretrained=True)
+    _model.eval().to(DEVICE)
+    last_block = _model.blocks[-1]
+    target_attr = None
+    for cand in ("norm1", "ln1", "norm", "ln"):
+        if hasattr(last_block, cand):
+            target_attr = getattr(last_block, cand)
+            break
+    if target_attr is None:
+        raise RuntimeError("Could not find a compatible target layer on ViT block")
+    _target_layers = [target_attr]
+    if hasattr(_model, "patch_embed") and hasattr(_model.patch_embed, "grid_size"):
+        gs = _model.patch_embed.grid_size
+        _patch_hw = (int(gs[0]), int(gs[1]))
+    else:
+        _patch_hw = (14, 14)
+    _is_vit = True
     return _model, _target_layers, _patch_hw
 
 def _vit_reshape_transform(tokens: torch.Tensor, hw=None):
@@ -86,7 +103,7 @@ def generate_cam_overlay(pil_image: Image.Image, method: str = "gradcam") -> byt
     with CamImpl(
         model=model,
         target_layers=target_layers,
-        reshape_transform=lambda t: _vit_reshape_transform(t, patch_hw),
+        reshape_transform=(lambda t: _vit_reshape_transform(t, patch_hw)) if _is_vit else None,
     ) as cam:
 
         targets = None
