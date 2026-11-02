@@ -1,263 +1,199 @@
-# GreenMind AI — Smart plant recognition
+# GreenMind AI
 
-Identify plants from photos (upload or live camera) and get **explainable** results with cited facts.
+**Explainable plant identification and leaf-disease screening, with a reproducible out-of-distribution evaluation.**
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 ![Python](https://img.shields.io/badge/python-3.10%2B-blue.svg)
 ![Flask](https://img.shields.io/badge/web-Flask-lightgrey.svg)
-![PyTorch](https://img.shields.io/badge/ML-PyTorch-red.svg)
+![PyTorch](https://img.shields.io/badge/ML-PyTorch%20%2B%20timm-red.svg)
+![Reproducible](https://img.shields.io/badge/experiments-Kaggle%20notebooks-20BEFF.svg)
 
-## Table of Contents
-- [Highlights](#highlights)
+GreenMind is a Flask web app (installable as a PWA) that identifies plants from a photo or the live camera, screens
+leaves for disease, shows *why* the model decided with Grad-CAM / Eigen-CAM heat maps, and attaches a cited facts card.
+This repository also contains every script and notebook used to evaluate its models on photographs they have never
+seen: a temporal split of iNaturalist data and a lab-to-field test for leaf disease.
+
+---
+
+## Contents
+- [Features](#features)
 - [Architecture](#architecture)
-- [Quick Start](#quick-start)
+- [Results](#results)
+- [Quick start](#quick-start)
 - [Configuration](#configuration)
-- [API Endpoints](#api-endpoints)
-- [Dataset & Training](#dataset--training)
-- [Explainability](#explainability)
-- [Screenshots](#screenshots)
-- [Project Structure](#project-structure)
-- [Limitations & Ethics](#limitations--ethics)
-- [License](#license)
-- [Acknowledgements](#acknowledgements)
+- [API](#api)
+- [Reproducing the experiments](#reproducing-the-experiments)
+- [Project structure](#project-structure)
+- [Limitations](#limitations)
+- [Data and licences](#data-and-licences)
+- [Citation](#citation)
 
-## Highlights
-- **Top-k** predictions with confidence bar and alternatives  
-- **Grad-CAM / EigenCAM** overlays for model explanations  
-- **Flask API**: `/identify`, `/explain`, `/feedback`  
-- **Robust dataset pipeline** (iNaturalist → CSV → ImageFolder)  
-- Modern, responsive UI: **upload / drag-drop / live camera**, feedback loop
+## Features
+- **Multi-source identification**: a local classifier fused with the Plant.id and Pl@ntNet APIs (used only when keys are configured), with weighted score fusion over the full image and up to three detected organ crops.
+- **Organ detection**: a YOLO detector (tree / leaf / flower) proposes crops and passes an organ hint to the hosted services.
+- **Leaf-disease screening**: 15 PlantVillage classes for pepper, potato and tomato; whole-image, detector and hybrid (leaf-crop) modes.
+- **Explanations**: Grad-CAM (class-specific) and Eigen-CAM (class-agnostic) overlays computed on the same classifier that made the prediction.
+- **Facts card**: summary, common names, distribution, uses and cautions from the matching Wikipedia article, with the source link.
+- **User features**: sign-up / login, saved scans ("My Plants"), feedback on wrong predictions, weather-aware care precautions.
 
 ## Architecture
-lua
-Copy code
-               +------------------+
-User (web/mobile) -> Web UI (HTML/CSS/JS)
-+------------------+
-|
-v
-Flask Backend
-+------------------+
-| /identify |
-| /explain |
-| /feedback |
-+------------------+
-| |
-PyTorch Grad-CAM
-Classifier (pytorch-grad-cam)
-|
-Model ckpt
-|
-+-------------------+
-| Dataset Builder |
-| CSV -> ImageFolder|
-+-------------------+
-^
-iNaturalist (licensed)
 
-shell
-Copy code
+```mermaid
+flowchart LR
+    A[Photo<br/>upload / camera] --> B[YOLO organ detector<br/>tree / leaf / flower]
+    A --> C[Candidates<br/>full image + up to 3 crops]
+    B --> C
+    C --> L[Local classifier<br/>EfficientNet-B0]
+    C --> P[Plant.id API]
+    C --> N[Pl@ntNet API]
+    L --> F[Weighted score fusion]
+    P --> F
+    N --> F
+    F --> X[Grad-CAM / Eigen-CAM]
+    F --> W[Wikipedia facts card]
+    F --> D[Leaf-disease screening]
+```
 
-## Quick Start
+Fusion: for every label, each source contributes its best score over all candidates, weighted by
+`W_PLANTID = W_PLANTNET = 1.0` and `W_LOCAL = 0.6`; the result is normalised to probabilities.
+Predictions below `CONFIDENCE_THRESHOLD` are reported as uncertain.
 
-> Windows PowerShell shown; on macOS/Linux, drop the `^` line continuations.
+## Results
 
-1) **Create and activate a virtual env**
+All numbers come from the Kaggle notebooks in [`notebooks/`](notebooks) (logs in [`results/logs/`](results/logs)).
+95% confidence intervals are bootstrap intervals over test images.
+
+### Species identification (iNaturalist, temporal split)
+Pool A = research-grade CC-licensed observations uploaded **before** 1 Sep 2025 (training data);
+Pool B = observations uploaded **after** 3 Sep 2025, i.e. after the app's original model was saved.
+
+| Model | Classes | In-distribution test | Pool B (future uploads) |
+|---|---:|---:|---:|
+| Original app model (ResNet-18) | 1,106 | – | 22.0% |
+| ResNet-18 (retrained) | 958 | 64.9% | 58.2% |
+| **EfficientNet-B0 (retrained, now the app default)** | 958 | **76.0%** | **69.0%** (top-5 85.9%) |
+
+### Leaf disease: lab vs. field
+PlantVillage test = 3,095 lab images; PlantDoc = 102 field photographs of the same 12 classes.
+
+| Model | PlantVillage (lab) | PlantDoc (field) |
+|---|---:|---:|
+| EfficientNet-B0, 3 seeds | 99.87 ± 0.06% | 28.4 ± 2.6% |
+| ResNet-18, 3 seeds | 99.69 ± 0.05% | 28.8 ± 2.8% |
+| **EfficientNet-B0 + 842 PlantDoc field photos (now the app default)** | 99.74% | **49.0%** |
+
+Further findings:
+- **Calibration:** temperature scaling fitted on field photos cuts the expected calibration error from 0.27 to 0.07; fitted on lab photos (the usual practice) it rises to 0.61.
+- **Abstention:** answering only the 50% most confident field photos raises accuracy on those from 29% to 41%.
+- **Shortcut test:** with the central 49% of each PlantVillage image blacked out, accuracy is still 50% (chance 6.7%).
+- **Speed:** 31–42 ms per image on a 2-thread CPU for every local model.
+
+## Quick start
+
+Requirements: Python 3.10+, [Git LFS](https://git-lfs.com) (model weights are stored with LFS), MySQL for user accounts.
+
 ```bash
+git lfs install
+git clone https://github.com/mubashir20023/greenmind-ai
+cd greenmind-ai
+
 python -m venv .venv
-# Windows
-.venv\Scripts\activate
-# macOS/Linux
-# source .venv/bin/activate
-Install dependencies
-
-bash
-Copy code
+source .venv/bin/activate          # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
-Configure environment
-Copy .env.example to .env and fill paths/options as needed (no secrets in repo):
 
-bash
-Copy code
-# Windows
-copy .env.example .env
-# macOS/Linux
-# cp .env.example .env
-Run the app (development)
+cp .env.example .env               # Windows: copy .env.example .env
+# edit .env: DATABASE_URL, SECRET_KEY and (optional) API keys
 
-bash
-Copy code
-# Option A: module entry
-python -m app.main
+python -m app.main                 # http://localhost:5000
+```
 
-# Option B: Flask runner
-# set FLASK_APP=app.main:app && flask run
-Production (Linux/macOS)
+Production: `gunicorn -w 2 -b 0.0.0.0:5000 app.main:app` (a `render.yaml` for Render.com is included).
 
-bash
-Copy code
-# Example: 4 workers on port 5000
-gunicorn -w 4 -b 0.0.0.0:5000 app.main:app
-Configuration
-Edit .env (sample keys below—placeholders only):
+If the weights show up as ~130-byte files after cloning, run `git lfs pull` inside the project folder.
 
-ini
-Copy code
-# ---- Flask ----
-FLASK_ENV=development
-FLASK_DEBUG=1
-PORT=5000
+## Configuration
+All settings live in `.env` (see [`.env.example`](.env.example)); nothing secret is committed.
 
-# ---- Models / Classifier ----
-MODEL_NAME=resnet18
-CKPT_PATH=models/checkpoints/plant_id_resnet18_best.pth
-IDX2_PATH=models/class_maps/idx_to_species.json
+| Variable | Default | Purpose |
+|---|---|---|
+| `DATABASE_URL` | `mysql+pymysql://root:@localhost/plant-fyp` | SQLAlchemy connection string |
+| `SECRET_KEY` | random per start | Flask session key; set it in production |
+| `MODEL_NAME`, `CKPT_PATH`, `IDX2_PATH` | auto | Local species model; the retrained EfficientNet-B0 is used when its files exist |
+| `HEALTH_MODE` | `classifier` | `classifier`, `detector` or `hybrid` (leaf crops) |
+| `HEALTH_CLF_WEIGHTS`, `HEALTH_ARCH` | auto, `efficientnet_b0` | Disease model; the field-trained model is used when present |
+| `PLANT_ID_API_KEY`, `PLANTNET_API_KEY` | empty | Enable the hosted identification services |
+| `W_PLANTID`, `W_PLANTNET`, `W_LOCAL` | 1.0, 1.0, 0.6 | Fusion weights |
+| `YOLO_CONF`, `YOLO_MIN_AREA_FRAC` | 0.25, 0.04 | Organ-detector gate |
+| `CONFIDENCE_THRESHOLD` | 0.55 | Below this, answers are flagged as uncertain |
+| `OPENWEATHER_API_KEY`, `OPENAI_API_KEY` | empty | Optional weather and care-tip services |
 
-# ---- YOLO Detector (optional) ----
-YOLO_WEIGHTS=runs/detect/train/weights/best.pt
-YOLO_CONF=0.25
-YOLO_MAX_CROPS=5
-TOPK=3
-API Endpoints
-POST /identify
-Body: multipart/form-data with field file (image)
-Response (JSON):
+## API
 
-json
-Copy code
-{
-  "model": "resnet18",
-  "best": { "label": "Mangifera indica", "score": 0.92 },
-  "alternatives": [
-    {"label":"Mangifera odorata","score":0.04},
-    {"label":"Spondias mombin","score":0.02}
-  ],
-  "facts_html": "<p>Common name: Mango...</p>"
+| Method | Route | Body | Returns |
+|---|---|---|---|
+| `POST` | `/identify` | multipart `file` | best label, alternatives, facts card |
+| `POST` | `/explain?method=gradcam\|eigen` | multipart `file` | transparent PNG heat map |
+| `POST` | `/api/health` | multipart `image` or JSON base64 | disease status, top classes, heat maps |
+| `POST` | `/feedback` | multipart `file` + `meta` JSON | `{ "ok": true }` |
+| `GET` | `/api/weather?city=Karachi` | – | current weather |
+| `GET` | `/diag` | – | which models and services are loaded |
+
+```bash
+curl -F "file=@leaf.jpg" http://localhost:5000/identify
+```
+
+## Reproducing the experiments
+Everything runs on free Kaggle GPUs; see [`RUN_EXPERIMENTS.md`](RUN_EXPERIMENTS.md) for step-by-step instructions.
+
+| Notebook | What it does | Accelerator / time |
+|---|---|---|
+| [`01_build_dataset_and_test_deployed_model`](notebooks/01_build_dataset_and_test_deployed_model.ipynb) | Downloads the iNaturalist pools A and B | CPU, ~6 h |
+| [`02_train_species_models`](notebooks/02_train_species_models.ipynb) | 958-species split, ResNet-18 and EfficientNet-B0, temporal test, original-model test | T4, ~4.5 h |
+| [`03_disease_lab_to_field`](notebooks/03_disease_lab_to_field.ipynb) | PlantVillage training, PlantDoc field test | T4, ~1.2 h |
+| [`04_disease_improvements`](notebooks/04_disease_improvements.ipynb) | Extra seeds, field-data training, calibration, abstention, occlusion test | T4, ~2.6 h |
+| [`05_leaf_detector`](notebooks/05_leaf_detector.ipynb) | YOLO leaf detector from PlantDoc boxes, leaf-crop test, app model bundle | T4, ~1.5 h |
+
+Key scripts in [`tools/`](tools): `inat_fetch_species.py` (dataset download with temporal split),
+`make_split.py` (seeded, de-duplicated splits), `train_classifier.py`, `evaluate.py` (accuracy, F1, calibration,
+bootstrap CIs, latency), `disease_extras.py`, `plantdoc_leaf_yolo.py`.
+
+## Project structure
+```
+app/            Flask app: identification, fusion, disease screening, explanations, facts, auth
+web/            HTML templates, JS, CSS, PWA manifest and service worker
+models/         class maps and model weights (Git LFS)
+runs/detect/    YOLO organ detector weights (Git LFS)
+tools/          dataset, training and evaluation scripts
+notebooks/      Kaggle notebooks 01-05 used for the paper
+results/logs/   raw logs of every experiment run
+scripts/        database migration helpers
+```
+
+## Limitations
+- The field test covers 102 PlantDoc photographs in 12 classes; its confidence intervals are wide.
+- The disease model covers only pepper, potato and tomato.
+- The hosted Plant.id / Pl@ntNet services and the fused output were not evaluated (paid API access).
+- iNaturalist research-grade labels are community-verified but not error-free; 22 of the original 1,106 species names could not be matched automatically.
+- GreenMind gives guidance only and does not replace an expert diagnosis.
+
+## Data and licences
+- Code: [MIT](LICENSE).
+- iNaturalist photographs: only CC0, CC-BY, CC-BY-SA and CC-BY-NC images are used; the download script records the observation id, photographer and licence of every image. Images are not redistributed in this repository.
+- [PlantVillage](https://arxiv.org/abs/1511.08060) and [PlantDoc](https://github.com/pratikkayal/PlantDoc-Dataset) are used under their own licences and are downloaded by the notebooks.
+
+## Citation
+If you use this code or the evaluation protocol, please cite it (see [`CITATION.cff`](CITATION.cff)):
+
+```bibtex
+@software{greenmind_ai,
+  author = {Ahmed, Mubashir},
+  title  = {GreenMind AI: Explainable Plant Identification and Disease Screening},
+  year   = {2026},
+  url    = {https://github.com/mubashir20023/greenmind-ai}
 }
-cURL
+```
 
-bash
-Copy code
-curl -F "file=@sample.jpg" http://localhost:5000/identify
-POST /explain?method=gradcam|eigen
-Body: multipart/form-data with field file
-Response: PNG heatmap (transparent) aligned to the input image.
-
-POST /feedback
-Body: multipart/form-data
-
-file: the same image
-
-meta: JSON blob
-
-json
-Copy code
-{
-  "verdict": "correct",
-  "true_label": null,
-  "notes": null,
-  "model": "resnet18",
-  "best": {"label":"...","score":0.92},
-  "alternatives": [],
-  "time": "2025-01-01T12:34:56Z"
-}
-Response: { "ok": true }
-
-Dataset & Training
-1) Build CSV from iNaturalist (resumable)
-bash
-Copy code
-python tools/inat_build_flowers_csv.py ^
-  --out_csv raw_data/flowers_1000.csv ^
-  --num_species 1000 ^
-  --min_per_class 80 ^
-  --max_per_class 400 ^
-  --resume ^
-  --species_cache raw_data/flowers_species_cache.json
-2) CSV → ImageFolder
-bash
-Copy code
-python tools/inat_csv_to_imagefolder.py ^
-  --csv raw_data/flowers_1000.csv ^
-  --out_dir data/flowers ^
-  --min_per_class 80 ^
-  --max_per_class 400 ^
-  --train_split 0.85 ^
-  --workers 8
-Result:
-
-swift
-Copy code
-data/flowers/
-  train/<species_slug>/*.jpg
-  val/<species_slug>/*.jpg
-  metadata/manifest.csv
-3) Train
-Use tools/train_plants.py (if included) or your own TIMM/ViT script.
-Typical recipe: RandomResizedCrop, flips, RandAugment; AdamW + Cosine LR; report top-1/top-5 & per-class accuracy, confusion matrix.
-
-Explainability
-pytorch-grad-cam for Grad-CAM/EigenCAM
-
-UI includes opacity slider and Save for the explanation PNG
-
-Improves debugging and user trust
-
-Screenshots
-Add real screenshots for reviewers:
-
-pgsql
-Copy code
-docs/
-  screenshot-hero.png
-  screenshot-identify.png
-  screenshot-explain.png
-In Markdown:
-
-markdown
-Copy code
-![Identify](docs/screenshot-identify.png)
-![Explainability](docs/screenshot-explain.png)
-Project Structure
-bash
-Copy code
-app/
-  __init__.py
-  main.py            # Flask entry
-  identify.py        # /identify endpoint
-  explain.py         # /explain endpoint (Grad-CAM/EigenCAM)
-  facts.py           # facts HTML builder
-  detector.py        # optional YOLO pipeline
-  health.py          # health checks
-models/
-  class_maps/        # idx_to_species.json, species_to_idx.json
-  checkpoints/       # (ignored or tracked with LFS)
-tools/
-  inat_build_flowers_csv.py
-  inat_csv_to_imagefolder.py
-  train_plants.py
-web/
-  templates/index.html
-  static/style.css
-  static/script.js
-Limitations & Ethics
-Species look-alikes and seasonality can cause confusion
-
-Low-quality images (blur, partial organs) reduce accuracy
-
-Safety: suggestions only — do not ingest plants based solely on the app
-
-Respect image licenses (iNaturalist provides license codes; include attributions where required)
-
-License
-MIT — see LICENSE.
-
-Acknowledgements
-iNaturalist for images and taxonomy (respect photo licenses)
-
-Open-source libraries: PyTorch, torchvision, timm, pytorch-grad-cam, Flask, Ultralytics
-
-pgsql
-Copy code
-
-After pasting, hit **Preview** — the ASCII diagram should be inside a box, and there should be **no** “Copy code” words anywhere.
+## Acknowledgements
+[iNaturalist](https://www.inaturalist.org) contributors, the PlantVillage and PlantDoc authors,
+[timm](https://github.com/huggingface/pytorch-image-models), [pytorch-grad-cam](https://github.com/jacobgil/pytorch-grad-cam),
+[Ultralytics YOLO](https://github.com/ultralytics/ultralytics), and Kaggle for free GPU time.

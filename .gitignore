@@ -14,7 +14,7 @@ runs/
 *.tsv
 
 # Models / weights (we’ll handle with LFS)
-models/checkpoints/
+models/checkpoints/*
 runs/detect/
 *.pt
 *.pth
@@ -39,3 +39,10 @@ runs/**
 !runs/detect/train/
 !runs/detect/train/weights/
 !runs/detect/train/weights/best.pt
+!models/checkpoints/plant_id_effb0_best.pth
+!models/health/
+!models/health/*.pth
+!models/health/*.pt
+
+# Experiment logs are kept for transparency
+!results/logs/

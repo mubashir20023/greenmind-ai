@@ -1,0 +1,1197 @@
+10.0s 1 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+10.0s 2 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+10.0s 3 0.00s - to python to disable frozen modules.
+10.0s 4 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+10.9s 5 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+10.9s 6 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+10.9s 7 0.00s - to python to disable frozen modules.
+10.9s 8 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+12.4s 9 Cloning into 'greenmind-ai'...
+12.6s 10 Cloning into 'greenmind-ai'...
+12.6s 11 
+12.6s 12 Cloning into 'greenmind-ai'...
+20.2s 13 f7b0d62 Add reproducible experiment pipeline and Kaggle notebooks
+20.2s 14 
+20.2s 15 git: 'lfs' is not a git command. See 'git --help'.
+20.2s 16 
+20.2s 17 The most similar command is
+20.2s 18 log
+20.4s 19 git: 'lfs' is not a git command. See 'git --help'.
+20.4s 20 
+20.4s 21 The most similar command is
+20.4s 22 log
+20.4s 23 
+20.4s 24 git: 'lfs' is not a git command. See 'git --help'.
+20.4s 25 
+20.4s 26 The most similar command is
+20.4s 27 log
+21.6s 28 models/checkpoints/plant_id_resnet18_best.pth 47 MB
+43.1s 29 [1/1106] Abelmoschus_esculentus: A=150 B=20 (exact) 0 min
+46.6s 30 [2/1106] Abies_pindrow: A=18 B=3 (exact) 0 min
+56.0s 31 [3/1106] Abutilon_pannosum: A=104 B=20 (exact) 1 min
+77.3s 32 [4/1106] Abutilon_theophrasti: A=150 B=20 (exact) 1 min
+101.3s 33 [5/1106] Acacia_dealbata: A=150 B=20 (exact) 1 min
+124.0s 34 [6/1106] Acacia_longifolia: A=150 B=20 (exact) 2 min
+149.2s 35 [7/1106] Acacia_saligna: A=150 B=20 (exact) 2 min
+153.5s 36 [8/1106] Acantholimon_lycopodioides: A=25 B=13 (exact) 2 min
+157.6s 37 [9/1106] Acer_caesium: A=22 B=14 (exact) 2 min
+180.1s 38 [10/1106] Acer_negundo: A=150 B=20 (exact) 3 min
+202.7s 39 [11/1106] Acer_platanoides: A=150 B=20 (exact) 3 min
+225.3s 40 [12/1106] Acer_pseudoplatanus: A=150 B=20 (exact) 3 min
+251.1s 41 [13/1106] Acer_saccharinum: A=150 B=20 (exact) 4 min
+276.7s 42 [14/1106] Achillea_millefolium: A=150 B=20 (exact) 4 min
+276.8s 43 [15/1106] Adiantum_capillusveneris: not_found
+281.4s 44 [16/1106] Adiantum_incisum: A=39 B=7 (exact) 4 min
+283.8s 45 [17/1106] Adiantum_tibeticum: A=2 B=0 (exact) 4 min
+302.4s 46 [18/1106] Aegle_marmelos: A=150 B=20 (exact) 5 min
+326.1s 47 [19/1106] Aegopodium_podagraria: A=150 B=20 (exact) 5 min
+346.2s 48 [20/1106] Aerva_javanica: A=150 B=20 (exact) 5 min
+362.5s 49 [21/1106] Aeschynomene_indica: A=150 B=20 (exact) 6 min
+387.6s 50 [22/1106] Aesculus_hippocastanum: A=150 B=20 (exact) 6 min
+409.8s 51 [23/1106] Agave_americana: A=150 B=20 (exact) 6 min
+432.1s 52 [24/1106] Ageratina_adenophora: A=150 B=20 (exact) 7 min
+452.3s 53 [25/1106] Ageratum_houstonianum: A=150 B=20 (exact) 7 min
+478.5s 54 [26/1106] Ailanthus_altissima: A=150 B=20 (exact) 8 min
+499.2s 55 [27/1106] Ailanthus_excelsa: A=150 B=20 (exact) 8 min
+506.4s 56 [28/1106] Ajuga_integrifolia: A=43 B=20 (exact) 8 min
+509.0s 57 [29/1106] Ajuga_parviflora: A=4 B=1 (exact) 8 min
+530.2s 58 [30/1106] Ajuga_reptans: A=150 B=20 (exact) 8 min
+554.5s 59 [31/1106] Akebia_quinata: A=150 B=20 (exact) 9 min
+582.5s 60 [32/1106] Albizia_julibrissin: A=150 B=20 (exact) 9 min
+605.2s 61 [33/1106] Albizia_lebbeck: A=150 B=20 (exact) 10 min
+626.7s 62 [34/1106] Alcea_rosea: A=150 B=20 (exact) 10 min
+645.8s 63 [35/1106] Alhagi_graecorum: A=150 B=20 (exact) 10 min
+668.3s 64 [36/1106] Alkekengi_officinarum: A=150 B=20 (exact) 11 min
+687.7s 65 [37/1106] Allamanda_blanchetii: A=150 B=20 (exact) 11 min
+690.8s 66 [38/1106] Allardia_glabra: A=10 B=1 (exact) 11 min
+693.4s 67 [39/1106] Allardia_nivea: A=15 B=3 (exact) 11 min
+696.3s 68 [40/1106] Allardia_tomentosa: A=8 B=3 (exact) 11 min
+716.3s 69 [41/1106] Alliaria_petiolata: A=150 B=20 (exact) 12 min
+734.1s 70 [42/1106] Allium_cepa: A=150 B=20 (exact) 12 min
+737.0s 71 [43/1106] Allium_oreophilum: A=14 B=2 (exact) 12 min
+758.0s 72 [44/1106] Allium_sativum: A=150 B=20 (exact) 12 min
+779.4s 73 [45/1106] Allium_triquetrum: A=150 B=20 (exact) 13 min
+796.1s 74 [46/1106] Allium_vineale: A=150 B=20 (exact) 13 min
+820.1s 75 [47/1106] Aloe_arborescens: A=150 B=20 (exact) 13 min
+845.6s 76 [48/1106] Aloe_maculata: A=150 B=20 (exact) 14 min
+872.6s 77 [49/1106] Alpinia_purpurata: A=150 B=20 (exact) 14 min
+891.8s 78 [50/1106] Alpinia_zerumbet: A=150 B=20 (exact) 14 min
+913.6s 79 [51/1106] Alstonia_scholaris: A=150 B=20 (exact) 15 min
+933.2s 80 [52/1106] Alternanthera_philoxeroides: A=150 B=20 (exact) 15 min
+954.0s 81 [53/1106] Amaranthus_retroflexus: A=150 B=20 (exact) 16 min
+977.6s 82 [54/1106] Amaranthus_viridis: A=150 B=20 (exact) 16 min
+1003.3s 83 [55/1106] Amaryllis_belladonna: A=150 B=20 (exact) 16 min
+1030.9s 84 [56/1106] Ambrosia_artemisiifolia: A=150 B=20 (exact) 17 min
+1053.4s 85 [57/1106] Amorpha_fruticosa: A=150 B=20 (exact) 17 min
+1078.2s 86 [58/1106] Ampelopsis_glandulosa: A=150 B=20 (exact) 18 min
+1088.6s 87 [59/1106] Anaphalis_nepalensis: A=60 B=20 (exact) 18 min
+1109.1s 88 [60/1106] Anastatica_hierochuntica: A=150 B=20 (exact) 18 min
+1128.0s 89 [61/1106] Anchusa_arvensis: A=150 B=20 (exact) 18 min
+1130.4s 90 [62/1106] Androsace_aizoon: A=4 B=0 (exact) 18 min
+1133.5s 91 [63/1106] Androsace_rotundifolia: A=24 B=2 (exact) 19 min
+1136.6s 92 [64/1106] Anemone_tschernaewii: A=21 B=7 (exact) 19 min
+1156.6s 93 [65/1106] Anemonoides_blanda: A=150 B=20 (exact) 19 min
+1172.7s 94 [66/1106] Anisomeles_indica: A=150 B=20 (exact) 19 min
+1194.6s 95 [67/1106] Annona_squamosa: A=150 B=20 (exact) 20 min
+1216.8s 96 [68/1106] Anredera_cordifolia: A=150 B=20 (exact) 20 min
+1236.1s 97 [69/1106] Anthoxanthum_odoratum: A=150 B=20 (exact) 20 min
+1258.7s 98 [70/1106] Antigonon_leptopus: A=150 B=20 (exact) 21 min
+1280.3s 99 [71/1106] Antirrhinum_majus: A=150 B=20 (exact) 21 min
+1302.9s 100 [72/1106] Aquilegia_chrysantha: A=150 B=20 (exact) 21 min
+1323.6s 101 [73/1106] Aquilegia_vulgaris: A=150 B=20 (exact) 22 min
+1342.7s 102 [74/1106] Arachis_hypogaea: A=150 B=20 (exact) 22 min
+1366.9s 103 [75/1106] Aralia_elata: A=150 B=20 (exact) 22 min
+1393.4s 104 [76/1106] Araucaria_columnaris: A=150 B=20 (exact) 23 min
+1415.4s 105 [77/1106] Araujia_sericifera: A=150 B=20 (exact) 23 min
+1415.5s 106 [78/1106] Arctium: not_found
+1438.3s 107 [79/1106] Arctium_lappa: A=150 B=20 (exact) 24 min
+1462.0s 108 [80/1106] Arctium_minus: A=150 B=20 (exact) 24 min
+1486.5s 109 [81/1106] Arctotheca_calendula: A=150 B=20 (exact) 24 min
+1503.6s 110 [82/1106] Arenaria_serpyllifolia: A=150 B=20 (exact) 25 min
+1524.2s 111 [83/1106] Argemone_mexicana: A=150 B=20 (exact) 25 min
+1526.6s 112 [84/1106] Argentina_sericophylla: A=1 B=0 (exact) 25 min
+1530.3s 113 [85/1106] Arisaema_flavum: A=42 B=14 (exact) 25 min
+1538.6s 114 [86/1106] Arisaema_jacquemontii: A=64 B=13 (exact) 25 min
+1540.9s 115 [87/1106] Arisaema_utile: A=1 B=0 (exact) 25 min
+1545.4s 116 [88/1106] Aristolochia_bracteolata: A=26 B=20 (exact) 25 min
+1565.4s 117 [89/1106] Artemisia_absinthium: A=150 B=20 (exact) 26 min
+1589.1s 118 [90/1106] Artemisia_biennis: A=150 B=20 (exact) 26 min
+1591.5s 119 [91/1106] Artemisia_brevifolia: A=4 B=1 (exact) 26 min
+1594.5s 120 [92/1106] Artemisia_kurramensis: A=1 B=0 (exact) 26 min
+1613.9s 121 [93/1106] Artemisia_vulgaris: A=150 B=20 (exact) 27 min
+1639.0s 122 [94/1106] Arum_italicum: A=150 B=20 (exact) 27 min
+1663.3s 123 [95/1106] Arundina_graminifolia: A=150 B=20 (exact) 27 min
+1686.2s 124 [96/1106] Arundo_donax: A=150 B=20 (exact) 28 min
+1707.6s 125 [97/1106] Asclepias_curassavica: A=150 B=20 (exact) 28 min
+1733.0s 126 [98/1106] Asclepias_syriaca: A=150 B=20 (exact) 29 min
+1752.9s 127 [99/1106] Asparagopsis_taxiformis: A=150 B=20 (exact) 29 min
+1776.6s 128 [100/1106] Asparagus_officinalis: A=150 B=20 (exact) 29 min
+1795.4s 129 [101/1106] Asperugo_procumbens: A=150 B=20 (exact) 30 min
+1810.7s 130 [102/1106] Asphodelus_tenuifolius: A=150 B=20 (exact) 30 min
+1833.9s 131 [103/1106] Asplenium_trichomanes: A=150 B=20 (exact) 30 min
+1836.4s 132 [104/1106] Astragalus_oplites: A=11 B=1 (exact) 30 min
+1857.7s 133 [105/1106] Asystasia_gangetica: A=150 B=20 (exact) 31 min
+1882.2s 134 [106/1106] Avicennia_marina: A=150 B=20 (exact) 31 min
+1905.0s 135 [107/1106] Azadirachta_indica: A=150 B=20 (exact) 31 min
+1929.0s 136 [108/1106] Azolla_filiculoides: A=150 B=20 (exact) 32 min
+1951.3s 137 [109/1106] Bacopa_monnieri: A=150 B=20 (exact) 32 min
+1973.5s 138 [110/1106] Barbarea_vulgaris: A=150 B=20 (exact) 33 min
+1995.2s 139 [111/1106] Barleria_repens: A=150 B=20 (exact) 33 min
+2018.0s 140 [112/1106] Bassia_scoparia: A=150 B=20 (exact) 33 min
+2037.4s 141 [113/1106] Bauhinia_variegata: A=150 B=20 (exact) 34 min
+2060.9s 142 [114/1106] Bellis_perennis: A=150 B=20 (exact) 34 min
+2089.7s 143 [115/1106] Berberis_aquifolium: A=150 B=20 (exact) 34 min
+2118.7s 144 [116/1106] Berberis_bealei: A=150 B=20 (exact) 35 min
+2121.1s 145 [117/1106] Berberis_calliobotrys: A=1 B=0 (exact) 35 min
+2146.7s 146 [118/1106] Berberis_thunbergii: A=150 B=20 (exact) 35 min
+2167.4s 147 [119/1106] Berberis_vulgaris: A=150 B=20 (exact) 36 min
+2170.6s 148 [120/1106] Bergenia_ciliata: A=14 B=7 (exact) 36 min
+2193.3s 149 [121/1106] Bergera_koenigii: A=150 B=20 (exact) 36 min
+2214.4s 150 [122/1106] Berteroa_incana: A=150 B=20 (exact) 37 min
+2239.6s 151 [123/1106] Beta_vulgaris: A=150 B=20 (exact) 37 min
+2256.3s 152 [124/1106] Betula_utilis: A=113 B=20 (exact) 37 min
+2279.4s 153 [125/1106] Biancaea_decapetala: A=150 B=20 (exact) 38 min
+2298.8s 154 [126/1106] Bidens_alba: A=150 B=20 (exact) 38 min
+2319.3s 155 [127/1106] Bidens_pilosa: A=150 B=20 (exact) 38 min
+2336.2s 156 [128/1106] Bismarckia_nobilis: A=139 B=20 (exact) 39 min
+2357.5s 157 [129/1106] Bistorta_affinis: A=150 B=20 (exact) 39 min
+2384.8s 158 [130/1106] Bistorta_amplexicaulis: A=150 B=20 (exact) 39 min
+2387.3s 159 [131/1106] Blepharis_scindica: A=1 B=2 (exact) 39 min
+2406.5s 160 [132/1106] Boerhavia_diffusa: A=150 B=20 (exact) 40 min
+2427.7s 161 [133/1106] Bombax_ceiba: A=150 B=20 (exact) 40 min
+2450.9s 162 [134/1106] Borago_officinalis: A=150 B=20 (exact) 40 min
+2470.7s 163 [135/1106] Bougainvillea_spectabilis: A=150 B=20 (exact) 41 min
+2491.7s 164 [136/1106] Brassica_rapa: A=150 B=20 (exact) 41 min
+2511.9s 165 [137/1106] Brassica_tournefortii: A=150 B=20 (exact) 42 min
+2530.3s 166 [138/1106] Briza_maxima: A=150 B=20 (exact) 42 min
+2551.6s 167 [139/1106] Bromus_inermis: A=150 B=20 (exact) 42 min
+2571.1s 168 [140/1106] Bromus_tectorum: A=150 B=20 (exact) 42 min
+2594.0s 169 [141/1106] Broussonetia_papyrifera: A=150 B=20 (exact) 43 min
+2597.2s 170 [142/1106] Buddleja_crispa: A=14 B=4 (exact) 43 min
+2620.0s 171 [143/1106] Buddleja_davidii: A=150 B=20 (exact) 43 min
+2622.6s 172 [144/1106] Bukiniczia_cabulica: A=12 B=1 (exact) 43 min
+2642.4s 173 [145/1106] Butea_monosperma: A=150 B=20 (exact) 44 min
+2662.9s 174 [146/1106] Butomus_umbellatus: A=150 B=20 (exact) 44 min
+2665.2s 175 [147/1106] Buxus_wallichiana: A=1 B=0 (exact) 44 min
+2687.9s 176 [148/1106] Caesalpinia_pulcherrima: A=150 B=20 (exact) 44 min
+2706.5s 177 [149/1106] Cajanus_cajan: A=150 B=20 (exact) 45 min
+2731.2s 178 [150/1106] Cakile_maritima: A=150 B=20 (exact) 45 min
+2748.2s 179 [151/1106] Calendula_arvensis: A=150 B=20 (exact) 45 min
+2770.9s 180 [152/1106] Calendula_officinalis: A=150 B=20 (exact) 46 min
+2790.1s 181 [153/1106] Calotropis_gigantea: A=150 B=20 (exact) 46 min
+2808.4s 182 [154/1106] Calotropis_procera: A=150 B=20 (exact) 46 min
+2811.2s 183 [155/1106] Caltha_alba: A=18 B=4 (exact) 46 min
+2818.1s 184 [156/1106] Campanula_pallida: A=54 B=20 (exact) 47 min
+2839.8s 185 [157/1106] Campanula_rapunculoides: A=150 B=20 (exact) 47 min
+2840.0s 186 [158/1106] Campsis__tagliabueana: not_found
+2865.1s 187 [159/1106] Campsis_radicans: A=150 B=20 (exact) 47 min
+2890.5s 188 [160/1106] Campylopus_introflexus: A=150 B=20 (exact) 48 min
+2912.3s 189 [161/1106] Canna_indica: A=150 B=20 (exact) 48 min
+2933.2s 190 [162/1106] Cannabis_sativa: A=150 B=20 (exact) 49 min
+2947.3s 191 [163/1106] Capparis_cartilaginea: A=112 B=20 (exact) 49 min
+2965.8s 192 [164/1106] Capparis_decidua: A=150 B=20 (exact) 49 min
+2987.3s 193 [165/1106] Capparis_spinosa: A=150 B=20 (exact) 49 min
+3006.1s 194 [166/1106] Capsella_bursapastoris: A=150 B=20 (synonym->Capsella bursa-pastoris) 50 min
+3029.0s 195 [167/1106] Cardamine_hirsuta: A=150 B=20 (exact) 50 min
+3052.9s 196 [168/1106] Cardamine_impatiens: A=150 B=20 (exact) 51 min
+3074.2s 197 [169/1106] Cardamine_occulta: A=150 B=20 (exact) 51 min
+3095.5s 198 [170/1106] Cardiospermum_halicacabum: A=150 B=20 (exact) 51 min
+3118.2s 199 [171/1106] Carduus_nutans: A=150 B=20 (exact) 52 min
+3141.5s 200 [172/1106] Carica_papaya: A=150 B=20 (exact) 52 min
+3165.2s 201 [173/1106] Carissa_macrocarpa: A=150 B=20 (exact) 52 min
+3187.5s 202 [174/1106] Carpobrotus_acinaciformis: A=150 B=20 (exact) 53 min
+3212.5s 203 [175/1106] Carpobrotus_edulis: A=150 B=20 (exact) 53 min
+3233.6s 204 [176/1106] Carthamus_lanatus: A=150 B=20 (exact) 54 min
+3237.6s 205 [177/1106] Carthamus_oxyacanthus: A=32 B=5 (exact) 54 min
+3258.5s 206 [178/1106] Carthamus_tinctorius: A=150 B=20 (exact) 54 min
+3283.0s 207 [179/1106] Carya_illinoinensis: A=150 B=20 (exact) 54 min
+3290.7s 208 [180/1106] Caryota_maxima: A=47 B=19 (exact) 54 min
+3316.5s 209 [181/1106] Cascabela_thevetia: A=150 B=20 (exact) 55 min
+3339.7s 210 [182/1106] Cassia_fistula: A=150 B=20 (exact) 55 min
+3356.9s 211 [183/1106] Cassia_javanica: A=119 B=20 (exact) 56 min
+3379.1s 212 [184/1106] Castanea_dentata: A=150 B=20 (exact) 56 min
+3403.6s 213 [185/1106] Castanea_mollissima: A=150 B=20 (exact) 56 min
+3428.7s 214 [186/1106] Castanea_sativa: A=150 B=20 (exact) 57 min
+3454.2s 215 [187/1106] Casuarina_equisetifolia: A=150 B=20 (exact) 57 min
+3477.5s 216 [188/1106] Catharanthus_roseus: A=150 B=20 (exact) 58 min
+3506.0s 217 [189/1106] Caulerpa_taxifolia: A=150 B=20 (exact) 58 min
+3528.2s 218 [190/1106] Cedrus_deodara: A=150 B=20 (exact) 58 min
+3550.0s 219 [191/1106] Ceiba_speciosa: A=150 B=20 (exact) 59 min
+3574.4s 220 [192/1106] Celastrus_orbiculatus: A=150 B=20 (exact) 59 min
+3594.7s 221 [193/1106] Celosia_argentea: A=150 B=20 (exact) 60 min
+3615.9s 222 [194/1106] Cenchrus_ciliaris: A=150 B=20 (exact) 60 min
+3638.8s 223 [195/1106] Cenchrus_setaceus: A=150 B=20 (exact) 60 min
+3661.4s 224 [196/1106] Centaurea_cyanus: A=150 B=20 (exact) 61 min
+3687.4s 225 [197/1106] Centaurea_solstitialis: A=150 B=20 (exact) 61 min
+3711.5s 226 [198/1106] Centaurea_stoebe: A=150 B=20 (exact) 61 min
+3733.6s 227 [199/1106] Centaurium_erythraea: A=150 B=20 (exact) 62 min
+3758.2s 228 [200/1106] Centaurium_pulchellum: A=150 B=20 (exact) 62 min
+3781.2s 229 [201/1106] Centranthus_ruber: A=150 B=20 (exact) 63 min
+3800.9s 230 [202/1106] Centratherum_punctatum: A=150 B=20 (exact) 63 min
+3819.7s 231 [203/1106] Cestrum_diurnum: A=150 B=20 (exact) 63 min
+3842.8s 232 [204/1106] Cestrum_nocturnum: A=150 B=20 (exact) 64 min
+3863.6s 233 [205/1106] Chaenomeles_speciosa: A=150 B=20 (exact) 64 min
+3887.2s 234 [206/1106] Chamaenerion_angustifolium: A=150 B=20 (exact) 64 min
+3914.0s 235 [207/1106] Chamaenerion_latifolium: A=150 B=20 (exact) 65 min
+3934.0s 236 [208/1106] Chelidonium_majus: A=150 B=20 (exact) 65 min
+3956.2s 237 [209/1106] Chenopodiastrum_murale: A=150 B=20 (exact) 66 min
+3976.0s 238 [210/1106] Chenopodium_album: A=150 B=20 (exact) 66 min
+3998.1s 239 [211/1106] Chenopodium_ficifolium: A=150 B=20 (exact) 66 min
+4000.9s 240 [212/1106] Chesneya_cuneata: A=14 B=5 (exact) 66 min
+4003.6s 241 [213/1106] Chesneya_depressa: A=1 B=0 (exact) 66 min
+4022.0s 242 [214/1106] Chlorophytum_comosum: A=150 B=20 (exact) 67 min
+4024.4s 243 [215/1106] Chorispora_songarica: A=2 B=0 (exact) 67 min
+4046.1s 244 [216/1106] Chorispora_tenella: A=150 B=20 (exact) 67 min
+4064.4s 245 [217/1106] Chrozophora_tinctoria: A=150 B=20 (exact) 67 min
+4081.3s 246 [218/1106] Chrysopogon_zizanioides: A=139 B=20 (exact) 68 min
+4087.7s 247 [219/1106] Cicer_arietinum: A=44 B=20 (exact) 68 min
+4109.7s 248 [220/1106] Cichorium_intybus: A=150 B=20 (exact) 68 min
+4134.0s 249 [221/1106] Cirsium_arvense: A=150 B=20 (exact) 69 min
+4160.9s 250 [222/1106] Cirsium_vulgare: A=150 B=20 (exact) 69 min
+4179.1s 251 [223/1106] Cistanche_tubulosa: A=150 B=20 (exact) 69 min
+4199.6s 252 [224/1106] Citrullus_colocynthis: A=150 B=20 (exact) 70 min
+4221.0s 253 [225/1106] Citrullus_lanatus: A=150 B=20 (exact) 70 min
+4221.0s 254 [226/1106] Citrus__aurantiifolia: not_found
+4247.0s 255 [227/1106] Citrus_trifoliata: A=150 B=20 (exact) 70 min
+4266.0s 256 [228/1106] Clematis_grata: A=150 B=20 (exact) 71 min
+4290.1s 257 [229/1106] Clematis_terniflora: A=150 B=20 (exact) 71 min
+4313.5s 258 [230/1106] Clematis_vitalba: A=150 B=20 (exact) 72 min
+4331.3s 259 [231/1106] Cleome_rutidosperma: A=150 B=20 (exact) 72 min
+4349.2s 260 [232/1106] Cleome_viscosa: A=150 B=20 (exact) 72 min
+4360.8s 261 [233/1106] Clerodendrum_splendens: A=89 B=20 (exact) 72 min
+4363.5s 262 [234/1106] Clinopodium_umbrosum: A=7 B=5 (exact) 72 min
+4383.8s 263 [235/1106] Clinopodium_vulgare: A=150 B=20 (exact) 73 min
+4404.3s 264 [236/1106] Clitoria_ternatea: A=150 B=20 (exact) 73 min
+4422.9s 265 [237/1106] Clivia_miniata: A=150 B=20 (exact) 73 min
+4442.9s 266 [238/1106] Coccinia_grandis: A=150 B=20 (exact) 74 min
+4464.7s 267 [239/1106] Cocos_nucifera: A=150 B=20 (exact) 74 min
+4490.6s 268 [240/1106] Codiaeum_variegatum: A=150 B=20 (exact) 74 min
+4516.0s 269 [241/1106] Codium_fragile: A=150 B=20 (exact) 75 min
+4516.1s 270 [242/1106] Coix_lacrymajobi: not_found
+4525.2s 271 [243/1106] Colchicum_luteum: A=65 B=16 (exact) 75 min
+4549.9s 272 [244/1106] Coldenia_procumbens: A=150 B=20 (exact) 75 min
+4564.6s 273 [245/1106] Colebrookea_oppositifolia: A=107 B=20 (exact) 76 min
+4585.0s 274 [246/1106] Coleus_amboinicus: A=150 B=20 (exact) 76 min
+4609.9s 275 [247/1106] Coleus_scutellarioides: A=150 B=20 (exact) 76 min
+4633.9s 276 [248/1106] Colocasia_esculenta: A=150 B=20 (exact) 77 min
+4656.8s 277 [249/1106] Combretum_indicum: A=150 B=20 (exact) 77 min
+4676.8s 278 [250/1106] Commelina_benghalensis: A=150 B=20 (exact) 78 min
+4700.1s 279 [251/1106] Commelina_communis: A=150 B=20 (exact) 78 min
+4723.2s 280 [252/1106] Commelina_erecta: A=150 B=20 (exact) 78 min
+4738.8s 281 [253/1106] Commelina_forskaolii: A=150 B=20 (exact) 79 min
+4751.9s 282 [254/1106] Commelina_undulata: A=124 B=20 (exact) 79 min
+4776.6s 283 [255/1106] Conium_maculatum: A=150 B=20 (exact) 79 min
+4781.1s 284 [256/1106] Conocarpus_lancifolius: A=17 B=17 (exact) 79 min
+4804.6s 285 [257/1106] Convallaria_majalis: A=150 B=20 (exact) 80 min
+4824.9s 286 [258/1106] Convolvulus_arvensis: A=150 B=20 (exact) 80 min
+4841.3s 287 [259/1106] Corchorus_olitorius: A=150 B=20 (exact) 80 min
+4855.1s 288 [260/1106] Cordia_myxa: A=102 B=20 (exact) 81 min
+4878.4s 289 [261/1106] Cordia_sebestena: A=150 B=20 (exact) 81 min
+4885.4s 290 [262/1106] Cordia_sinensis: A=53 B=20 (exact) 81 min
+4910.7s 291 [263/1106] Coreopsis_tinctoria: A=150 B=20 (exact) 81 min
+4932.5s 292 [264/1106] Coriandrum_sativum: A=150 B=20 (exact) 82 min
+4953.6s 293 [265/1106] Cornus_mas: A=150 B=20 (exact) 82 min
+4975.2s 294 [266/1106] Cortaderia_selloana: A=150 B=20 (exact) 83 min
+4977.6s 295 [267/1106] Corydalis_duthiei: A=2 B=0 (exact) 83 min
+4980.9s 296 [268/1106] Corydalis_flabellata: A=10 B=8 (exact) 83 min
+4983.6s 297 [269/1106] Corydalis_govaniana: A=7 B=0 (exact) 83 min
+5000.0s 298 [270/1106] Corydalis_incisa: A=150 B=20 (exact) 83 min
+5020.5s 299 [271/1106] Corymbia_torelliana: A=150 B=20 (exact) 83 min
+5042.5s 300 [272/1106] Cosmos_bipinnatus: A=150 B=20 (exact) 84 min
+5066.5s 301 [273/1106] Cosmos_sulphureus: A=150 B=20 (exact) 84 min
+5090.3s 302 [274/1106] Cotinus_coggygria: A=150 B=20 (exact) 84 min
+5092.7s 303 [275/1106] Cotoneaster_affinis: A=1 B=1 (exact) 85 min
+5116.7s 304 [276/1106] Crataegus_monogyna: A=150 B=20 (exact) 85 min
+5119.4s 305 [277/1106] Crataegus_turkestanica: A=11 B=2 (exact) 85 min
+5125.3s 306 [278/1106] Crateva_religiosa: A=51 B=14 (exact) 85 min
+5146.5s 307 [279/1106] Crepis_capillaris: A=150 B=20 (exact) 85 min
+5168.1s 308 [280/1106] Crinum_asiaticum: A=150 B=20 (exact) 86 min
+5168.1s 309 [281/1106] Crocosmia__crocosmiiflora: not_found
+5192.1s 310 [282/1106] Crocus_tommasinianus: A=150 B=20 (exact) 86 min
+5213.0s 311 [283/1106] Crossostephium_chinense: A=150 B=20 (exact) 87 min
+5232.6s 312 [284/1106] Croton_bonplandianus: A=150 B=20 (exact) 87 min
+5252.1s 313 [285/1106] Cucumis_maderaspatanus: A=150 B=20 (exact) 87 min
+5276.2s 314 [286/1106] Cucumis_melo: A=150 B=20 (exact) 88 min
+5286.0s 315 [287/1106] Cucumis_prophetarum: A=70 B=20 (exact) 88 min
+5305.7s 316 [288/1106] Cucurbita_maxima: A=150 B=20 (exact) 88 min
+5327.6s 317 [289/1106] Cucurbita_moschata: A=150 B=20 (exact) 88 min
+5353.9s 318 [290/1106] Cucurbita_pepo: A=150 B=20 (exact) 89 min
+5361.0s 319 [291/1106] Cullen_corylifolium: A=61 B=16 (exact) 89 min
+5388.3s 320 [292/1106] Cuphea_hyssopifolia: A=150 B=20 (exact) 89 min
+5413.7s 321 [293/1106] Cupressus_sempervirens: A=150 B=20 (exact) 90 min
+5434.2s 322 [294/1106] Cuscuta_campestris: A=150 B=20 (exact) 90 min
+5458.1s 323 [295/1106] Cycas_revoluta: A=150 B=20 (exact) 91 min
+5478.9s 324 [296/1106] Cydonia_oblonga: A=150 B=20 (exact) 91 min
+5503.1s 325 [297/1106] Cymbalaria_muralis: A=150 B=20 (exact) 91 min
+5527.2s 326 [298/1106] Cymbopogon_citratus: A=150 B=20 (exact) 92 min
+5529.5s 327 [299/1106] Cymbopogon_jwarancusa: A=0 B=0 (exact) 92 min
+5547.6s 328 [300/1106] Cynanchum_acutum: A=150 B=20 (exact) 92 min
+5575.0s 329 [301/1106] Cynara_cardunculus: A=150 B=20 (exact) 93 min
+5596.0s 330 [302/1106] Cynodon_dactylon: A=150 B=20 (exact) 93 min
+5606.8s 331 [303/1106] Cynoglossum_lanceolatum: A=100 B=20 (exact) 93 min
+5628.0s 332 [304/1106] Cyrtomium_fortunei: A=150 B=20 (exact) 93 min
+5649.8s 333 [305/1106] Cystopteris_fragilis: A=150 B=20 (exact) 94 min
+5678.1s 334 [306/1106] Cytisus_scoparius: A=150 B=20 (exact) 94 min
+5697.0s 335 [307/1106] Dactylis_glomerata: A=150 B=20 (exact) 95 min
+5717.4s 336 [308/1106] Dactyloctenium_aegyptium: A=150 B=20 (exact) 95 min
+5720.1s 337 [309/1106] Dactylorhiza_hatagirea: A=13 B=3 (exact) 95 min
+5745.2s 338 [310/1106] Dalbergia_sissoo: A=150 B=20 (exact) 95 min
+5751.0s 339 [311/1106] Daphne_mucronata: A=27 B=6 (exact) 95 min
+5754.1s 340 [312/1106] Dasiphora_dryadanthoides: A=10 B=3 (exact) 96 min
+5767.1s 341 [313/1106] Datura_innoxia: A=150 B=20 (exact) 96 min
+5790.7s 342 [314/1106] Datura_stramonium: A=150 B=20 (exact) 96 min
+5814.5s 343 [315/1106] Daucus_carota: A=150 B=20 (exact) 97 min
+5823.1s 344 [316/1106] Delonix_elata: A=74 B=20 (exact) 97 min
+5847.7s 345 [317/1106] Delonix_regia: A=150 B=20 (exact) 97 min
+5870.5s 346 [318/1106] Delphinium_ajacis: A=150 B=20 (exact) 97 min
+5890.4s 347 [319/1106] Dianella_ensifolia: A=150 B=20 (exact) 98 min
+5892.7s 348 [320/1106] Dianthus_anatolicus: A=1 B=0 (exact) 98 min
+5911.1s 349 [321/1106] Dianthus_armeria: A=150 B=20 (exact) 98 min
+5924.0s 350 [322/1106] Dicliptera_paniculata: A=104 B=20 (exact) 98 min
+5940.8s 351 [323/1106] Digera_muricata: A=150 B=20 (exact) 99 min
+5966.2s 352 [324/1106] Digitalis_purpurea: A=150 B=20 (exact) 99 min
+5986.1s 353 [325/1106] Dimorphotheca_pluvialis: A=150 B=20 (exact) 99 min
+6014.0s 354 [326/1106] Dionaea_muscipula: A=150 B=20 (exact) 100 min
+6034.3s 355 [327/1106] Diospyros_lotus: A=150 B=20 (exact) 100 min
+6054.9s 356 [328/1106] Diplocyclos_palmatus: A=150 B=20 (exact) 101 min
+6080.8s 357 [329/1106] Dipsacus_fullonum: A=150 B=20 (exact) 101 min
+6104.9s 358 [330/1106] Dipsacus_laciniatus: A=150 B=20 (exact) 101 min
+6130.9s 359 [331/1106] Dipsacus_sativus: A=150 B=20 (exact) 102 min
+6148.7s 360 [332/1106] Distimake_aegyptius: A=150 B=20 (exact) 102 min
+6171.3s 361 [333/1106] Dittrichia_graveolens: A=150 B=20 (exact) 102 min
+6196.0s 362 [334/1106] Dodonaea_viscosa: A=150 B=20 (exact) 103 min
+6196.0s 363 [335/1106] Dolichandra_unguiscati: not_found
+6215.7s 364 [336/1106] Draba_verna: A=150 B=20 (exact) 103 min
+6223.1s 365 [337/1106] Dracocephalum_stamineum: A=43 B=20 (exact) 103 min
+6253.2s 366 [338/1106] Dryopteris_erythrosora: A=150 B=20 (exact) 104 min
+6276.4s 367 [339/1106] Duranta_erecta: A=150 B=20 (exact) 104 min
+6299.1s 368 [340/1106] Dysphania_ambrosioides: A=150 B=20 (exact) 105 min
+6319.7s 369 [341/1106] Dysphania_botrys: A=150 B=20 (exact) 105 min
+6322.5s 370 [342/1106] Echinops_cornigerus: A=14 B=5 (exact) 105 min
+6339.4s 371 [343/1106] Echinops_echinatus: A=128 B=20 (exact) 105 min
+6342.0s 372 [344/1106] Echinops_maracandicus: A=10 B=2 (exact) 105 min
+6370.3s 373 [345/1106] Echium_candicans: A=150 B=20 (exact) 106 min
+6390.9s 374 [346/1106] Echium_plantagineum: A=150 B=20 (exact) 106 min
+6413.4s 375 [347/1106] Echium_vulgare: A=150 B=20 (exact) 107 min
+6433.8s 376 [348/1106] Eclipta_prostrata: A=150 B=20 (exact) 107 min
+6453.6s 377 [349/1106] Ehretia_acuminata: A=150 B=20 (exact) 107 min
+6476.7s 378 [350/1106] Ehretia_microphylla: A=150 B=20 (exact) 108 min
+6500.5s 379 [351/1106] Elaeagnus_angustifolia: A=150 B=20 (exact) 108 min
+6527.6s 380 [352/1106] Elaeagnus_pungens: A=150 B=20 (exact) 108 min
+6553.4s 381 [353/1106] Elaeagnus_umbellata: A=150 B=20 (exact) 109 min
+6576.2s 382 [354/1106] Eleusine_indica: A=150 B=20 (exact) 109 min
+6594.2s 383 [355/1106] Elodea_canadensis: A=150 B=20 (exact) 110 min
+6610.9s 384 [356/1106] Elodea_densa: A=150 B=20 (exact) 110 min
+6626.6s 385 [357/1106] Elodea_nuttallii: A=150 B=20 (exact) 110 min
+6648.0s 386 [358/1106] Emilia_fosbergii: A=150 B=20 (exact) 110 min
+6670.6s 387 [359/1106] Epilobium_hirsutum: A=150 B=20 (exact) 111 min
+6673.2s 388 [360/1106] Epilobium_laxum: A=0 B=0 (exact) 111 min
+6689.5s 389 [361/1106] Epipactis_helleborine: A=150 B=20 (exact) 111 min
+6692.3s 390 [362/1106] Epipactis_royleana: A=9 B=6 (exact) 111 min
+6717.7s 391 [363/1106] Epipremnum_aureum: A=150 B=20 (exact) 112 min
+6740.1s 392 [364/1106] Equisetum_arvense: A=150 B=20 (exact) 112 min
+6759.9s 393 [365/1106] Equisetum_ramosissimum: A=150 B=20 (exact) 112 min
+6783.6s 394 [366/1106] Eranthis_hyemalis: A=150 B=20 (exact) 113 min
+6803.6s 395 [367/1106] Erigeron_annuus: A=150 B=20 (exact) 113 min
+6823.5s 396 [368/1106] Erigeron_bonariensis: A=150 B=20 (exact) 113 min
+6846.1s 397 [369/1106] Erigeron_canadensis: A=150 B=20 (exact) 114 min
+6871.1s 398 [370/1106] Erigeron_karvinskianus: A=150 B=20 (exact) 114 min
+6891.4s 399 [371/1106] Erigeron_sumatrensis: A=150 B=20 (exact) 114 min
+6915.9s 400 [372/1106] Eriobotrya_japonica: A=150 B=20 (exact) 115 min
+6932.1s 401 [373/1106] Eriochloa_villosa: A=150 B=20 (exact) 115 min
+6948.5s 402 [374/1106] Eritrichium_villosum: A=144 B=10 (exact) 115 min
+6971.7s 403 [375/1106] Erodium_botrys: A=150 B=20 (exact) 116 min
+6993.2s 404 [376/1106] Erodium_cicutarium: A=150 B=20 (exact) 116 min
+7017.4s 405 [377/1106] Erodium_moschatum: A=150 B=20 (exact) 117 min
+7034.4s 406 [378/1106] Erythrina_americana: A=150 B=20 (exact) 117 min
+7034.4s 407 [379/1106] Erythrina_cristagalli: not_found
+7052.9s 408 [380/1106] Erythrina_variegata: A=150 B=20 (exact) 117 min
+7080.0s 409 [381/1106] Eschscholzia_californica: A=150 B=20 (exact) 118 min
+7103.8s 410 [382/1106] Etlingera_elatior: A=150 B=20 (exact) 118 min
+7126.7s 411 [383/1106] Eucalyptus_deglupta: A=150 B=20 (exact) 118 min
+7151.2s 412 [384/1106] Eucalyptus_globulus: A=150 B=20 (exact) 119 min
+7171.8s 413 [385/1106] Eulophia_graminea: A=150 B=20 (exact) 119 min
+7196.7s 414 [386/1106] Eulophia_maculata: A=150 B=20 (exact) 120 min
+7218.6s 415 [387/1106] Euonymus_alatus: A=150 B=20 (exact) 120 min
+7246.7s 416 [388/1106] Euonymus_fortunei: A=150 B=20 (exact) 120 min
+7266.0s 417 [389/1106] Euphorbia_caducifolia: A=150 B=20 (exact) 121 min
+7284.3s 418 [390/1106] Euphorbia_cotinifolia: A=150 B=20 (exact) 121 min
+7309.7s 419 [391/1106] Euphorbia_cyathophora: A=150 B=20 (exact) 121 min
+7314.6s 420 [392/1106] Euphorbia_granulata: A=51 B=12 (exact) 122 min
+7334.7s 421 [393/1106] Euphorbia_helioscopia: A=150 B=20 (exact) 122 min
+7354.0s 422 [394/1106] Euphorbia_heterophylla: A=150 B=20 (exact) 122 min
+7373.6s 423 [395/1106] Euphorbia_hirta: A=150 B=20 (exact) 123 min
+7392.8s 424 [396/1106] Euphorbia_hypericifolia: A=150 B=20 (exact) 123 min
+7415.5s 425 [397/1106] Euphorbia_lathyris: A=150 B=20 (exact) 123 min
+7442.0s 426 [398/1106] Euphorbia_maculata: A=150 B=20 (exact) 124 min
+7461.3s 427 [399/1106] Euphorbia_milii: A=150 B=20 (exact) 124 min
+7484.7s 428 [400/1106] Euphorbia_peplus: A=150 B=20 (exact) 124 min
+7508.6s 429 [401/1106] Euphorbia_prostrata: A=150 B=20 (exact) 125 min
+7532.4s 430 [402/1106] Euphorbia_pulcherrima: A=150 B=20 (exact) 125 min
+7555.2s 431 [403/1106] Euphorbia_serpens: A=150 B=20 (exact) 126 min
+7582.3s 432 [404/1106] Euphorbia_tirucalli: A=150 B=20 (exact) 126 min
+7585.4s 433 [405/1106] Euphorbia_wallichii: A=27 B=1 (exact) 126 min
+7610.7s 434 [406/1106] Evolvulus_nummularius: A=150 B=20 (exact) 126 min
+7613.0s 435 [407/1106] Fagonia_ovalifolia: A=5 B=0 (exact) 127 min
+7622.6s 436 [408/1106] Farinopsis_salesoviana: A=90 B=20 (exact) 127 min
+7625.6s 437 [409/1106] Fessia_purpurea: A=1 B=0 (exact) 127 min
+7646.0s 438 [410/1106] Ficaria_verna: A=150 B=20 (exact) 127 min
+7653.6s 439 [411/1106] Ficus_amplissima: A=50 B=19 (exact) 127 min
+7675.7s 440 [412/1106] Ficus_benghalensis: A=150 B=20 (exact) 128 min
+7696.7s 441 [413/1106] Ficus_benjamina: A=150 B=20 (exact) 128 min
+7719.4s 442 [414/1106] Ficus_carica: A=150 B=20 (exact) 128 min
+7741.8s 443 [415/1106] Ficus_elastica: A=150 B=20 (exact) 129 min
+7748.4s 444 [416/1106] Ficus_maclellandii: A=33 B=20 (exact) 129 min
+7770.7s 445 [417/1106] Ficus_microcarpa: A=150 B=20 (exact) 129 min
+7786.3s 446 [418/1106] Ficus_palmata: A=102 B=20 (exact) 129 min
+7808.0s 447 [419/1106] Ficus_pumila: A=150 B=20 (exact) 130 min
+7830.8s 448 [420/1106] Ficus_racemosa: A=150 B=20 (exact) 130 min
+7853.1s 449 [421/1106] Ficus_religiosa: A=150 B=20 (exact) 131 min
+7873.1s 450 [422/1106] Ficus_septica: A=150 B=20 (exact) 131 min
+7894.1s 451 [423/1106] Ficus_virens: A=150 B=20 (exact) 131 min
+7896.6s 452 [424/1106] Filago_hurdwarica: A=0 B=0 (exact) 131 min
+7917.0s 453 [425/1106] Foeniculum_vulgare: A=150 B=20 (exact) 132 min
+7936.6s 454 [426/1106] Forsskaolea_tenacissima: A=150 B=20 (exact) 132 min
+7936.7s 455 [427/1106] Fragaria__ananassa: not_found
+7949.4s 456 [428/1106] Fragaria_nubicola: A=84 B=20 (exact) 132 min
+7972.4s 457 [429/1106] Fragaria_vesca: A=150 B=20 (exact) 133 min
+7993.9s 458 [430/1106] Frangula_alnus: A=150 B=20 (exact) 133 min
+7996.7s 459 [431/1106] Fumaria_indica: A=7 B=0 (exact) 133 min
+8014.9s 460 [432/1106] Fumaria_officinalis: A=150 B=20 (exact) 133 min
+8035.8s 461 [433/1106] Gagea_lutea: A=150 B=20 (exact) 134 min
+8060.9s 462 [434/1106] Gaillardia_pulchella: A=150 B=20 (exact) 134 min
+8082.0s 463 [435/1106] Galanthus_elwesii: A=150 B=20 (exact) 134 min
+8104.9s 464 [436/1106] Galanthus_nivalis: A=150 B=20 (exact) 135 min
+8127.3s 465 [437/1106] Galega_officinalis: A=150 B=20 (exact) 135 min
+8146.3s 466 [438/1106] Galega_orientalis: A=150 B=20 (exact) 135 min
+8165.7s 467 [439/1106] Galinsoga_parviflora: A=150 B=20 (exact) 136 min
+8184.8s 468 [440/1106] Galinsoga_quadriradiata: A=150 B=20 (exact) 136 min
+8207.2s 469 [441/1106] Galium_aparine: A=150 B=20 (exact) 136 min
+8207.2s 470 [442/1106] Gazania__splendens: not_found
+8230.6s 471 [443/1106] Genista_monspessulana: A=150 B=20 (exact) 137 min
+8233.1s 472 [444/1106] Gentiana_kurroo: A=1 B=0 (exact) 137 min
+8245.6s 473 [445/1106] Gentiana_olivieri: A=112 B=20 (exact) 137 min
+8258.5s 474 [446/1106] Gentiana_tianschanica: A=95 B=20 (exact) 137 min
+8261.1s 475 [447/1106] Geranium_himalayense: A=16 B=2 (exact) 137 min
+8283.1s 476 [448/1106] Geranium_molle: A=150 B=20 (exact) 138 min
+8288.3s 477 [449/1106] Geranium_ocellatum: A=47 B=6 (exact) 138 min
+8310.6s 478 [450/1106] Geranium_robertianum: A=150 B=20 (exact) 138 min
+8313.0s 479 [451/1106] Geranium_swatense: A=2 B=0 (exact) 138 min
+8331.2s 480 [452/1106] Geranium_wallichianum: A=150 B=20 (exact) 138 min
+8333.8s 481 [453/1106] Geum_elatum: A=7 B=6 (exact) 139 min
+8353.5s 482 [454/1106] Ginkgo_biloba: A=150 B=20 (exact) 139 min
+8374.6s 483 [455/1106] Glandularia_aristigera: A=150 B=20 (exact) 139 min
+8398.5s 484 [456/1106] Glebionis_coronaria: A=150 B=20 (exact) 140 min
+8422.2s 485 [457/1106] Glechoma_hederacea: A=150 B=20 (exact) 140 min
+8448.8s 486 [458/1106] Gleditsia_triacanthos: A=150 B=20 (exact) 140 min
+8470.3s 487 [459/1106] Gloriosa_superba: A=150 B=20 (exact) 141 min
+8492.2s 488 [460/1106] Gomphocarpus_physocarpus: A=150 B=20 (exact) 141 min
+8517.2s 489 [461/1106] Grevillea_robusta: A=150 B=20 (exact) 142 min
+8524.4s 490 [462/1106] Grewia_asiatica: A=48 B=20 (exact) 142 min
+8548.0s 491 [463/1106] Guaiacum_officinale: A=150 B=20 (exact) 142 min
+8550.9s 492 [464/1106] Gymnosporia_royleana: A=1 B=0 (exact) 142 min
+8566.9s 493 [465/1106] Halerpestes_sarmentosa: A=150 B=20 (exact) 142 min
+8593.3s 494 [466/1106] Halogeton_glomeratus: A=150 B=20 (exact) 143 min
+8619.5s 495 [467/1106] Hamelia_patens: A=150 B=20 (exact) 143 min
+8644.2s 496 [468/1106] Hedera_helix: A=150 B=20 (exact) 144 min
+8650.9s 497 [469/1106] Hedera_nepalensis: A=45 B=11 (exact) 144 min
+8670.8s 498 [470/1106] Hedychium_coronarium: A=150 B=20 (exact) 144 min
+8696.1s 499 [471/1106] Hedychium_gardnerianum: A=150 B=20 (exact) 145 min
+8698.7s 500 [472/1106] Hedysarum_falconeri: A=3 B=0 (exact) 145 min
+8718.9s 501 [473/1106] Helianthus_annuus: A=150 B=20 (exact) 145 min
+8739.1s 502 [474/1106] Helianthus_tuberosus: A=150 B=20 (exact) 145 min
+8765.5s 503 [475/1106] Heliconia_rostrata: A=150 B=20 (exact) 146 min
+8790.2s 504 [476/1106] Heliotropium_curassavicum: A=150 B=20 (exact) 146 min
+8813.7s 505 [477/1106] Heliotropium_indicum: A=150 B=20 (exact) 147 min
+8837.3s 506 [478/1106] Helminthotheca_echioides: A=150 B=20 (exact) 147 min
+8860.7s 507 [479/1106] Hemerocallis_fulva: A=150 B=20 (exact) 147 min
+8864.2s 508 [480/1106] Hepatica_falconeri: A=4 B=1 (exact) 147 min
+8884.1s 509 [481/1106] Heptapleurum_arboricola: A=150 B=20 (exact) 148 min
+8887.1s 510 [482/1106] Heracleum_candicans: A=4 B=3 (exact) 148 min
+8912.1s 511 [483/1106] Heracleum_mantegazzianum: A=150 B=20 (exact) 148 min
+8933.3s 512 [484/1106] Heracleum_sosnowskyi: A=150 B=20 (exact) 149 min
+8953.7s 513 [485/1106] Herniaria_hirsuta: A=150 B=20 (exact) 149 min
+8977.2s 514 [486/1106] Hesperis_matronalis: A=150 B=20 (exact) 149 min
+8977.3s 515 [487/1106] Hibiscus__archeri: not_found
+8978.2s 516 [488/1106] Hibiscus__rosasinensis: not_found
+8987.6s 517 [489/1106] Hibiscus_caesius: A=82 B=20 (synonym->Astrohibiscus caesius) 149 min
+9004.5s 518 [490/1106] Hibiscus_micranthus: A=150 B=20 (exact) 150 min
+9029.6s 519 [491/1106] Hibiscus_syriacus: A=150 B=20 (exact) 150 min
+9052.2s 520 [492/1106] Hibiscus_tiliaceus: A=150 B=20 (exact) 151 min
+9075.6s 521 [493/1106] Hibiscus_trionum: A=150 B=20 (exact) 151 min
+9097.6s 522 [494/1106] Hippobroma_longiflora: A=150 B=20 (exact) 151 min
+9122.0s 523 [495/1106] Hippophae_rhamnoides: A=150 B=20 (exact) 152 min
+9142.0s 524 [496/1106] Houttuynia_cordata: A=150 B=20 (exact) 152 min
+9164.8s 525 [497/1106] Humulus_scandens: A=150 B=20 (exact) 152 min
+9188.7s 526 [498/1106] Hyacinthus_orientalis: A=150 B=20 (exact) 153 min
+9210.5s 527 [499/1106] Hydrilla_verticillata: A=150 B=20 (exact) 153 min
+9235.8s 528 [500/1106] Hydrocotyle_sibthorpioides: A=150 B=20 (exact) 154 min
+9256.2s 529 [501/1106] Hylotelephium_ewersii: A=150 B=20 (exact) 154 min
+9259.7s 530 [502/1106] Hyoscyamus_insanus: A=7 B=6 (exact) 154 min
+9279.5s 531 [503/1106] Hyoscyamus_niger: A=150 B=20 (exact) 154 min
+9300.7s 532 [504/1106] Hypericum_perforatum: A=150 B=20 (exact) 155 min
+9324.2s 533 [505/1106] Hypochaeris_radicata: A=150 B=20 (exact) 155 min
+9352.0s 534 [506/1106] Ilex_aquifolium: A=150 B=20 (exact) 156 min
+9356.6s 535 [507/1106] Impatiens_bicolor: A=10 B=0 (exact) 156 min
+9362.8s 536 [508/1106] Impatiens_brachycentra: A=71 B=20 (exact) 156 min
+9384.8s 537 [509/1106] Impatiens_capensis: A=150 B=20 (exact) 156 min
+9400.9s 538 [510/1106] Impatiens_edgeworthii: A=150 B=20 (exact) 156 min
+9422.6s 539 [511/1106] Impatiens_glandulifera: A=150 B=20 (exact) 157 min
+9442.4s 540 [512/1106] Impatiens_parviflora: A=150 B=20 (exact) 157 min
+9465.5s 541 [513/1106] Imperata_cylindrica: A=150 B=20 (exact) 157 min
+9474.6s 542 [514/1106] Indigofera_cordifolia: A=65 B=20 (exact) 158 min
+9477.7s 543 [515/1106] Indigofera_heterantha: A=5 B=1 (exact) 158 min
+9493.3s 544 [516/1106] Indigofera_linifolia: A=150 B=20 (exact) 158 min
+9505.0s 545 [517/1106] Inula_rhizocephala: A=63 B=20 (exact) 158 min
+9527.5s 546 [518/1106] Ipheion_uniflorum: A=150 B=20 (exact) 158 min
+9550.5s 547 [519/1106] Ipomoea_aquatica: A=150 B=20 (exact) 159 min
+9573.3s 548 [520/1106] Ipomoea_batatas: A=150 B=20 (exact) 159 min
+9594.8s 549 [521/1106] Ipomoea_cairica: A=150 B=20 (exact) 160 min
+9617.6s 550 [522/1106] Ipomoea_carnea: A=150 B=20 (exact) 160 min
+9625.0s 551 [523/1106] Ipomoea_eriocarpa: A=89 B=20 (exact) 160 min
+9649.2s 552 [524/1106] Ipomoea_hederacea: A=150 B=20 (exact) 160 min
+9671.3s 553 [525/1106] Ipomoea_indica: A=150 B=20 (exact) 161 min
+9694.7s 554 [526/1106] Ipomoea_pescaprae: A=150 B=20 (synonym->Ipomoea pes-caprae) 161 min
+9715.0s 555 [527/1106] Ipomoea_pestigridis: A=150 B=20 (synonym->Ipomoea pes-tigridis) 162 min
+9736.3s 556 [528/1106] Ipomoea_purpurea: A=150 B=20 (exact) 162 min
+9761.2s 557 [529/1106] Ipomoea_quamoclit: A=150 B=20 (exact) 162 min
+9761.4s 558 [530/1106] Iris__germanica: not_found
+9787.6s 559 [531/1106] Iris_domestica: A=150 B=20 (exact) 163 min
+9794.3s 560 [532/1106] Iris_hookeriana: A=16 B=5 (exact) 163 min
+9799.0s 561 [533/1106] Iris_kashmiriana: A=1 B=0 (exact) 163 min
+9809.3s 562 [534/1106] Iris_loczyi: A=61 B=20 (exact) 163 min
+9822.2s 563 [535/1106] Iris_pseudacorus: A=150 B=20 (exact) 163 min
+9841.8s 564 [536/1106] Ixiolirion_tataricum: A=150 B=20 (exact) 164 min
+9860.2s 565 [537/1106] Ixora_coccinea: A=150 B=20 (exact) 164 min
+9883.6s 566 [538/1106] Jacaranda_mimosifolia: A=150 B=20 (exact) 164 min
+9907.6s 567 [539/1106] Jacobaea_maritima: A=150 B=20 (exact) 165 min
+9933.3s 568 [540/1106] Jacobaea_vulgaris: A=150 B=20 (exact) 165 min
+9953.5s 569 [541/1106] Jasminum_mesnyi: A=150 B=20 (exact) 166 min
+9974.4s 570 [542/1106] Jasminum_nudiflorum: A=150 B=20 (exact) 166 min
+9981.9s 571 [543/1106] Jasminum_officinale: A=39 B=20 (exact) 166 min
+9997.1s 572 [544/1106] Jasminum_sambac: A=150 B=20 (exact) 166 min
+10020.0s 573 [545/1106] Jatropha_gossypiifolia: A=150 B=20 (exact) 167 min
+10041.6s 574 [546/1106] Jatropha_integerrima: A=150 B=20 (exact) 167 min
+10062.6s 575 [547/1106] Juglans_regia: A=150 B=20 (exact) 167 min
+10065.7s 576 [548/1106] Juncus_thomsonii: A=10 B=2 (exact) 167 min
+10088.4s 577 [549/1106] Juniperus_communis: A=150 B=20 (exact) 168 min
+10092.2s 578 [550/1106] Juniperus_semiglobosa: A=17 B=10 (exact) 168 min
+10108.1s 579 [551/1106] Justicia_adhatoda: A=150 B=20 (exact) 168 min
+10127.2s 580 [552/1106] Justicia_brandegeeana: A=150 B=20 (exact) 168 min
+10127.3s 581 [553/1106] Kalanchoe__houghtonii: not_found
+10150.3s 582 [554/1106] Kalanchoe_delagoensis: A=150 B=20 (exact) 169 min
+10174.1s 583 [555/1106] Kalanchoe_laetivirens: A=150 B=20 (exact) 169 min
+10197.5s 584 [556/1106] Kalanchoe_pinnata: A=150 B=20 (exact) 170 min
+10218.5s 585 [557/1106] Kigelia_africana: A=150 B=20 (exact) 170 min
+10222.7s 586 [558/1106] Lactuca_dissecta: A=4 B=2 (exact) 170 min
+10239.3s 587 [559/1106] Lactuca_sativa: A=150 B=20 (exact) 170 min
+10259.2s 588 [560/1106] Lactuca_serriola: A=150 B=20 (exact) 171 min
+10279.2s 589 [561/1106] Lactuca_tatarica: A=150 B=20 (exact) 171 min
+10295.3s 590 [562/1106] Lagenaria_siceraria: A=150 B=20 (exact) 171 min
+10321.6s 591 [563/1106] Lagerstroemia_indica: A=150 B=20 (exact) 172 min
+10343.6s 592 [564/1106] Lagerstroemia_speciosa: A=150 B=20 (exact) 172 min
+10360.1s 593 [565/1106] Lamium_album: A=150 B=20 (exact) 172 min
+10380.1s 594 [566/1106] Lamium_amplexicaule: A=150 B=20 (exact) 173 min
+10407.4s 595 [567/1106] Lamium_galeobdolon_argentatum: A=150 B=20 (exact) 173 min
+10427.0s 596 [568/1106] Lamium_purpureum: A=150 B=20 (exact) 173 min
+10449.1s 597 [569/1106] Lantana_camara: A=150 B=20 (exact) 174 min
+10466.1s 598 [570/1106] Lantana_horrida: A=150 B=20 (exact) 174 min
+10487.8s 599 [571/1106] Lantana_montevidensis: A=150 B=20 (exact) 174 min
+10509.1s 600 [572/1106] Lantana_strigocamara: A=150 B=20 (exact) 175 min
+10534.2s 601 [573/1106] Lapsana_communis: A=150 B=20 (exact) 175 min
+10557.6s 602 [574/1106] Lathyrus_latifolius: A=150 B=20 (exact) 176 min
+10579.6s 603 [575/1106] Lathyrus_odoratus: A=150 B=20 (exact) 176 min
+10600.8s 604 [576/1106] Lathyrus_pratensis: A=150 B=20 (exact) 176 min
+10622.6s 605 [577/1106] Laurus_nobilis: A=150 B=20 (exact) 177 min
+10643.0s 606 [578/1106] Leersia_oryzoides: A=150 B=20 (exact) 177 min
+10663.3s 607 [579/1106] Leonotis_nepetifolia: A=150 B=20 (exact) 177 min
+10688.9s 608 [580/1106] Leonurus_cardiaca: A=150 B=20 (exact) 178 min
+10712.7s 609 [581/1106] Lepidium_didymum: A=150 B=20 (exact) 178 min
+10730.6s 610 [582/1106] Leptadenia_pyrotechnica: A=150 B=20 (exact) 178 min
+10732.9s 611 [583/1106] Leptopus_cordifolius: A=0 B=0 (exact) 179 min
+10756.6s 612 [584/1106] Lespedeza_cuneata: A=150 B=20 (exact) 179 min
+10787.4s 613 [585/1106] Leucaena_leucocephala: A=150 B=20 (exact) 179 min
+10807.9s 614 [586/1106] Leucanthemum_maximum: A=150 B=20 (exact) 180 min
+10831.1s 615 [587/1106] Leucanthemum_vulgare: A=150 B=20 (exact) 180 min
+10854.7s 616 [588/1106] Leucojum_aestivum: A=150 B=20 (exact) 181 min
+10877.7s 617 [589/1106] Leucophyllum_frutescens: A=150 B=20 (exact) 181 min
+10906.1s 618 [590/1106] Ligustrum_lucidum: A=150 B=20 (exact) 181 min
+10935.4s 619 [591/1106] Ligustrum_obtusifolium: A=150 B=20 (exact) 182 min
+10959.1s 620 [592/1106] Ligustrum_quihoui: A=150 B=20 (exact) 182 min
+10987.2s 621 [593/1106] Ligustrum_sinense: A=150 B=20 (exact) 183 min
+11009.8s 622 [594/1106] Lilium_formosanum: A=150 B=20 (exact) 183 min
+11033.4s 623 [595/1106] Linaria_dalmatica: A=150 B=20 (exact) 184 min
+11056.5s 624 [596/1106] Linaria_vulgaris: A=150 B=20 (exact) 184 min
+11063.2s 625 [597/1106] Lindelofia_stylosa: A=42 B=20 (exact) 184 min
+11091.0s 626 [598/1106] Liquidambar_styraciflua: A=150 B=20 (exact) 184 min
+11109.8s 627 [599/1106] Lithospermum_officinale: A=150 B=20 (exact) 185 min
+11133.3s 628 [600/1106] Livistona_chinensis: A=150 B=20 (exact) 185 min
+11157.6s 629 [601/1106] Lobularia_maritima: A=150 B=20 (exact) 186 min
+11176.5s 630 [602/1106] Lonicera_fragrantissima: A=150 B=20 (exact) 186 min
+11201.6s 631 [603/1106] Lonicera_japonica: A=150 B=20 (exact) 186 min
+11228.7s 632 [604/1106] Lonicera_maackii: A=150 B=20 (exact) 187 min
+11248.5s 633 [605/1106] Lonicera_microphylla: A=150 B=20 (exact) 187 min
+11252.2s 634 [606/1106] Lonicera_semenovii: A=16 B=6 (exact) 187 min
+11275.4s 635 [607/1106] Lonicera_tatarica: A=150 B=20 (exact) 188 min
+11300.4s 636 [608/1106] Lotus_corniculatus: A=150 B=20 (exact) 188 min
+11310.8s 637 [609/1106] Luffa_acutangula: A=89 B=20 (exact) 188 min
+11330.6s 638 [610/1106] Luffa_aegyptiaca: A=150 B=20 (exact) 188 min
+11356.6s 639 [611/1106] Lunaria_annua: A=150 B=20 (exact) 189 min
+11378.7s 640 [612/1106] Lunularia_cruciata: A=150 B=20 (exact) 189 min
+11406.6s 641 [613/1106] Lupinus_nootkatensis: A=150 B=20 (exact) 190 min
+11430.6s 642 [614/1106] Lupinus_polyphyllus: A=150 B=20 (exact) 190 min
+11455.1s 643 [615/1106] Lycoris_radiata: A=150 B=20 (exact) 191 min
+11479.0s 644 [616/1106] Lygodium_japonicum: A=150 B=20 (exact) 191 min
+11502.3s 645 [617/1106] Lysimachia_arvensis: A=150 B=20 (exact) 191 min
+11526.1s 646 [618/1106] Lysimachia_clethroides: A=150 B=20 (exact) 192 min
+11545.7s 647 [619/1106] Lysimachia_foemina: A=150 B=20 (exact) 192 min
+11564.0s 648 [620/1106] Lysimachia_loeflingii: A=150 B=20 (exact) 192 min
+11587.2s 649 [621/1106] Lysimachia_nummularia: A=150 B=20 (exact) 193 min
+11610.9s 650 [622/1106] Lysimachia_punctata: A=150 B=20 (exact) 193 min
+11634.0s 651 [623/1106] Lythrum_salicaria: A=150 B=20 (exact) 194 min
+11659.7s 652 [624/1106] Maclura_pomifera: A=150 B=20 (exact) 194 min
+11687.5s 653 [625/1106] Macrothelypteris_torresiana: A=150 B=20 (exact) 194 min
+11708.4s 654 [626/1106] Mallotus_philippensis: A=150 B=20 (exact) 195 min
+11727.3s 655 [627/1106] Malpighia_glabra: A=150 B=20 (exact) 195 min
+11750.0s 656 [628/1106] Malus_domestica: A=150 B=20 (exact) 195 min
+11775.1s 657 [629/1106] Malva_neglecta: A=150 B=20 (exact) 196 min
+11798.1s 658 [630/1106] Malva_parviflora: A=150 B=20 (exact) 196 min
+11816.6s 659 [631/1106] Malva_pusilla: A=150 B=20 (exact) 197 min
+11835.9s 660 [632/1106] Malva_thuringiaca: A=150 B=20 (exact) 197 min
+11856.8s 661 [633/1106] Malvastrum_coromandelianum: A=150 B=20 (exact) 197 min
+11880.2s 662 [634/1106] Mangifera_indica: A=150 B=20 (exact) 198 min
+11906.0s 663 [635/1106] Manihot_esculenta: A=150 B=20 (exact) 198 min
+11925.7s 664 [636/1106] Manilkara_zapota: A=150 B=20 (exact) 198 min
+11948.9s 665 [637/1106] Marchantia_quadrata: A=150 B=20 (exact) 199 min
+11972.3s 666 [638/1106] Marrubium_vulgare: A=150 B=20 (exact) 199 min
+11992.4s 667 [639/1106] Marsilea_quadrifolia: A=150 B=20 (exact) 200 min
+12016.8s 668 [640/1106] Matricaria_discoidea: A=150 B=20 (exact) 200 min
+12041.4s 669 [641/1106] Mazus_pumilus: A=150 B=20 (exact) 200 min
+12061.7s 670 [642/1106] Medicago_arabica: A=150 B=20 (exact) 201 min
+12084.0s 671 [643/1106] Medicago_arborea: A=150 B=20 (exact) 201 min
+12104.5s 672 [644/1106] Medicago_lupulina: A=150 B=20 (exact) 201 min
+12125.6s 673 [645/1106] Medicago_polymorpha: A=150 B=20 (exact) 202 min
+12146.1s 674 [646/1106] Medicago_sativa: A=150 B=20 (exact) 202 min
+12172.0s 675 [647/1106] Melia_azedarach: A=150 B=20 (exact) 203 min
+12191.9s 676 [648/1106] Melilotus_albus: A=150 B=20 (exact) 203 min
+12212.0s 677 [649/1106] Melilotus_indicus: A=150 B=20 (exact) 203 min
+12222.5s 678 [650/1106] Melilotus_neapolitanus: A=112 B=10 (exact) 203 min
+12244.3s 679 [651/1106] Melilotus_officinalis: A=150 B=20 (exact) 204 min
+12268.7s 680 [652/1106] Melissa_officinalis: A=150 B=20 (exact) 204 min
+12285.0s 681 [653/1106] Melochia_corchorifolia: A=150 B=20 (exact) 204 min
+12306.1s 682 [654/1106] Mentha_spicata: A=150 B=20 (exact) 205 min
+12331.3s 683 [655/1106] Mesembryanthemum_cordifolium: A=150 B=20 (exact) 205 min
+12356.4s 684 [656/1106] Mesembryanthemum_crystallinum: A=150 B=20 (exact) 206 min
+12359.7s 685 [657/1106] Micromeria_biflora: A=7 B=4 (exact) 206 min
+12386.1s 686 [658/1106] Microstegium_vimineum: A=150 B=20 (exact) 206 min
+12410.8s 687 [659/1106] Mimosa_pudica: A=150 B=20 (exact) 206 min
+12431.1s 688 [660/1106] Mirabilis_jalapa: A=150 B=20 (exact) 207 min
+12456.6s 689 [661/1106] Modiola_caroliniana: A=150 B=20 (exact) 207 min
+12477.3s 690 [662/1106] Momordica_balsamina: A=150 B=20 (exact) 208 min
+12497.6s 691 [663/1106] Momordica_charantia: A=150 B=20 (exact) 208 min
+12521.6s 692 [664/1106] Monoon_longifolium: A=150 B=20 (exact) 208 min
+12544.9s 693 [665/1106] Monotropa_hypopitys: A=150 B=20 (exact) 209 min
+12572.8s 694 [666/1106] Monstera_deliciosa: A=150 B=20 (exact) 209 min
+12590.0s 695 [667/1106] Moraea_sisyrinchium: A=150 B=20 (exact) 209 min
+12594.3s 696 [668/1106] Morina_coulteriana: A=7 B=0 (exact) 210 min
+12611.9s 697 [669/1106] Moringa_oleifera: A=150 B=20 (exact) 210 min
+12636.1s 698 [670/1106] Morus_alba: A=150 B=20 (exact) 210 min
+12656.2s 699 [671/1106] Morus_nigra: A=150 B=20 (exact) 211 min
+12677.8s 700 [672/1106] Murraya_paniculata: A=150 B=20 (exact) 211 min
+12677.9s 701 [673/1106] Musa__paradisiaca: not_found
+12702.3s 702 [674/1106] Musa_acuminata: A=150 B=20 (exact) 211 min
+12722.2s 703 [675/1106] Musa_balbisiana: A=150 B=20 (exact) 212 min
+12746.2s 704 [676/1106] Musa_velutina: A=150 B=20 (exact) 212 min
+12771.6s 705 [677/1106] Muscari_botryoides: A=150 B=20 (exact) 212 min
+12790.0s 706 [678/1106] Myosotis_discolor: A=150 B=20 (exact) 213 min
+12806.4s 707 [679/1106] Myosotis_ramosissima: A=150 B=20 (exact) 213 min
+12824.3s 708 [680/1106] Myosotis_scorpioides: A=150 B=20 (exact) 213 min
+12841.4s 709 [681/1106] Myosotis_stricta: A=150 B=20 (exact) 214 min
+12860.9s 710 [682/1106] Myosotis_sylvatica: A=150 B=20 (exact) 214 min
+12884.1s 711 [683/1106] Myriophyllum_aquaticum: A=150 B=20 (exact) 214 min
+12903.4s 712 [684/1106] Myriophyllum_spicatum: A=150 B=20 (exact) 215 min
+12905.9s 713 [685/1106] Myrtama_elegans: A=12 B=2 (exact) 215 min
+12936.9s 714 [686/1106] Nandina_domestica: A=150 B=20 (exact) 215 min
+12943.3s 715 [687/1106] Nannorrhops_ritchiana: A=14 B=7 (synonym->Nannorrhops ritchieana) 215 min
+12945.4s 716 [688/1106] Nannorrhops_ritchieana: A=14 B=7 (exact) 215 min
+12952.0s 717 [689/1106] Nanorrhinum_ramosissimum: A=15 B=8 (exact) 216 min
+12969.1s 718 [690/1106] Narcissus_tazetta: A=150 B=20 (exact) 216 min
+12987.1s 719 [691/1106] Nasturtium_officinale: A=150 B=20 (exact) 216 min
+13009.6s 720 [692/1106] Neltuma_juliflora: A=150 B=20 (exact) 216 min
+13035.3s 721 [693/1106] Nelumbo_nucifera: A=150 B=20 (exact) 217 min
+13053.0s 722 [694/1106] Nepeta_cataria: A=150 B=20 (exact) 217 min
+13056.4s 723 [695/1106] Nepeta_erecta: A=1 B=0 (exact) 217 min
+13076.0s 724 [696/1106] Nerium_oleander: A=150 B=20 (exact) 218 min
+13103.8s 725 [697/1106] Nicandra_physalodes: A=150 B=20 (exact) 218 min
+13119.0s 726 [698/1106] Nicotiana_glauca: A=150 B=20 (exact) 218 min
+13139.3s 727 [699/1106] Nicotiana_plumbaginifolia: A=150 B=20 (exact) 219 min
+13153.7s 728 [700/1106] Nitellopsis_obtusa: A=150 B=20 (exact) 219 min
+13157.8s 729 [701/1106] Notholirion_thomsonianum: A=3 B=1 (exact) 219 min
+13157.9s 730 [702/1106] Nyctanthes_arbortristis: not_found
+13172.3s 731 [703/1106] Ocimum_basilicum: A=150 B=20 (exact) 219 min
+13192.8s 732 [704/1106] Oenanthe_javanica: A=150 B=20 (exact) 220 min
+13209.6s 733 [705/1106] Oenothera_rosea: A=150 B=20 (exact) 220 min
+13233.4s 734 [706/1106] Oenothera_speciosa: A=150 B=20 (exact) 220 min
+13255.5s 735 [707/1106] Oncosiphon_pilulifer: A=150 B=20 (exact) 221 min
+13277.6s 736 [708/1106] Onobrychis_cornuta: A=150 B=20 (exact) 221 min
+13279.8s 737 [709/1106] Onychium_cryptogrammoides: A=2 B=0 (exact) 221 min
+13299.9s 738 [710/1106] Opuntia_anahuacensis: A=150 B=20 (exact) 221 min
+13323.9s 739 [711/1106] Opuntia_dillenii: A=150 B=20 (exact) 222 min
+13324.0s 740 [712/1106] Opuntia_ficusindica: not_found
+13344.1s 741 [713/1106] Opuntia_monacantha: A=150 B=20 (exact) 222 min
+13367.1s 742 [714/1106] Opuntia_stricta: A=150 B=20 (exact) 222 min
+13388.0s 743 [715/1106] Oreomecon_nudicaulis: A=150 B=20 (exact) 223 min
+13390.5s 744 [716/1106] Origanum_majorana: A=13 B=8 (exact) 223 min
+13413.3s 745 [717/1106] Origanum_vulgare: A=150 B=20 (exact) 223 min
+13438.6s 746 [718/1106] Ornithogalum_umbellatum: A=150 B=20 (exact) 224 min
+13442.0s 747 [719/1106] Orobanche_amoena: A=28 B=2 (exact) 224 min
+13447.6s 748 [720/1106] Orobanche_grenieri: A=38 B=10 (exact) 224 min
+13462.6s 749 [721/1106] Orostachys_thyrsiflora: A=105 B=20 (exact) 224 min
+13480.5s 750 [722/1106] Oryza_sativa: A=150 B=20 (exact) 224 min
+13502.8s 751 [723/1106] Oxalis_acetosella: A=150 B=20 (exact) 225 min
+13527.8s 752 [724/1106] Oxalis_articulata: A=150 B=20 (exact) 225 min
+13550.6s 753 [725/1106] Oxalis_corniculata: A=150 B=20 (exact) 225 min
+13574.0s 754 [726/1106] Oxalis_debilis: A=150 B=20 (exact) 226 min
+13597.9s 755 [727/1106] Oxalis_dillenii: A=150 B=20 (exact) 226 min
+13620.1s 756 [728/1106] Oxalis_pescaprae: A=150 B=20 (synonym->Oxalis pes-caprae) 227 min
+13641.4s 757 [729/1106] Oxalis_stricta: A=150 B=20 (exact) 227 min
+13665.7s 758 [730/1106] Oxalis_triangularis: A=150 B=20 (exact) 227 min
+13691.8s 759 [731/1106] Oxyria_digyna: A=150 B=20 (exact) 228 min
+13710.7s 760 [732/1106] Oxystelma_esculentum: A=150 B=20 (exact) 228 min
+13715.3s 761 [733/1106] Paeonia_emodi: A=30 B=3 (exact) 228 min
+13736.9s 762 [734/1106] Papaver_somniferum: A=150 B=20 (exact) 229 min
+13761.0s 763 [735/1106] Paraserianthes_lophantha: A=150 B=20 (exact) 229 min
+13785.2s 764 [736/1106] Parkinsonia_aculeata: A=150 B=20 (exact) 229 min
+13787.9s 765 [737/1106] Parnassia_nubicola: A=15 B=3 (exact) 229 min
+13806.6s 766 [738/1106] Parnassia_palustris: A=150 B=20 (exact) 230 min
+13828.3s 767 [739/1106] Parthenium_hysterophorus: A=150 B=20 (exact) 230 min
+13849.3s 768 [740/1106] Passiflora_caerulea: A=150 B=20 (exact) 230 min
+13871.3s 769 [741/1106] Passiflora_edulis: A=150 B=20 (exact) 231 min
+13871.3s 770 [742/1106] Passiflora_incarnata__cincinnata: not_found
+13872.4s 771 [743/1106] Passiflora_incarnata__laurifolia: not_found
+13893.6s 772 [744/1106] Passiflora_lanuginosa: A=150 B=20 (exact) 231 min
+13913.3s 773 [745/1106] Passiflora_vesicaria: A=150 B=20 (exact) 232 min
+13934.6s 774 [746/1106] Pastinaca_sativa: A=150 B=20 (exact) 232 min
+13958.8s 775 [747/1106] Paulownia_tomentosa: A=150 B=20 (exact) 232 min
+13961.5s 776 [748/1106] Pedicularis_bicornuta: A=18 B=2 (exact) 232 min
+13968.2s 777 [749/1106] Pedicularis_cheilanthifolia: A=53 B=20 (exact) 232 min
+13989.0s 778 [750/1106] Pedicularis_oederi: A=150 B=20 (exact) 233 min
+14012.2s 779 [751/1106] Peganum_harmala: A=150 B=20 (exact) 233 min
+14034.8s 780 [752/1106] Peltophorum_pterocarpum: A=150 B=20 (exact) 234 min
+14057.4s 781 [753/1106] Penstemon_digitalis: A=150 B=20 (exact) 234 min
+14082.5s 782 [754/1106] Pentaglottis_sempervirens: A=150 B=20 (exact) 234 min
+14100.5s 783 [755/1106] Pergularia_daemia: A=150 B=20 (exact) 235 min
+14125.5s 784 [756/1106] Perilla_frutescens: A=150 B=20 (exact) 235 min
+14130.9s 785 [757/1106] Periploca_aphylla: A=49 B=11 (exact) 235 min
+14154.4s 786 [758/1106] Persicaria_capitata: A=150 B=20 (exact) 236 min
+14180.0s 787 [759/1106] Persicaria_longiseta: A=150 B=20 (exact) 236 min
+14203.6s 788 [760/1106] Persicaria_maculosa: A=150 B=20 (exact) 236 min
+14223.6s 789 [761/1106] Persicaria_nepalensis: A=150 B=20 (exact) 237 min
+14247.2s 790 [762/1106] Persicaria_perfoliata: A=150 B=20 (exact) 237 min
+14270.2s 791 [763/1106] Phacelia_tanacetifolia: A=150 B=20 (exact) 237 min
+14288.4s 792 [764/1106] Phaseolus_coccineus: A=150 B=20 (exact) 238 min
+14310.6s 793 [765/1106] Phellodendron_amurense: A=150 B=20 (exact) 238 min
+14329.1s 794 [766/1106] Phleum_pratense: A=150 B=20 (exact) 238 min
+14352.6s 795 [767/1106] Phlox_drummondii: A=150 B=20 (exact) 239 min
+14381.8s 796 [768/1106] Phoenix_canariensis: A=150 B=20 (exact) 239 min
+14404.0s 797 [769/1106] Phoenix_dactylifera: A=150 B=20 (exact) 240 min
+14427.6s 798 [770/1106] Phoenix_loureiroi: A=150 B=20 (exact) 240 min
+14448.0s 799 [771/1106] Phoenix_sylvestris: A=150 B=20 (exact) 240 min
+14471.7s 800 [772/1106] Phragmites_australis: A=150 B=20 (exact) 241 min
+14495.6s 801 [773/1106] Phragmites_australis_australis: A=150 B=20 (exact) 241 min
+14517.9s 802 [774/1106] Phyla_nodiflora: A=150 B=20 (exact) 242 min
+14545.1s 803 [775/1106] Phyllanthus_emblica: A=150 B=20 (exact) 242 min
+14567.2s 804 [776/1106] Phyllanthus_reticulatus: A=150 B=20 (exact) 242 min
+14587.3s 805 [777/1106] Phyllanthus_tenellus: A=150 B=20 (exact) 243 min
+14612.9s 806 [778/1106] Phyllanthus_urinaria: A=150 B=20 (exact) 243 min
+14633.3s 807 [779/1106] Physalis_angulata: A=150 B=20 (exact) 244 min
+14641.1s 808 [780/1106] Physochlaina_praealta: A=45 B=20 (exact) 244 min
+14663.4s 809 [781/1106] Phytolacca_acinosa: A=150 B=20 (exact) 244 min
+14691.8s 810 [782/1106] Phytolacca_americana: A=150 B=20 (exact) 244 min
+14710.2s 811 [783/1106] Picea_abies: A=150 B=20 (exact) 245 min
+14716.5s 812 [784/1106] Picea_smithiana: A=49 B=14 (exact) 245 min
+14741.8s 813 [785/1106] Pilosella_aurantiaca: A=150 B=20 (exact) 245 min
+14750.5s 814 [786/1106] Pinus_gerardiana: A=5 B=3 (exact) 245 min
+14758.4s 815 [787/1106] Pinus_roxburghii: A=61 B=20 (exact) 246 min
+14772.7s 816 [788/1106] Pinus_sylvestris: A=150 B=20 (exact) 246 min
+14791.5s 817 [789/1106] Pinus_wallichiana: A=150 B=20 (exact) 246 min
+14809.6s 818 [790/1106] Piper_nigrum: A=148 B=20 (exact) 246 min
+14829.5s 819 [791/1106] Pistacia_atlantica: A=150 B=20 (exact) 247 min
+14858.3s 820 [792/1106] Pistacia_chinensis: A=150 B=20 (exact) 247 min
+14862.3s 821 [793/1106] Pistacia_khinjuk: A=33 B=6 (exact) 247 min
+14884.3s 822 [794/1106] Pistia_stratiotes: A=150 B=20 (exact) 248 min
+14903.9s 823 [795/1106] Pisum_sativum: A=150 B=20 (exact) 248 min
+14925.1s 824 [796/1106] Pithecellobium_dulce: A=150 B=20 (exact) 248 min
+14949.9s 825 [797/1106] Pittosporum_tobira: A=150 B=20 (exact) 249 min
+14973.7s 826 [798/1106] Plantago_lanceolata: A=150 B=20 (exact) 249 min
+14997.5s 827 [799/1106] Plantago_major: A=150 B=20 (exact) 250 min
+15020.2s 828 [800/1106] Platanus_orientalis: A=150 B=20 (exact) 250 min
+15041.7s 829 [801/1106] Platycladus_orientalis: A=150 B=20 (exact) 250 min
+15065.4s 830 [802/1106] Plumbago_auriculata: A=150 B=20 (exact) 251 min
+15085.8s 831 [803/1106] Plumbago_zeylanica: A=150 B=20 (exact) 251 min
+15106.9s 832 [804/1106] Plumeria_obtusa: A=150 B=20 (exact) 251 min
+15127.2s 833 [805/1106] Plumeria_pudica: A=150 B=20 (exact) 252 min
+15143.8s 834 [806/1106] Podophyllum_hexandrum: A=137 B=20 (exact) 252 min
+15147.5s 835 [807/1106] Polygonum_paronychioides: A=13 B=3 (exact) 252 min
+15165.4s 836 [808/1106] Polygonum_plebeium: A=150 B=20 (exact) 252 min
+15186.5s 837 [809/1106] Pongamia_pinnata: A=150 B=20 (exact) 253 min
+15207.1s 838 [810/1106] Pontederia_crassipes: A=150 B=20 (exact) 253 min
+15229.3s 839 [811/1106] Populus_alba: A=150 B=20 (exact) 253 min
+15252.3s 840 [812/1106] Portulaca_grandiflora: A=150 B=20 (exact) 254 min
+15276.2s 841 [813/1106] Portulaca_oleracea: A=150 B=20 (exact) 254 min
+15302.7s 842 [814/1106] Portulaca_pilosa: A=150 B=20 (exact) 255 min
+15323.0s 843 [815/1106] Portulaca_quadrifida: A=150 B=20 (exact) 255 min
+15346.0s 844 [816/1106] Portulacaria_afra: A=150 B=20 (exact) 255 min
+15363.1s 845 [817/1106] Potamogeton_crispus: A=150 B=20 (exact) 256 min
+15380.4s 846 [818/1106] Potamogeton_perfoliatus: A=150 B=20 (exact) 256 min
+15403.3s 847 [819/1106] Potentilla_hebiichigo: A=150 B=20 (exact) 256 min
+15428.7s 848 [820/1106] Potentilla_indica: A=150 B=20 (exact) 257 min
+15431.8s 849 [821/1106] Potentilla_nepalensis: A=15 B=1 (exact) 257 min
+15452.8s 850 [822/1106] Potentilla_recta: A=150 B=20 (exact) 257 min
+15465.6s 851 [823/1106] Potentilla_tetrandra: A=78 B=18 (exact) 257 min
+15468.0s 852 [824/1106] Potentilla_turczaninowiana: A=8 B=1 (exact) 257 min
+15472.2s 853 [825/1106] Prangos_pabularia: A=39 B=4 (exact) 258 min
+15474.8s 854 [826/1106] Primula_reptans: A=8 B=0 (exact) 258 min
+15478.2s 855 [827/1106] Primula_warshenewskiana: A=3 B=1 (exact) 258 min
+15497.3s 856 [828/1106] Prunella_vulgaris: A=150 B=20 (exact) 258 min
+15518.3s 857 [829/1106] Prunus_armeniaca: A=150 B=20 (exact) 258 min
+15540.1s 858 [830/1106] Prunus_avium: A=150 B=20 (exact) 259 min
+15561.1s 859 [831/1106] Prunus_cerasifera: A=150 B=20 (exact) 259 min
+15563.7s 860 [832/1106] Prunus_cornuta: A=3 B=1 (exact) 259 min
+15588.1s 861 [833/1106] Prunus_laurocerasus: A=150 B=20 (exact) 259 min
+15613.6s 862 [834/1106] Prunus_persica: A=150 B=20 (exact) 260 min
+15630.3s 863 [835/1106] Pseuderanthemum_carruthersii: A=150 B=20 (exact) 260 min
+15653.9s 864 [836/1106] Psidium_guajava: A=150 B=20 (exact) 261 min
+15679.1s 865 [837/1106] Pteris_vittata: A=150 B=20 (exact) 261 min
+15703.8s 866 [838/1106] Pueraria_montana: A=150 B=20 (exact) 261 min
+15707.3s 867 [839/1106] Pulsatilla_wallichiana: A=3 B=1 (exact) 261 min
+15730.3s 868 [840/1106] Punica_granatum: A=150 B=20 (exact) 262 min
+15752.1s 869 [841/1106] Pyracantha_angustifolia: A=150 B=20 (exact) 262 min
+15780.9s 870 [842/1106] Pyrus_calleryana: A=150 B=20 (exact) 263 min
+15784.8s 871 [843/1106] Pyrus_pashia: A=33 B=9 (exact) 263 min
+15787.9s 872 [844/1106] Quercus_baloot: A=5 B=1 (exact) 263 min
+15791.1s 873 [845/1106] Quercus_floribunda: A=8 B=1 (exact) 263 min
+15797.1s 874 [846/1106] Quercus_leucotrichophora: A=27 B=7 (exact) 263 min
+15808.2s 875 [847/1106] Quercus_robur: A=150 B=20 (exact) 263 min
+15833.5s 876 [848/1106] Quercus_rubra: A=150 B=20 (exact) 264 min
+15846.5s 877 [849/1106] Quercus_semecarpifolia: A=89 B=20 (exact) 264 min
+15867.4s 878 [850/1106] Ranunculus_acris: A=150 B=20 (exact) 264 min
+15870.1s 879 [851/1106] Ranunculus_distans: A=1 B=0 (exact) 264 min
+15886.2s 880 [852/1106] Ranunculus_peltatus: A=150 B=20 (exact) 264 min
+15910.1s 881 [853/1106] Ranunculus_repens: A=150 B=20 (exact) 265 min
+15930.6s 882 [854/1106] Ranunculus_sceleratus: A=150 B=20 (exact) 265 min
+15949.4s 883 [855/1106] Raphanus_raphanistrum_sativus: A=150 B=20 (exact) 265 min
+15962.1s 884 [856/1106] Reinwardtia_indica: A=77 B=20 (exact) 266 min
+15962.3s 885 [857/1106] Reynoutria__bohemica: not_found
+15985.6s 886 [858/1106] Reynoutria_japonica: A=150 B=20 (exact) 266 min
+16011.2s 887 [859/1106] Reynoutria_sachalinensis: A=150 B=20 (exact) 266 min
+16038.0s 888 [860/1106] Rhamnus_cathartica: A=150 B=20 (exact) 267 min
+16045.1s 889 [861/1106] Rhamnus_purpurea: A=1 B=0 (exact) 267 min
+16058.2s 890 [862/1106] Rhapis_excelsa: A=150 B=20 (exact) 267 min
+16070.1s 891 [863/1106] Rhazya_stricta: A=109 B=20 (exact) 267 min
+16079.8s 892 [864/1106] Rheum_spiciforme: A=35 B=20 (exact) 268 min
+16085.8s 893 [retry] observations: ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+16090.1s 894 [865/1106] Rhodiola_fastigiata: A=2 B=0 (exact) 268 min
+16107.7s 895 [866/1106] Rhodiola_rosea: A=150 B=20 (exact) 268 min
+16111.3s 896 [867/1106] Rhodiola_saxifragoides: A=1 B=0 (exact) 268 min
+16117.5s 897 [868/1106] Ribes_alpestre: A=3 B=0 (exact) 268 min
+16124.2s 898 [869/1106] Ribes_orientale: A=21 B=2 (exact) 268 min
+16132.4s 899 [870/1106] Richardia_grandiflora: A=150 B=20 (exact) 269 min
+16160.8s 900 [871/1106] Ricinus_communis: A=150 B=20 (exact) 269 min
+16181.7s 901 [872/1106] Robinia_pseudoacacia: A=150 B=20 (exact) 269 min
+16185.3s 902 [873/1106] Rorippa_islandica: A=19 B=10 (exact) 269 min
+16211.3s 903 [874/1106] Rosa_canina: A=150 B=20 (exact) 270 min
+16233.8s 904 [875/1106] Rosa_multiflora: A=150 B=20 (exact) 270 min
+16263.5s 905 [876/1106] Rosa_rugosa: A=150 B=20 (exact) 271 min
+16273.3s 906 [877/1106] Rosa_webbiana: A=36 B=15 (exact) 271 min
+16278.7s 907 [878/1106] Rosularia_alpestris: A=36 B=14 (exact) 271 min
+16295.7s 908 [879/1106] Rubus_armeniacus: A=150 B=20 (exact) 271 min
+16308.9s 909 [880/1106] Rubus_bifrons: A=70 B=20 (exact) 271 min
+16330.1s 910 [881/1106] Rubus_idaeus: A=150 B=20 (exact) 272 min
+16359.2s 911 [882/1106] Rubus_laciniatus: A=150 B=20 (exact) 272 min
+16386.2s 912 [883/1106] Rubus_phoenicolasius: A=150 B=20 (exact) 273 min
+16410.8s 913 [884/1106] Rudbeckia_hirta: A=150 B=20 (exact) 273 min
+16434.4s 914 [885/1106] Ruellia_simplex: A=150 B=20 (exact) 274 min
+16457.2s 915 [886/1106] Ruellia_tuberosa: A=150 B=20 (exact) 274 min
+16480.8s 916 [887/1106] Rumex_acetosella: A=150 B=20 (exact) 274 min
+16501.4s 917 [888/1106] Rumex_confertus: A=150 B=20 (exact) 275 min
+16523.3s 918 [889/1106] Rumex_crispus: A=150 B=20 (exact) 275 min
+16542.6s 919 [890/1106] Rumex_dentatus: A=150 B=20 (exact) 275 min
+16549.0s 920 [891/1106] Rumex_nepalensis: A=32 B=18 (exact) 275 min
+16574.2s 921 [892/1106] Rumex_obtusifolius: A=150 B=20 (exact) 276 min
+16594.4s 922 [893/1106] Rumex_spinosus: A=150 B=20 (exact) 276 min
+16616.9s 923 [894/1106] Sagina_procumbens: A=150 B=20 (exact) 277 min
+16636.7s 924 [895/1106] Salix_alba: A=150 B=20 (exact) 277 min
+16662.1s 925 [896/1106] Salix_babylonica: A=150 B=20 (exact) 277 min
+16686.4s 926 [897/1106] Salsola_tragus: A=150 B=20 (exact) 278 min
+16706.3s 927 [898/1106] Salvadora_persica: A=150 B=20 (exact) 278 min
+16718.8s 928 [899/1106] Salvia_abrotanoides: A=83 B=20 (exact) 278 min
+16738.0s 929 [900/1106] Salvia_hispanica: A=150 B=20 (exact) 279 min
+16754.8s 930 [901/1106] Salvia_plebeia: A=150 B=20 (exact) 279 min
+16777.0s 931 [902/1106] Salvia_sclarea: A=150 B=20 (exact) 279 min
+16785.2s 932 [903/1106] Salvia_yangii: A=11 B=17 (exact) 279 min
+16802.3s 933 [904/1106] Salvinia_minima: A=150 B=20 (exact) 280 min
+16826.9s 934 [905/1106] Salvinia_molesta: A=150 B=20 (exact) 280 min
+16831.5s 935 [906/1106] Sambucus_wightiana: A=0 B=1 (exact) 280 min
+16847.6s 936 [907/1106] Saponaria_officinalis: A=150 B=20 (exact) 280 min
+16851.8s 937 [908/1106] Sarcococca_saligna: A=6 B=0 (exact) 280 min
+16873.4s 938 [909/1106] Sarracenia_purpurea: A=150 B=20 (exact) 281 min
+16881.0s 939 [910/1106] Sauromatum_venosum: A=60 B=14 (exact) 281 min
+16900.2s 940 [911/1106] Saxifraga_androsacea: A=150 B=20 (exact) 281 min
+16904.6s 941 [912/1106] Saxifraga_jacquemontiana: A=5 B=0 (exact) 281 min
+16921.4s 942 [913/1106] Saxifraga_sibirica: A=150 B=20 (exact) 282 min
+16942.4s 943 [914/1106] Scadoxus_multiflorus: A=150 B=20 (exact) 282 min
+16966.4s 944 [915/1106] Schinus_molle: A=150 B=20 (exact) 282 min
+16991.8s 945 [916/1106] Schinus_terebinthifolia: A=150 B=20 (exact) 283 min
+17019.8s 946 [917/1106] Scilla_siberica: A=150 B=20 (exact) 283 min
+17022.5s 947 [918/1106] Scinaia_moniliformis: A=3 B=0 (exact) 283 min
+17025.6s 948 [919/1106] Scutellaria_heydei: A=4 B=1 (exact) 283 min
+17040.5s 949 [920/1106] Secale_cereale: A=150 B=20 (exact) 284 min
+17065.6s 950 [921/1106] Securigera_varia: A=150 B=20 (exact) 284 min
+17091.3s 951 [922/1106] Sedum_acre: A=150 B=20 (exact) 284 min
+17114.1s 952 [923/1106] Sedum_album: A=150 B=20 (exact) 285 min
+17138.2s 953 [924/1106] Sedum_hispanicum: A=150 B=20 (exact) 285 min
+17166.7s 954 [925/1106] Sedum_sarmentosum: A=150 B=20 (exact) 286 min
+17188.2s 955 [926/1106] Senecio_inaequidens: A=150 B=20 (exact) 286 min
+17212.8s 956 [927/1106] Senecio_vulgaris: A=150 B=20 (exact) 287 min
+17217.5s 957 [928/1106] Senegalia_modesta: A=3 B=0 (exact) 287 min
+17238.7s 958 [929/1106] Senna_alata: A=150 B=20 (exact) 287 min
+17247.9s 959 [930/1106] Senna_alexandrina: A=34 B=18 (exact) 287 min
+17265.1s 960 [931/1106] Senna_occidentalis: A=150 B=20 (exact) 287 min
+17269.5s 961 [932/1106] Senna_sulfurea: A=29 B=1 (exact) 287 min
+17275.6s 962 [933/1106] Senra_incana: A=8 B=12 (exact) 288 min
+17290.6s 963 [934/1106] Sesamum_indicum: A=150 B=20 (exact) 288 min
+17308.5s 964 [935/1106] Sesbania_cannabina: A=150 B=20 (exact) 288 min
+17332.8s 965 [936/1106] Sesuvium_portulacastrum: A=150 B=20 (exact) 289 min
+17351.4s 966 [937/1106] Setaria_pumila: A=150 B=20 (exact) 289 min
+17369.8s 967 [938/1106] Setaria_viridis: A=150 B=20 (exact) 289 min
+17372.8s 968 [939/1106] Shangwua_jacea: A=6 B=0 (exact) 289 min
+17392.6s 969 [940/1106] Sherardia_arvensis: A=150 B=20 (exact) 290 min
+17395.6s 970 [941/1106] Sibbaldia_cuneata: A=15 B=2 (exact) 290 min
+17412.0s 971 [942/1106] Sibbaldianthe_bifurca: A=150 B=20 (exact) 290 min
+17418.5s 972 [943/1106] Sideroxylon_mascatense: A=7 B=20 (exact) 290 min
+17436.2s 973 [944/1106] Sigesbeckia_orientalis: A=150 B=20 (exact) 290 min
+17461.0s 974 [945/1106] Silene_coronaria: A=150 B=20 (exact) 291 min
+17479.7s 975 [946/1106] Silene_gallica: A=150 B=20 (exact) 291 min
+17501.6s 976 [947/1106] Silene_latifolia: A=150 B=20 (exact) 291 min
+17513.0s 977 [948/1106] Silene_moorcroftiana: A=8 B=9 (exact) 292 min
+17527.9s 978 [949/1106] Silene_vulgaris: A=150 B=20 (exact) 292 min
+17541.0s 979 [950/1106] Silybum_marianum: A=150 B=20 (exact) 292 min
+17564.5s 980 [951/1106] Sisymbrium_irio: A=150 B=20 (exact) 292 min
+17583.2s 981 [952/1106] Sisyrinchium_micranthum: A=150 B=20 (exact) 293 min
+17605.6s 982 [953/1106] Solanum_americanum: A=150 B=20 (exact) 293 min
+17631.1s 983 [954/1106] Solanum_carolinense: A=150 B=20 (exact) 293 min
+17651.3s 984 [955/1106] Solanum_dulcamara: A=150 B=20 (exact) 294 min
+17674.2s 985 [956/1106] Solanum_elaeagnifolium: A=150 B=20 (exact) 294 min
+17697.9s 986 [957/1106] Solanum_lycopersicum: A=150 B=20 (exact) 295 min
+17721.1s 987 [958/1106] Solanum_mauritianum: A=150 B=20 (exact) 295 min
+17741.2s 988 [959/1106] Solanum_melongena: A=150 B=20 (exact) 295 min
+17761.6s 989 [960/1106] Solanum_nigrum: A=150 B=20 (exact) 296 min
+17784.1s 990 [961/1106] Solanum_pseudocapsicum: A=150 B=20 (exact) 296 min
+17804.0s 991 [962/1106] Solanum_sisymbriifolium: A=150 B=20 (exact) 296 min
+17827.0s 992 [963/1106] Solanum_tuberosum: A=150 B=20 (exact) 297 min
+17847.0s 993 [964/1106] Solanum_villosum: A=150 B=20 (exact) 297 min
+17872.3s 994 [965/1106] Solanum_virginianum: A=150 B=20 (exact) 298 min
+17891.6s 995 [966/1106] Solidago_canadensis: A=150 B=20 (exact) 298 min
+17913.9s 996 [967/1106] Soliva_sessilis: A=150 B=20 (exact) 298 min
+17933.4s 997 [968/1106] Sonchus_arvensis: A=150 B=20 (exact) 299 min
+17956.9s 998 [969/1106] Sonchus_asper: A=150 B=20 (exact) 299 min
+17979.3s 999 [970/1106] Sonchus_oleraceus: A=150 B=20 (exact) 299 min
+18002.4s 1000 [971/1106] Sorbus_aucuparia: A=150 B=20 (exact) 300 min
+18026.7s 1001 [972/1106] Sorghum_bicolor: A=150 B=20 (exact) 300 min
+18050.4s 1002 [973/1106] Sorghum_halepense: A=150 B=20 (exact) 300 min
+18073.7s 1003 [974/1106] Spartium_junceum: A=150 B=20 (exact) 301 min
+18097.9s 1004 [975/1106] Spathodea_campanulata: A=150 B=20 (exact) 301 min
+18121.5s 1005 [976/1106] Spathoglottis_plicata: A=150 B=20 (exact) 302 min
+18144.8s 1006 [977/1106] Sphagneticola_trilobata: A=150 B=20 (exact) 302 min
+18148.8s 1007 [978/1106] Spiraea_canescens: A=5 B=0 (exact) 302 min
+18165.9s 1008 [979/1106] Stellaria_aquatica: A=150 B=20 (exact) 302 min
+18182.6s 1009 [980/1106] Stellaria_media: A=150 B=20 (exact) 303 min
+18188.7s 1010 [981/1106] Strobilanthes_attenuata: A=7 B=1 (exact) 303 min
+18194.5s 1011 [982/1106] Strobilanthes_wallichii: A=7 B=1 (exact) 303 min
+18198.5s 1012 [983/1106] Swertia_cordata: A=2 B=1 (exact) 303 min
+18211.3s 1013 [984/1106] Symphoricarpos_albus: A=150 B=20 (exact) 303 min
+18228.6s 1014 [985/1106] Symphytum_officinale: A=150 B=20 (exact) 303 min
+18251.3s 1015 [986/1106] Syringa_vulgaris: A=150 B=20 (exact) 304 min
+18273.1s 1016 [987/1106] Syzygium_cumini: A=150 B=20 (exact) 304 min
+18293.1s 1017 [988/1106] Syzygium_malaccense: A=150 B=20 (exact) 305 min
+18314.4s 1018 [989/1106] Tabernaemontana_divaricata: A=150 B=20 (exact) 305 min
+18333.7s 1019 [990/1106] Tagetes_erecta: A=150 B=20 (exact) 305 min
+18356.8s 1020 [991/1106] Tagetes_patula: A=150 B=20 (exact) 306 min
+18380.3s 1021 [992/1106] Tamarindus_indica: A=150 B=20 (exact) 306 min
+18404.7s 1022 [993/1106] Tamarix_ramosissima: A=150 B=20 (exact) 306 min
+18426.5s 1023 [994/1106] Tanacetum_parthenium: A=150 B=20 (exact) 307 min
+18453.5s 1024 [995/1106] Tanacetum_vulgare: A=150 B=20 (exact) 307 min
+18474.0s 1025 [996/1106] Taraxacum_erythrospermum: A=150 B=20 (exact) 308 min
+18498.1s 1026 [997/1106] Taraxacum_officinale: A=150 B=20 (exact) 308 min
+18506.3s 1027 [998/1106] Taverniera_cuneifolia: A=6 B=12 (exact) 308 min
+18523.4s 1028 [999/1106] Tecoma_stans: A=150 B=20 (exact) 308 min
+18547.1s 1029 [1000/1106] Tecomaria_capensis: A=150 B=20 (exact) 309 min
+18557.4s 1030 [1001/1106] Tecomella_undulata: A=78 B=20 (exact) 309 min
+18572.1s 1031 [1002/1106] Tectona_grandis: A=150 B=20 (exact) 309 min
+18575.1s 1032 [1003/1106] Telosma_cordata: A=21 B=4 (exact) 309 min
+18593.6s 1033 [1004/1106] Tephrosia_purpurea: A=150 B=20 (exact) 310 min
+18616.9s 1034 [1005/1106] Terminalia_catappa: A=150 B=20 (exact) 310 min
+18637.8s 1035 [1006/1106] Terminalia_mantaly: A=150 B=20 (exact) 310 min
+18659.9s 1036 [1007/1106] Tetraena_simplex: A=150 B=20 (exact) 311 min
+18663.8s 1037 [1008/1106] Teucrium_stocksianum: A=9 B=0 (exact) 311 min
+18684.2s 1038 [1009/1106] Thespesia_populnea: A=150 B=20 (exact) 311 min
+18705.1s 1039 [1010/1106] Thlaspi_arvense: A=150 B=20 (exact) 311 min
+18728.0s 1040 [1011/1106] Thunbergia_alata: A=150 B=20 (exact) 312 min
+18738.0s 1041 [1012/1106] Thymus_linearis: A=77 B=16 (exact) 312 min
+18755.8s 1042 [1013/1106] Tinospora_cordifolia: A=130 B=20 (exact) 312 min
+18776.3s 1043 [1014/1106] Torilis_arvensis: A=150 B=20 (exact) 313 min
+18798.8s 1044 [1015/1106] Trachelospermum_jasminoides: A=150 B=20 (exact) 313 min
+18821.0s 1045 [1016/1106] Tradescantia_fluminensis: A=150 B=20 (exact) 313 min
+18846.4s 1046 [1017/1106] Tradescantia_pallida: A=150 B=20 (exact) 314 min
+18870.4s 1047 [1018/1106] Tragopogon_dubius: A=150 B=20 (exact) 314 min
+18892.6s 1048 [1019/1106] Tragopogon_porrifolius: A=150 B=20 (exact) 315 min
+18913.8s 1049 [1020/1106] Tragopogon_pratensis: A=150 B=20 (exact) 315 min
+18934.2s 1050 [1021/1106] Trapa_natans: A=150 B=20 (exact) 315 min
+18958.1s 1051 [1022/1106] Triadica_sebifera: A=150 B=20 (exact) 316 min
+18984.0s 1052 [1023/1106] Trianthema_portulacastrum: A=150 B=20 (exact) 316 min
+19006.6s 1053 [1024/1106] Tribulus_terrestris: A=150 B=20 (exact) 316 min
+19027.0s 1054 [1025/1106] Trichodesma_indicum: A=150 B=20 (exact) 317 min
+19043.3s 1055 [1026/1106] Tridax_procumbens: A=150 B=20 (exact) 317 min
+19060.0s 1056 [1027/1106] Trifolium_alexandrinum: A=150 B=20 (exact) 317 min
+19082.0s 1057 [1028/1106] Trifolium_arvense: A=150 B=20 (exact) 318 min
+19107.0s 1058 [1029/1106] Trifolium_campestre: A=150 B=20 (exact) 318 min
+19126.5s 1059 [1030/1106] Trifolium_fragiferum: A=150 B=20 (exact) 318 min
+19149.8s 1060 [1031/1106] Trifolium_hirtum: A=150 B=20 (exact) 319 min
+19171.1s 1061 [1032/1106] Trifolium_hybridum: A=150 B=20 (exact) 319 min
+19190.3s 1062 [1033/1106] Trifolium_incarnatum: A=150 B=20 (exact) 319 min
+19214.5s 1063 [1034/1106] Trifolium_pratense: A=150 B=20 (exact) 320 min
+19237.6s 1064 [1035/1106] Trifolium_repens: A=150 B=20 (exact) 320 min
+19258.4s 1065 [1036/1106] Trifolium_resupinatum: A=150 B=20 (exact) 321 min
+19264.8s 1066 [1037/1106] Trigonella_esculenta: A=69 B=20 (exact) 321 min
+19291.9s 1067 [1038/1106] Trillium_cuneatum: A=150 B=20 (exact) 321 min
+19299.1s 1068 [1039/1106] Trillium_govanianum: A=18 B=10 (exact) 321 min
+19317.2s 1069 [1040/1106] Triticum_aestivum: A=150 B=20 (exact) 322 min
+19342.5s 1070 [1041/1106] Tropaeolum_majus: A=150 B=20 (exact) 322 min
+19361.7s 1071 [1042/1106] Tulbaghia_violacea: A=150 B=20 (exact) 322 min
+19377.0s 1072 [1043/1106] Tulipa_clusiana: A=103 B=20 (exact) 323 min
+19401.9s 1073 [1044/1106] Tussilago_farfara: A=150 B=20 (exact) 323 min
+19426.0s 1074 [1045/1106] Typha_latifolia: A=150 B=20 (exact) 323 min
+19452.1s 1075 [1046/1106] Ulex_europaeus: A=150 B=20 (exact) 324 min
+19474.9s 1076 [1047/1106] Ulmus_pumila: A=150 B=20 (exact) 324 min
+19498.5s 1077 [1048/1106] Urtica_dioica: A=150 B=20 (exact) 325 min
+19522.7s 1078 [1049/1106] Urtica_gracilis: A=150 B=20 (exact) 325 min
+19544.6s 1079 [1050/1106] Urtica_urens: A=150 B=20 (exact) 325 min
+19568.8s 1080 [1051/1106] Vachellia_farnesiana: A=150 B=20 (exact) 326 min
+19591.2s 1081 [1052/1106] Vachellia_nilotica: A=150 B=20 (exact) 326 min
+19607.7s 1082 [1053/1106] Vachellia_pennatula: A=150 B=20 (exact) 326 min
+19631.7s 1083 [1054/1106] Verbascum_blattaria: A=150 B=20 (exact) 327 min
+19660.6s 1084 [1055/1106] Verbascum_thapsus: A=150 B=20 (exact) 327 min
+19677.1s 1085 [1056/1106] Verbascum_virgatum: A=150 B=20 (exact) 328 min
+19699.3s 1086 [1057/1106] Verbena_bonariensis: A=150 B=20 (exact) 328 min
+19723.8s 1087 [1058/1106] Verbesina_encelioides: A=150 B=20 (exact) 328 min
+19743.8s 1088 [1059/1106] Veronica_alpina: A=150 B=20 (exact) 329 min
+19743.9s 1089 [1060/1106] Veronica_anagallisaquatica: not_found
+19764.3s 1090 [1061/1106] Veronica_arvensis: A=150 B=20 (exact) 329 min
+19784.1s 1091 [1062/1106] Veronica_beccabunga: A=150 B=20 (exact) 329 min
+19791.1s 1092 [1063/1106] Veronica_capillipes: A=13 B=2 (exact) 329 min
+19803.7s 1093 [1064/1106] Veronica_chamaedrys: A=150 B=20 (exact) 330 min
+19808.1s 1094 [1065/1106] Veronica_ciliata: A=55 B=11 (exact) 330 min
+19832.6s 1095 [1066/1106] Veronica_hederifolia: A=150 B=20 (exact) 330 min
+19840.1s 1096 [1067/1106] Veronica_laxa: A=39 B=9 (exact) 330 min
+19855.6s 1097 [1068/1106] Veronica_officinalis: A=150 B=20 (exact) 331 min
+19875.5s 1098 [1069/1106] Veronica_persica: A=150 B=20 (exact) 331 min
+19895.8s 1099 [1070/1106] Veronica_polita: A=150 B=20 (exact) 331 min
+19918.8s 1100 [1071/1106] Veronica_serpyllifolia: A=150 B=20 (exact) 332 min
+19934.2s 1101 [1072/1106] Veronica_undulata: A=150 B=20 (exact) 332 min
+19956.7s 1102 [1073/1106] Viburnum_dilatatum: A=150 B=20 (exact) 332 min
+19960.9s 1103 [1074/1106] Viburnum_grandiflorum: A=13 B=4 (exact) 332 min
+19977.7s 1104 [1075/1106] Viburnum_opulus_opulus: A=150 B=20 (exact) 333 min
+19998.7s 1105 [1076/1106] Vicia_cracca: A=150 B=20 (exact) 333 min
+20019.8s 1106 [1077/1106] Vicia_sativa: A=150 B=20 (exact) 333 min
+20043.2s 1107 [1078/1106] Vicia_villosa: A=150 B=20 (exact) 334 min
+20066.0s 1108 [1079/1106] Vinca_major: A=150 B=20 (exact) 334 min
+20088.9s 1109 [1080/1106] Vinca_minor: A=150 B=20 (exact) 334 min
+20112.9s 1110 [1081/1106] Vincetoxicum_nigrum: A=150 B=20 (exact) 335 min
+20137.5s 1111 [1082/1106] Vincetoxicum_rossicum: A=150 B=20 (exact) 335 min
+20145.4s 1112 [1083/1106] Viola_canescens: A=19 B=0 (exact) 335 min
+20161.3s 1113 [1084/1106] Viola_odorata: A=150 B=20 (exact) 336 min
+20168.4s 1114 [1085/1106] Viola_pilosa: A=17 B=4 (exact) 336 min
+20180.7s 1115 [1086/1106] Viola_rupestris: A=150 B=20 (exact) 336 min
+20181.1s 1116 [1087/1106] Vitex_agnuscastus: not_found
+20201.3s 1117 [1088/1106] Vitex_negundo: A=150 B=20 (exact) 336 min
+20217.7s 1118 [1089/1106] Volkameria_inermis: A=150 B=20 (exact) 337 min
+20223.0s 1119 [1090/1106] Wikstroemia_canescens: A=23 B=5 (exact) 337 min
+20226.1s 1120 [1091/1106] Withania_coagulans: A=2 B=0 (exact) 337 min
+20241.5s 1121 [1092/1106] Withania_somnifera: A=150 B=20 (exact) 337 min
+20259.4s 1122 [1093/1106] Woodfordia_fruticosa: A=150 B=20 (exact) 337 min
+20262.5s 1123 [1094/1106] Wulfeniopsis_amherstiana: A=5 B=0 (exact) 337 min
+20282.1s 1124 [1095/1106] Xanthium_spinosum: A=150 B=20 (exact) 338 min
+20307.7s 1125 [1096/1106] Xanthium_strumarium: A=150 B=20 (exact) 338 min
+20331.4s 1126 [1097/1106] Youngia_japonica: A=150 B=20 (exact) 338 min
+20357.9s 1127 [1098/1106] Yucca_aloifolia: A=150 B=20 (exact) 339 min
+20383.7s 1128 [1099/1106] Yucca_gloriosa: A=150 B=20 (exact) 339 min
+20407.6s 1129 [1100/1106] Zantedeschia_aethiopica: A=150 B=20 (exact) 340 min
+20433.6s 1130 [1101/1106] Zea_mays: A=150 B=20 (exact) 340 min
+20454.0s 1131 [1102/1106] Zephyranthes_carinata: A=150 B=20 (exact) 341 min
+20470.6s 1132 [1103/1106] Zeuxine_strateumatica: A=150 B=20 (exact) 341 min
+20496.4s 1133 [1104/1106] Zingiber_spectabile: A=150 B=20 (exact) 341 min
+20521.4s 1134 [1105/1106] Zinnia_elegans: A=150 B=20 (exact) 342 min
+20542.8s 1135 [1106/1106] Ziziphus_mauritiana: A=150 B=20 (exact) 342 min
+20542.8s 1136 {
+20542.8s 1137 "species_requested": 1106,
+20542.8s 1138 "species_resolved": 1084,
+20542.8s 1139 "images_pool_a": 138455,
+20542.8s 1140 "images_pool_b": 19302,
+20542.8s 1141 "cutoff_pool_a_created_on_or_before": "2025-08-31",
+20542.8s 1142 "pool_b_created_on_or_after": "2025-09-03",
+20542.8s 1143 "licenses": "cc0,cc-by,cc-by-nc,cc-by-sa",
+20542.8s 1144 "quality_grade": "research",
+20542.8s 1145 "one_photo_per_observation": true,
+20542.8s 1146 "short_side_px": 256,
+20542.8s 1147 "fetched_utc": "2026-10-28 16:07"
+20542.8s 1148 }
+20542.8s 1149 not found: 22
+20556.0s 1150 [data] 19302 images, 1040 classes present, model has 1106
+20566.1s 1151 batch 0/302
+20651.0s 1152 batch 20/302
+20655.3s 1153 {
+20655.3s 1154 "species_requested": 1106,
+20655.3s 1155 "species_resolved": 1084,
+20655.3s 1156 "species_not_found": [
+20655.3s 1157 "Adiantum_capillusveneris",
+20655.3s 1158 "Arctium",
+20655.3s 1159 "Campsis__tagliabueana",
+20655.3s 1160 "Citrus__aurantiifolia",
+20655.3s 1161 "Coix_lacrymajobi",
+20655.3s 1162 "Crocosmia__crocosmiiflora",
+20655.3s 1163 "Dolichandra_unguiscati",
+20655.3s 1164 "Erythrina_cristagalli",
+20655.3s 1165 "Fragaria__ananassa",
+20655.3s 1166 "Gazania__splendens",
+20655.3s 1167 "Hibiscus__archeri",
+20655.3s 1168 "Hibiscus__rosasinensis",
+20655.3s 1169 "Iris__germanica",
+20655.3s 1170 "Kalanchoe__houghtonii",
+20655.3s 1171 "Musa__paradisiaca",
+20655.3s 1172 "Nyctanthes_arbortristis",
+20655.3s 1173 "Opuntia_ficusindica",
+20655.3s 1174 "Passiflora_incarnata__cincinnata",
+20655.3s 1175 "Passiflora_incarnata__laurifolia",
+20655.3s 1176 "Reynoutria__bohemica",
+20655.3s 1177 "Veronica_anagallisaquatica",
+20655.3s 1178 "Vitex_agnuscastus"
+20655.3s 1179 ],
+20655.3s 1180 "images_pool_a": 138455,
+20655.3s 1181 "images_pool_b": 19302,
+20655.3s 1182 "cutoff_pool_a_created_on_or_before": "2025-08-31",
+20655.3s 1183 "pool_b_created_on_or_after": "2025-09-03",
+20655.3s 1184 "licenses": "cc0,cc-by,cc-by-nc,cc-by-sa",
+20655.3s 1185 "quality_grade": "research",
+20655.3s 1186 "one_photo_per_observation": true,
+20655.3s 1187 "short_side_px": 256,
+20655.3s 1188 "fetched_utc": "2026-10-28 16:07"
+20655.4s 1189 }cat: /kaggle/working/results/e1_deployed_resnet18_temporal/metrics.json: No such file or directory
+20661.1s 1190 /usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+20661.1s 1191 cells[i][c] = re.sub('\\\\\|', '|', cell)
+20661.5s 1192 /usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+20661.5s 1193 text = re.sub(r'_', '\_', text) # Escape underscores in display text
+20663.7s 1194 [NbConvertApp] Converting notebook __notebook__.ipynb to notebook
+20664.0s 1195 [NbConvertApp] Writing 87891 bytes to __notebook__.ipynb
+20667.4s 1196 [NbConvertApp] Converting notebook __notebook__.ipynb to html
+20668.7s 1197 [NbConvertApp] Writing 350775 bytes to __results__.html
