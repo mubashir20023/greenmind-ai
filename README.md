@@ -40,18 +40,18 @@ seen: a temporal split of iNaturalist data and a lab-to-field test for leaf dise
 
 ```mermaid
 flowchart LR
-    A[Photo<br/>upload / camera] --> B[YOLO organ detector<br/>tree / leaf / flower]
-    A --> C[Candidates<br/>full image + up to 3 crops]
+    A["Photo<br/>upload / camera"] --> B["YOLO organ detector<br/>tree / leaf / flower"]
+    A --> C["Candidates<br/>full image + up to 3 crops"]
     B --> C
-    C --> L[Local classifier<br/>EfficientNet-B0]
-    C --> P[Plant.id API]
-    C --> N[Pl@ntNet API]
-    L --> F[Weighted score fusion]
+    C --> L["Local classifier<br/>EfficientNet-B0"]
+    C --> P["Plant.id API"]
+    C --> N["Pl@ntNet API"]
+    L --> F["Weighted score fusion"]
     P --> F
     N --> F
-    F --> X[Grad-CAM / Eigen-CAM]
-    F --> W[Wikipedia facts card]
-    F --> D[Leaf-disease screening]
+    F --> X["Grad-CAM / Eigen-CAM"]
+    F --> W["Wikipedia facts card"]
+    F --> D["Leaf-disease screening"]
 ```
 
 Fusion: for every label, each source contributes its best score over all candidates, weighted by
