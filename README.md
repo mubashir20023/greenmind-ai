@@ -109,14 +109,19 @@ python -m app.main                 # http://localhost:5000
 
 Production: `gunicorn -w 1 --threads 4 -b 0.0.0.0:5000 app.main:app`.
 
-### Free hosting on Hugging Face Spaces
-The free *CPU basic* Space (2 vCPU, 16 GB RAM) runs all models comfortably; small free tiers with 512 MB RAM
-(e.g. Render free) are not enough for PyTorch plus three models.
-1. Create a Space at <https://huggingface.co/new-space>: SDK **Docker**, template **Blank**, hardware **CPU basic (free)**.
-2. Upload the two files in [`deploy/huggingface/`](deploy/huggingface) (`Dockerfile`, `README.md`) to the Space.
-3. The Space builds the app from this repository (about 10 minutes). Optional secrets: `SECRET_KEY`, API keys, `DATABASE_URL`.
+### Free hosting on Google Cloud Run
+Cloud Run's monthly free allowance covers a demo; the app needs about 4 GB of memory, so tiny free tiers with
+512 MB (e.g. Render free) are not enough. In [Google Cloud Shell](https://shell.cloud.google.com):
+```bash
+git clone --depth 1 https://github.com/mubashir20023/greenmind-ai
+cd greenmind-ai/deploy/cloudrun
+bash deploy.sh <YOUR_PROJECT_ID>
+```
+The script builds the container from this repository, deploys it with 2 vCPU / 4 GB, scales to zero when idle
+(the first request after a pause takes ~30-60 s) and caps it at one instance.
+[`deploy/huggingface/`](deploy/huggingface) contains an equivalent setup for Hugging Face Spaces (Docker Spaces now need a paid plan).
 
-Without an external `DATABASE_URL` the Space uses SQLite, so accounts and saved plants reset when the Space restarts.
+Without an external `DATABASE_URL` the hosted app uses SQLite, so accounts and saved plants reset when a new instance starts.
 
 If the weights show up as ~130-byte files after cloning, run `git lfs pull` inside the project folder.
 
