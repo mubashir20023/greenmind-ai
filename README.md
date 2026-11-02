@@ -80,9 +80,11 @@ PlantVillage test = 3,095 lab images; PlantDoc = 102 field photographs of the sa
 |---|---:|---:|
 | EfficientNet-B0, 3 seeds | 99.87 ± 0.06% | 28.4 ± 2.6% |
 | ResNet-18, 3 seeds | 99.69 ± 0.05% | 28.8 ± 2.8% |
-| **EfficientNet-B0 + 842 PlantDoc field photos (now the app default)** | 99.74% | **49.0%** |
+| EfficientNet-B0 + 842 PlantDoc field photos (now the app default) | 99.74% | 49.0% |
+| **… + leaf crops from the new YOLO leaf detector** | – | **52.0%** |
 
 Further findings:
+- **Leaf detector:** a YOLOv8s trained on PlantDoc leaf boxes reaches mAP@0.5 = 0.93 and finds a leaf in 98 of 102 field photos (the original organ detector found none).
 - **Calibration:** temperature scaling fitted on field photos cuts the expected calibration error from 0.27 to 0.07; fitted on lab photos (the usual practice) it rises to 0.61.
 - **Abstention:** answering only the 50% most confident field photos raises accuracy on those from 29% to 41%.
 - **Shortcut test:** with the central 49% of each PlantVillage image blacked out, accuracy is still 50% (chance 6.7%).
