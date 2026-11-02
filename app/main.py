@@ -75,6 +75,25 @@ except Exception as e:
     print("[yolo] detector import failed:", e)
     DETECTOR = None  # ensure symbol exists
 
+from app.engine import ENGINE
+
+
+def _leaf_seen(pil_img, conf: float) -> bool:
+    """Second chance for the plant gate: the organ detector (trained on whole plants) misses most
+    leaf close-ups, so also accept the photo if the leaf detector (PlantDoc boxes) finds a leaf."""
+    try:
+        if ENGINE == "onnx":
+            from app.engine import leaf_detector
+            det = leaf_detector()
+            return bool(det and det.detect(pil_img, conf=conf))
+        from app.health import load_yolo_health
+        y = load_yolo_health()
+        return bool(y is not None and len(y.predict(pil_img, conf=conf, verbose=False)[0].boxes))
+    except Exception as e:
+        print(f"[gate] leaf detector check failed: {e}")
+        return False
+
+
 # Paths
 BASE_DIR = Path(__file__).resolve().parents[1]
 TEMPLATES_DIR = BASE_DIR / "web" / "templates"
@@ -205,6 +224,7 @@ def diag():
 
     return jsonify(
         {
+            "engine": ENGINE,
             "yolo_available": bool(DETECTOR and DETECTOR.is_available()),
             "env": {
                 "REQUIRE_DETECT": os.getenv("REQUIRE_DETECT"),
@@ -333,7 +353,7 @@ def route_identify():
                 frac = area / float(W * H) if W * H else 0.0
                 if float(d.get("conf", 0.0)) >= YOLO_CONF and frac >= YOLO_MIN_AREA_FRAC:
                     valid.append(d)
-            if REQUIRE_DETECT and not valid:
+            if REQUIRE_DETECT and not valid and not _leaf_seen(img, YOLO_CONF):
                 return (
                     jsonify(
                         {
@@ -539,7 +559,7 @@ def api_health():
             frac = area / float(W * H) if W * H else 0.0
             if float(d.get("conf", 0.0)) >= YOLO_CONF and frac >= YOLO_MIN_AREA_FRAC:
                 valid.append(d)
-        if REQUIRE_DETECT and not valid:
+        if REQUIRE_DETECT and not valid and not _leaf_seen(pil, YOLO_CONF):
             return (
                 jsonify(
                     {

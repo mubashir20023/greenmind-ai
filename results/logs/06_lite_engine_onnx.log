@@ -1,0 +1,398 @@
+9.3s 1 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+9.3s 2 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+9.3s 3 0.00s - to python to disable frozen modules.
+9.3s 4 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+10.1s 5 0.00s - Debugger warning: It seems that frozen modules are being used, which may
+10.1s 6 0.00s - make the debugger miss breakpoints. Please pass -Xfrozen_modules=off
+10.1s 7 0.00s - to python to disable frozen modules.
+10.1s 8 0.00s - Note: Debugging will proceed. Set PYDEVD_DISABLE_FILE_VALIDATION=1 to disable this validation.
+11.5s 9 Cloning into 'greenmind-ai'...
+11.7s 10 Cloning into 'greenmind-ai'...
+11.7s 11 
+11.7s 12 Cloning into 'greenmind-ai'...
+22.8s 13 Cloning into '/kaggle/working/PlantDoc-Dataset'...
+23.0s 14 6c892ba ONNX export: export YOLO from a writable copy (Kaggle inputs are read-only)
+23.0s 15 
+23.0s 16 Cloning into '/kaggle/working/PlantDoc-Dataset'...
+23.0s 17 
+23.0s 18 Cloning into '/kaggle/working/PlantDoc-Dataset'...
+56.8s 19 Updating files:  29% (749/2581)Updating files:  30% (775/2581)Updating files:  31% (801/2581)Updating files:  32% (826/2581)Updating files:  33% (852/2581)Updating files:  34% (878/2581)Updating files:  35% (904/2581)Updating files:  36% (930/2581)Updating files:  37% (955/2581)Updating files:  38% (981/2581)Updating files:  29% (749/2581)Updating files:  30% (775/2581)Updating files:  31% (801/2581)Updating files:  32% (826/2581)Updating files:  33% (852/2581)Updating files:  34% (878/2581)Updating files:  35% (904/2581)Updating files:  36% (930/2581)Updating files:  37% (955/2581)Updating files:  38% (981/2581)
+57.0s 20 Updating files:  29% (749/2581)Updating files:  30% (775/2581)Updating files:  31% (801/2581)Updating files:  32% (826/2581)Updating files:  33% (852/2581)Updating files:  34% (878/2581)Updating files:  35% (904/2581)Updating files:  36% (930/2581)Updating files:  37% (955/2581)Updating files:  38% (981/2581)Updating files:  39% (1007/2581)Updating files:  40% (1033/2581)Updating files:  41% (1059/2581)Updating files:  42% (1085/2581)Updating files:  43% (1110/2581)Updating files:  44% (1136/2581)Updating files:  45% (1162/2581)Updating files:  39% (1007/2581)Updating files:  40% (1033/2581)Updating files:  41% (1059/2581)Updating files:  42% (1085/2581)Updating files:  43% (1110/2581)Updating files:  44% (1136/2581)Updating files:  45% (1162/2581)
+57.2s 21 Updating files:  39% (1007/2581)Updating files:  40% (1033/2581)Updating files:  41% (1059/2581)Updating files:  42% (1085/2581)Updating files:  43% (1110/2581)Updating files:  44% (1136/2581)Updating files:  45% (1162/2581)Updating files:  46% (1188/2581)Updating files:  47% (1214/2581)Updating files:  48% (1239/2581)Updating files:  49% (1265/2581)Updating files:  50% (1291/2581)Updating files:  51% (1317/2581)Updating files:  52% (1343/2581)Updating files:  46% (1188/2581)Updating files:  47% (1214/2581)Updating files:  48% (1239/2581)Updating files:  49% (1265/2581)Updating files:  50% (1291/2581)Updating files:  51% (1317/2581)Updating files:  52% (1343/2581)
+57.4s 22 Updating files:  46% (1188/2581)Updating files:  47% (1214/2581)Updating files:  48% (1239/2581)Updating files:  49% (1265/2581)Updating files:  50% (1291/2581)Updating files:  51% (1317/2581)Updating files:  52% (1343/2581)Updating files:  53% (1368/2581)Updating files:  54% (1394/2581)Updating files:  55% (1420/2581)Updating files:  56% (1446/2581)Updating files:  57% (1472/2581)Updating files:  58% (1497/2581)Updating files:  59% (1523/2581)Updating files:  53% (1368/2581)Updating files:  54% (1394/2581)Updating files:  55% (1420/2581)Updating files:  56% (1446/2581)Updating files:  57% (1472/2581)Updating files:  58% (1497/2581)Updating files:  59% (1523/2581)
+57.7s 23 Updating files:  53% (1368/2581)Updating files:  54% (1394/2581)Updating files:  55% (1420/2581)Updating files:  56% (1446/2581)Updating files:  57% (1472/2581)Updating files:  58% (1497/2581)Updating files:  59% (1523/2581)Updating files:  60% (1549/2581)Updating files:  61% (1575/2581)Updating files:  62% (1601/2581)Updating files:  63% (1627/2581)Updating files:  64% (1652/2581)Updating files:  65% (1678/2581)Updating files:  66% (1704/2581)Updating files:  60% (1549/2581)Updating files:  61% (1575/2581)Updating files:  62% (1601/2581)Updating files:  63% (1627/2581)Updating files:  64% (1652/2581)Updating files:  65% (1678/2581)Updating files:  66% (1704/2581)
+58.0s 24 Updating files:  60% (1549/2581)Updating files:  61% (1575/2581)Updating files:  62% (1601/2581)Updating files:  63% (1627/2581)Updating files:  64% (1652/2581)Updating files:  65% (1678/2581)Updating files:  66% (1704/2581)Updating files:  67% (1730/2581)Updating files:  68% (1756/2581)Updating files:  69% (1781/2581)Updating files:  70% (1807/2581)Updating files:  71% (1833/2581)Updating files:  72% (1859/2581)Updating files:  73% (1885/2581)Updating files:  74% (1910/2581)Updating files:  75% (1936/2581)Updating files:  67% (1730/2581)Updating files:  68% (1756/2581)Updating files:  69% (1781/2581)Updating files:  70% (1807/2581)Updating files:  71% (1833/2581)Updating files:  72% (1859/2581)Updating files:  73% (1885/2581)Updating files:  74% (1910/2581)Updating files:  75% (1936/2581)
+58.2s 25 Updating files:  67% (1730/2581)Updating files:  68% (1756/2581)Updating files:  69% (1781/2581)Updating files:  70% (1807/2581)Updating files:  71% (1833/2581)Updating files:  72% (1859/2581)Updating files:  73% (1885/2581)Updating files:  74% (1910/2581)Updating files:  75% (1936/2581)Updating files:  76% (1962/2581)Updating files:  77% (1988/2581)Updating files:  78% (2014/2581)Updating files:  79% (2039/2581)Updating files:  80% (2065/2581)Updating files:  81% (2091/2581)Updating files:  82% (2117/2581)Updating files:  83% (2143/2581)Updating files:  76% (1962/2581)Updating files:  77% (1988/2581)Updating files:  78% (2014/2581)Updating files:  79% (2039/2581)Updating files:  80% (2065/2581)Updating files:  81% (2091/2581)Updating files:  82% (2117/2581)Updating files:  83% (2143/2581)
+58.4s 26 Updating files:  76% (1962/2581)Updating files:  77% (1988/2581)Updating files:  78% (2014/2581)Updating files:  79% (2039/2581)Updating files:  80% (2065/2581)Updating files:  81% (2091/2581)Updating files:  82% (2117/2581)Updating files:  83% (2143/2581)Updating files:  84% (2169/2581)Updating files:  85% (2194/2581)Updating files:  86% (2220/2581)Updating files:  87% (2246/2581)Updating files:  88% (2272/2581)Updating files:  89% (2298/2581)Updating files:  90% (2323/2581)Updating files:  91% (2349/2581)Updating files:  92% (2375/2581)Updating files:  84% (2169/2581)Updating files:  85% (2194/2581)Updating files:  86% (2220/2581)Updating files:  87% (2246/2581)Updating files:  88% (2272/2581)Updating files:  89% (2298/2581)Updating files:  90% (2323/2581)Updating files:  91% (2349/2581)Updating files:  92% (2375/2581)
+58.6s 27 Updating files:  84% (2169/2581)Updating files:  85% (2194/2581)Updating files:  86% (2220/2581)Updating files:  87% (2246/2581)Updating files:  88% (2272/2581)Updating files:  89% (2298/2581)Updating files:  90% (2323/2581)Updating files:  91% (2349/2581)Updating files:  92% (2375/2581)Updating files:  93% (2401/2581)Updating files:  94% (2427/2581)Updating files:  95% (2452/2581)Updating files:  96% (2478/2581)Updating files:  97% (2504/2581)Updating files:  97% (2521/2581)Updating files:  98% (2530/2581)Updating files:  99% (2556/2581)Updating files:  93% (2401/2581)Updating files:  94% (2427/2581)Updating files:  95% (2452/2581)Updating files:  96% (2478/2581)Updating files:  97% (2504/2581)Updating files:  97% (2521/2581)Updating files:  98% (2530/2581)Updating files:  99% (2556/2581)
+58.7s 28 Updating files:  93% (2401/2581)Updating files:  94% (2427/2581)Updating files:  95% (2452/2581)Updating files:  96% (2478/2581)Updating files:  97% (2504/2581)Updating files:  97% (2521/2581)Updating files:  98% (2530/2581)Updating files:  99% (2556/2581)Updating files: 100% (2581/2581)Updating files: 100% (2581/2581), done.
+58.7s 29 Updating files: 100% (2581/2581)Updating files: 100% (2581/2581), done.
+58.7s 30 
+58.7s 31 Updating files: 100% (2581/2581)Updating files: 100% (2581/2581), done.
+79.5s 32 /kaggle/input/notebooks/mubbashirahmed2002/greenmind-ai-notebook-5/app_models /kaggle/input/notebooks/mubbashirahmed2002/greenmind-ai-notebook-2/inat.tar
+188.1s 33 /kaggle/working/greenmind-ai/tools/export_onnx.py:62: DeprecationWarning: You are using the legacy TorchScript-based ONNX export. Starting in PyTorch 2.9, the new torch.export-based ONNX exporter has become the default. Learn more about the new export logic: https://docs.pytorch.org/docs/stable/onnx_export.html. For exporting control flow: https://pytorch.org/tutorials/beginner/onnx/export_control_flow_model_to_onnx_tutorial.html
+188.1s 34 torch.onnx.export(w, x, str(path), dynamo=False, **kw)
+191.0s 35 species_effb0 {'logits_max_abs_diff': 9.059906005859375e-06, 'features_max_abs_diff': 1.2159347534179688e-05, 'argmax_agree': 1.0}
+193.0s 36 disease_effb0 {'logits_max_abs_diff': 8.64267349243164e-06, 'features_max_abs_diff': 2.944469451904297e-05, 'argmax_agree': 1.0}
+193.4s 37 Creating new Ultralytics Settings v0.0.6 file ✅
+193.4s 38 View Ultralytics Settings with 'yolo settings' or at '/root/.config/Ultralytics/settings.json'
+193.4s 39 Update Settings with 'yolo settings key=value', i.e. 'yolo settings runs_dir=path/to/dir'. For help see https://docs.ultralytics.com/quickstart/#ultralytics-settings.
+195.0s 40 Ultralytics 8.3.187 🚀 Python-3.13.15 torch-2.11.0+cpu CPU (Intel Xeon 2.20GHz)
+195.0s 41 💡 ProTip: Export to OpenVINO format for best performance on Intel hardware. Learn more at https://docs.ultralytics.com/integrations/openvino/
+195.3s 42 Model summary (fused): 72 layers, 3,006,233 parameters, 0 gradients, 8.1 GFLOPs
+195.6s 43 
+195.6s 44 [34m[1mPyTorch:[0m starting from '/kaggle/working/onnx/_work/organ_yolo.pt' with input shape (1, 3, 640, 640) BCHW and output shape(s) (1, 7, 8400) (5.9 MB)
+195.6s 45 
+195.6s 46 [34m[1mONNX:[0m starting export with onnx 1.22.0 opset 12...
+196.6s 47 [34m[1mONNX:[0m slimming with onnxslim 0.1.98...
+197.3s 48 [34m[1mONNX:[0m export success ✅ 1.7s, saved as '/kaggle/working/onnx/_work/organ_yolo.onnx' (11.7 MB)
+197.3s 49 
+197.3s 50 Export complete (2.3s)
+197.3s 51 Results saved to [1m/kaggle/working/onnx/_work[0m
+197.3s 52 Predict:         yolo predict task=detect model=/kaggle/working/onnx/_work/organ_yolo.onnx imgsz=640
+197.3s 53 Validate:        yolo val task=detect model=/kaggle/working/onnx/_work/organ_yolo.onnx imgsz=640 data=data/plant_parts/plant_parts.yaml
+197.3s 54 Visualize:       https://netron.app
+197.3s 55 organ_yolo {0: 'tree', 1: 'leaf', 2: 'flower'}
+215.3s 56 organ_yolo parity {'images': 60, 'boxes_torch': 66, 'boxes_onnx': 64, 'images_same_box_count': 58, 'mean_best_iou': 0.9386, 'share_boxes_iou_ge_0.9': 0.8636}
+215.9s 57 Ultralytics 8.3.187 🚀 Python-3.13.15 torch-2.11.0+cpu CPU (Intel Xeon 2.20GHz)
+216.5s 58 Model summary (fused): 72 layers, 11,125,971 parameters, 0 gradients, 28.4 GFLOPs
+217.4s 59 
+217.4s 60 [34m[1mPyTorch:[0m starting from '/kaggle/working/onnx/_work/leaf_yolo.pt' with input shape (1, 3, 640, 640) BCHW and output shape(s) (1, 5, 8400) (21.5 MB)
+217.4s 61 
+217.4s 62 [34m[1mONNX:[0m starting export with onnx 1.22.0 opset 12...
+218.7s 63 [34m[1mONNX:[0m slimming with onnxslim 0.1.98...
+219.9s 64 [34m[1mONNX:[0m export success ✅ 2.5s, saved as '/kaggle/working/onnx/_work/leaf_yolo.onnx' (42.7 MB)
+219.9s 65 
+219.9s 66 Export complete (4.0s)
+219.9s 67 Results saved to [1m/kaggle/working/onnx/_work[0m
+219.9s 68 Predict:         yolo predict task=detect model=/kaggle/working/onnx/_work/leaf_yolo.onnx imgsz=640
+219.9s 69 Validate:        yolo val task=detect model=/kaggle/working/onnx/_work/leaf_yolo.onnx imgsz=640 data=/kaggle/working/leafdet/leaf.yaml
+219.9s 70 Visualize:       https://netron.app
+219.9s 71 leaf_yolo {0: 'leaf'}
+260.2s 72 leaf_yolo parity {'images': 60, 'boxes_torch': 114, 'boxes_onnx': 103, 'images_same_box_count': 50, 'mean_best_iou': 0.8697, 'share_boxes_iou_ge_0.9': 0.8509}
+260.2s 73 {
+260.2s 74 "species_effb0": {
+260.2s 75 "logits_max_abs_diff": 9.059906005859375e-06,
+260.2s 76 "features_max_abs_diff": 1.2159347534179688e-05,
+260.2s 77 "argmax_agree": 1.0
+260.2s 78 },
+260.2s 79 "disease_effb0": {
+260.2s 80 "logits_max_abs_diff": 8.64267349243164e-06,
+260.2s 81 "features_max_abs_diff": 2.944469451904297e-05,
+260.2s 82 "argmax_agree": 1.0
+260.2s 83 },
+260.2s 84 "organ_yolo": {
+260.2s 85 "images": 60,
+260.2s 86 "boxes_torch": 66,
+260.2s 87 "boxes_onnx": 64,
+260.2s 88 "images_same_box_count": 58,
+260.2s 89 "mean_best_iou": 0.9386,
+260.2s 90 "share_boxes_iou_ge_0.9": 0.8636
+260.2s 91 },
+260.2s 92 "leaf_yolo": {
+260.2s 93 "images": 60,
+260.2s 94 "boxes_torch": 114,
+260.2s 95 "boxes_onnx": 103,
+260.2s 96 "images_same_box_count": 50,
+260.2s 97 "mean_best_iou": 0.8697,
+260.2s 98 "share_boxes_iou_ge_0.9": 0.8509
+260.2s 99 },
+260.2s 100 "files_mb": {
+260.2s 101 "disease_effb0.json": 0.0,
+260.2s 102 "disease_effb0.onnx": 16.08,
+260.2s 103 "disease_effb0_fc.npy": 0.08,
+260.2s 104 "leaf_yolo.json": 0.0,
+260.2s 105 "leaf_yolo.onnx": 44.75,
+260.2s 106 "organ_yolo.json": 0.0,
+260.2s 107 "organ_yolo.onnx": 12.27,
+260.2s 108 "species_effb0.json": 0.02,
+260.2s 109 "species_effb0.onnx": 20.91,
+260.2s 110 "species_effb0_fc.npy": 4.91
+260.2s 111 }
+260.2s 112 }
+266.3s 113 [warn] 380 images have labels the model does not know; excluded. Examples: [('Abies_pindrow', 3), ('Acantholimon_lycopodioides', 13), ('Acer_caesium', 14), ('Ajuga_parviflora', 1), ('Allardia_glabra', 1)]
+266.3s 114 [data] 18923 images, 958 classes present, model has 958
+272.6s 115 batch 0/296
+343.0s 116 batch 20/296
+412.3s 117 batch 40/296
+484.1s 118 batch 60/296
+555.7s 119 batch 80/296
+628.6s 120 batch 100/296
+703.5s 121 batch 120/296
+796.1s 122 batch 140/296
+875.2s 123 batch 160/296
+958.8s 124 batch 180/296
+1046.7s 125 batch 200/296
+1144.8s 126 batch 220/296
+1241.8s 127 batch 240/296
+1328.3s 128 batch 260/296
+1410.0s 129 batch 280/296
+1489.4s 130 {
+1489.4s 131 "source": "imagefolder:/kaggle/temp/inat/pool_b",
+1489.4s 132 "checkpoint": "/kaggle/input/notebooks/mubbashirahmed2002/greenmind-ai-notebook-5/app_models/plant_id_effb0_best.pth",
+1489.4s 133 "arch": "efficientnet_b0",
+1489.4s 134 "n_images": 18923,
+1489.4s 135 "n_classes_in_eval": 958,
+1489.4s 136 "n_classes_model": 958,
+1489.4s 137 "top1": 0.6904296358928288,
+1489.4s 138 "top1_ci95": [
+1489.4s 139 0.6836653807535803,
+1489.4s 140 0.6970419595201607
+1489.4s 141 ],
+1489.4s 142 "top5": 0.8590075569412884,
+1489.4s 143 "macro": {
+1489.4s 144 "precision": 0.7044572027022009,
+1489.4s 145 "recall": 0.6896138334373144,
+1489.4s 146 "f1": 0.6862633492524446
+1489.4s 147 },
+1489.4s 148 "weighted": {
+1489.4s 149 "precision": 0.7037401831963565,
+1489.4s 150 "recall": 0.6904296358928288,
+1489.4s 151 "f1": 0.6864831380839067
+1489.4s 152 },
+1489.4s 153 "balanced_accuracy": 0.6896138334373144,
+1489.4s 154 "ece_15bins": 0.1672713500218469,
+1489.4s 155 "mean_confidence": 0.5231583118438721,
+1489.4s 156 "eval_seconds": 1218.3,
+1489.4s 157 "img_size": 224,
+1489.4s 158 "norm": "imagenet",
+1489.4s 159 "resize_mode": "crop"
+1489.4s 160 }
+1489.4s 161 [done] results in /kaggle/working/cmp/torch_species
+1495.5s 162 0/18923
+1538.7s 163 2000/18923
+1581.9s 164 4000/18923
+1620.4s 165 6000/18923
+1657.5s 166 8000/18923
+1693.7s 167 10000/18923
+1729.1s 168 12000/18923
+1764.8s 169 14000/18923
+1800.4s 170 16000/18923
+1835.5s 171 18000/18923
+1851.7s 172 {
+1851.7s 173 "engine": "onnx",
+1851.7s 174 "task": "species",
+1851.7s 175 "n_images": 18923,
+1851.7s 176 "top1": 0.6904296358928288,
+1851.7s 177 "top5": 0.8590075569412884,
+1851.7s 178 "seconds": 356.2,
+1851.7s 179 "source": "/kaggle/temp/inat/pool_b"
+1851.7s 180 }
+1855.9s 181 [warn] 134 images have labels the model does not know; excluded. Examples: [('Apple Scab Leaf', 10), ('Apple leaf', 9), ('Apple rust leaf', 10), ('Blueberry leaf', 11), ('Cherry leaf', 10)]
+1855.9s 182 [data] 102 images, 12 classes present, model has 15
+1863.6s 183 batch 0/2
+1869.0s 184 {
+1869.0s 185 "source": "imagefolder:/kaggle/working/PlantDoc-Dataset/test",
+1869.0s 186 "checkpoint": "/kaggle/input/notebooks/mubbashirahmed2002/greenmind-ai-notebook-5/app_models/leaf_health_effb0_field.pth",
+1869.0s 187 "arch": "efficientnet_b0",
+1869.0s 188 "n_images": 102,
+1869.0s 189 "n_classes_in_eval": 12,
+1869.0s 190 "n_classes_model": 15,
+1869.0s 191 "top1": 0.49019607843137253,
+1869.0s 192 "top1_ci95": [
+1869.0s 193 0.39215686274509803,
+1869.0s 194 0.5784313725490197
+1869.0s 195 ],
+1869.0s 196 "top5": 0.8823529411764706,
+1869.0s 197 "macro": {
+1869.0s 198 "precision": 0.5163579067990832,
+1869.0s 199 "recall": 0.4843855218855219,
+1869.0s 200 "f1": 0.4708495408959805
+1869.0s 201 },
+1869.0s 202 "weighted": {
+1869.0s 203 "precision": 0.5266991466818456,
+1869.0s 204 "recall": 0.49019607843137253,
+1869.0s 205 "f1": 0.4744117302394484
+1869.0s 206 },
+1869.0s 207 "balanced_accuracy": 0.4843855218855219,
+1869.0s 208 "ece_15bins": 0.13985342999883726,
+1869.0s 209 "mean_confidence": 0.5509524941444397,
+1869.0s 210 "eval_seconds": 10.1,
+1869.0s 211 "img_size": 224,
+1869.0s 212 "norm": "half",
+1869.0s 213 "resize_mode": "square"
+1869.0s 214 }
+1869.0s 215 [done] results in /kaggle/working/cmp/torch_disease
+1874.0s 216 0/102
+1878.5s 217 {
+1878.5s 218 "engine": "onnx",
+1878.5s 219 "task": "disease",
+1878.5s 220 "n_images": 102,
+1878.5s 221 "top1": 0.49019607843137253,
+1878.5s 222 "top5": 0.8823529411764706,
+1878.5s 223 "seconds": 4.5,
+1878.5s 224 "source": "/kaggle/working/PlantDoc-Dataset/test"
+1878.5s 225 }
+1895.7s 226 {
+1895.7s 227 "engine": "torch",
+1895.7s 228 "threads": 2,
+1895.7s 229 "rss_after_imports_mb": 36.5,
+1895.7s 230 "rss_after_loading_models_mb": 512.3,
+1895.7s 231 "rss_after_inference_mb": 590.7,
+1895.7s 232 "peak_rss_mb": 604.2,
+1895.7s 233 "model_load_seconds": 0.65,
+1895.7s 234 "median_latency_ms": {
+1895.7s 235 "species": 47.7,
+1895.7s 236 "disease": 46.0,
+1895.7s 237 "organ_detector": 118.7,
+1895.7s 238 "leaf_detector": 287.4
+1895.7s 239 }
+1895.7s 240 }
+1905.8s 241 {
+1905.8s 242 "engine": "onnx",
+1905.8s 243 "threads": 2,
+1905.8s 244 "rss_after_imports_mb": 36.9,
+1905.8s 245 "rss_after_loading_models_mb": 228.6,
+1905.8s 246 "rss_after_inference_mb": 259.7,
+1905.8s 247 "peak_rss_mb": 253.3,
+1905.8s 248 "model_load_seconds": 0.44,
+1905.8s 249 "median_latency_ms": {
+1905.8s 250 "species": 20.4,
+1905.8s 251 "disease": 19.5,
+1905.8s 252 "organ_detector": 86.7,
+1905.8s 253 "leaf_detector": 240.1
+1905.8s 254 }
+1905.8s 255 }
+1906.8s 256 {
+1906.8s 257 "torch": {
+1906.8s 258 "torch": 720.2,
+1906.8s 259 "torchvision": 6.4,
+1906.8s 260 "timm": 13.4,
+1906.8s 261 "ultralytics": 6.1,
+1906.8s 262 "pytorch_grad_cam": null,
+1906.8s 263 "cv2": 86.9,
+1906.8s 264 "total_mb": 833.0
+1906.8s 265 },
+1906.8s 266 "onnx": {
+1906.8s 267 "onnxruntime": 68.7,
+1906.8s 268 "cv2": 86.9,
+1906.8s 269 "total_mb": 155.6
+1906.8s 270 }
+1906.8s 271 }
+1907.1s 272 {
+1907.1s 273 "export": {
+1907.1s 274 "species_effb0": {
+1907.1s 275 "logits_max_abs_diff": 9.059906005859375e-06,
+1907.1s 276 "features_max_abs_diff": 1.2159347534179688e-05,
+1907.1s 277 "argmax_agree": 1.0
+1907.1s 278 },
+1907.1s 279 "disease_effb0": {
+1907.1s 280 "logits_max_abs_diff": 8.64267349243164e-06,
+1907.1s 281 "features_max_abs_diff": 2.944469451904297e-05,
+1907.1s 282 "argmax_agree": 1.0
+1907.1s 283 },
+1907.1s 284 "organ_yolo": {
+1907.1s 285 "images": 60,
+1907.1s 286 "boxes_torch": 66,
+1907.1s 287 "boxes_onnx": 64,
+1907.1s 288 "images_same_box_count": 58,
+1907.1s 289 "mean_best_iou": 0.9386,
+1907.1s 290 "share_boxes_iou_ge_0.9": 0.8636
+1907.1s 291 },
+1907.1s 292 "leaf_yolo": {
+1907.1s 293 "images": 60,
+1907.1s 294 "boxes_torch": 114,
+1907.1s 295 "boxes_onnx": 103,
+1907.1s 296 "images_same_box_count": 50,
+1907.1s 297 "mean_best_iou": 0.8697,
+1907.1s 298 "share_boxes_iou_ge_0.9": 0.8509
+1907.1s 299 },
+1907.1s 300 "files_mb": {
+1907.1s 301 "disease_effb0.json": 0.0,
+1907.1s 302 "disease_effb0.onnx": 16.08,
+1907.1s 303 "disease_effb0_fc.npy": 0.08,
+1907.1s 304 "leaf_yolo.json": 0.0,
+1907.1s 305 "leaf_yolo.onnx": 44.75,
+1907.1s 306 "organ_yolo.json": 0.0,
+1907.1s 307 "organ_yolo.onnx": 12.27,
+1907.1s 308 "species_effb0.json": 0.02,
+1907.1s 309 "species_effb0.onnx": 20.91,
+1907.1s 310 "species_effb0_fc.npy": 4.91
+1907.1s 311 }
+1907.1s 312 },
+1907.1s 313 "species": {
+1907.1s 314 "n": 18923,
+1907.1s 315 "torch_top1": 0.6904296358928288,
+1907.1s 316 "onnx_top1": 0.6904296358928288,
+1907.1s 317 "torch_top5": 0.8590075569412884,
+1907.1s 318 "onnx_top5": 0.8590075569412884,
+1907.1s 319 "top1_prediction_agreement": 1.0
+1907.1s 320 },
+1907.1s 321 "disease": {
+1907.1s 322 "n": 102,
+1907.1s 323 "torch_top1": 0.49019607843137253,
+1907.1s 324 "onnx_top1": 0.49019607843137253,
+1907.1s 325 "torch_top5": 0.8823529411764706,
+1907.1s 326 "onnx_top5": 0.8823529411764706,
+1907.1s 327 "top1_prediction_agreement": 1.0
+1907.1s 328 },
+1907.1s 329 "resources_torch": {
+1907.1s 330 "engine": "torch",
+1907.1s 331 "threads": 2,
+1907.1s 332 "rss_after_imports_mb": 36.5,
+1907.1s 333 "rss_after_loading_models_mb": 512.3,
+1907.1s 334 "rss_after_inference_mb": 590.7,
+1907.1s 335 "peak_rss_mb": 604.2,
+1907.1s 336 "model_load_seconds": 0.65,
+1907.1s 337 "median_latency_ms": {
+1907.1s 338 "species": 47.7,
+1907.1s 339 "disease": 46.0,
+1907.1s 340 "organ_detector": 118.7,
+1907.1s 341 "leaf_detector": 287.4
+1907.1s 342 }
+1907.1s 343 },
+1907.1s 344 "resources_onnx": {
+1907.1s 345 "engine": "onnx",
+1907.1s 346 "threads": 2,
+1907.1s 347 "rss_after_imports_mb": 36.9,
+1907.1s 348 "rss_after_loading_models_mb": 228.6,
+1907.1s 349 "rss_after_inference_mb": 259.7,
+1907.1s 350 "peak_rss_mb": 253.3,
+1907.1s 351 "model_load_seconds": 0.44,
+1907.1s 352 "median_latency_ms": {
+1907.1s 353 "species": 20.4,
+1907.1s 354 "disease": 19.5,
+1907.1s 355 "organ_detector": 86.7,
+1907.1s 356 "leaf_detector": 240.1
+1907.1s 357 }
+1907.1s 358 },
+1907.1s 359 "packages": {
+1907.1s 360 "torch": {
+1907.1s 361 "torch": 720.2,
+1907.1s 362 "torchvision": 6.4,
+1907.1s 363 "timm": 13.4,
+1907.1s 364 "ultralytics": 6.1,
+1907.1s 365 "pytorch_grad_cam": null,
+1907.1s 366 "cv2": 86.9,
+1907.1s 367 "total_mb": 833.0
+1907.1s 368 },
+1907.1s 369 "onnx": {
+1907.1s 370 "onnxruntime": 68.7,
+1907.1s 371 "cv2": 86.9,
+1907.1s 372 "total_mb": 155.6
+1907.1s 373 }
+1907.1s 374 }
+1907.1s 375 }
+1907.1s 376 95M	/kaggle/working/onnx
+1907.1s 377 total 96728
+1907.1s 378 drwxr-xr-x 2 root root     4096 Nov  2 05:46 .
+1907.1s 379 drwxr-xr-x 6 root root     4096 Nov  2 05:46 ..
+1907.1s 380 -rw-r--r-- 1 root root    76928 Nov  2 05:45 disease_effb0_fc.npy
+1907.1s 381 -rw-r--r-- 1 root root      707 Nov  2 05:45 disease_effb0.json
+1907.1s 382 -rw-r--r-- 1 root root 16082009 Nov  2 05:45 disease_effb0.onnx
+1907.1s 383 -rw-r--r-- 1 root root     1008 Nov  2 05:46 export_report.json
+1907.1s 384 -rw-r--r-- 1 root root      163 Nov  2 05:45 leaf_yolo.json
+1907.1s 385 -rw-r--r-- 1 root root 44746435 Nov  2 05:45 leaf_yolo.onnx
+1907.1s 386 -rw-r--r-- 1 root root      138 Nov  2 05:45 organ_yolo.json
+1907.1s 387 -rw-r--r-- 1 root root 12267274 Nov  2 05:45 organ_yolo.onnx
+1907.1s 388 -rw-r--r-- 1 root root  4905088 Nov  2 05:44 species_effb0_fc.npy
+1907.1s 389 -rw-r--r-- 1 root root    22996 Nov  2 05:44 species_effb0.json
+1907.1s 390 -rw-r--r-- 1 root root 20913948 Nov  2 05:44 species_effb0.onnx
+1910.9s 391 /usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+1910.9s 392 cells[i][c] = re.sub('\\\\\|', '|', cell)
+1911.2s 393 /usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+1911.2s 394 text = re.sub(r'_', '\_', text) # Escape underscores in display text
+1912.1s 395 [NbConvertApp] Converting notebook __notebook__.ipynb to notebook
+1912.3s 396 [NbConvertApp] Writing 28920 bytes to __notebook__.ipynb
+1915.6s 397 [NbConvertApp] Converting notebook __notebook__.ipynb to html
+1916.3s 398 [NbConvertApp] Writing 316537 bytes to __results__.html
