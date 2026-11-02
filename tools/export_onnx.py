@@ -82,7 +82,28 @@ def export_classifier(ckpt, classes_path, arch, out, stem, norm, resize_mode, im
     return d
 
 
+def _legacy_onnx_exporter():
+    """PyTorch >= 2.9 defaults to the dynamo exporter (needs onnxscript, opset >= 18). Ultralytics calls
+    torch.onnx.export without choosing, so force the TorchScript exporter, which supports opset 12."""
+    orig = torch.onnx.export
+    if getattr(orig, "_gm_legacy", False):
+        return
+
+    def export(*args, **kwargs):
+        kwargs.setdefault("dynamo", False)
+        try:
+            return orig(*args, **kwargs)
+        except TypeError:  # torch without the dynamo argument
+            kwargs.pop("dynamo", None)
+            return orig(*args, **kwargs)
+    export._gm_legacy = True
+    torch.onnx.export = export
+
+
 def export_yolo(pt, out, stem, imgsz=640):
+    import os
+    os.environ.setdefault("YOLO_AUTOINSTALL", "False")  # don't let Ultralytics pip-install during export
+    _legacy_onnx_exporter()
     from ultralytics import YOLO
     y = YOLO(str(pt))
     p = y.export(format="onnx", imgsz=imgsz, opset=12, simplify=True, dynamic=False)

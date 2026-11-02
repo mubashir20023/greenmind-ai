@@ -96,6 +96,8 @@ def cmd_resources(a):
         t0 = time.time()
         from app import engine
         sp, ds, og, lf = engine.species_model(), engine.disease_model(), engine.organ_detector(), engine.leaf_detector()
+        missing = [n for n, m in [("species", sp), ("disease", ds), ("organ_yolo", og), ("leaf_yolo", lf)] if m is None]
+        assert not missing, f"ONNX models missing in {engine.ONNX_DIR}: {missing}"
         load_s = time.time() - t0
         after_load = _rss_mb()
         bench("species", lambda: sp.predict_with_cam(img))
