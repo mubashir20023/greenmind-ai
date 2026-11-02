@@ -1,0 +1,7 @@
+{
+ "names": {
+  "0": "leaf"
+ },
+ "imgsz": 640,
+ "source_checkpoint": "/kaggle/input/notebooks/mubbashirahmed2002/greenmind-ai-notebook-5/app_models/yolo_leaf.pt"
+}

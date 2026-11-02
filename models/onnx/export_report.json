@@ -1,0 +1,40 @@
+{
+  "species_effb0": {
+    "logits_max_abs_diff": 9.059906005859375e-06,
+    "features_max_abs_diff": 1.2159347534179688e-05,
+    "argmax_agree": 1.0
+  },
+  "disease_effb0": {
+    "logits_max_abs_diff": 8.64267349243164e-06,
+    "features_max_abs_diff": 2.944469451904297e-05,
+    "argmax_agree": 1.0
+  },
+  "organ_yolo": {
+    "images": 60,
+    "boxes_torch": 66,
+    "boxes_onnx": 64,
+    "images_same_box_count": 58,
+    "mean_best_iou": 0.9386,
+    "share_boxes_iou_ge_0.9": 0.8636
+  },
+  "leaf_yolo": {
+    "images": 60,
+    "boxes_torch": 114,
+    "boxes_onnx": 103,
+    "images_same_box_count": 50,
+    "mean_best_iou": 0.8697,
+    "share_boxes_iou_ge_0.9": 0.8509
+  },
+  "files_mb": {
+    "disease_effb0.json": 0.0,
+    "disease_effb0.onnx": 16.08,
+    "disease_effb0_fc.npy": 0.08,
+    "leaf_yolo.json": 0.0,
+    "leaf_yolo.onnx": 44.75,
+    "organ_yolo.json": 0.0,
+    "organ_yolo.onnx": 12.27,
+    "species_effb0.json": 0.02,
+    "species_effb0.onnx": 20.91,
+    "species_effb0_fc.npy": 4.91
+  }
+}

@@ -1,0 +1,9 @@
+{
+ "names": {
+  "0": "tree",
+  "1": "leaf",
+  "2": "flower"
+ },
+ "imgsz": 640,
+ "source_checkpoint": "runs/detect/train/weights/best.pt"
+}
