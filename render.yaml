@@ -1,105 +1,34 @@
+# Render.com free tier (512 MB RAM): GreenMind lite engine (ONNX Runtime, no PyTorch).
+# The full PyTorch engine needs ~600 MB and does not fit; see deploy/cloudrun for that version.
 services:
   - type: web
     name: greenmind-ai
-    env: python
+    runtime: python
     plan: free
     autoDeploy: true
-
-    buildCommand: |
-      set -euxo pipefail
-      pip install --upgrade pip
-      pip install -r requirements.txt
-
-      # Ensure target dirs exist
-      mkdir -p models/checkpoints
-      mkdir -p runs/detect/train/weights
-
-      # --- Optionally download classifier checkpoint (GitHub Release direct URL) ---
-      if [ -n "${CKPT_URL:-}" ]; then
-        echo "[build] Downloading classifier: $CKPT_URL"
-        curl -fL "$CKPT_URL" -o models/checkpoints/plant_id_resnet18_best.pth
-      else
-        echo "[build] CKPT_URL not set — will use repo file if present"
-      fi
-
-      # --- Optionally download YOLO weights (GitHub Release direct URL) ---
-      if [ -n "${YOLO_URL:-}" ]; then
-        echo "[build] Downloading YOLO weights: $YOLO_URL"
-        curl -fL "$YOLO_URL" -o runs/detect/train/weights/best.pt
-      else
-        echo "[build] YOLO_URL not set — will use repo file if present"
-      fi
-
-      # Sanity: require weights to exist (fail build if missing)
-      test -s models/checkpoints/plant_id_resnet18_best.pth
-      test -s runs/detect/train/weights/best.pt
-
-      ls -lh models/checkpoints runs/detect/train/weights
-
-    startCommand: gunicorn -w 1 -k gthread -t 180 -b 0.0.0.0:$PORT app.main:app
-    healthCheckPath: /health
-
+    buildCommand: pip install --upgrade pip && pip install -r requirements-lite.txt && mkdir -p data runs/health
+    startCommand: gunicorn -w 1 --threads 2 --timeout 120 -b 0.0.0.0:$PORT app.main:app
+    healthCheckPath: /diag
     envVars:
-      # --- Runtime / Python ---
-      - key: FLASK_ENV
-        value: production
       - key: PYTHON_VERSION
-        value: 3.10.14
-
-      # --- Local classifier + maps ---
-      - key: MODEL_NAME
-        value: resnet18
-      - key: CKPT_PATH
-        value: models/checkpoints/plant_id_resnet18_best.pth
-      - key: IDX2_PATH
-        value: models/class_maps/idx_to_species.json
-
-      # --- YOLO detector ---
-      - key: YOLO_WEIGHTS
-        value: runs/detect/train/weights/best.pt
-      - key: REQUIRE_DETECT
+        value: 3.11.9
+      - key: GREENMIND_ENGINE
+        value: onnx
+      - key: ORT_THREADS
         value: "1"
-      - key: YOLO_CONF
-        value: "0.35"
-      - key: YOLO_MIN_AREA_FRAC
-        value: "0.05"
-      - key: YOLO_MAX_CROPS
-        value: "5"
-
-      # --- Identification thresholds (synced with your .env) ---
-      - key: TOPK
-        value: "3"
-      - key: CONFIDENCE_THRESHOLD
-        value: "0.60"
-      - key: MIN_IS_PLANT
-        value: "0.60"
-      - key: MIN_TOP1_GAP
-        value: "0.15"
-      # - key: ORGAN_HINT
-      #   value: ""   # optional: leaf | flower | fruit
-
-      # --- Facts / timeouts ---
-      - key: WIKIPEDIA_TIMEOUT
-        value: "10"
-      - key: WIKIDATA_TIMEOUT
-        value: "5"
-      - key: FACTS_CACHE_DIR
-        value: ".cache/facts"
-
-      # --- External APIs (set secrets in Render dashboard) ---
+      - key: DATABASE_URL
+        value: sqlite:///data/greenmind.db
+      - key: FLASK_DEBUG
+        value: "0"
+      - key: HEALTH_INPUT_SIZE
+        value: "224"
+      - key: SECRET_KEY
+        generateValue: true
       - key: PLANT_ID_API_KEY
         sync: false
-      - key: PLANT_ID_URL
-        value: https://api.plant.id/v3/identification
       - key: PLANTNET_API_KEY
         sync: false
-      - key: PLANTNET_URL
-        value: https://my-api.plantnet.org/v2/identify/all
+      - key: OPENWEATHER_API_KEY
+        sync: false
       - key: OPENAI_API_KEY
-        sync: false
-
-      # --- Optional: direct download URLs for weights (if not committed) ---
-      - key: CKPT_URL
-        sync: false
-      - key: YOLO_URL
         sync: false

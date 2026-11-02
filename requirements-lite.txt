@@ -1,0 +1,14 @@
+# GreenMind lite engine: ONNX Runtime instead of PyTorch (~250 MB RAM, fits 512 MB free hosting).
+# Used with GREENMIND_ENGINE=onnx and the models in models/onnx/ (see tools/export_onnx.py).
+flask
+flask-login
+gunicorn
+python-dotenv
+requests
+pillow
+numpy
+onnxruntime
+opencv-python-headless
+sqlalchemy
+pymysql
+openai

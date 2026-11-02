@@ -10,3 +10,4 @@ Raw Kaggle logs of the runs reported in the paper and the README.
 | `03_disease_lab_to_field.log` | 03 | PlantVillage split, EfficientNet-B0 and ResNet-18 (seed 42), PlantDoc field test |
 | `04_disease_improvements.log` | 04 | Seeds 1 and 2, field-data training, leaf crops (original detector), calibration, abstention, occlusion |
 | `05_leaf_detector.log` | 05 | YOLOv8s leaf detector on PlantDoc boxes (mAP@0.5 0.932), leaf-crop test, app model bundle |
+| `06_lite_engine_onnx.log` | 06 | ONNX export and parity, both engines on the same images, memory / latency / package size |

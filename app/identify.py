@@ -4,11 +4,23 @@ from pathlib import Path
 from functools import lru_cache
 from typing import Tuple, List, Dict, Optional
 
-import torch
-import torch.nn.functional as F
-from torchvision import transforms
 from PIL import Image, ImageOps
-import timm
+import numpy as np
+
+from app.engine import is_onnx
+from app import engine as onnx_engine
+
+if is_onnx():  # lite engine: ONNX Runtime only
+    torch = F = transforms = timm = None
+
+    def _no_grad(fn):
+        return fn
+else:
+    import torch
+    import torch.nn.functional as F
+    from torchvision import transforms
+    import timm
+    _no_grad = torch.inference_mode()
 
 # Optional YOLO detector – safe if weights absent
 try:
@@ -20,7 +32,7 @@ except Exception:
 from app.backends import PlantIdBackend, PlantNetBackend
 
 # ---------------- Config ----------------
-DEVICE   = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+DEVICE   = None if is_onnx() else torch.device("cuda" if torch.cuda.is_available() else "cpu")
 BASE_DIR = Path(__file__).resolve().parents[1]
 
 # Local classifier. The retrained EfficientNet-B0 (958 species, see paper / notebooks/02) is used
@@ -50,7 +62,7 @@ SRC_WEIGHTS = {
 }
 
 # Inference transforms (must match training normalization)
-VAL_T = transforms.Compose([
+VAL_T = None if is_onnx() else transforms.Compose([
     transforms.Resize(256),
     transforms.CenterCrop(224),
     transforms.ToTensor(),
@@ -104,8 +116,16 @@ def _load_model():
 
 
 # ---------------- Local classify ----------------
-@torch.inference_mode()
+@_no_grad
 def _classify_pil(img: Image.Image, topk: int) -> List[Dict]:
+    if is_onnx():
+        sm = onnx_engine.species_model()
+        if sm is None:
+            return []
+        probs = sm.predict(img)
+        k = max(1, min(topk, len(probs)))
+        return [{"label": sm.classes[int(i)], "score": float(probs[int(i)])} for i in np.argsort(-probs)[:k]]
+
     m = _load_model()
     if m is None:
         return []  # local disabled if no class map
@@ -215,7 +235,7 @@ def _fuse_sources(src_maps: Dict[str, Dict[str, float]]) -> Dict[str, float]:
 
 
 # ---------------- Public API ----------------
-@torch.inference_mode()
+@_no_grad
 def identify(img: Image.Image, gallery_root=None, topk: int = None) -> Tuple[Dict, List[Dict]]:
     """
     Ensemble identification:

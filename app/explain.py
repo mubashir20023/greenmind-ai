@@ -1,19 +1,26 @@
 ﻿# app/explain.py
 import io, math
-import torch
 import numpy as np
 from PIL import Image, ImageOps
-from torchvision import transforms
-import timm
 import cv2
 
-from pytorch_grad_cam import GradCAM, EigenCAM
-from pytorch_grad_cam.utils.model_targets import ClassifierOutputTarget
-
-DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+from app.engine import is_onnx
+from app import engine as onnx_engine
 
 IMG_SIZE = 224
-TRANSFORM = transforms.Compose([
+
+if is_onnx():  # lite engine: CAM / Eigen-CAM computed with NumPy from the ONNX model outputs
+    torch = transforms = timm = GradCAM = EigenCAM = ClassifierOutputTarget = None
+    DEVICE = None
+else:
+    import torch
+    from torchvision import transforms
+    import timm
+    from pytorch_grad_cam import GradCAM, EigenCAM
+    from pytorch_grad_cam.utils.model_targets import ClassifierOutputTarget
+    DEVICE = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+TRANSFORM = None if is_onnx() else transforms.Compose([
     transforms.Resize(256),
     transforms.CenterCrop(IMG_SIZE),
     transforms.ToTensor(),
@@ -69,7 +76,7 @@ def _get_model():
     _is_vit = True
     return _model, _target_layers, _patch_hw
 
-def _vit_reshape_transform(tokens: torch.Tensor, hw=None):
+def _vit_reshape_transform(tokens, hw=None):
     """ViT tokens [B,N,C] -> [B,C,H,W], dropping CLS token."""
     if tokens.ndim == 4:
         return tokens  # already [B,C,H,W]
@@ -90,7 +97,15 @@ def generate_cam_overlay(pil_image: Image.Image, method: str = "gradcam") -> byt
       - A (alpha) = CAM intensity
     Client blends it with the slider.
     method: 'gradcam' (class-specific) or 'eigen' (class-agnostic)
+    With the lite (ONNX) engine, 'gradcam' is served by CAM, its gradient-free equivalent for this architecture.
     """
+    if is_onnx():
+        sm = onnx_engine.species_model()
+        if sm is None:
+            raise RuntimeError("ONNX species model not found")
+        _, _, cam_map = sm.predict_with_cam(pil_image, method="eigen" if method == "eigen" else "cam")
+        return _heat_png(cam_map)
+
     model, target_layers, patch_hw = _get_model()
 
     img = ImageOps.exif_transpose(pil_image).convert("RGB")
@@ -116,7 +131,15 @@ def generate_cam_overlay(pil_image: Image.Image, method: str = "gradcam") -> byt
         cam_map = cam(input_tensor=x, targets=targets)  # [1, H, W]
         cam_map = cam_map[0]
 
-    # ---- create RGBA heatmap (not pre-blended) ----
+    return _heat_png(cam_map)
+
+
+def _heat_png(cam_map) -> bytes:
+    """Transparent RGBA PNG (colour = CAM, alpha = intensity), IMG_SIZE x IMG_SIZE, aligned with the
+    centre crop the classifier sees. The client blends it over the photo."""
+    cam_map = np.asarray(cam_map, dtype=np.float32)
+    if cam_map.shape != (IMG_SIZE, IMG_SIZE):  # e.g. 7x7 CAM from the ONNX engine: smooth upsampling first
+        cam_map = cv2.resize(cam_map, (IMG_SIZE, IMG_SIZE), interpolation=cv2.INTER_CUBIC)
     cam_norm = cam_map - cam_map.min()
     if cam_norm.max() > 0:
         cam_norm = cam_norm / cam_norm.max()
