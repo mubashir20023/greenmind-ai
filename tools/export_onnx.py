@@ -111,6 +111,49 @@ def export_yolo(pt, out, stem, imgsz=640):
     meta = {"names": {int(k): v for k, v in dict(y.names).items()}, "imgsz": imgsz, "source_checkpoint": str(pt)}
     (out / f"{stem}.json").write_text(json.dumps(meta, indent=1), encoding="utf-8")
     print(stem, meta["names"])
+    return yolo_parity(y, out, stem)
+
+
+def _iou(a, b):
+    x1, y1, x2, y2 = max(a[0], b[0]), max(a[1], b[1]), min(a[2], b[2]), min(a[3], b[3])
+    inter = max(0.0, x2 - x1) * max(0.0, y2 - y1)
+    u = (a[2] - a[0]) * (a[3] - a[1]) + (b[2] - b[0]) * (b[3] - b[1]) - inter
+    return inter / u if u > 0 else 0.0
+
+
+def yolo_parity(y, out, stem, check_dir="/kaggle/working/PlantDoc-Dataset/test", n=60, conf=0.25):
+    """Ultralytics (PyTorch) vs app/engine.OnnxYolo on real photos: box count and IoU of matched boxes."""
+    import os
+    from PIL import Image
+    imgs = sorted(p for p in Path(check_dir).rglob("*") if p.suffix.lower() in (".jpg", ".jpeg", ".png"))[:n] \
+        if Path(check_dir).exists() else []
+    if not imgs:
+        return {}
+    os.environ["ONNX_DIR"] = str(out)
+    sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+    from app.engine import OnnxYolo
+    ox = OnnxYolo(stem)
+    same_count, ious, n_t, n_o = 0, [], 0, 0
+    for p in imgs:
+        try:
+            im = Image.open(p).convert("RGB")
+        except Exception:
+            continue
+        r = y.predict(im, conf=conf, verbose=False)[0]
+        tb = [(int(c), b) for c, b in zip(r.boxes.cls.tolist(), r.boxes.xyxy.tolist())]
+        ob = [(c, b) for c, _, _, b in ox.detect(im, conf=conf)]
+        n_t += len(tb)
+        n_o += len(ob)
+        same_count += int(len(tb) == len(ob))
+        for c, b in tb:
+            cand = [_iou(b, b2) for c2, b2 in ob if c2 == c]
+            ious.append(max(cand) if cand else 0.0)
+    res = {"images": len(imgs), "boxes_torch": n_t, "boxes_onnx": n_o,
+           "images_same_box_count": same_count,
+           "mean_best_iou": round(float(np.mean(ious)), 4) if ious else None,
+           "share_boxes_iou_ge_0.9": round(float(np.mean(np.array(ious) >= 0.9)), 4) if ious else None}
+    print(stem, "parity", res)
+    return res
 
 
 def main():
@@ -135,9 +178,9 @@ def main():
         report["disease_effb0"] = export_classifier(a.disease_ckpt, a.disease_classes, a.disease_arch,
                                                     out, "disease_effb0", "half", "square")
     if a.organ_yolo:
-        export_yolo(a.organ_yolo, out, "organ_yolo")
+        report["organ_yolo"] = export_yolo(a.organ_yolo, out, "organ_yolo")
     if a.leaf_yolo:
-        export_yolo(a.leaf_yolo, out, "leaf_yolo")
+        report["leaf_yolo"] = export_yolo(a.leaf_yolo, out, "leaf_yolo")
     for f in sorted(out.iterdir()):
         report.setdefault("files_mb", {})[f.name] = round(f.stat().st_size / 1e6, 2)
     (out / "export_report.json").write_text(json.dumps(report, indent=2), encoding="utf-8")
