@@ -7,6 +7,7 @@
 ![Flask](https://img.shields.io/badge/web-Flask-lightgrey.svg)
 ![PyTorch](https://img.shields.io/badge/ML-PyTorch%20%2B%20timm-red.svg)
 ![Reproducible](https://img.shields.io/badge/experiments-Kaggle%20notebooks-20BEFF.svg)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23905343.svg)](https://doi.org/10.5281/zenodo.23905343)
 
 GreenMind is a Flask web app (installable as a PWA) that identifies plants from a photo or the live camera, screens
 leaves for disease, shows *why* the model decided with Grad-CAM / Eigen-CAM heat maps, and attaches a cited facts card.
@@ -235,14 +236,19 @@ scripts/        database migration helpers
 - [PlantVillage](https://arxiv.org/abs/1511.08060) and [PlantDoc](https://github.com/pratikkayal/PlantDoc-Dataset) are used under their own licences and are downloaded by the notebooks.
 
 ## Citation
-If you use this code or the evaluation protocol, please cite it (see [`CITATION.cff`](CITATION.cff)):
+If you use GreenMind, the code or the evaluation protocol, please cite the paper
+(also in [`CITATION.cff`](CITATION.cff)):
+
+> Ahmed, M. (2026). *GreenMind: An Explainable Plant Identification and Disease Screening System, with a Temporal and Lab-to-Field Evaluation*. Zenodo. https://doi.org/10.5281/zenodo.23905344
 
 ```bibtex
-@software{greenmind_ai,
-  author = {Ahmed, Mubashir},
-  title  = {GreenMind AI: Explainable Plant Identification and Disease Screening},
-  year   = {2026},
-  url    = {https://github.com/mubashir20023/greenmind-ai}
+@misc{ahmed2026greenmind,
+  author    = {Ahmed, Mubbashir},
+  title     = {GreenMind: An Explainable Plant Identification and Disease Screening System, with a Temporal and Lab-to-Field Evaluation},
+  year      = {2026},
+  publisher = {Zenodo},
+  doi       = {10.5281/zenodo.23905344},
+  url       = {https://doi.org/10.5281/zenodo.23905344}
 }
 ```
 
