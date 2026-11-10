@@ -8,6 +8,7 @@
 ![PyTorch](https://img.shields.io/badge/ML-PyTorch%20%2B%20timm-red.svg)
 ![Reproducible](https://img.shields.io/badge/experiments-Kaggle%20notebooks-20BEFF.svg)
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23905343.svg)](https://doi.org/10.5281/zenodo.23905343)
+**Author:** [Mubbashir Ahmed](https://mubashir20023.github.io), ORCID [0009-0003-7737-7754](https://orcid.org/0009-0003-7737-7754)
 
 GreenMind is a Flask web app (installable as a PWA) that identifies plants from a photo or the live camera, screens
 leaves for disease, shows *why* the model decided with Grad-CAM / Eigen-CAM heat maps, and attaches a cited facts card.
